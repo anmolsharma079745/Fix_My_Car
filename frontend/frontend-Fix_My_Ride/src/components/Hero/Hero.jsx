@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Hero.css";
 
-import heroImage from "../../assets/images/Hero_Car.jpg";
+import heroImage from "../../assets/images/HeroCar.jpg";
 
 const Hero = () => {
 
