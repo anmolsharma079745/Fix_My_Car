@@ -2,9 +2,10 @@ import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import "./AssignMechanic.css";
 import "remixicon/fonts/remixicon.css";
+import API_BASE_URL from "../../../services/Api/api";
 
-const ADMIN_API = "http://localhost:5000/api/admin";
-const BOOKING_API = "http://localhost:5000/api/booking";
+const ADMIN_API = `${API_BASE_URL}/api/admin`;
+const BOOKING_API = `${API_BASE_URL}/api/booking`;
 
 const AssignedMechanic = ({ theme }) => {
 

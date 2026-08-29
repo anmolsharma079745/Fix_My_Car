@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./DashboardStats.css";
 import "remixicon/fonts/remixicon.css";
-
+import API_BASE_URL from "../../../services/Api/api";
 const DashboardStats = ({ theme }) => {
 
     const [stats, setStats] = useState({
@@ -47,7 +47,7 @@ const DashboardStats = ({ theme }) => {
             // =================================================
 
             const vehicleResponse = await axios.get(
-                "http://localhost:5000/api/vehicle/all",
+                `${API_BASE_URL}/api/vehicle/all`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -61,7 +61,7 @@ const DashboardStats = ({ theme }) => {
             // =================================================
 
             const bookingResponse = await axios.get(
-                "http://localhost:5000/api/booking/all",
+               `${API_BASE_URL}/api/booking/all`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`

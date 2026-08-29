@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import API_BASE_URL from "../../../services/Api/api";
 import "./homePageServices.css";
 
 
@@ -39,7 +39,7 @@ const Service = ({ theme }) => {
 
 
                 const response = await axios.get(
-                    "http://localhost:5000/api/service/all"
+                    `${API_BASE_URL}/api/service/all`
                 );
 
 

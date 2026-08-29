@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./RevenueAnalytics.css";
-
+import API_BASE_URL from "../../../services/Api/api";
 const RevenueAnalytics = ({ theme }) => {
 
     const [revenue, setRevenue] = useState({
@@ -44,7 +44,7 @@ const RevenueAnalytics = ({ theme }) => {
 
 
             const response = await axios.get(
-                "http://localhost:5000/api/admin/revenue",
+                `${API_BASE_URL}/api/admin/revenue`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`

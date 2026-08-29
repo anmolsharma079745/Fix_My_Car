@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./CurrentService.css";
 import "remixicon/fonts/remixicon.css";
-
-const BOOKING_API = "http://localhost:5000/api/booking";
+import API_BASE_URL from "../../../services/Api/api";
+const BOOKING_API = `${API_BASE_URL}/api/booking`;
 
 const CurrentService = ({ theme }) => {
 

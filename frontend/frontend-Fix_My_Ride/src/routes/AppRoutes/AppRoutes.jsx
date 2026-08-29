@@ -9,7 +9,6 @@ import ServicesPage from '../../pages/ServicePage/servicePage.jsx'
 import CustomerDashboard from "../../pages/CustomerDashboard/CustomerDashboard.jsx";
 import MechanicDashboard from "../../pages/MechanicDashboard/MechanicDashboard.jsx";
 import AdminDashboard from "../../pages/AdminDashboard/AdminDashboard.jsx";
-import UserPage from "../../components/Rough Folder/userPage.jsx";
 
 
 const AppRoutes = ({ theme, toggleTheme }) => {
@@ -32,10 +31,7 @@ const AppRoutes = ({ theme, toggleTheme }) => {
           element={<CustomerDashboard theme={theme} toggleTheme={toggleTheme}/>} />
 
 
-        <Route 
-          path="/rough" 
-          element={<UserPage/>}
-        />
+        
 
         <Route
           path="/services"

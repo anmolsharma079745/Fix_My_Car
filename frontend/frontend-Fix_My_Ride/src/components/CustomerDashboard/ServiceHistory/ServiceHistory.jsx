@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "remixicon/fonts/remixicon.css";
 import "./ServiceHistory.css";
-
+import API_BASE_URL from "../../../services/Api/api";
 const ServiceHistory = ({ theme }) => {
 
   const [serviceHistory, setServiceHistory] = useState([]);
@@ -35,7 +35,7 @@ const ServiceHistory = ({ theme }) => {
 
 
       const response = await axios.get(
-        "http://localhost:5000/api/booking/all",
+        `${API_BASE_URL}/api/booking/all`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -58,9 +58,10 @@ const ServiceHistory = ({ theme }) => {
       // =====================================================
 
       const completedBookings = bookings.filter(
-        (booking) =>
-          booking.status?.toLowerCase() === "completed"
-      );
+  (booking) =>
+    booking.status?.toLowerCase().trim() === "completed" &&
+    booking.paymentStatus?.toLowerCase().trim() === "paid"
+);
 
 
       setServiceHistory(completedBookings);

@@ -3,7 +3,7 @@ import "./RegistrationSection.css";
 import axios from "axios";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
+import API_BASE_URL from "../../services/Api/api";
 function RegisterSection({ theme }) {
 
   console.log("Registration theme:", theme);
@@ -64,25 +64,17 @@ function RegisterSection({ theme }) {
       const mechanicData = {
 
         name: formData.name,
-
         email: formData.email,
-
         password: formData.password,
-
         phone: formData.phone,
-
         specialization: formData.specialization,
-
         experience: formData.experience
 
       };
 
       response = await axios.post(
-
-        "http://localhost:5000/api/mechanic/add",
-
+        `${API_BASE_URL}/api/mechanic/add`,
         mechanicData
-
       );
 
     }
@@ -96,29 +88,22 @@ function RegisterSection({ theme }) {
       const userData = {
 
         name: formData.name,
-
         email: formData.email,
-
         password: formData.password,
-
         phone: formData.phone,
-
         role: formData.role
 
       };
 
       response = await axios.post(
-
-        "http://localhost:5000/api/auth/register",
-
+        `${API_BASE_URL}/api/auth/register`,
         userData
-
       );
 
     }
 
     // =================================================
-    // RESPONSE
+    // REGISTRATION SUCCESS
     // =================================================
 
     console.log(
@@ -126,44 +111,23 @@ function RegisterSection({ theme }) {
       response.data
     );
 
-    const user = response.data.user;
-
-    if (user) {
-
-      localStorage.setItem(
-        "user",
-        JSON.stringify(user)
-      );
-
-    }
 
     // =================================================
-    // NAVIGATION
+    // CLEAR OLD LOGIN DATA
     // =================================================
 
-    if (user?.role === "admin") {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userPhone");
 
-      navigate("/admin-dashboard");
 
-    }
+    // =================================================
+    // GO DIRECTLY TO LOGIN
+    // =================================================
 
-    else if (user?.role === "mechanic") {
-
-      navigate("/mechanic-dashboard");
-
-    }
-
-    else if (user?.role === "customer") {
-
-      navigate("/customer-dashboard");
-
-    }
-
-    else {
-
-      navigate("/login");
-
-    }
+    navigate("/login");
 
   }
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ManageBookings.css";
-
+import API_BASE_URL from "../../../services/Api/api";
 const ManageBooking = ({ theme }) => {
 
     // =====================================================
@@ -74,7 +74,7 @@ const ManageBooking = ({ theme }) => {
             }
 
             const response = await axios.get(
-                "http://localhost:5000/api/booking/admin/all",
+                `${API_BASE_URL}/api/booking/admin/all`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -136,7 +136,7 @@ const ManageBooking = ({ theme }) => {
             }
 
             const response = await axios.get(
-                "http://localhost:5000/api/admin/mechanics",
+                `${API_BASE_URL}/api/admin/mechanics`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -268,7 +268,7 @@ const ManageBooking = ({ theme }) => {
 
             const response = await axios.put(
 
-                `http://localhost:5000/api/booking/admin/assign-mechanic/${selectedBooking._id}`,
+                `${API_BASE_URL}/api/booking/admin/assign-mechanic/${selectedBooking._id}`,
 
                 {
                     mechanicId: selectedMechanic
@@ -355,7 +355,7 @@ const ManageBooking = ({ theme }) => {
 
             const response = await axios.put(
 
-                `http://localhost:5000/api/booking/admin/status/${bookingId}`,
+                `${API_BASE_URL}/api/booking/admin/status/${bookingId}`,
 
                 {
                     status: newStatus
@@ -481,7 +481,7 @@ const ManageBooking = ({ theme }) => {
 
             const response = await axios.delete(
 
-                `http://localhost:5000/api/booking/admin/delete/${bookingId}`,
+                `${API_BASE_URL}/api/booking/admin/delete/${bookingId}`,
 
                 {
                     headers: {

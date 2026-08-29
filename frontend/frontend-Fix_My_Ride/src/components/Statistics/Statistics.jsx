@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import API_BASE_URL from "../../services/Api/api.js";
 import "./Statistics.css";
 
 
@@ -44,7 +44,7 @@ const Statistics = ({ theme }) => {
 
 
                 const response = await axios.get(
-                    "http://localhost:5000/api/dashboard/public-stats"
+                    `${API_BASE_URL}/api/dashboard/public-stats`
                 );
 
 

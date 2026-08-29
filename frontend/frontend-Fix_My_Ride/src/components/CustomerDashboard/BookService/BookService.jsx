@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./BookService.css";
-
+import API_BASE_URL from "../../../services/Api/api";
 const BookService = ({ theme, selectedServiceId }) => {
 
     // =====================================================
@@ -62,7 +62,7 @@ const BookService = ({ theme, selectedServiceId }) => {
             // =================================================
 
             const vehicleResponse = await axios.get(
-                "http://localhost:5000/api/vehicle/all",
+                `${API_BASE_URL}/api/vehicle/all`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -76,7 +76,7 @@ const BookService = ({ theme, selectedServiceId }) => {
             // =================================================
 
             const serviceResponse = await axios.get(
-                "http://localhost:5000/api/service/all",
+                `${API_BASE_URL}/api/service/all`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -298,8 +298,7 @@ const BookService = ({ theme, selectedServiceId }) => {
             // =================================================
 
             const response = await axios.post(
-
-                "http://localhost:5000/api/booking/add",
+            `${API_BASE_URL}/api/booking/add`,
 
                 bookingData,
 

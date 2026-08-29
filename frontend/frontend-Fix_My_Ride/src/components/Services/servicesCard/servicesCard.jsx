@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import API_BASE_URL from "../../../services/Api/api";
 import "./servicesCard.css";
 
 
@@ -292,7 +292,7 @@ const ServiceCard = ({
             const response =
                 await axios.put(
 
-                    `http://localhost:5000/api/service/update/${service._id}`,
+                    `${API_BASE_URL}/api/service/update/${service._id}`,
 
                     {
 
@@ -416,7 +416,7 @@ const ServiceCard = ({
             const response =
                 await axios.delete(
 
-                    `http://localhost:5000/api/service/delete/${service._id}`,
+                    `${API_BASE_URL}/api/service/delete/${service._id}`,
 
                     {
 

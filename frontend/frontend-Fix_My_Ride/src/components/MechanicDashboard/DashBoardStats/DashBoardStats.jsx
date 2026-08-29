@@ -2,8 +2,9 @@
 import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import "./DashBoardStats.css";
+import API_BASE_URL from "../../../services/Api/api";
 
-const BOOKING_API = "http://localhost:5000/api/booking";
+const BOOKING_API = `${API_BASE_URL}/api/booking`;
 
 const DashBoardStats = ({ theme }) => {
 

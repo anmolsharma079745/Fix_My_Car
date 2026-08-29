@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./DashBoardStats.css";
 import axios from "axios";
+import API_BASE_URL from "../../../services/Api/api";
 
 const DashBoardStats = ({ theme }) => {
 
@@ -35,7 +36,7 @@ const DashBoardStats = ({ theme }) => {
             const token = localStorage.getItem("token");
 
             const response = await axios.get(
-                "http://localhost:5000/api/admin/dashboard",
+                `${API_BASE_URL}/api/admin/dashboard`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`

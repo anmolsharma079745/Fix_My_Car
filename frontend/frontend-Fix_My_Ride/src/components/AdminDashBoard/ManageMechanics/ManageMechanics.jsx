@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ManageMechanics.css";
 import "remixicon/fonts/remixicon.css";
+import API_BASE_URL from "../../../services/Api/api";
 
 const ManageMechanics = ({ theme }) => {
 
@@ -44,7 +45,7 @@ const ManageMechanics = ({ theme }) => {
         }
 
         const response = await axios.get(
-            "http://localhost:5000/api/admin/mechanics",
+            `${API_BASE_URL}/api/admin/mechanics`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -187,7 +188,7 @@ const ManageMechanics = ({ theme }) => {
 
             const response = await axios.put(
 
-                `http://localhost:5000/api/mechanic/update/${editedData._id}`,
+                `${API_BASE_URL}/api/mechanic/update/${editedData._id}`,
 
                 updateData,
 
@@ -289,7 +290,7 @@ const ManageMechanics = ({ theme }) => {
 
             const response = await axios.delete(
 
-                `http://localhost:5000/api/mechanic/delete/${specificMechanic._id}`,
+                `${API_BASE_URL}/api/mechanic/delete/${specificMechanic._id}`,
 
                 {
                     headers: {

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import ServiceCard from "../servicesCard/servicesCard.jsx";
-
+import API_BASE_URL from "../../../services/Api/api.js";
 import "./allServices.css";
 
 
-const SERVICE_API = "http://localhost:5000/api/service";
+const SERVICE_API = `${API_BASE_URL}/api/service`;
 
 
 const AllServices = ({ theme }) => {

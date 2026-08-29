@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ManageCustomers.css";
+import API_BASE_URL from "../../../services/Api/api";
 
 const ManageCustomer = ({ theme }) => {
 
@@ -34,7 +35,7 @@ const ManageCustomer = ({ theme }) => {
             }
 
             const response = await axios.get(
-                "http://localhost:5000/api/admin/customers",
+                `${API_BASE_URL}/api/admin/customers`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -91,7 +92,7 @@ const ManageCustomer = ({ theme }) => {
             }
 
             await axios.delete(
-                `http://localhost:5000/api/admin/customers/${specificCustomer._id}`,
+                `${API_BASE_URL}/api/admin/customers/${specificCustomer._id}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -172,7 +173,7 @@ const ManageCustomer = ({ theme }) => {
             }
 
             await axios.put(
-                `http://localhost:5000/api/admin/customers/${editedData._id}`,
+                `${API_BASE_URL}/api/admin/customers/${editedData._id}`,
                 {
                     name: editedData.name,
                     email: editedData.email,

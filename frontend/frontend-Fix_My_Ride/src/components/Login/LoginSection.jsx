@@ -3,7 +3,7 @@ import "./LoginSection.css";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-
+import API_BASE_URL from "../../services/Api/api";
 function LoginSection() {
 
   // ================================
@@ -96,7 +96,7 @@ function LoginSection() {
     try {
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${API_BASE_URL}/api/auth/login`,
         formData
       );
 
@@ -197,7 +197,7 @@ function LoginSection() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/forgot-password/send-otp",
+        `${API_BASE_URL}/api/auth/forgot-password/send-otp`,
         {
           email: forgotData.email
         }
@@ -307,7 +307,7 @@ function LoginSection() {
 
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/forgot-password/reset-password",
+        `${API_BASE_URL}/api/auth/forgot-password/reset-password`,
         forgotData
       );
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./UpcomingServices.css";
+import API_BASE_URL from "../../../services/Api/api";
 
 const UpcomingService = ({ theme }) => {
 
@@ -47,7 +48,7 @@ const UpcomingService = ({ theme }) => {
             }
 
             const response = await axios.get(
-                "http://localhost:5000/api/booking/upcoming",
+                `${API_BASE_URL}/api/booking/upcoming`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -379,7 +380,7 @@ const UpcomingService = ({ theme }) => {
 
             const response = await axios.put(
 
-                `http://localhost:5000/api/booking/reschedule/${upcomingService._id}`,
+                `${API_BASE_URL}/api/booking/reschedule/${upcomingService._id}`,
 
                 {
                     bookingDate: newBookingDate

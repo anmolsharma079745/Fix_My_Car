@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import "./CurrentBooking.css";
+import API_BASE_URL from "../../../services/Api/api";
+
 
 const CurrentBooking = ({ theme }) => {
 
@@ -38,7 +40,7 @@ const CurrentBooking = ({ theme }) => {
 
 
             const response = await axios.get(
-                "http://localhost:5000/api/booking/all",
+                `${API_BASE_URL}/api/booking/all`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -270,7 +272,7 @@ const CurrentBooking = ({ theme }) => {
             const response =
                 await axios.post(
 
-                    "http://localhost:5000/api/payment/create-order",
+                    `${API_BASE_URL}/api/payment/create-order`,
 
                     {
                         bookingId: booking._id
@@ -386,7 +388,7 @@ const CurrentBooking = ({ theme }) => {
                         const verifyResponse =
                             await axios.post(
 
-                                "http://localhost:5000/api/payment/verify",
+                                `${API_BASE_URL}/api/payment/verify`,
 
                                 {
 

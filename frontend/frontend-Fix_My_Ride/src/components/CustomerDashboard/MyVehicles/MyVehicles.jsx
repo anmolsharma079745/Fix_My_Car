@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./MyVehicles.css";
+import API_BASE_URL from "../../../services/Api/api";
 
 const MyVehicles = ({ theme }) => {
 
@@ -55,7 +56,7 @@ const MyVehicles = ({ theme }) => {
             }
 
             const response = await axios.get(
-                "http://localhost:5000/api/vehicle/all",
+                `${API_BASE_URL}/api/vehicle/all`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -269,7 +270,7 @@ const MyVehicles = ({ theme }) => {
 
             const response = await axios.post(
 
-                "http://localhost:5000/api/vehicle/add",
+                `${API_BASE_URL}/api/vehicle/add`,
 
                 data,
 
@@ -378,7 +379,7 @@ const MyVehicles = ({ theme }) => {
 
             const response = await axios.put(
 
-                `http://localhost:5000/api/vehicle/update/${selectedVehicle._id}`,
+                `${API_BASE_URL}/api/vehicle/update/${selectedVehicle._id}`,
 
                 data,
 
@@ -502,7 +503,7 @@ const MyVehicles = ({ theme }) => {
             }
 
             const response = await axios.delete(
-                `http://localhost:5000/api/vehicle/delete/${vehicleId}`,
+                `${API_BASE_URL}/api/vehicle/delete/${vehicleId}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ManageServices.css";
 import "remixicon/fonts/remixicon.css";
-
-const SERVICE_API = "http://localhost:5000/api/service";
-const MECHANIC_API = "http://localhost:5000/api/mechanic";
+import API_BASE_URL from "../../../services/Api/api";
+const SERVICE_API = `${API_BASE_URL}/api/service`;
+const MECHANIC_API = `${API_BASE_URL}/api/mechanic`;
 
 const ManageServices = ({ theme }) => {
     const [services, setServices] = useState([]);
