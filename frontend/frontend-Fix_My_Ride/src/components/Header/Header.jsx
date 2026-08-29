@@ -3,7 +3,7 @@ import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FaSun, FaMoon } from "react-icons/fa";
 
-import logo from "../../assets/images/Ride_logo.png";
+import logo from "../../assets/images/RideLogo.png";
 
 const Header = ({ theme, toggleTheme }) => {
 
