@@ -1,0 +1,1676 @@
+/* =========================================================
+   FIX MY RIDE - CURRENT BOOKING
+   GLOBAL THEME BASED DESIGN
+========================================================= */
+
+
+/* =========================================================
+   CURRENT BOOKING SECTION
+========================================================= */
+
+.current-booking {
+    width: 100%;
+    min-height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    overflow: hidden;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   BOOKINGS LIST
+========================================================= */
+
+.current-bookings-list {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.current-booking-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    width: calc(100% - 120px);
+    max-width: 1430px;
+
+    padding: 50px 0 0;
+
+    margin: 0 auto 28px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   ACTIVE SERVICE TAG
+========================================================= */
+
+.current-booking-tag {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    margin: 0 0 10px;
+    padding: 7px 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    border-radius: 8px;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    color: var(--primary-color);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   DARK TAG
+========================================================= */
+
+.current-booking.dark .current-booking-tag {
+    background: rgba(56, 189, 248, 0.08);
+
+    border-color: rgba(56, 189, 248, 0.16);
+
+    color: #42a5f5;
+}
+
+
+/* =========================================================
+   HEADER TITLE
+========================================================= */
+
+.current-booking-header h2 {
+    margin: 0 0 8px;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.3px;
+
+    color: var(--text-color);
+}
+
+
+.current-booking.dark .current-booking-header h2 {
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   HEADER DESCRIPTION
+========================================================= */
+
+.current-booking-header p {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    color: var(--secondary-text);
+}
+
+
+.current-booking.dark .current-booking-header p {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   STATUS BADGE
+========================================================= */
+
+.current-booking-status {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 90px;
+
+    padding: 9px 16px;
+
+    box-sizing: border-box;
+
+    border-radius: 30px;
+
+    background: rgba(22, 119, 255, 0.08);
+
+    color: #1677ff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* =========================================================
+   STATUS DOT
+========================================================= */
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: currentColor;
+
+    box-shadow:
+        0 0 0 4px rgba(22, 119, 255, 0.10);
+}
+
+
+/* =========================================================
+   STATUS - PENDING
+========================================================= */
+
+.current-booking-status.pending {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.current-booking.dark .current-booking-status.pending {
+    background: rgba(249, 115, 22, 0.10);
+    color: #fb923c;
+}
+
+
+/* =========================================================
+   STATUS - CONFIRMED
+========================================================= */
+
+.current-booking-status.confirmed {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.current-booking.dark .current-booking-status.confirmed {
+    background: rgba(22, 119, 255, 0.12);
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   STATUS - IN PROGRESS
+========================================================= */
+
+.current-booking-status.in-progress {
+    background: #f5f3ff;
+    color: #7c3aed;
+}
+
+.current-booking.dark .current-booking-status.in-progress {
+    background: rgba(139, 92, 246, 0.12);
+    color: #a78bfa;
+}
+
+
+/* =========================================================
+   STATUS - COMPLETED
+========================================================= */
+
+.current-booking-status.completed {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.current-booking.dark .current-booking-status.completed {
+    background: rgba(16, 185, 129, 0.10);
+    color: #34d399;
+}
+
+
+/* =========================================================
+   STATUS - CANCELLED
+========================================================= */
+
+.current-booking-status.cancelled {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.current-booking.dark .current-booking-status.cancelled {
+    background: rgba(239, 68, 68, 0.10);
+    color: #f87171;
+}
+
+
+/* =========================================================
+   MAIN BOOKING CARD
+========================================================= */
+
+.current-booking-card {
+    position: relative;
+
+    width: calc(100% - 120px);
+    max-width: 1430px;
+
+    min-height: 200px;
+
+    margin: 0 auto 50px;
+
+    padding: 30px 40px;
+
+    box-sizing: border-box;
+
+    border-radius: 16px;
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+
+    color: var(--text-color);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   TOP BLUE LINE
+========================================================= */
+
+.current-booking-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--primary-color);
+
+    border-radius: 0 0 3px 3px;
+
+    transform:
+        translateX(-50%)
+        scaleX(0);
+
+    transform-origin: center;
+
+    transition: transform 0.35s ease;
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.current-booking-card:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 10px 30px rgba(37, 99, 235, 0.08);
+}
+
+
+.current-booking-card:hover::before {
+    transform:
+        translateX(-50%)
+        scaleX(1);
+}
+
+
+/* =========================================================
+   MAIN BOOKING STRUCTURE
+   LEFT = VEHICLE
+   RIGHT = BOOKING DETAILS
+========================================================= */
+
+.current-booking-main {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(260px, 0.8fr)
+        1px
+        minmax(0, 2fr);
+
+    align-items: stretch;
+
+    gap: 30px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   LEFT VEHICLE SECTION
+========================================================= */
+
+.current-booking-vehicle-section {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   VEHICLE
+========================================================= */
+
+.current-vehicle {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   VEHICLE ICON
+========================================================= */
+
+.current-vehicle-icon {
+    width: 65px;
+    height: 65px;
+
+    min-width: 65px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: var(--primary-light);
+
+    color: var(--primary-color);
+
+    font-size: 30px;
+}
+
+
+/* =========================================================
+   VEHICLE IMAGE
+========================================================= */
+
+.current-vehicle-icon img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================================================
+   DARK VEHICLE ICON
+========================================================= */
+
+.current-booking.dark .current-vehicle-icon {
+    background: rgba(22, 119, 255, 0.10);
+
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   VEHICLE INFO
+========================================================= */
+
+.current-vehicle-info {
+    min-width: 0;
+}
+
+
+.current-vehicle-info h3,
+.current-vehicle h3 {
+    margin: 5px 0 3px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    color: var(--text-color);
+}
+
+
+.current-vehicle-info p,
+.current-vehicle p {
+    margin: 0 0 7px;
+
+    font-size: 14px;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   VEHICLE NUMBER
+========================================================= */
+
+.vehicle-number {
+    display: inline-block;
+
+    padding: 4px 9px;
+
+    border-radius: 6px;
+
+    background: var(--section-bg);
+
+    color: var(--secondary-text);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   VERTICAL DIVIDER
+========================================================= */
+
+.current-booking-vertical-divider {
+    width: 1px;
+
+    background: var(--border-color);
+
+    align-self: stretch;
+}
+
+
+/* =========================================================
+   RIGHT BOOKING SECTION
+========================================================= */
+
+.current-booking-right-section {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   BOOKING HEADER
+========================================================= */
+
+.current-booking-card-header {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+
+.current-booking-card-header strong {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   DETAIL LABEL
+========================================================= */
+
+.detail-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   BOOKING DETAILS GRID
+========================================================= */
+
+.current-booking-details {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   DETAIL ITEM
+========================================================= */
+
+.current-detail {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   DETAIL ICON
+========================================================= */
+
+.current-detail-icon {
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: var(--primary-light);
+
+    color: var(--primary-color);
+
+    font-size: 19px;
+}
+
+
+.current-booking.dark .current-detail-icon {
+    background: rgba(22, 119, 255, 0.10);
+
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   DETAIL TEXT
+========================================================= */
+
+.current-detail > div:last-child {
+    min-width: 0;
+}
+
+
+.current-detail strong {
+    display: block;
+
+    max-width: 180px;
+
+    margin-top: 5px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   STATUS VALUE
+========================================================= */
+
+.status-value {
+    transition: color 0.3s ease;
+}
+
+
+.status-value.pending {
+    color: #ea580c !important;
+}
+
+.status-value.confirmed {
+    color: #2563eb !important;
+}
+
+.status-value.in-progress {
+    color: #7c3aed !important;
+}
+
+.status-value.completed {
+    color: #059669 !important;
+}
+
+.status-value.cancelled {
+    color: #dc2626 !important;
+}
+
+
+/* =========================================================
+   DARK STATUS VALUES
+========================================================= */
+
+.current-booking.dark .status-value.pending {
+    color: #fb923c !important;
+}
+
+.current-booking.dark .status-value.confirmed {
+    color: #60a5fa !important;
+}
+
+.current-booking.dark .status-value.in-progress {
+    color: #a78bfa !important;
+}
+
+.current-booking.dark .status-value.completed {
+    color: #34d399 !important;
+}
+
+.current-booking.dark .status-value.cancelled {
+    color: #f87171 !important;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.current-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 28px 0;
+
+    background: var(--border-color);
+}
+
+
+/* =========================================================
+   SERVICE DETAILS
+   SAME PREMIUM STYLE
+========================================================= */
+
+.current-service-description {
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 16px;
+
+    margin-top: 24px;
+
+    padding: 16px 18px;
+
+    box-sizing: border-box;
+
+    border-radius: 10px;
+
+    background: #0b1220 !important;
+
+    border: 1px solid var(--border-color);
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.current-booking {
+    --current-box-bg: rgba(22, 119, 255, 0.08);
+    --current-box-border: var(--border-color);
+}
+.current-booking.dark {
+    --current-box-bg: rgba(37, 99, 235, 0.10);
+    --current-box-border: rgba(59, 130, 246, 0.20);
+}
+/* =========================================================
+   SERVICE DETAILS HOVER
+========================================================= */
+
+.current-service-description:hover {
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 6px 18px rgba(37, 99, 235, 0.06);
+}
+
+
+/* =========================================================
+   SERVICE DETAILS ICON
+========================================================= */
+
+.current-service-description > i {
+    margin-top: 2px;
+
+    flex-shrink: 0;
+
+    font-size: 21px;
+
+    color: var(--primary-color);
+}
+
+
+/* =========================================================
+   SERVICE DETAILS TEXT
+========================================================= */
+
+.current-service-description p {
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   PAYMENT SECTION
+   SAME STYLE AS SERVICE DETAILS
+========================================================= */
+
+.current-payment-section {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-top: 24px;
+
+    padding: 18px;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    background: #0b1220 !important;
+
+    border: 1px solid var(--border-color);
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   PAYMENT HOVER
+========================================================= */
+
+.current-payment-section:hover {
+    border-color: var(--primary-color)!important;
+
+    box-shadow:
+        0 6px 18px rgba(37, 99, 235, 0.06);
+}
+
+
+/* =========================================================
+   PAYMENT INFORMATION
+========================================================= */
+
+.current-payment-info {
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    flex: 1;
+}
+
+
+/* =========================================================
+   PAYMENT ICON
+========================================================= */
+
+.current-payment-icon {
+    width: 48px;
+    height: 48px;
+
+    min-width: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: var(--primary-light);
+
+    color: var(--primary-color);
+
+    border: 1px solid var(--border-color);
+}
+
+
+.current-payment-icon i {
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   PAYMENT TEXT
+========================================================= */
+
+.current-payment-info > div:last-child {
+    min-width: 0;
+}
+
+
+.current-payment-info .detail-label {
+    margin-bottom: 4px;
+}
+
+
+.current-payment-info strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: var(--text-color);
+}
+
+
+.current-payment-info p {
+    margin: 0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   PAYMENT BUTTON
+========================================================= */
+
+.current-payment-button {
+    min-width: 140px;
+    height: 44px;
+
+    padding: 0 18px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    flex-shrink: 0;
+
+    border: 1px solid var(--primary-color);
+
+    border-radius: 10px;
+
+    background: var(--bg-color);
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 14px rgba(37, 99, 235, 0.18);
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   PAYMENT BUTTON ICON
+========================================================= */
+
+.current-payment-button i {
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   PAYMENT BUTTON HOVER
+========================================================= */
+
+.current-payment-button:hover:not(:disabled) {
+    background: var(--primary-hover);
+
+    border-color: var(--primary-hover);
+
+    color: black;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.28);
+}
+
+
+/* =========================================================
+   PAYMENT BUTTON ACTIVE
+========================================================= */
+
+.current-payment-button:active:not(:disabled) {
+    transform: translateY(0);
+
+    box-shadow:
+        0 4px 12px rgba(37, 99, 235, 0.20);
+}
+
+
+/* =========================================================
+   PAYMENT BUTTON DISABLED
+========================================================= */
+
+.current-payment-button:disabled {
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   DARK PAYMENT
+========================================================= */
+
+.current-booking.dark .current-payment-section {
+    background: rgba(37, 99, 235, 0.06);
+
+    border-color: rgba(59, 130, 246, 0.20);
+}
+
+
+.current-booking.dark .current-payment-section:hover {
+    border-color: rgba(59, 130, 246, 0.55);
+
+    box-shadow:
+        0 6px 18px rgba(37, 99, 235, 0.12);
+}
+
+
+.current-booking.dark .current-payment-icon {
+    background: rgba(22, 119, 255, 0.10);
+
+    border-color: rgba(59, 130, 246, 0.20);
+
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   PAYMENT COMPLETED
+   SAME STYLE AS SERVICE DETAILS
+========================================================= */
+
+.current-payment-paid {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 24px;
+
+    padding: 16px 20px;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    background: var(--section-bg);
+
+    border: 1px solid var(--border-color);
+
+    color: var(--primary-color);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.current-payment-paid:hover {
+    border-color: var(--primary-color);
+}
+
+
+.current-payment-paid i {
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   DARK PAYMENT COMPLETED
+========================================================= */
+
+.current-booking.dark .current-payment-paid {
+    background: rgba(37, 99, 235, 0.06);
+
+    border-color: rgba(59, 130, 246, 0.20);
+
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   BOOKING MESSAGE
+========================================================= */
+
+.booking-message {
+    min-height: 150px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    text-align: center;
+
+    font-size: 15px;
+
+    color: var(--secondary-text);
+}
+
+
+.booking-message i {
+    font-size: 22px;
+
+    color: var(--primary-color);
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.error-message {
+    color: #dc2626 !important;
+}
+
+
+.error-message i {
+    color: #dc2626 !important;
+}
+
+
+.current-booking.dark .error-message,
+.current-booking.dark .error-message span {
+    color: #f87171 !important;
+}
+
+
+.current-booking.dark .error-message i {
+    color: #f87171 !important;
+}
+
+
+/* =========================================================
+   LOADING ANIMATION
+========================================================= */
+
+.current-booking .ri-loader-4-line {
+    animation:
+        currentBookingLoader 1s linear infinite;
+}
+
+
+@keyframes currentBookingLoader {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .current-booking-header {
+        width: calc(100% - 70px);
+
+        padding: 40px 0 0;
+
+        margin-bottom: 28px;
+    }
+
+
+    .current-booking-card {
+        width: calc(100% - 70px);
+
+        padding: 30px 35px;
+
+        margin-bottom: 40px;
+    }
+
+
+    .current-booking-details {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 900px
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .current-booking-main {
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+    }
+
+
+    .current-booking-vertical-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+
+    .current-booking-details {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 768px
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .current-booking-header {
+        padding: 35px 25px 0;
+
+        margin-bottom: 22px;
+    }
+
+
+    .current-booking-header h2 {
+        font-size: 28px;
+    }
+
+
+    .current-booking-header p {
+        max-width: 100%;
+
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+
+    .current-booking-card {
+        padding: 25px;
+
+        margin-bottom: 35px;
+    }
+
+
+    .current-booking-details {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .current-detail strong {
+        max-width: none;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 700px
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .current-payment-section {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 18px;
+
+        padding: 18px;
+    }
+
+
+    .current-payment-info {
+        width: 100%;
+    }
+
+
+    .current-payment-button {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 600px
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .current-booking-header {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 18px;
+
+        padding: 30px 18px 0;
+
+        margin-bottom: 20px;
+    }
+
+
+    .current-booking-header h2 {
+        font-size: 26px;
+    }
+
+
+    .current-booking-header p {
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+
+    .current-booking-status {
+        align-self: flex-start;
+
+        padding: 8px 14px;
+    }
+
+
+    .current-booking-card {
+        padding: 22px;
+
+        margin-bottom: 30px;
+
+        border-radius: 15px;
+    }
+
+
+    .current-vehicle {
+        align-items: flex-start;
+
+        gap: 14px;
+    }
+
+
+    .current-vehicle-icon {
+        width: 55px;
+        height: 55px;
+
+        min-width: 55px;
+
+        border-radius: 13px;
+
+        font-size: 25px;
+    }
+
+
+    .current-vehicle h3,
+    .current-vehicle-info h3 {
+        font-size: 18px;
+    }
+
+
+    .current-vehicle p,
+    .current-vehicle-info p {
+        font-size: 13px;
+    }
+
+
+    .vehicle-number {
+        font-size: 11px;
+    }
+
+
+    .current-divider {
+        margin: 22px 0;
+    }
+
+
+    .current-detail-icon {
+        width: 40px;
+        height: 40px;
+
+        min-width: 40px;
+
+        font-size: 18px;
+    }
+
+
+    .current-detail strong {
+        font-size: 13px;
+    }
+
+
+    .current-service-description {
+        padding: 15px;
+
+        gap: 11px;
+    }
+
+
+    .current-service-description p {
+        font-size: 13px;
+    }
+
+
+    .current-payment-section {
+        padding: 15px;
+    }
+
+
+    .current-payment-info {
+        gap: 12px;
+    }
+
+
+    .current-payment-icon {
+        width: 44px;
+        height: 44px;
+
+        min-width: 44px;
+    }
+
+
+    .current-payment-icon i {
+        font-size: 20px;
+    }
+
+
+    .current-payment-info strong {
+        font-size: 14px;
+    }
+
+
+    .current-payment-info p {
+        font-size: 12px;
+    }
+
+
+    .current-payment-button {
+        height: 44px;
+
+        font-size: 13px;
+    }
+
+
+    .booking-message {
+        min-height: 120px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 480px
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .current-payment-section {
+        padding: 14px;
+    }
+
+
+    .current-payment-icon {
+        width: 42px;
+        height: 42px;
+
+        min-width: 42px;
+
+        border-radius: 10px;
+    }
+
+
+    .current-payment-icon i {
+        font-size: 19px;
+    }
+
+
+    .current-payment-info strong {
+        font-size: 13px;
+    }
+
+
+    .current-payment-info p {
+        font-size: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 400px
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .current-booking-header {
+        padding: 25px 14px 0;
+    }
+
+
+    .current-booking-header h2 {
+        font-size: 23px;
+    }
+
+
+    .current-booking-card {
+        padding: 18px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .current-vehicle {
+        gap: 10px;
+    }
+
+
+    .current-vehicle-icon {
+        width: 50px;
+        height: 50px;
+
+        min-width: 50px;
+
+        font-size: 22px;
+    }
+
+
+    .current-vehicle h3,
+    .current-vehicle-info h3 {
+        font-size: 16px;
+    }
+
+
+    .current-booking-status {
+        padding: 8px 12px;
+
+        font-size: 12px;
+    }
+
+
+    .current-detail {
+        gap: 10px;
+    }
+
+
+    .current-detail-icon {
+        width: 38px;
+        height: 38px;
+
+        min-width: 38px;
+
+        font-size: 17px;
+    }
+
+
+    .current-payment-section {
+        padding: 13px;
+    }
+
+
+    .current-payment-info {
+        gap: 10px;
+    }
+
+}

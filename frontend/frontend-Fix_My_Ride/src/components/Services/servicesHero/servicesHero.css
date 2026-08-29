@@ -1,0 +1,844 @@
+/* =========================================================
+   FIX MY RIDE - SERVICES HERO
+   PREMIUM RESPONSIVE DESIGN
+   LIGHT + DARK THEME
+========================================================= */
+
+
+/* =========================================================
+   SERVICES HERO
+========================================================= */
+
+.services-hero {
+
+    width: 100%;
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 60px;
+
+    box-sizing: border-box;
+
+    position: relative;
+    overflow: hidden;
+
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+.services-hero.light {
+
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+.services-hero.dark {
+
+    background: var(--section-bg);
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+.services-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background: var(--primary-color);
+
+    opacity: 0.08;
+
+    filter: blur(90px);
+
+    top: -180px;
+    left: -120px;
+
+    pointer-events: none;
+}
+
+
+.services-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    border-radius: 50%;
+
+    background: var(--primary-color);
+
+    opacity: 0.07;
+
+    filter: blur(100px);
+
+    bottom: -180px;
+    right: -100px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.services-hero-content {
+
+    width: 100%;
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.services-hero-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 18px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid var(--primary-color);
+
+    border-radius: 30px;
+
+    color: var(--primary-color);
+
+    background: rgba(56, 189, 248, 0.06);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.services-hero-badge:hover {
+
+    background: var(--primary-color);
+
+    color: var(--button-text);
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.services-hero h1 {
+
+    margin: 0 0 22px;
+
+    font-size: 56px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+
+.services-hero h1 span {
+
+    color: var(--primary-color);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.services-hero p {
+
+    max-width: 700px;
+
+    margin: 0 auto 32px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   BOOK SERVICE BUTTON
+   SAME GLOBAL BUTTON DESIGN
+========================================================= */
+
+.services-hero-btn {
+
+    min-height: 46px;
+
+    min-width: 210px;
+
+    padding: 0 20px;
+
+    margin: 0 auto;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    box-sizing: border-box;
+
+    border: 1.5px solid var(--primary-color) !important;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: var(--text-color);
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   BOOK SERVICE BUTTON HOVER
+========================================================= */
+
+.services-hero-btn:hover {
+
+    background: var(--primary-color);
+
+    color: var(--button-text);
+
+    border-color: var(--primary-color) !important;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.22);
+}
+
+
+/* =========================================================
+   BOOK BUTTON ICON
+========================================================= */
+
+.services-hero-btn i {
+
+    font-size: 17px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.services-hero-btn:hover i {
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   BOOK BUTTON FOCUS
+========================================================= */
+
+.services-hero-btn:focus {
+
+    outline: none;
+
+    border-color: var(--primary-color) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(56, 189, 248, 0.20);
+}
+
+
+/* =========================================================
+   BOOK BUTTON ACTIVE
+========================================================= */
+
+.services-hero-btn:active {
+
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   LOGIN POPUP OVERLAY
+========================================================= */
+
+.services-login-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background: rgba(2, 6, 23, 0.72);
+
+    backdrop-filter: blur(7px);
+
+    -webkit-backdrop-filter: blur(7px);
+
+    z-index: 99999;
+
+    animation:
+        servicesOverlayFade 0.25s ease;
+}
+
+
+/* =========================================================
+   LOGIN POPUP
+========================================================= */
+
+.services-login-popup {
+
+    width: 100%;
+
+    max-width: 410px;
+
+    padding: 35px 30px;
+
+    box-sizing: border-box;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    position: relative;
+
+    background: var(--card-bg);
+
+    color: var(--text-color);
+
+    border: 1px solid var(--border-color);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+
+    animation:
+        servicesPopupScale 0.25s ease;
+}
+
+
+/* =========================================================
+   LIGHT POPUP
+========================================================= */
+
+.services-hero.light .services-login-popup {
+
+    background: #ffffff;
+
+    color: #111827;
+
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   DARK POPUP
+========================================================= */
+
+.services-hero.dark .services-login-popup {
+
+    background: #0f172a;
+
+    color: #ffffff;
+
+    border-color: rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.60);
+}
+
+
+/* =========================================================
+   POPUP ICON
+========================================================= */
+
+.services-login-icon {
+
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(56, 189, 248, 0.12);
+
+    color: var(--primary-color);
+
+    font-size: 30px;
+}
+
+
+.services-login-icon i {
+
+    font-size: 30px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   POPUP HEADING
+========================================================= */
+
+.services-login-popup h2 {
+
+    margin: 0 0 10px;
+
+    font-size: 25px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   POPUP MESSAGE
+========================================================= */
+
+.services-login-popup p {
+
+    max-width: 320px;
+
+    margin: 0 auto 25px;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   POPUP BUTTON CONTAINER
+========================================================= */
+
+.services-login-buttons {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   POPUP BUTTONS
+   SAME GLOBAL BUTTON DESIGN
+========================================================= */
+
+.services-login-btn,
+.services-cancel-btn {
+
+    min-height: 46px;
+
+    min-width: 115px;
+
+    padding: 0 20px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    box-sizing: border-box;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.services-login-btn {
+
+    border: 1.5px solid var(--primary-color) !important;
+
+    background: transparent;
+
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.services-cancel-btn {
+
+    border: 1.5px solid var(--primary-color) !important;
+
+    background: transparent;
+
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   POPUP BUTTON HOVER
+========================================================= */
+
+.services-login-btn:hover,
+.services-cancel-btn:hover {
+
+    background: var(--primary-color);
+
+    color: var(--button-text);
+
+    border-color: var(--primary-color) !important;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.22);
+}
+
+
+/* =========================================================
+   POPUP BUTTON ICONS
+========================================================= */
+
+.services-login-btn i,
+.services-cancel-btn i {
+
+    font-size: 17px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.services-login-btn:hover i,
+.services-cancel-btn:hover i {
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   POPUP BUTTON ACTIVE
+========================================================= */
+
+.services-login-btn:active,
+.services-cancel-btn:active {
+
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   DARK MODE POPUP BUTTONS
+========================================================= */
+
+.services-hero.dark .services-login-btn,
+.services-hero.dark .services-cancel-btn {
+
+    background: transparent;
+
+    color: #ffffff;
+
+    border-color: var(--primary-color) !important;
+}
+
+
+.services-hero.dark .services-login-btn:hover,
+.services-hero.dark .services-cancel-btn:hover {
+
+    background: var(--primary-color);
+
+    color: var(--button-text);
+
+    border-color: var(--primary-color) !important;
+
+    box-shadow:
+        0 10px 25px rgba(56, 189, 248, 0.22);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes servicesOverlayFade {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes servicesPopupScale {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.90);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .services-hero {
+
+        min-height: 390px;
+
+        padding: 70px 30px;
+    }
+
+
+    .services-hero h1 {
+
+        font-size: 45px;
+    }
+
+
+    .services-hero p {
+
+        font-size: 16px;
+
+        max-width: 650px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .services-hero {
+
+        min-height: 360px;
+
+        padding: 60px 20px;
+    }
+
+
+    .services-hero h1 {
+
+        font-size: 34px;
+
+        letter-spacing: -0.5px;
+    }
+
+
+    .services-hero p {
+
+        font-size: 15px;
+
+        line-height: 1.6;
+    }
+
+
+    .services-hero-btn {
+
+        width: 100%;
+
+        max-width: 240px;
+
+        min-height: 46px;
+    }
+
+
+    .services-login-popup {
+
+        max-width: 350px;
+
+        padding: 30px 20px;
+    }
+
+
+    .services-login-popup h2 {
+
+        font-size: 22px;
+    }
+
+
+    .services-login-popup p {
+
+        font-size: 14px;
+    }
+
+
+    .services-login-buttons {
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .services-login-btn,
+    .services-cancel-btn {
+
+        width: 100%;
+
+        max-width: 220px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .services-hero {
+
+        padding-left: 15px;
+
+        padding-right: 15px;
+    }
+
+
+    .services-hero h1 {
+
+        font-size: 30px;
+    }
+
+
+    .services-hero-badge {
+
+        font-size: 11px;
+
+        padding: 6px 14px;
+    }
+
+
+    .services-login-popup {
+
+        padding: 25px 15px;
+    }
+}

@@ -1,0 +1,973 @@
+
+/* =========================================================
+   FIX MY RIDE - SERVICE HISTORY
+   SAME WIDTH / PADDING / BACKGROUND AS QUICK ACTIONS
+========================================================= */
+
+.service-history {
+  width: 100%;
+  min-width: 100%;
+  padding: 45px 60px;
+  margin: 0;
+  box-sizing: border-box;
+
+  background: var(--bg-color) !important;
+  color: var(--text-color);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+.service-history.light {
+  background: var(--bg-color) !important;
+  color: var(--text-color);
+}
+
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+.service-history.dark {
+  background: #020617 !important;
+  color: #f1f5f9;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.history-header {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 25px;
+  margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.history-label {
+  position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    margin: 0 0 10px;
+
+    padding: 7px 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(37, 99, 235, 0.12);
+
+    border-radius: 8px;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    color: var(--primary-color);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+    text-transform: uppercase;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.service-history.dark .history-label {
+  background: rgba(56, 189, 248, 0.08);
+
+    border-color: rgba(56, 189, 248, 0.16);
+
+    color: #42a5f5;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.history-header h2 {
+  margin: 0;
+
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 700;
+
+  color: #172033;
+}
+
+
+.service-history.dark .history-header h2 {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.history-description {
+  margin: 8px 0 0;
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  color: #6b7280;
+}
+
+
+.service-history.dark .history-description {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   VIEW ALL BUTTON
+========================================================= */
+
+.view-all-btn {
+  border: 1px solid var(--primary-color);
+
+  padding: 11px 18px;
+
+  border-radius: 9px;
+
+  
+
+  background: var(--bg-color);
+  color: var(--primary-color);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.view-all-btn i{
+  margin-right:5px;
+}
+
+.view-all-btn:hover {
+  background: #1677ff;
+  color: black;
+
+  border-color: var(--primary-color);
+
+  transform: translateY(-2px);
+
+}
+
+
+/* =========================================================
+   HISTORY CARD
+========================================================= */
+
+.history-card {
+  width: 100%;
+
+  position: relative;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e5eaf1;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 25px rgba(15, 23, 42, 0.06);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.history-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 100%;
+  height: 3px;
+
+  background: var(--primary-color);
+
+  border-radius: 0 0 3px 3px;
+
+  transform:
+    translateX(-50%)
+    scaleX(0);
+
+  transform-origin: center;
+
+  transition: transform 0.35s ease;
+
+  z-index: 3;
+}
+
+
+
+.history-card:hover {
+  transform: translateY(-4px);
+
+  border: 1px solid var(--primary-color) !important;
+
+  border-color: var(--primary-color) !important;
+
+  box-shadow:
+    0 10px 30px rgba(37, 99, 235, 0.08);
+}
+
+.history-card:hover::before {
+  transform:
+    translateX(-50%)
+    scaleX(1);
+}
+.service-history.dark .history-card {
+  background: #111b2e;
+
+  border-color: #24324a;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.history-table-header {
+  display: grid;
+
+  grid-template-columns:
+    1.5fr
+    1.6fr
+    1fr
+    1.2fr
+    0.8fr
+    0.9fr;
+
+  align-items: center;
+
+  padding: 16px 22px;
+
+  background: #f8fafc;
+
+  border-bottom: 1px solid #e5eaf1;
+}
+
+
+.service-history.dark .history-table-header {
+  background: #162238;
+  border-bottom-color: #24324a;
+}
+
+
+.history-table-header span {
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  color: #64748b;
+}
+
+
+.service-history.dark .history-table-header span {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   HISTORY LIST
+========================================================= */
+
+.history-list {
+  width: 100%;
+}
+
+
+/* =========================================================
+   HISTORY ROW
+========================================================= */
+
+.history-row {
+  display: grid;
+
+  grid-template-columns:
+    1.5fr
+    1.6fr
+    1fr
+    1.2fr
+    0.8fr
+    0.9fr;
+
+  align-items: center;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #edf0f5;
+
+  transition:
+    background-color 0.25s ease;
+}
+
+
+.history-row:last-child {
+  border-bottom: none;
+}
+
+
+.history-row:hover {
+  background: #f8fafc;
+}
+
+
+.service-history.dark .history-row {
+  border-bottom-color: #24324a;
+}
+
+
+.service-history.dark .history-row:hover {
+  background: #162238;
+}
+
+
+/* =========================================================
+   VEHICLE
+========================================================= */
+
+.history-vehicle {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  min-width: 0;
+}
+
+
+.history-vehicle-icon {
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #eff6ff;
+
+  font-size: 22px;
+
+  overflow: hidden;
+}
+
+
+.service-history.dark .history-vehicle-icon {
+  background: #1d3150;
+}
+
+
+/* =========================================================
+   VEHICLE IMAGE
+========================================================= */
+
+.history-vehicle-icon img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   VEHICLE FALLBACK ICON
+========================================================= */
+
+.vehicle-fallback-icon {
+  width: 100%;
+  height: 100%;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #2563eb;
+
+  font-size: 22px;
+}
+
+
+.service-history.dark .vehicle-fallback-icon {
+  color: #60a5fa;
+}
+
+
+/* =========================================================
+   VEHICLE NAME
+========================================================= */
+
+.history-vehicle h3 {
+  margin: 0 0 4px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #172033;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+.service-history.dark .history-vehicle h3 {
+  color: #ffffff;
+}
+
+
+.history-vehicle p {
+  margin: 0;
+
+  font-size: 12px;
+
+  color: #64748b;
+}
+
+
+.service-history.dark .history-vehicle p {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   SERVICE
+========================================================= */
+
+.history-service {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  min-width: 0;
+}
+
+
+.history-service strong {
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #253047;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+.service-history.dark .history-service strong {
+  color: #ffffff;
+}
+
+
+.history-service small {
+  font-size: 11px;
+
+  color: #94a3b8;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.history-date strong {
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #334155;
+}
+
+
+.service-history.dark .history-date strong {
+  color: #e2e8f0;
+}
+
+
+/* =========================================================
+   MECHANIC
+========================================================= */
+
+.history-mechanic strong {
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #334155;
+}
+
+
+.service-history.dark .history-mechanic strong {
+  color: #e2e8f0;
+}
+
+
+/* =========================================================
+   AMOUNT
+========================================================= */
+
+.history-amount strong {
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #172033;
+}
+
+
+.service-history.dark .history-amount strong {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.completed-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  width: fit-content;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  background: #ecfdf5;
+
+  color: #047857;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+.service-history.dark .completed-badge {
+  background: #123528;
+  color: #6ee7b7;
+}
+
+
+.completed-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #10b981;
+}
+
+
+/* =========================================================
+   MOBILE LABEL
+========================================================= */
+
+.mobile-label {
+  display: none;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.history-message {
+  min-height: 180px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 30px;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  color: #64748b;
+}
+
+
+.service-history.dark .history-message {
+  color: #94a3b8;
+}
+
+
+.history-message i {
+  font-size: 22px;
+}
+
+
+.service-history.dark .history-message i {
+  color: #60a5fa;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.error-message {
+  color: #dc2626;
+}
+
+
+.service-history.dark .error-message {
+  color: #fca5a5;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .service-history {
+    width: 100%;
+    min-width: 100%;
+
+    padding: 40px 35px;
+
+    margin: 0;
+  }
+
+
+  .history-table-header,
+  .history-row {
+    grid-template-columns:
+      1.4fr
+      1.5fr
+      0.9fr
+      1fr
+      0.7fr
+      0.9fr;
+
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+
+  .history-vehicle-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+
+  .history-vehicle-icon img {
+    border-radius: 10px;
+  }
+
+
+  .vehicle-fallback-icon {
+    font-size: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .service-history {
+    width: 100%;
+    min-width: 100%;
+
+    padding: 35px 20px;
+
+    margin: 0;
+  }
+
+
+  .history-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    margin-bottom: 22px;
+  }
+
+
+  .history-header h2 {
+    font-size: 24px;
+  }
+
+
+  .view-all-btn {
+    align-self: flex-start;
+  }
+
+
+  .history-card {
+    border-radius: 14px;
+  }
+
+
+  .history-table-header {
+    display: none;
+  }
+
+
+  .history-row {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 18px;
+
+    padding: 20px;
+  }
+
+
+  .history-vehicle {
+    padding-bottom: 4px;
+  }
+
+
+  .history-service,
+  .history-date,
+  .history-mechanic,
+  .history-amount,
+  .history-status {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px!important;
+  }
+
+
+  .mobile-label {
+    display: block;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #64748b;
+  }
+
+
+  .service-history.dark .mobile-label {
+    color: #94a3b8;
+  }
+
+
+  .history-service strong {
+    white-space: normal;
+  }
+
+
+  .history-service small {
+    white-space: normal;
+  }
+
+
+  .history-vehicle-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+
+  .history-vehicle-icon img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+  }
+
+
+  .vehicle-fallback-icon {
+    font-size: 21px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .service-history {
+    width: 100%;
+    min-width: 100%;
+
+    padding: 30px 15px;
+
+    margin: 0;
+  }
+
+
+  .history-header h2 {
+    font-size: 22px;
+  }
+
+
+  .history-description {
+    font-size: 13px;
+  }
+
+
+  .history-row {
+    padding: 18px;
+  }
+
+
+  .history-vehicle-icon {
+    width: 38px;
+    height: 38px;
+
+    font-size: 19px;
+  }
+
+
+  .history-vehicle-icon img {
+    border-radius: 9px;
+  }
+
+
+  .vehicle-fallback-icon {
+    font-size: 19px;
+  }
+
+
+  .history-vehicle h3 {
+    font-size: 13px;
+  }
+
+
+  .history-vehicle p {
+    font-size: 11px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .service-history {
+    width: 100%;
+    min-width: 100%;
+
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  .history-row {
+    padding: 15px;
+  }
+
+
+  .history-vehicle-icon {
+    width: 44px;
+    min-width: 44px;
+
+    height: 44px;
+
+    font-size: 21px;
+  }
+
+
+  .history-vehicle-icon img {
+    border-radius: 10px;
+  }
+
+}
+

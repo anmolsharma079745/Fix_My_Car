@@ -1,0 +1,2504 @@
+/* =========================================================
+   FIX MY RIDE - UPCOMING SERVICE
+   PREMIUM GLOBAL THEME
+========================================================= */
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.upcoming-service {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 100%;
+
+    margin: 0 !important;
+    padding: 45px 60px;
+
+    box-sizing: border-box;
+
+    background: var(--bg-color) !important;
+    color: var(--text-color);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+.upcoming-service.light {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+
+    background: var(--bg-color) !important;
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+.upcoming-service.dark {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+
+    background: var(--bg-color) !important;
+    color: #f1f5f9;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.upcoming-header {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 25px;
+    margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
+.section-label {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    margin: 0 0 10px;
+    padding: 7px 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    border-radius: 8px;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    color: var(--primary-color);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.upcoming-service.dark .section-label {
+    background: rgba(56, 189, 248, 0.08);
+
+    border-color: rgba(56, 189, 248, 0.16);
+
+    color: #42a5f5;
+}
+
+
+/* =========================================================
+   HEADER TITLE
+========================================================= */
+
+.upcoming-header h2 {
+    margin: 0;
+
+    font-size: 28px;
+    line-height: 1.25;
+
+    font-weight: 700;
+}
+
+
+.upcoming-service.light .upcoming-header h2 {
+    color: #172033;
+}
+
+
+.upcoming-service.dark .upcoming-header h2 {
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   HEADER DESCRIPTION
+========================================================= */
+
+.section-description {
+    margin: 8px 0 0;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+.upcoming-service.light .section-description {
+    color: #64748b;
+}
+
+
+.upcoming-service.dark .section-description {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   SERVICE STATUS
+========================================================= */
+
+.service-status {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 90px;
+
+    padding: 9px 16px;
+
+    box-sizing: border-box;
+
+    border-radius: 30px;
+
+    background: rgba(22, 119, 255, 0.08);
+
+    color: #1677ff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   STATUS DOT
+========================================================= */
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: currentColor;
+
+    box-shadow:
+        0 0 0 4px rgba(22, 119, 255, 0.10);
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.upcoming-card {
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 310px;
+
+    padding: 36px 30px;
+
+    box-sizing: border-box;
+
+    border-radius: 16px;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   CARD TOP HOVER LINE
+========================================================= */
+
+.upcoming-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--primary-color);
+
+    border-radius: 0 0 3px 3px;
+
+    transform:
+        translateX(-50%)
+        scaleX(0);
+
+    transform-origin: center;
+
+    transition:
+        transform 0.35s ease;
+
+    z-index: 3;
+}
+
+
+.upcoming-card:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--primary-color) !important;
+
+    box-shadow:
+        0 10px 30px rgba(37, 99, 235, 0.08);
+}
+
+
+.upcoming-card:hover::before {
+    transform:
+        translateX(-50%)
+        scaleX(1);
+}
+
+
+/* =========================================================
+   LIGHT CARD
+========================================================= */
+
+.upcoming-service.light .upcoming-card {
+    background: #ffffff;
+
+    border: 1px solid #e4eaf2;
+
+    box-shadow:
+        0 8px 25px rgba(35, 55, 85, 0.06);
+}
+
+
+/* =========================================================
+   DARK CARD
+========================================================= */
+
+.upcoming-service.dark .upcoming-card {
+    background: #111827;
+
+    border: 1px solid #263244;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   DESKTOP CARD HOVER
+========================================================= */
+
+@media (min-width: 1001px) {
+
+    .upcoming-service.light .upcoming-card:hover {
+        box-shadow:
+            0 14px 35px rgba(35, 55, 85, 0.10);
+    }
+
+
+    .upcoming-service.dark .upcoming-card:hover {
+        box-shadow:
+            0 15px 35px rgba(0, 0, 0, 0.35);
+    }
+
+}
+
+
+/* =========================================================
+   VEHICLE SECTION
+========================================================= */
+
+.vehicle-section {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   VEHICLE ICON
+========================================================= */
+
+.vehicle-icon {
+    width: 85px;
+    height: 85px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: rgba(22, 119, 255, 0.10);
+
+    color: #1677ff;
+
+    font-size: 34px;
+}
+
+
+/* =========================================================
+   VEHICLE IMAGE
+========================================================= */
+
+.vehicle-icon img {
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 16px;
+}
+
+
+/* =========================================================
+   DARK VEHICLE ICON
+========================================================= */
+
+.upcoming-service.dark .vehicle-icon {
+    background: rgba(22, 119, 255, 0.10);
+}
+
+
+/* =========================================================
+   VEHICLE FALLBACK ICON
+========================================================= */
+
+.vehicle-icon i {
+    font-size: 30px;
+    line-height: 1;
+}
+
+
+/* =========================================================
+   VEHICLE INFO
+========================================================= */
+
+.vehicle-info {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   INFO LABEL
+========================================================= */
+
+.info-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: #1677ff;
+}
+
+
+/* =========================================================
+   VEHICLE NAME
+========================================================= */
+
+.vehicle-info h3 {
+    margin: 0 0 5px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.upcoming-service.light .vehicle-info h3 {
+    color: #172033;
+}
+
+
+.upcoming-service.dark .vehicle-info h3 {
+    color: #f1f5f9;
+}
+
+
+/* =========================================================
+   VEHICLE NUMBER
+========================================================= */
+
+.vehicle-info p {
+    display: inline-block;
+
+    margin: 0;
+
+    padding: 4px 9px;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+}
+
+
+.upcoming-service.light .vehicle-info p {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+
+.upcoming-service.dark .vehicle-info p {
+    background: #0b1220;
+    color: #cbd5e1;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.card-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 28px 0;
+
+    background: #edf1f6;
+}
+
+
+.upcoming-service.dark .card-divider {
+    background: #263244;
+}
+
+
+/* =========================================================
+   SERVICE DETAILS GRID
+========================================================= */
+
+.service-details {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+
+/* =========================================================
+   DETAIL ITEM
+========================================================= */
+
+.detail-item {
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   DETAIL ICON
+========================================================= */
+
+.detail-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: rgba(22, 119, 255, 0.08);
+
+    color: #1677ff;
+
+    font-size: 19px;
+}
+
+
+.upcoming-service.dark .detail-icon {
+    background: rgba(22, 119, 255, 0.10);
+
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   DETAIL LABEL
+========================================================= */
+
+.detail-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+.upcoming-service.light .detail-label {
+    color: #94a3b8;
+}
+
+
+.upcoming-service.dark .detail-label {
+    color: #8292a7;
+}
+
+
+/* =========================================================
+   DETAIL VALUE
+========================================================= */
+
+.detail-item strong {
+    display: block;
+
+    max-width: 180px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    line-height: 1.4;
+}
+
+
+.upcoming-service.light .detail-item strong {
+    color: #273449;
+}
+
+
+.upcoming-service.dark .detail-item strong {
+    color: #e7edf5;
+}
+
+
+/* =========================================================
+   SERVICE LOCATION
+========================================================= */
+
+.service-location {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    margin-top: 32px;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    transition:
+        border-color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+
+/* =========================================================
+   LIGHT LOCATION
+========================================================= */
+
+.upcoming-service.light .service-location {
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+}
+
+
+.upcoming-service.light .service-location:hover {
+    border-color: var(--primary-color);
+}
+
+
+/* =========================================================
+   DARK LOCATION
+========================================================= */
+
+.upcoming-service.dark .service-location {
+    background: #0b1220;
+
+    border: 1px solid #263244;
+}
+
+
+.upcoming-service.dark .service-location:hover {
+    border-color: var(--primary-color);
+}
+
+
+/* =========================================================
+   LOCATION ICON
+========================================================= */
+
+.location-icon {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: rgba(22, 119, 255, 0.08);
+
+    color: #1677ff;
+
+    font-size: 18px;
+}
+
+
+.upcoming-service.dark .location-icon {
+    background: rgba(22, 119, 255, 0.10);
+
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   LOCATION TEXT
+========================================================= */
+
+.service-location p {
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+.upcoming-service.light .service-location p {
+    color: #64748b;
+}
+
+
+.upcoming-service.dark .service-location p {
+    color: #8796aa;
+}
+
+
+.service-location p strong {
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SERVICE ACTIONS
+========================================================= */
+
+.service-actions {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 28px!important;
+
+    padding-top: 20px;
+
+    border-top: 1px solid;
+}
+
+.upcoming-service.dark .service-actions .view-details-btn:hover,
+.upcoming-service.dark .service-actions .reschedule-btn:hover {
+    color: #000000 !important;
+}
+
+.upcoming-service.dark .service-actions .view-details-btn:hover i,
+.upcoming-service.dark .service-actions .reschedule-btn:hover i {
+    color: #000000 !important;
+}
+.upcoming-service.light .service-actions {
+    border-color: #edf1f6;
+}
+
+
+.upcoming-service.dark .service-actions {
+    border-color: #263244;
+}
+
+
+/* =========================================================
+   COMMON ACTION BUTTONS
+   UPDATED - STRONG SELECTOR
+========================================================= */
+
+.upcoming-service .service-actions .view-details-btn,
+.upcoming-service .service-actions .reschedule-btn {
+    min-width: 125px;
+    height: 40px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 0 16px;
+
+    box-sizing: border-box;
+
+    border-radius: 8px !important;
+
+    border: 1px solid #1677ff !important;
+
+    background: var(--bg-color);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    outline: none;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* =========================================================
+   ACTION BUTTON ICON
+========================================================= */
+
+.upcoming-service .service-actions .view-details-btn i,
+.upcoming-service .service-actions .reschedule-btn i {
+    font-size: 16px;
+
+    color: white;
+
+    line-height: 1;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* =========================================================
+   ACTION BUTTON HOVER
+========================================================= */
+
+.upcoming-service .service-actions .view-details-btn:hover,
+.upcoming-service .service-actions .reschedule-btn:hover {
+    transform: translateY(-1px);
+
+    background: #1677ff !important;
+
+    border-color: #1677ff !important;
+
+    color: #ffffff !important;
+
+    box-shadow:
+        0 7px 18px rgba(22, 119, 255, 0.20);
+}
+
+
+.upcoming-service .service-actions .view-details-btn:hover i,
+.upcoming-service .service-actions .reschedule-btn:hover i {
+    color: #ffffff !important;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   ACTION BUTTON FOCUS
+========================================================= */
+
+.upcoming-service .service-actions .view-details-btn:focus,
+.upcoming-service .service-actions .reschedule-btn:focus {
+    outline: none !important;
+
+    border-color: #1677ff !important;
+
+    box-shadow:
+        0 0 0 3px rgba(22, 119, 255, 0.12);
+}
+
+
+/* =========================================================
+   ACTION BUTTON ACTIVE
+========================================================= */
+
+.upcoming-service .service-actions .view-details-btn:active,
+.upcoming-service .service-actions .reschedule-btn:active {
+    transform: translateY(0);
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   BOOKING MESSAGE
+========================================================= */
+
+.booking-message {
+    min-height: 150px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+
+    gap: 12px;
+
+    text-align: center;
+
+    font-size: 15px;
+}
+
+
+.booking-message i {
+    font-size: 22px;
+}
+
+
+.upcoming-service.light .booking-message {
+    color: #64748b;
+}
+
+
+.upcoming-service.dark .booking-message {
+    background: transparent;
+
+    color: #8796aa;
+}
+
+
+.upcoming-service.dark .booking-message span {
+    color: #8796aa;
+}
+
+
+.upcoming-service.dark .booking-message i {
+    color: #1677ff;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.error-message {
+    color: #ef4444 !important;
+}
+
+
+.upcoming-service.light .error-message {
+    color: #dc2626 !important;
+}
+
+
+.upcoming-service.light .error-message i,
+.upcoming-service.light .error-message span {
+    color: #dc2626 !important;
+}
+
+
+.upcoming-service.dark .error-message {
+    color: #f87171 !important;
+}
+
+
+.upcoming-service.dark .error-message i,
+.upcoming-service.dark .error-message span {
+    color: #f87171 !important;
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+.success-message {
+    margin-bottom: 18px;
+
+    min-height: auto;
+
+    padding: 12px 16px;
+
+    border-radius: 9px;
+
+    justify-content: flex-start;
+
+    font-size: 13px;
+}
+
+
+.upcoming-service.light .success-message {
+    background: #ecfdf5;
+
+    border: 1px solid #bbf7d0;
+
+    color: #059669;
+}
+
+
+.upcoming-service.dark .success-message {
+    background: rgba(16, 185, 129, 0.08);
+
+    border: 1px solid rgba(52, 211, 153, 0.18);
+
+    color: #34d399;
+}
+
+
+.success-message i {
+    color: currentColor;
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.upcoming-service .ri-loader-4-line {
+    animation:
+        upcomingServiceLoader 1s linear infinite;
+}
+
+
+@keyframes upcomingServiceLoader {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   VIEW DETAILS OVERLAY
+========================================================= */
+
+.details-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    background: rgba(2, 7, 15, 0.78);
+
+    backdrop-filter: blur(7px);
+}
+
+
+/* =========================================================
+   DETAILS MODAL
+========================================================= */
+
+.details-modal {
+    width: 100%;
+    max-width: 600px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 26px;
+
+    box-sizing: border-box;
+
+    border-radius: 18px;
+
+    animation:
+        upcomingModalOpen 0.25s ease;
+}
+
+
+.upcoming-service.light .details-modal {
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 25px 70px rgba(15, 30, 55, 0.20);
+}
+
+
+.upcoming-service.dark .details-modal {
+    background: #111827;
+
+    border: 1px solid #263244;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   MODAL ANIMATION
+========================================================= */
+
+@keyframes upcomingModalOpen {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   DETAILS HEADER
+========================================================= */
+
+.details-modal-header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid;
+}
+
+
+.upcoming-service.light .details-modal-header {
+    border-color: #e8edf4;
+}
+
+
+.upcoming-service.dark .details-modal-header {
+    border-color: #263244;
+}
+
+
+/* =========================================================
+   DETAILS LABEL
+========================================================= */
+
+.details-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+
+    color: #1677ff;
+}
+
+
+/* =========================================================
+   DETAILS TITLE
+========================================================= */
+
+.details-modal-header h3 {
+    margin: 0;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+.upcoming-service.light .details-modal-header h3 {
+    color: #172033;
+}
+
+
+.upcoming-service.dark .details-modal-header h3 {
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   DETAILS DESCRIPTION
+========================================================= */
+
+.details-modal-header p {
+    margin: 7px 0 0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+.upcoming-service.light .details-modal-header p {
+    color: #68758a;
+}
+
+
+.upcoming-service.dark .details-modal-header p {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   CLOSE BUTTONS
+========================================================= */
+
+.close-details-btn,
+.close-reschedule-btn {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    border: 1px solid;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.upcoming-service.light .close-details-btn,
+.upcoming-service.light .close-reschedule-btn {
+    background: #f4f7fb;
+
+    border-color: #e1e7ef;
+
+    color: #66758a;
+}
+
+
+.upcoming-service.dark .close-details-btn,
+.upcoming-service.dark .close-reschedule-btn {
+    background: #0b1220;
+
+    border-color: #263244;
+
+    color: #94a3b8;
+}
+
+
+.close-details-btn:hover,
+.close-reschedule-btn:hover {
+    background: #ef4444 !important;
+
+    border-color: #ef4444 !important;
+
+    color: #ffffff !important;
+
+    transform: translateY(-1px);
+}
+
+
+.close-details-btn i,
+.close-reschedule-btn i {
+    font-size: 19px;
+
+    color: inherit;
+}
+
+
+/* =========================================================
+   DETAILS BODY
+========================================================= */
+
+.details-modal-body {
+    width: 100%;
+}
+
+
+/* =========================================================
+   MODAL VEHICLE CARD
+========================================================= */
+
+.modal-detail-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px;
+
+    margin-bottom: 18px;
+
+    border-radius: 12px;
+}
+
+
+.upcoming-service.light .modal-detail-card {
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+}
+
+
+.upcoming-service.dark .modal-detail-card {
+    background: #0b1220;
+
+    border: 1px solid #263244;
+}
+
+
+/* =========================================================
+   MODAL VEHICLE ICON
+========================================================= */
+
+.modal-detail-icon {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(22, 119, 255, 0.10);
+
+    color: #1677ff;
+
+    font-size: 24px;
+}
+
+
+/* =========================================================
+   MODAL VEHICLE TEXT
+========================================================= */
+
+.modal-detail-card span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #1677ff;
+}
+
+
+.modal-detail-card strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+.upcoming-service.light .modal-detail-card strong {
+    color: #172033;
+}
+
+
+.upcoming-service.dark .modal-detail-card strong {
+    color: #f1f5f9;
+}
+
+
+.modal-detail-card small {
+    display: block;
+
+    font-size: 12px;
+}
+
+
+.upcoming-service.light .modal-detail-card small {
+    color: #64748b;
+}
+
+
+.upcoming-service.dark .modal-detail-card small {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   DETAILS GRID
+========================================================= */
+
+.details-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   MODAL DETAIL ITEM
+========================================================= */
+
+.modal-detail-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+
+    padding: 15px;
+
+    border-radius: 10px;
+}
+
+
+.upcoming-service.light .modal-detail-item {
+    background: #f8fafc;
+
+    border: 1px solid #e5eaf1;
+}
+
+
+.upcoming-service.dark .modal-detail-item {
+    background: #0b1220;
+
+    border: 1px solid #263244;
+}
+
+
+/* =========================================================
+   MODAL DETAIL ICON
+========================================================= */
+
+.modal-detail-item > i {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: rgba(22, 119, 255, 0.08);
+
+    color: #1677ff;
+
+    font-size: 17px;
+}
+
+
+.upcoming-service.dark .modal-detail-item > i {
+    background: rgba(22, 119, 255, 0.10);
+
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   MODAL LABEL
+========================================================= */
+
+.modal-detail-item span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   MODAL VALUE
+========================================================= */
+
+.modal-detail-item strong {
+    display: block;
+
+    max-width: 190px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.upcoming-service.light .modal-detail-item strong {
+    color: #273449;
+}
+
+
+.upcoming-service.dark .modal-detail-item strong {
+    color: #e7edf5;
+}
+
+
+/* =========================================================
+   BOOKING ID
+========================================================= */
+
+.booking-id {
+    font-size: 11px !important;
+
+    font-family: monospace;
+}
+
+
+/* =========================================================
+   DETAILS MODAL ACTIONS
+========================================================= */
+
+.details-modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid;
+}
+
+
+.upcoming-service.light .details-modal-actions {
+    border-color: #e8edf4;
+}
+
+
+.upcoming-service.dark .details-modal-actions {
+    border-color: #263244;
+}
+
+
+/* =========================================================
+   MODAL ACTION BUTTON
+========================================================= */
+
+.modal-action-btn {
+    min-width: 105px;
+    height: 40px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 0 16px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.modal-action-btn:hover {
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   LIGHT MODAL ACTION
+========================================================= */
+
+.upcoming-service.light .modal-action-btn {
+    background: #ffffff;
+
+    border: 1px solid #d8e0eb;
+
+    color: #526176;
+}
+
+
+.upcoming-service.light .modal-action-btn:hover {
+    background: #f1f5f9;
+
+    border-color: #cbd5e1;
+}
+
+
+/* =========================================================
+   DARK MODAL ACTION
+========================================================= */
+
+.upcoming-service.dark .modal-action-btn {
+    background: #0b1220;
+
+    border: 1px solid #263244;
+
+    color: #94a3b8;
+}
+
+
+.upcoming-service.dark .modal-action-btn:hover {
+    background: #111827;
+
+    border-color: #334155;
+}
+
+
+/* =========================================================
+   PRIMARY MODAL BUTTON
+========================================================= */
+
+.modal-action-btn.primary {
+    border: 1px solid #1677ff;
+
+    background: rgba(22, 119, 255, 0.06);
+
+    color: #1677ff;
+}
+
+
+.modal-action-btn.primary:hover {
+    background: #1677ff;
+
+    border-color: #1677ff;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 7px 18px rgba(22, 119, 255, 0.20);
+}
+
+
+/* =========================================================
+   RESCHEDULE OVERLAY
+========================================================= */
+
+.reschedule-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    background: rgba(2, 7, 15, 0.78);
+
+    backdrop-filter: blur(7px);
+}
+
+
+/* =========================================================
+   RESCHEDULE MODAL
+========================================================= */
+
+.reschedule-modal {
+    width: 100%;
+
+    max-width: 500px;
+
+    padding: 26px;
+
+    box-sizing: border-box;
+
+    border-radius: 18px;
+
+    animation:
+        upcomingModalOpen 0.25s ease;
+}
+
+
+.upcoming-service.light .reschedule-modal {
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 25px 70px rgba(15, 30, 55, 0.20);
+}
+
+
+.upcoming-service.dark .reschedule-modal {
+    background: #111827;
+
+    border: 1px solid #263244;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   RESCHEDULE HEADER
+========================================================= */
+
+.reschedule-modal-header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid;
+}
+
+
+.upcoming-service.light .reschedule-modal-header {
+    border-color: #e8edf4;
+}
+
+
+.upcoming-service.dark .reschedule-modal-header {
+    border-color: #263244;
+}
+
+
+/* =========================================================
+   RESCHEDULE LABEL
+========================================================= */
+
+.reschedule-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+
+    color: #1677ff;
+}
+
+
+/* =========================================================
+   RESCHEDULE TITLE
+========================================================= */
+
+.reschedule-modal-header h3 {
+    margin: 0;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+.upcoming-service.light .reschedule-modal-header h3 {
+    color: #172033;
+}
+
+
+.upcoming-service.dark .reschedule-modal-header h3 {
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   RESCHEDULE DESCRIPTION
+========================================================= */
+
+.reschedule-modal-header p {
+    margin: 7px 0 0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+.upcoming-service.light .reschedule-modal-header p {
+    color: #68758a;
+}
+
+
+.upcoming-service.dark .reschedule-modal-header p {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   RESCHEDULE FORM
+========================================================= */
+
+.reschedule-form {
+    width: 100%;
+}
+
+
+/* =========================================================
+   FORM LABEL
+========================================================= */
+
+.reschedule-form label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 9px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.upcoming-service.light .reschedule-form label {
+    color: #344258;
+}
+
+
+.upcoming-service.dark .reschedule-form label {
+    color: #d6dfeb;
+}
+
+
+.reschedule-form label i {
+    color: #1677ff;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   RESCHEDULE INPUT
+========================================================= */
+
+.reschedule-form input {
+    width: 100%;
+    height: 45px;
+
+    padding: 0 14px;
+
+    box-sizing: border-box;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-size: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+.upcoming-service.light .reschedule-form input {
+    background: #f8fafc;
+
+    border: 1px solid #dce4ee;
+
+    color: #1e293b;
+}
+
+
+.upcoming-service.dark .reschedule-form input {
+    background: #0b1220;
+
+    border: 1px solid #263244;
+
+    color: #f1f5f9;
+}
+
+
+.reschedule-form input:focus {
+    border-color: #1677ff;
+
+    box-shadow:
+        0 0 0 3px rgba(22, 119, 255, 0.10);
+}
+
+
+/* =========================================================
+   RESCHEDULE ACTIONS
+========================================================= */
+
+.reschedule-modal-actions {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid;
+}
+
+
+.upcoming-service.light .reschedule-modal-actions {
+    border-color: #e8edf4;
+}
+
+
+.upcoming-service.dark .reschedule-modal-actions {
+    border-color: #263244;
+}
+
+
+/* =========================================================
+   CANCEL RESCHEDULE
+========================================================= */
+
+.cancel-reschedule-btn {
+    min-width: 95px;
+    height: 42px;
+
+    padding: 0 18px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.upcoming-service.light .cancel-reschedule-btn {
+    background: #ffffff;
+
+    border: 1px solid #d8e0eb;
+
+    color: #526176;
+}
+
+
+.upcoming-service.light .cancel-reschedule-btn:hover {
+    background: #f1f5f9;
+
+    border-color: #cbd5e1;
+
+    transform: translateY(-1px);
+}
+
+
+.upcoming-service.dark .cancel-reschedule-btn {
+    background: #0b1220;
+
+    border: 1px solid #263244;
+
+    color: #94a3b8;
+}
+
+
+.upcoming-service.dark .cancel-reschedule-btn:hover {
+    background: #111827;
+
+    border-color: #334155;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   CONFIRM RESCHEDULE
+========================================================= */
+
+.confirm-reschedule-btn {
+    min-width: 155px;
+    height: 42px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 0 18px;
+
+    border: 1px solid #1677ff;
+
+    border-radius: 8px;
+
+    background: #1677ff;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.confirm-reschedule-btn:hover {
+    background: #0866df;
+
+    border-color: #0866df;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 18px rgba(22, 119, 255, 0.25);
+}
+
+
+.confirm-reschedule-btn i {
+    font-size: 16px;
+
+    color: inherit;
+}
+
+
+/* =========================================================
+   DISABLED
+========================================================= */
+
+.close-reschedule-btn:disabled,
+.cancel-reschedule-btn:disabled,
+.confirm-reschedule-btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .upcoming-service {
+        width: 100% !important;
+
+        max-width: none !important;
+
+        margin: 0 !important;
+
+        padding: 40px 35px;
+    }
+
+
+    .service-details {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .upcoming-service {
+        width: 100% !important;
+
+        max-width: none !important;
+
+        margin: 0 !important;
+
+        padding: 35px 20px;
+    }
+
+
+    .upcoming-header {
+        align-items: flex-start;
+
+        margin-bottom: 22px;
+    }
+
+
+    .upcoming-header h2 {
+        font-size: 24px;
+    }
+
+
+    .service-details {
+        grid-template-columns: 1fr;
+    }
+
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .detail-item strong {
+        max-width: none;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .upcoming-service {
+        width: 100% !important;
+
+        max-width: none !important;
+
+        margin: 0 !important;
+
+        padding: 30px 15px;
+    }
+
+
+    .upcoming-header {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 18px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .service-status {
+        align-self: flex-start;
+    }
+
+
+    .upcoming-header h2 {
+        font-size: 22px;
+    }
+
+
+    .section-description {
+        font-size: 13px;
+    }
+
+
+    .upcoming-card {
+        min-height: 0;
+
+        padding: 24px 22px;
+
+        border-radius: 15px;
+    }
+
+
+    .vehicle-section {
+        align-items: flex-start;
+
+        gap: 14px;
+    }
+
+
+    .vehicle-icon {
+        width: 55px;
+        height: 55px;
+
+        border-radius: 13px;
+
+        font-size: 25px;
+    }
+
+
+    .vehicle-icon img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+
+        border-radius: 13px;
+    }
+
+
+    .vehicle-info h3 {
+        font-size: 18px;
+    }
+
+
+    .vehicle-info p {
+        font-size: 11px;
+    }
+
+
+    .card-divider {
+        margin: 22px 0;
+    }
+
+
+    .detail-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 18px;
+    }
+
+
+    .detail-item strong {
+        font-size: 13px;
+    }
+
+
+    .service-location {
+        padding: 15px;
+
+        gap: 11px;
+    }
+
+
+    .service-location p {
+        font-size: 13px;
+    }
+
+
+    .service-actions {
+        justify-content: flex-end;
+
+        gap: 8px;
+
+        margin-top: 20px;
+
+        padding-top: 16px;
+    }
+
+
+    .upcoming-service .service-actions .view-details-btn,
+    .upcoming-service .service-actions .reschedule-btn {
+        min-width: 115px;
+
+        height: 39px;
+
+        padding: 0 13px;
+
+        font-size: 11px;
+    }
+
+
+    .details-overlay,
+    .reschedule-overlay {
+        padding: 15px;
+    }
+
+
+    .details-modal,
+    .reschedule-modal {
+        padding: 20px;
+
+        max-height: 92vh;
+    }
+
+
+    .details-modal-actions,
+    .reschedule-modal-actions {
+        gap: 8px;
+    }
+
+
+    .modal-action-btn,
+    .cancel-reschedule-btn {
+        min-width: 90px;
+    }
+
+
+    .confirm-reschedule-btn {
+        min-width: 145px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .upcoming-service {
+        width: 100% !important;
+
+        max-width: none !important;
+
+        margin: 0 !important;
+
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+    .upcoming-header h2 {
+        font-size: 21px;
+    }
+
+
+    .upcoming-card {
+        padding: 18px;
+    }
+
+
+    .vehicle-section {
+        gap: 10px;
+    }
+
+
+    .vehicle-icon {
+        width: 50px;
+        height: 50px;
+
+        font-size: 22px;
+    }
+
+
+    .vehicle-icon img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+
+        border-radius: 12px;
+    }
+
+
+    .vehicle-info h3 {
+        font-size: 16px;
+    }
+
+
+    .service-status {
+        padding: 8px 12px;
+
+        font-size: 12px;
+    }
+
+
+    .detail-item {
+        gap: 10px;
+    }
+
+
+    .detail-icon {
+        width: 38px;
+        height: 38px;
+
+        font-size: 17px;
+    }
+
+
+    .service-actions {
+        justify-content: flex-end;
+
+        gap: 7px;
+    }
+
+
+    .upcoming-service .service-actions .view-details-btn,
+    .upcoming-service .service-actions .reschedule-btn {
+        min-width: 0;
+
+        padding: 0 12px;
+
+        font-size: 11px;
+    }
+
+
+    .upcoming-service .service-actions .view-details-btn i,
+    .upcoming-service .service-actions .reschedule-btn i {
+        font-size: 14px;
+    }
+
+
+    .details-modal-actions,
+    .reschedule-modal-actions {
+        gap: 7px;
+    }
+
+
+    .modal-action-btn,
+    .cancel-reschedule-btn {
+        min-width: 0;
+
+        padding: 0 13px;
+    }
+
+
+    .confirm-reschedule-btn {
+        min-width: 0;
+
+        padding: 0 13px;
+    }
+
+}

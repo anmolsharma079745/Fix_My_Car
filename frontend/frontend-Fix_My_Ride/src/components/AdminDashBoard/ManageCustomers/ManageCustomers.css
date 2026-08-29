@@ -1,0 +1,1438 @@
+/* =========================================================
+   MANAGE CUSTOMER
+   PREMIUM GLOBAL THEME VARIABLE BASED CSS
+========================================================= */
+
+.manage-customer {
+    width: 100%;
+    min-height: 100%;
+
+    padding: 45px 60px;
+
+    box-sizing: border-box;
+
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    transition:
+        background-color var(--transition-normal),
+        color var(--transition-normal);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.manage-customer-container {
+    width: 100%;
+    max-width: 1450px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.manage-customer-header {
+    width: 100%;
+
+    margin-bottom: 35px;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.manage-customer-header > div:first-child {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.manage-customer-tag {
+    display: inline-flex;
+
+    width: fit-content;
+
+    padding: 7px 13px;
+
+    margin-bottom: 12px;
+
+    border-radius: var(--radius-sm);
+
+    background: var(--primary-light);
+
+    color: var(--primary-color);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+
+    transition:
+        background-color var(--transition-normal),
+        color var(--transition-normal);
+}
+
+
+.manage-customer-header h2 {
+    margin: 0;
+
+    color: var(--text-color);
+
+    font-size: 32px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+.manage-customer-header p {
+    margin: 9px 0 0;
+
+    color: var(--secondary-text);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   TOTAL CUSTOMERS
+========================================================= */
+
+.customer-total {
+    min-width: 130px;
+
+    padding: 16px 20px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: var(--radius-lg);
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        background-color var(--transition-normal),
+        border-color var(--transition-normal),
+        box-shadow var(--transition-normal),
+        transform var(--transition-fast);
+}
+
+
+.customer-total:hover {
+    transform: translateY(-2px);
+
+    border: 1px solid var(--primary-color);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+.customer-total span {
+    margin-bottom: 5px;
+
+    color: var(--muted-text);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+}
+
+
+.customer-total strong {
+    color: var(--primary-color);
+
+    font-size: 27px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.manage-customer-content {
+    width: 100%;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.customer-message {
+    min-height: 250px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    border-radius: var(--radius-lg);
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+
+    color: var(--secondary-text);
+
+    text-align: center;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        background-color var(--transition-normal),
+        border-color var(--transition-normal),
+        color var(--transition-normal);
+}
+
+
+.customer-message i {
+    font-size: 32px;
+
+    color: var(--primary-color);
+}
+
+
+.customer-message span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.error-message {
+    color: var(--danger-color);
+}
+
+
+.error-message i {
+    color: var(--danger-color);
+}
+
+
+/* =========================================================
+   CUSTOMER GRID
+========================================================= */
+
+.customer-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   CUSTOMER CARD
+========================================================= */
+
+.customer-card {
+    width: 100%;
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    padding: 22px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: var(--radius-lg);
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast),
+        background-color var(--transition-normal);
+}
+
+
+.customer-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--primary-color);
+
+    opacity: 0;
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+.customer-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-md);
+
+    border-color: var(--primary-color);
+}
+
+
+/* =========================================================
+   CUSTOMER CARD TOP
+========================================================= */
+
+.customer-card-top {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding-bottom: 18px;
+
+    box-sizing: border-box;
+}
+
+
+.customer-card:hover::before {
+    opacity: 1;
+
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   CUSTOMER ICON
+========================================================= */
+
+.customer-icon {
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: var(--radius-md);
+
+    background: var(--primary-light);
+
+    color: var(--primary-color);
+
+    transition:
+        background-color var(--transition-normal),
+        color var(--transition-normal);
+}
+
+
+.customer-icon i {
+    font-size: 21px;
+
+    color: var(--primary-color);
+}
+
+
+/* =========================================================
+   CUSTOMER INFO
+========================================================= */
+
+.customer-info {
+    min-width: 0;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.customer-info h3 {
+    margin: 0 0 4px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    color: var(--text-color);
+
+    font-size: 16px;
+    font-weight: 750;
+
+    line-height: 1.3;
+}
+
+
+.customer-info span {
+    display: block;
+
+    max-width: 100%;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    color: var(--muted-text);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   CUSTOMER DETAILS
+========================================================= */
+
+.customer-details {
+    width: 100%;
+
+    padding: 18px 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.customer-details p {
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 18px;
+
+    color: var(--secondary-text);
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+.customer-details strong {
+    min-width: 0;
+    max-width: 58%;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    color: var(--text-color);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-align: right;
+}
+
+
+.customer-details p > i {
+    width: 16px;
+
+    flex-shrink: 0;
+
+    margin-right: 7px;
+
+    color: var(--primary-color);
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   CARD BUTTONS
+========================================================= */
+
+.card-buttons {
+    width: 100%;
+
+    padding-top: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    border-top: 1px solid var(--border-color);
+}
+
+
+/* =========================================================
+   COMMON BUTTON
+========================================================= */
+
+.edit-btn,
+.delete-btn {
+    flex: 1;
+
+    height: 38px;
+
+    padding: 0 13px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    box-sizing: border-box;
+
+    border-radius: var(--radius-md);
+
+    font-family: inherit;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast),
+        opacity var(--transition-fast);
+}
+
+
+.edit-btn i,
+.delete-btn i {
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   EDIT BUTTON
+========================================================= */
+
+.edit-btn {
+    background: var(--bg-color) !important;
+
+    color: var(--primary-color) !important;
+
+    border: 1.5px solid var(--primary-color) !important;
+}
+
+
+.edit-btn:hover {
+    background: var(--primary-color) !important;
+
+    color: var(--button-text) !important;
+
+    border-color: var(--primary-color) !important;
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================================
+   UPDATE BUTTON
+========================================================= */
+
+.save-edit-btn {
+    background: var(--bg-color) !important;
+
+    color: var(--primary-color) !important;
+
+    border: 1.5px solid var(--primary-color) !important;
+}
+
+
+.save-edit-btn:hover {
+    background: var(--primary-color) !important;
+
+    color: var(--button-text) !important;
+
+    border-color: var(--primary-color) !important;
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.manage-customer .card-buttons .delete-btn {
+    background: var(--bg-color) !important;
+
+    color: var(--danger-color) !important;
+
+    border: 1.5px solid var(--danger-color) !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   DELETE HOVER
+========================================================= */
+
+.manage-customer .card-buttons .delete-btn:hover {
+    background: var(--danger-color) !important;
+
+    color: var(--button-text) !important;
+
+    border-color: var(--danger-color) !important;
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-sm) !important;
+}
+
+
+/* =========================================================
+   DELETE ICON
+========================================================= */
+
+.manage-customer .card-buttons .delete-btn i {
+    color: inherit !important;
+}
+
+
+/* =========================================================
+   ACTIVE / DISABLED
+========================================================= */
+
+.edit-btn:active,
+.delete-btn:active,
+.cancel-edit-btn:active,
+.save-edit-btn:active {
+    transform:
+        translateY(-1px)
+        scale(0.98);
+
+    box-shadow: none;
+}
+
+
+.edit-btn:disabled,
+.delete-btn:disabled,
+.cancel-edit-btn:disabled,
+.save-edit-btn:disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.edit-btn:focus-visible,
+.delete-btn:focus-visible,
+.close-modal-btn:focus-visible,
+.cancel-edit-btn:focus-visible,
+.save-edit-btn:focus-visible {
+    outline:
+        2px solid var(--primary-color);
+
+    outline-offset: 3px;
+
+    box-shadow: var(--focus-ring);
+}
+
+
+/* =========================================================
+   EDIT MODAL OVERLAY
+========================================================= */
+
+.customer-edit-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(15, 23, 42, 0.58);
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* =========================================================
+   EDIT MODAL
+========================================================= */
+
+.customer-edit-modal {
+    width: 100%;
+    max-width: 540px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    padding: 25px;
+
+    border-radius: var(--radius-xl);
+
+    background: var(--card-bg);
+
+    color: var(--text-color);
+
+    border: 1px solid var(--primary-color);
+
+    box-shadow:
+        0 20px 55px rgba(15, 23, 42, 0.18);
+
+    transition:
+        background-color var(--transition-normal),
+        color var(--transition-normal),
+        border-color var(--transition-normal);
+
+    animation: customerModalOpen 0.25s ease;
+}
+
+
+/* =========================================================
+   MODAL ANIMATION
+========================================================= */
+
+@keyframes customerModalOpen {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-15px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.edit-modal-header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+
+.edit-modal-header > div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.edit-modal-header span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--primary-color);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.edit-modal-header h2 {
+    margin: 0;
+
+    color: var(--text-color);
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.close-modal-btn {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1.5px solid var(--border-color) !important;
+
+    border-radius: var(--radius-sm);
+
+    background: var(--bg-color);
+
+    color: var(--text-color);
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+
+.close-modal-btn i {
+    font-size: 20px;
+}
+
+
+.close-modal-btn:hover {
+    background: rgba(239, 68, 68, 0.10);
+
+    border-color: rgba(239, 68, 68, 0.20) !important;
+
+    color: var(--danger-color);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   EDIT FORM
+========================================================= */
+
+.edit-form-group {
+    width: 100%;
+
+    margin-bottom: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.edit-form-group:first-of-type {
+    margin-top: 20px;
+}
+
+
+.edit-form-group label {
+    display: block;
+
+    color: var(--text-color);
+
+    font-size: 12px;
+
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   INPUT BOX
+========================================================= */
+
+.edit-input-box {
+    width: 100%;
+
+    min-height: 44px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 13px;
+
+    border-radius: var(--radius-md);
+
+    background: var(--bg-color);
+
+    border: 1px solid var(--secondary-text);
+
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+
+.edit-input-box:hover {
+    border-color: var(--primary-color);
+}
+
+
+.edit-input-box:focus-within {
+    background: var(--bg-color);
+
+    border-color: var(--primary-color);
+
+    box-shadow: var(--focus-ring);
+}
+
+
+/* =========================================================
+   INPUT ICON
+========================================================= */
+
+.edit-input-box > i {
+    width: 18px;
+
+    flex-shrink: 0;
+
+    color: var(--muted-text);
+
+    font-size: 17px;
+
+    pointer-events: none;
+
+    transition: color var(--transition-fast);
+}
+
+
+.edit-input-box:focus-within > i {
+    color: var(--primary-color);
+}
+
+
+/* =========================================================
+   INPUT / SELECT
+========================================================= */
+
+.edit-input-box input,
+.edit-input-box select {
+    width: 100%;
+    height: 44px;
+
+    min-width: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    border: none !important;
+
+    outline: none !important;
+
+    background: transparent !important;
+
+    color: var(--text-color) !important;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.edit-input-box input::placeholder {
+    color: var(--muted-text);
+}
+
+
+.edit-input-box select {
+    cursor: pointer;
+}
+
+
+.edit-input-box select option {
+    background: var(--card-bg);
+
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   MODAL BUTTONS
+========================================================= */
+
+.edit-modal-buttons {
+    width: 100%;
+
+    padding-top: 20px;
+    margin-top: 2px;
+
+    display: flex;
+
+    justify-content: flex-end;
+    gap: 10px;
+
+    border-top: 1px solid var(--secondary-text);
+}
+
+
+.cancel-edit-btn,
+.save-edit-btn {
+    min-width: 115px;
+    height: 42px;
+
+    padding: 0 16px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: var(--radius-md);
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.cancel-edit-btn {
+    background: var(--bg-color) !important;
+
+    color: var(--primary-color) !important;
+
+    border: 1.5px solid var(--primary-color) !important;
+}
+
+
+.cancel-edit-btn:hover {
+    background: var(--primary-color) !important;
+
+    color: var(--button-text) !important;
+
+    border-color: var(--primary-color) !important;
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+========================================================= */
+
+.save-edit-btn {
+    background: var(--primary-color) !important;
+
+    color: var(--button-text) !important;
+
+    border: 1.5px solid var(--primary-color) !important;
+}
+
+
+.save-edit-btn:hover {
+    background: var(--primary-hover) !important;
+
+    color: var(--button-text) !important;
+
+    border-color: var(--primary-hover) !important;
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+.dark .manage-customer {
+    background: var(--bg-color);
+
+    color: var(--text-color);
+}
+
+
+.dark .customer-edit-overlay {
+    background: rgba(2, 6, 23, 0.72);
+}
+
+
+/* =========================================================
+   DARK DELETE
+========================================================= */
+
+.dark .manage-customer .card-buttons .delete-btn {
+    background: var(--bg-color) !important;
+
+    color: var(--danger-color) !important;
+
+    border-color: var(--danger-color) !important;
+}
+
+
+.dark .manage-customer .card-buttons .delete-btn:hover {
+    background: var(--danger-color) !important;
+
+    color: var(--button-text) !important;
+
+    border-color: var(--danger-color) !important;
+}
+
+
+.dark .manage-customer .card-buttons .delete-btn i {
+    color: inherit !important;
+}
+
+
+/* =========================================================
+   DARK CLOSE BUTTON
+========================================================= */
+
+.dark .close-modal-btn {
+    background: var(--bg-color);
+
+    color: var(--text-color);
+
+    border-color: var(--border-color) !important;
+}
+
+
+.dark .close-modal-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+
+    color: var(--danger-color);
+
+    border-color: rgba(239, 68, 68, 0.25) !important;
+}
+
+
+/* =========================================================
+   DARK INPUT
+========================================================= */
+
+.dark .edit-input-box {
+    background: var(--bg-color);
+
+    border-color: var(--border-color);
+}
+
+
+.dark .edit-input-box:hover {
+    border-color: var(--primary-color);
+}
+
+
+.dark .edit-input-box:focus-within {
+    background: var(--bg-color);
+
+    border-color: var(--primary-color);
+
+    box-shadow: var(--focus-ring);
+}
+
+
+.dark .edit-input-box input,
+.dark .edit-input-box select {
+    background: transparent !important;
+
+    color: var(--text-color) !important;
+}
+
+
+.dark .edit-input-box input::placeholder {
+    color: var(--muted-text);
+}
+
+
+.dark .edit-input-box > i {
+    color: var(--muted-text);
+}
+
+
+.dark .edit-input-box:focus-within > i {
+    color: var(--primary-color);
+}
+
+
+.dark .edit-input-box select option {
+    background: var(--card-bg);
+
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.customer-edit-modal::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.customer-edit-modal::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.customer-edit-modal::-webkit-scrollbar-thumb {
+    background: var(--muted-text);
+
+    border-radius: 10px;
+}
+
+
+.customer-edit-modal::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-text);
+}
+
+
+/* =========================================================
+   RESPONSIVE - 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .manage-customer {
+        padding: 40px 35px;
+    }
+
+    .customer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card-buttons {
+        flex-wrap: wrap;
+    }
+
+    .card-buttons button {
+        flex: 1;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 768px
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .manage-customer {
+        padding: 30px 20px;
+    }
+
+    .manage-customer-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .manage-customer-header h2 {
+        font-size: 27px;
+    }
+
+    .customer-total {
+        width: 100%;
+    }
+
+    .customer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .customer-edit-overlay {
+        padding: 15px;
+    }
+
+    .customer-edit-modal {
+        padding: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 520px
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .manage-customer {
+        padding: 25px 14px;
+    }
+
+    .manage-customer-header h2 {
+        font-size: 24px;
+    }
+
+    .customer-card {
+        padding: 17px;
+    }
+
+    .customer-card-top {
+        align-items: flex-start;
+    }
+
+    .customer-details p {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 4px;
+    }
+
+    .customer-details strong {
+        max-width: 100%;
+
+        text-align: left;
+    }
+
+    .card-buttons {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card-buttons button {
+        width: 100%;
+    }
+
+    .customer-edit-overlay {
+        padding: 15px;
+    }
+
+    .customer-edit-modal {
+        padding: 20px;
+
+        max-height: 92vh;
+    }
+
+    .edit-modal-buttons {
+        flex-direction: column-reverse;
+    }
+
+    .cancel-edit-btn,
+    .save-edit-btn {
+        width: 100%;
+    }
+
+}

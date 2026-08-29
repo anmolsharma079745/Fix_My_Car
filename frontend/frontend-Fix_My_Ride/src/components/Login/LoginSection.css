@@ -1,0 +1,846 @@
+/* =========================================================
+   LOGIN SECTION
+   GLOBAL THEME VARIABLE BASED CSS
+========================================================= */
+
+.login,
+.login * {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   LOGIN SECTION
+========================================================= */
+
+.login {
+  width: 100%;
+  min-height: 90vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 60px 20px;
+
+  background: var(--bg-color)!important;
+  color: var(--text-color);
+
+  overflow: hidden;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+
+  position: relative;
+}
+
+
+/* =========================================================
+   SOFT BACKGROUND EFFECT
+========================================================= */
+
+.login::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  background: var(--primary-color);
+
+  opacity: 0.06;
+
+  filter: blur(90px);
+
+  border-radius: 50%;
+
+  top: 10%;
+  left: 15%;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   LOGIN BOX
+========================================================= */
+
+.login-box {
+  width: 100%;
+  max-width: 420px;
+
+  padding: 35px;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.10);
+
+  position: relative;
+  z-index: 2;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+
+  animation: loginBoxIn 0.7s ease;
+}
+
+
+/* =========================================================
+   LOGIN BOX HOVER
+========================================================= */
+
+.login-box:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.14);
+}
+
+
+/* =========================================================
+   LOGIN BOX ANIMATION
+========================================================= */
+
+@keyframes loginBoxIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.login-box h1 {
+  text-align: center;
+
+  font-size: 32px;
+
+  margin-bottom: 30px;
+
+  color: var(--text-color);
+
+  transition: color 0.3s ease;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.login-box form {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.login-box label {
+  font-size: 15px;
+
+  font-weight: 600;
+
+  margin-top: 15px;
+  margin-bottom: 8px;
+
+  color: var(--text-color);
+
+  transition: color 0.3s ease;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.login-box input {
+  width: 100%;
+
+  padding: 13px;
+
+  font-size: 15px;
+
+  background: var(--bg-color);
+
+  color: var(--text-color);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 8px;
+
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =========================================================
+   INPUT HOVER
+========================================================= */
+
+.login-box input:hover {
+  border-color: var(--primary-color);
+}
+
+
+/* =========================================================
+   INPUT FOCUS
+========================================================= */
+
+.login-box input:focus {
+  border-color: var(--primary-color);
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.login-box input::placeholder {
+  color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   PASSWORD BOX
+========================================================= */
+
+.password-box {
+  position: relative;
+
+  width: 100%;
+}
+
+
+.password-box input {
+  padding-right: 45px;
+}
+
+
+/* =========================================================
+   EYE ICON
+========================================================= */
+
+.eye-icon {
+  position: absolute;
+
+  right: 15px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  color: var(--secondary-text);
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.eye-icon:hover {
+  color: var(--primary-color);
+
+  transform:
+    translateY(-50%)
+    scale(1.08);
+}
+
+
+.eye-icon:active {
+  transform:
+    translateY(-50%)
+    scale(0.95);
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.login-btn {
+  width: 100%;
+
+  margin-top: 25px;
+
+  padding: 13px;
+
+  border: 1px solid var(--primary-color);
+
+  border-radius: 8px;
+
+  background: var(--bg-color)!important;
+
+  color: white!important;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.login-btn:hover {
+   background: var(--primary-color)!important;
+
+  border-color: var(--primary-hover);
+
+  color: black!important;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 15px rgba(37, 99, 235, 0.18);
+}
+
+
+.login-btn:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   SEND OTP SECTION
+========================================================= */
+
+.otp-section {
+  width: 100%;
+
+  display: flex;
+
+  gap: 10px;
+
+  align-items: center;
+}
+
+
+.otp-section input {
+  flex: 1;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   SEND OTP BUTTON
+========================================================= */
+
+.send-otp-btn {
+  flex-shrink: 0;
+
+  padding: 13px 15px;
+
+  border: 1px solid var(--primary-color);
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: var(--primary-color);
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.send-otp-btn:hover {
+  background: var(--primary-color);
+
+  color: var(--button-text);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 12px rgba(37, 99, 235, 0.18);
+}
+
+
+.send-otp-btn:active {
+  transform: scale(0.97);
+}
+
+
+.send-otp-btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   OTP INPUT
+========================================================= */
+
+.login-box input[name="otp"] {
+  text-align: center;
+
+  letter-spacing: 5px;
+
+  font-size: 16px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   OTP PLACEHOLDER
+========================================================= */
+
+.login-box input[name="otp"]::placeholder {
+  letter-spacing: normal;
+
+  font-size: 14px;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   OTP STATUS
+========================================================= */
+
+.otp-status {
+  margin-top: 8px;
+
+  font-size: 13px;
+
+  color: var(--secondary-text);
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   FORGOT PASSWORD
+========================================================= */
+
+.forgot-password {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-top: 15px;
+}
+
+
+.forgot-password span {
+  position: relative;
+
+  color: var(--primary-color);
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+
+.forgot-password span::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -3px;
+
+  width: 0;
+
+  height: 2px;
+
+  background: var(--primary-color);
+
+  transition: width 0.25s ease;
+}
+
+
+.forgot-password span:hover::after {
+  width: 100%;
+}
+
+
+.forgot-password span:hover {
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   BACK TO LOGIN
+========================================================= */
+
+.forgot-link {
+  position: relative;
+
+  color: var(--primary-color);
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+
+.forgot-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -3px;
+
+  width: 0;
+
+  height: 2px;
+
+  background: var(--primary-color);
+
+  transition: width 0.25s ease;
+}
+
+
+.forgot-link:hover::after {
+  width: 100%;
+}
+
+
+.forgot-link:hover {
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   REGISTER TEXT
+========================================================= */
+
+.register-text {
+  text-align: center;
+
+  margin-top: 22px;
+
+  font-size: 15px;
+
+  color: var(--secondary-text);
+
+  transition: color 0.3s ease;
+}
+
+
+.register-text a {
+  position: relative;
+
+  color: var(--primary-color);
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition: color 0.25s ease;
+}
+
+
+.register-text a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -3px;
+
+  width: 0;
+
+  height: 2px;
+
+  background: var(--primary-color);
+
+  transition: width 0.25s ease;
+}
+
+
+.register-text a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.login-error {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  margin: 18px 0 0;
+
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  background: rgba(239, 68, 68, 0.08);
+
+  border: 1px solid rgba(239, 68, 68, 0.30);
+
+  color: #ef4444;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+.login-success {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  margin: 18px 0 0;
+
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  background: rgba(34, 197, 94, 0.08);
+
+  border: 1px solid rgba(34, 197, 94, 0.30);
+
+  color: #22c55e;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   GLOBAL THEME COMPATIBILITY
+   NO SEPARATE DARK MODE REQUIRED
+========================================================= */
+
+.login {
+  background: var(--hero-bg);
+  color: var(--text-color);
+}
+
+
+.login-box {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+
+.login-box h1,
+.login-box label {
+  color: var(--text-color);
+}
+
+
+.login-box input {
+  background: var(--bg-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+
+.login-box input::placeholder,
+.eye-icon,
+.otp-status,
+.register-text {
+  color: var(--secondary-text);
+}
+
+
+.login-box input:hover,
+.login-box input:focus {
+  border-color: var(--primary-color);
+}
+
+
+.eye-icon:hover,
+.forgot-password span,
+.forgot-link,
+.register-text a {
+  color: var(--primary-color);
+}
+
+
+.forgot-password span::after,
+.forgot-link::after,
+.register-text a::after {
+  background: var(--primary-color);
+}
+
+
+.send-otp-btn {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+
+.send-otp-btn:hover {
+  background: var(--primary-color);
+  color: var(--button-text);
+}
+
+
+.login-btn {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--button-text);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 500px) {
+
+  .login {
+    padding: 40px 20px;
+  }
+
+
+  .login-box {
+    padding: 25px;
+
+    border-radius: 12px;
+  }
+
+
+  .login-box:hover {
+    transform: translateY(-2px);
+  }
+
+
+  .login-box h1 {
+    font-size: 27px;
+  }
+
+
+  .login-box label {
+    font-size: 14px;
+  }
+
+
+  .login-box input {
+    font-size: 14px;
+
+    padding: 12px;
+  }
+
+
+  .password-box input {
+    padding-right: 45px;
+  }
+
+
+  .login-btn {
+    font-size: 15px;
+  }
+
+
+  .forgot-password span {
+    font-size: 13px;
+  }
+
+
+  .register-text {
+    font-size: 14px;
+  }
+
+
+  /* OTP responsive */
+
+  .otp-section {
+    gap: 8px;
+  }
+
+
+  .send-otp-btn {
+    padding: 12px 10px;
+
+    font-size: 12px;
+  }
+
+
+  .login-box input[name="otp"] {
+    letter-spacing: 3px;
+
+    font-size: 15px;
+  }
+
+}

@@ -1,0 +1,334 @@
+.quick-actions {
+  width: 100%;
+  padding: 60px 8%;
+  transition: all 0.3s ease;
+  background: var(--bg-color);
+  color: var(--text-color);
+
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
+}
+
+
+/* =========================
+   LIGHT THEME
+========================= */
+
+.quick-actions.light {
+  background: #f5f8fc;
+  color: #172033;
+}
+
+.quick-actions.light .dashboard-tag {
+  color: #2563eb;
+  background: #e8f0ff;
+}
+
+.quick-actions.light .quick-actions-heading h2 {
+  color: #172033;
+}
+
+.quick-actions.light .quick-actions-heading p {
+  color: #667085;
+}
+
+.quick-actions.light .quick-action-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+}
+
+.quick-actions.light .quick-action-card:hover {
+  border-color: #2563eb;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
+}
+
+.quick-actions.light .quick-action-icon {
+  background: #e8f0ff;
+  color: #2563eb;
+}
+
+.quick-actions.light .quick-action-content h3 {
+  color: #172033;
+}
+
+.quick-actions.light .quick-action-content p {
+  color: #667085;
+}
+
+
+/* =========================
+   DARK THEME
+========================= */
+
+.quick-actions.dark {
+  background: #07111f;
+  color: #ffffff;
+}
+
+.quick-actions.dark .dashboard-tag {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.quick-actions.dark .quick-actions-heading h2 {
+  color: #ffffff;
+}
+
+.quick-actions.dark .quick-actions-heading p {
+  color: #a8b3c7;
+}
+
+.quick-actions.dark .quick-action-card {
+  background: #0d1b2a;
+  border: 1px solid #1e3045;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.quick-actions.dark .quick-action-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.12);
+}
+
+.quick-actions.dark .quick-action-icon {
+  background: rgba(59, 130, 246, 0.12);
+  color: #3b82f6;
+}
+
+.quick-actions.dark .quick-action-content h3 {
+  color: #ffffff;
+}
+
+.quick-actions.dark .quick-action-content p {
+  color: #a8b3c7;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.quick-actions-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.quick-actions-heading {
+  max-width: 650px;
+  margin-bottom: 35px;
+}
+
+.dashboard-tag {
+  display: inline-block;
+
+  padding: 8px 16px;
+  margin-bottom: 16px;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  transition: all 0.3s ease;
+}
+
+.quick-actions-heading h2 {
+  margin: 0 0 12px;
+
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--heading-color);
+
+  transition: color 0.3s ease;
+}
+
+.quick-actions-heading p {
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted-text);
+
+  transition: color 0.3s ease;
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.quick-actions-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+
+/* =========================
+   ACTION CARD
+========================= */
+
+.quick-action-card {
+  width: 100%;
+
+  padding: 25px;
+
+  border-radius: 16px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 18px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.quick-action-card:hover {
+  transform: translateY(-5px);
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.quick-action-icon {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+
+  transition: all 0.3s ease;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.quick-action-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.quick-action-content h3 {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  transition: color 0.3s ease;
+}
+
+.quick-action-content p {
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  transition: color 0.3s ease;
+}
+
+
+/* =========================
+   FOCUS
+========================= */
+
+.quick-action-card:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .quick-actions {
+    padding: 50px 6%;
+  }
+
+  .quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .quick-actions {
+    padding: 45px 5%;
+  }
+
+  .quick-actions-heading h2 {
+    font-size: 26px;
+  }
+
+  .quick-actions-heading p {
+    font-size: 14px;
+  }
+
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .quick-action-card {
+    padding: 20px;
+  }
+
+  .quick-action-icon {
+    width: 48px;
+    height: 48px;
+
+    font-size: 20px;
+  }
+
+  .quick-action-content h3 {
+    font-size: 16px;
+  }
+
+  .quick-action-content p {
+    font-size: 13px;
+  }
+
+}

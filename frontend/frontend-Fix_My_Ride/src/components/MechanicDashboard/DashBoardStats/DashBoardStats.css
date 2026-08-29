@@ -1,0 +1,707 @@
+/* =========================================================
+   MECHANIC DASHBOARD STATS
+   FIX MY RIDE - PREMIUM GLOBAL THEME
+========================================================= */
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.mechanicStatsSection {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 20px 60px 55px;
+
+    background: var(--bg-color);
+
+    color: var(--text-color);
+
+    transition:
+        background-color var(--transition-normal),
+        color var(--transition-normal);
+}
+
+
+/* =========================================================
+   MAIN WRAPPER
+========================================================= */
+
+.mechanicStatsWrapper {
+
+    width: 100%;
+
+    max-width: 1550px;
+
+    margin: 0 auto;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.mechanicStatsHeader {
+
+    width: 100%;
+
+    margin-bottom: 32px;
+}
+
+
+/* =========================================================
+   TAG
+========================================================= */
+
+.mechanicStatsTag {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 15px;
+
+    margin-bottom: 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(37, 99, 235, 0.18);
+
+    border-radius: 30px;
+
+    background: var(--primary-light);
+
+    color: var(--primary-color);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.mechanicStatsTitle {
+
+    margin: 0;
+
+    color: var(--text-color);
+
+    font-size: clamp(27px, 3vw, 36px);
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.mechanicStatsDescription {
+
+    max-width: 680px;
+
+    margin: 12px 0 0;
+
+    color: var(--secondary-text);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   STATS CARDS
+========================================================= */
+
+.mechanicStatsCards {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   STAT CARD
+========================================================= */
+
+.mechanicStatsCard {
+
+    position: relative;
+
+    min-height: 135px;
+
+    padding: 24px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    background: var(--card-bg);
+
+    color: var(--text-color);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-md);
+
+    overflow: hidden;
+
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast),
+        background-color var(--transition-fast);
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.mechanicStatsCard:hover {
+
+   transform: translateY(-4px);
+
+    box-shadow: var(--shadow-lg);
+
+    border-color: rgba(37, 99, 235, 0.22);
+
+    /* remaining sides stay 1px */
+    border: 1px solid var(--primary-color);
+   
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+.mechanicStatsCard::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -1px;
+
+    left: 50%;
+
+    width: 0;
+
+    height: 3px;
+
+    background: var(--primary-color);
+
+    border-radius: 0 0 4px 4px;
+
+    transform: translateX(-50%);
+
+    transition:
+        width 0.35s ease;
+}
+.mechanicStatsCard:hover::before {
+
+    width: 100%;
+}
+.mechanicStatsIcon {
+
+    width: 58px;
+    height: 58px;
+
+    min-width: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border: 1px solid
+        rgba(37, 99, 235, 0.12);
+
+    border-radius: 14px;
+
+    background: var(--primary-light);
+
+    color: var(--primary-color);
+
+    font-size: 26px;
+
+    transition:
+        transform var(--transition-fast),
+        background-color var(--transition-fast);
+}
+
+
+/* =========================================================
+   ICON HOVER
+========================================================= */
+
+.mechanicStatsCard:hover
+.mechanicStatsIcon {
+
+    transform: scale(1.06);
+
+    background:
+        rgba(37, 99, 235, 0.14);
+}
+
+
+/* =========================================================
+   CARD INFORMATION
+========================================================= */
+
+.mechanicStatsInfo {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.mechanicStatsInfo span {
+
+    display: block;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    color: var(--secondary-text);
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.mechanicStatsInfo h3 {
+
+    margin: 0;
+
+    color: var(--text-color);
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.mechanicStatsError {
+
+    width: 100%;
+
+    min-height: 52px;
+
+    margin-bottom: 24px;
+
+    padding: 12px 16px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    border: 1px solid
+        rgba(239, 68, 68, 0.20);
+
+    border-radius: var(--radius-md);
+
+    background:
+        rgba(239, 68, 68, 0.08);
+
+    color: var(--danger-color);
+
+    font-size: 14px;
+}
+
+
+.mechanicStatsError i {
+
+    flex-shrink: 0;
+
+    font-size: 20px;
+}
+
+
+.mechanicStatsError span {
+
+    flex: 1;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ERROR RETRY BUTTON
+========================================================= */
+
+.mechanicStatsError button {
+
+    min-height: 36px;
+
+    padding: 0 14px;
+
+    border: 1px solid
+        var(--danger-color);
+
+    border-radius: var(--radius-sm);
+
+    background: transparent;
+
+    color: var(--danger-color);
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+
+.mechanicStatsError button:hover {
+
+    background: var(--danger-color);
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.mechanicStatsSection.dark {
+
+    background: var(--section-bg);
+
+    color: var(--text-color);
+}
+
+
+.mechanicStatsSection.dark
+.mechanicStatsCard {
+
+    background: #0f172a;
+
+    border-color: #1e293b;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+.mechanicStatsSection.dark
+.mechanicStatsCard:hover {
+
+    border-top: 3px solid var(--primary-color);
+
+    border-right: 1px solid var(--primary-color);
+
+    border-bottom: 1px solid var(--primary-color);
+
+    border-left: 1px solid var(--primary-color);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.38);
+}
+
+
+.mechanicStatsSection.dark
+.mechanicStatsIcon {
+
+    background:
+        rgba(37, 99, 235, 0.13);
+
+    border-color:
+        rgba(56, 189, 248, 0.16);
+
+    color: var(--primary-color);
+}
+
+
+.mechanicStatsSection.dark
+.mechanicStatsCard:hover
+.mechanicStatsIcon {
+
+    background:
+        rgba(37, 99, 235, 0.18);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .mechanicStatsSection {
+
+        padding: 15px 35px 50px;
+    }
+
+
+    .mechanicStatsCards {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .mechanicStatsSection {
+
+        padding: 15px 25px 45px;
+    }
+
+
+    .mechanicStatsHeader {
+
+        margin-bottom: 28px;
+    }
+
+
+    .mechanicStatsTitle {
+
+        font-size: 28px;
+    }
+
+
+    .mechanicStatsDescription {
+
+        font-size: 14px;
+    }
+
+
+    .mechanicStatsCards {
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .mechanicStatsCard {
+
+        min-height: 115px;
+
+        padding: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .mechanicStatsSection {
+
+        padding: 10px 16px 40px;
+    }
+
+
+    .mechanicStatsTag {
+
+        padding: 6px 12px;
+
+        font-size: 10px;
+
+        letter-spacing: 1.1px;
+    }
+
+
+    .mechanicStatsTitle {
+
+        font-size: 25px;
+    }
+
+
+    .mechanicStatsDescription {
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    .mechanicStatsCard {
+
+        min-height: 100px;
+
+        padding: 17px;
+
+        gap: 14px;
+
+        border-radius: 13px;
+    }
+
+
+    .mechanicStatsIcon {
+
+        width: 50px;
+        height: 50px;
+
+        min-width: 50px;
+
+        border-radius: 12px;
+
+        font-size: 23px;
+    }
+
+
+    .mechanicStatsInfo span {
+
+        font-size: 12px;
+    }
+
+
+    .mechanicStatsInfo h3 {
+
+        font-size: 26px;
+    }
+
+
+    .mechanicStatsError {
+
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+
+        font-size: 13px;
+    }
+
+
+    .mechanicStatsError span {
+
+        flex: 1 1 calc(100% - 35px);
+    }
+
+
+    .mechanicStatsError button {
+
+        width: 100%;
+
+        margin-top: 5px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 350px) {
+
+    .mechanicStatsSection {
+
+        padding: 5px 12px 35px;
+    }
+
+
+    .mechanicStatsTitle {
+
+        font-size: 22px;
+    }
+
+
+    .mechanicStatsCard {
+
+        padding: 15px;
+    }
+
+
+    .mechanicStatsIcon {
+
+        width: 46px;
+        height: 46px;
+
+        min-width: 46px;
+
+        font-size: 21px;
+    }
+
+
+    .mechanicStatsInfo h3 {
+
+        font-size: 24px;
+    }
+
+}

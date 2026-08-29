@@ -1,0 +1,1284 @@
+/* =========================================================
+   FIX MY RIDE - HOME PAGE SERVICES
+   PREMIUM RESPONSIVE DESIGN
+   LIGHT + DARK THEME
+========================================================= */
+
+
+/* =========================================================
+   SERVICES MAIN
+========================================================= */
+
+.services {
+    width: 100%;
+    min-height: 100%;
+
+    padding: 80px 60px;
+
+    box-sizing: border-box;
+
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   SERVICES HEADER
+========================================================= */
+
+.services-header {
+    width: 100%;
+    max-width: 850px;
+
+    margin: 0 auto 50px;
+
+    text-align: center;
+}
+
+
+.services-header h2 {
+    margin: 0 0 15px;
+
+    font-size: 42px;
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    letter-spacing: -0.8px;
+
+    color: var(--text-color);
+}
+
+
+.services-header h2 span {
+    color: var(--primary-color);
+}
+
+
+.services-header p {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    font-size: 17px;
+    line-height: 1.7;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   SERVICES CONTAINER
+========================================================= */
+
+.services-container {
+    width: 100%;
+    max-width: 1450px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
+.service-card {
+    position: relative;
+
+    width: 100%;
+    min-height: 430px;
+
+    padding: 28px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    border-radius: var(--radius-xl);
+
+    background: var(--card-bg);
+    color: var(--text-color);
+
+    border: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow-md);
+
+    overflow: hidden;
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal),
+        background-color var(--transition-normal),
+        border-color var(--transition-normal);
+}
+
+
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+.service-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--primary-color);
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition: transform 0.3s ease;
+}
+
+
+
+.service-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--primary-color);
+
+    box-shadow: var(--shadow-lg);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* =========================================================
+   DARK CARD
+========================================================= */
+
+.dark .services .service-card {
+    background: var(--card-bg);
+
+    border-color: var(--border-color);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.28);
+}
+
+
+.dark .services .service-card:hover {
+    border-color: rgba(56, 189, 248, 0.45);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.42);
+}
+
+
+/* =========================================================
+   SERVICE CARD ICON
+========================================================= */
+
+.service-card-icon {
+    width: 52px;
+    height: 52px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: var(--radius-md);
+
+    background: var(--primary-light);
+
+    color: var(--primary-color);
+
+    font-size: 25px;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+
+.service-card-icon i {
+    font-size: 27px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.service-card:hover .service-card-icon {
+    transform: translateY(-2px);
+}
+
+
+.service-card:hover .service-card-icon i {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   DARK CARD ICON
+========================================================= */
+
+.dark .services .service-card-icon {
+    background: rgba(56, 189, 248, 0.10);
+
+    border-color: rgba(56, 189, 248, 0.16);
+
+    color: #38bdf8;
+}
+
+
+.dark .services .service-card:hover .service-card-icon {
+    background: rgba(56, 189, 248, 0.17);
+
+    color: #7dd3fc;
+}
+
+
+/* =========================================================
+   SERVICE TITLE
+========================================================= */
+
+.service-card h3 {
+    width: 100%;
+
+    margin: 0 0 9px;
+
+    font-size: 20px;
+
+    line-height: 1.35;
+
+    font-weight: 750;
+
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   DARK TITLE
+========================================================= */
+
+.dark .services .service-card h3 {
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   SERVICE DESCRIPTION
+========================================================= */
+
+.service-card-description {
+    width: 100%;
+
+    min-height: 66px;
+
+    margin: auto;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   DARK DESCRIPTION
+========================================================= */
+
+.dark .services .service-card-description {
+    color: #aebdce !important;
+}
+
+
+/* =========================================================
+   VEHICLE TYPE
+========================================================= */
+
+.service-vehicle-type {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 10px;
+
+    padding: 10px 13px;
+
+    width: fit-content;
+
+    border-radius: var(--radius-sm);
+
+    background: var(--primary-light);
+
+    color: var(--primary-color);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast);
+}
+
+
+
+.service-vehicle-type i {
+    font-size: 18px;
+
+}
+
+
+/* =========================================================
+   DARK VEHICLE TYPE
+========================================================= */
+
+.dark .services .service-vehicle-type {
+    background: rgba(56, 189, 248, 0.08);
+
+    border-color: rgba(56, 189, 248, 0.16);
+
+    color: #ffffff !important;
+}
+
+
+.dark .services .service-vehicle-type i {
+    color: #38bdf8 !important;
+}
+
+
+/* =========================================================
+   SERVICE DETAILS
+========================================================= */
+
+.service-details {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 18px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PRICE / DURATION ITEM
+========================================================= */
+
+.service-detail-item {
+    flex: 1;
+
+    min-width: 0;
+
+    min-height: 58px;
+
+    padding: 9px 11px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    box-sizing: border-box;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+    background: var(--card-bg);
+
+    color: var(--text-color);
+
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+/* =========================================================
+   DETAIL ITEM HOVER
+========================================================= */
+
+.service-detail-item:hover {
+    transform: translateY(-1px);
+
+    border-color: var(--primary-color);
+
+    background: var(--primary-light);
+}
+
+
+/* =========================================================
+   PRICE / DURATION ICON
+========================================================= */
+
+.service-detail-item > i {
+    flex-shrink: 0;
+
+    font-size: 21px;
+
+    color: var(--primary-color) !important;
+}
+
+
+/* =========================================================
+   DETAIL INFORMATION
+========================================================= */
+
+.service-detail-info {
+     display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 3px;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   DETAIL LABEL
+========================================================= */
+
+.service-detail-info span {
+     margin: 0;
+
+    font-size: 11px;
+
+    color: var(--muted-text);
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   DETAIL VALUE
+========================================================= */
+
+.service-detail-info strong {
+    margin: 0;
+
+    font-size: 15px;
+
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   DARK MODE - PRICE / DURATION
+========================================================= */
+
+.dark .services .service-detail-item {
+    background: #172235 !important;
+
+    border-color: #3b4d68 !important;
+
+    color: #ffffff !important;
+}
+
+
+.dark .services .service-detail-item > i {
+    color: #ffffff !important;
+}
+
+
+.dark .services .service-detail-info span {
+    color: #cbd5e1 !important;
+}
+
+
+.dark .services .service-detail-info strong {
+    color: #ffffff !important;
+}
+
+
+.dark .services .service-detail-item:hover {
+    background: #1d2b40 !important;
+
+    border-color: var(--primary-color) !important;
+
+    box-shadow:
+        0 4px 14px rgba(56, 189, 248, 0.12);
+}
+
+
+.dark .services .service-detail-item:hover > i {
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   COMMON SERVICE BUTTON DESIGN
+   SAME DESIGN AS HERO BUTTON
+========================================================= */
+
+.service-book-btn,
+.show-all-services-btn,
+.service-popup-login,
+.service-popup-cancel {
+
+    min-height: 46px;
+
+    padding: 0 20px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    box-sizing: border-box;
+
+    /*border: 1.5px solid var(--primary-color);*/
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: var(--text-color);
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   BOOK NOW BUTTON
+========================================================= */
+
+.service-book-btn {
+    width: 100%;
+}
+
+
+/* =========================================================
+   SHOW ALL BUTTON
+========================================================= */
+
+.show-all-services-btn {
+    width: auto;
+}
+
+
+/* =========================================================
+   POPUP BUTTONS
+========================================================= */
+
+.service-popup-login,
+.service-popup-cancel {
+    flex: 1;
+}
+
+
+/* =========================================================
+   COMMON BUTTON HOVER
+========================================================= */
+
+.service-book-btn:hover,
+.show-all-services-btn:hover,
+.service-popup-login:hover,
+.service-popup-cancel:hover {
+
+    background: var(--primary-color);
+
+    color: var(--button-text);
+
+    border-color: var(--primary-color);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.22);
+}
+
+
+/* =========================================================
+   BUTTON ICON
+========================================================= */
+
+.service-book-btn i,
+.show-all-services-btn i,
+.service-popup-login i,
+.service-popup-cancel i {
+
+    font-size: 17px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   BUTTON ICON HOVER
+========================================================= */
+
+.service-book-btn:hover i,
+.show-all-services-btn:hover i,
+.service-popup-login:hover i,
+.service-popup-cancel:hover i {
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   DARK MODE - SERVICE BUTTONS
+========================================================= */
+
+.dark .services .service-book-btn,
+.dark .services .show-all-services-btn,
+.dark .services .service-popup-login,
+.dark .services .service-popup-cancel {
+
+    background: var(--bg-color);
+
+    color: var(--text-color);
+
+    border-color: var(--primary-color);
+}
+
+
+/* =========================================================
+   DARK MODE - BUTTON HOVER
+========================================================= */
+
+.dark .services .service-book-btn:hover,
+.dark .services .show-all-services-btn:hover,
+.dark .services .service-popup-login:hover,
+.dark .services .service-popup-cancel:hover {
+
+    background: var(--primary-color);
+
+    color: var(--button-text);
+
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 10px 25px rgba(56, 189, 248, 0.22);
+}
+
+
+/* =========================================================
+   SHOW ALL SERVICES
+========================================================= */
+
+.show-all-services {
+    width: 100%;
+
+    margin-top: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.services-loading {
+    width: 100%;
+
+    min-height: 220px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    color: var(--secondary-text);
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+.services-loading i {
+    color: var(--primary-color);
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.services-error {
+    width: 100%;
+
+    max-width: 600px;
+
+    margin: 0 auto 30px;
+
+    padding: 15px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(239, 68, 68, 0.30);
+
+    border-radius: 10px;
+
+    background: rgba(239, 68, 68, 0.08);
+
+    color: #ef4444;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+.services-error i {
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.services-empty {
+    width: 100%;
+
+    max-width: 500px;
+
+    min-height: 220px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.services-empty i {
+    margin-bottom: 15px;
+
+    font-size: 45px;
+
+    color: var(--primary-color);
+}
+
+
+.services-empty p {
+    margin: 0;
+
+    color: var(--secondary-text);
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   LOGIN POPUP OVERLAY
+========================================================= */
+
+.service-login-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background: rgba(2, 6, 23, 0.72);
+
+    backdrop-filter: blur(7px);
+
+    -webkit-backdrop-filter: blur(7px);
+
+    animation:
+        popupOverlayIn 0.25s ease;
+}
+
+
+/* =========================================================
+   LOGIN POPUP
+========================================================= */
+
+.service-login-popup {
+    width: 100%;
+
+    max-width: 420px;
+
+    padding: 35px 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 18px;
+
+    background: var(--card-bg);
+
+    color: var(--text-color);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.30);
+
+    animation:
+        popupIn 0.3s ease;
+}
+
+
+/* =========================================================
+   POPUP ICON
+========================================================= */
+
+.service-popup-icon {
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(37, 99, 235, 0.12);
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.10);
+
+    color: var(--primary-color);
+}
+
+
+.service-popup-icon i {
+    font-size: 30px;
+}
+
+
+/* =========================================================
+   POPUP TITLE
+========================================================= */
+
+.service-login-popup h2 {
+    margin: 0 0 12px;
+
+    color: var(--text-color);
+
+    font-size: 25px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   POPUP MESSAGE
+========================================================= */
+
+.service-login-popup p {
+    max-width: 330px;
+
+    margin: 0 auto 28px;
+
+    color: var(--secondary-text);
+
+    font-size: 14.5px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   POPUP BUTTON CONTAINER
+========================================================= */
+
+.service-popup-buttons {
+    width: 100%;
+
+    display: flex;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   POPUP DARK MODE
+========================================================= */
+
+.dark .services .service-login-popup {
+    background: #0f172a;
+
+    border-color: #1e293b;
+
+    color: #f8fafc;
+}
+
+
+.dark .services .service-popup-icon {
+    background: rgba(56, 189, 248, 0.10);
+
+    border-color: rgba(56, 189, 248, 0.18);
+
+    color: #38bdf8;
+}
+
+
+.dark .services .service-login-popup h2 {
+    color: #ffffff !important;
+}
+
+
+.dark .services .service-login-popup p {
+    color: #cbd5e1 !important;
+}
+
+
+/* =========================================================
+   POPUP ICON COLORS
+========================================================= */
+
+.dark .services .service-popup-login i,
+.dark .services .service-popup-cancel i {
+    color: inherit;
+}
+
+
+/* =========================================================
+   POPUP ANIMATIONS
+========================================================= */
+
+@keyframes popupOverlayIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes popupIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .services {
+        padding: 70px 40px;
+    }
+
+
+    .services-container {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 24px;
+    }
+
+
+    .services-header {
+        margin-bottom: 40px;
+    }
+
+
+    .services-header h2 {
+        font-size: 38px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .services {
+        padding: 60px 25px;
+    }
+
+
+    .services-header {
+        margin-bottom: 35px;
+    }
+
+
+    .services-header h2 {
+        font-size: 34px;
+    }
+
+
+    .services-header p {
+        font-size: 15px;
+
+        line-height: 1.6;
+    }
+
+
+    .services-container {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .service-card {
+        min-height: 350px;
+
+        padding: 24px 22px;
+    }
+
+
+    .service-card-icon {
+        width: 56px;
+        height: 56px;
+    }
+
+
+    .service-card-icon i {
+        font-size: 26px;
+    }
+
+
+    .service-details {
+        gap: 9px;
+    }
+
+
+    .service-detail-item {
+        padding: 9px 8px;
+
+        gap: 7px;
+    }
+
+
+    .service-detail-item > i {
+        font-size: 18px;
+    }
+
+
+    .show-all-services {
+        margin-top: 35px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .services {
+        padding: 50px 18px;
+    }
+
+
+    .services-header h2 {
+        font-size: 30px;
+    }
+
+
+    .services-header p {
+        font-size: 14px;
+    }
+
+
+    .service-card {
+        min-height: 350px;
+
+        padding: 24px 20px;
+    }
+
+
+    .service-card h3 {
+        font-size: 19px;
+    }
+
+
+    .service-card-description {
+        font-size: 14px;
+    }
+
+
+    .service-details {
+        gap: 7px;
+    }
+
+
+    .service-detail-item {
+        min-height: 54px;
+
+        padding: 8px 6px;
+
+        gap: 6px;
+    }
+
+
+    .service-detail-item > i {
+        font-size: 16px;
+    }
+
+
+    .service-detail-info {
+        gap: 2px;
+    }
+
+
+    .service-detail-info span {
+        font-size: 10px;
+    }
+
+
+    .service-detail-info strong {
+        font-size: 12px;
+    }
+
+
+    .show-all-services-btn {
+        width: 100%;
+
+        max-width: 260px;
+    }
+
+
+    .service-login-popup {
+        max-width: 360px;
+
+        padding: 30px 22px;
+
+        border-radius: 15px;
+    }
+
+
+    .service-login-popup h2 {
+        font-size: 22px;
+    }
+
+
+    .service-login-popup p {
+        font-size: 14px;
+
+        margin-bottom: 24px;
+    }
+
+
+    .service-popup-buttons {
+        flex-direction: column;
+    }
+
+
+    .service-popup-login,
+    .service-popup-cancel {
+        width: 100%;
+
+        flex: none;
+    }
+
+}

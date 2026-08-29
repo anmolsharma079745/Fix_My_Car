@@ -1,0 +1,726 @@
+/* =========================================================
+   FIX MY RIDE - CUSTOMER DASHBOARD STATS
+   ========================================================= */
+
+
+/* =========================================================
+   FULL STATS SECTION
+   ========================================================= */
+
+.dashboard-stats-section {
+    width: 100%;
+    min-height: 300px;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    overflow: hidden;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   MAIN STATS CONTAINER
+   SAME BASE WIDTH / PADDING AS MY VEHICLES
+   ========================================================= */
+
+.dashboard-stats {
+    width: 100%;
+    max-width: 1550px;
+
+    min-height: 260px;
+
+    margin: 0 auto;
+    padding: 50px 60px;
+
+    box-sizing: border-box;
+
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    border: none;
+    border-radius: 0;
+
+    overflow: hidden;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   LIGHT THEME
+   ========================================================= */
+
+.dashboard-stats-section.light {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.dashboard-stats-section.light .dashboard-stats {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   DARK THEME
+   ========================================================= */
+
+.dashboard-stats-section.dark {
+    background: var(--bg-color);
+    color: #f1f5f9;
+}
+
+.dashboard-stats-section.dark .dashboard-stats {
+    background: var(--bg-color);
+    color: #f1f5f9;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.stats-header {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+
+    margin: 0 0 28px;
+}
+
+
+/* =========================================================
+   TAG
+   ========================================================= */
+
+.stats-tag {
+    display: inline-flex;
+    align-items: center;
+
+    margin: 0 0 10px;
+    padding: 7px 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    border-radius: 8px;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    color: var(--primary-color);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   DARK TAG
+   ========================================================= */
+
+.dashboard-stats-section.dark .stats-tag {
+    background: rgba(56, 189, 248, 0.08);
+
+    border-color: rgba(56, 189, 248, 0.16);
+
+    color: #42a5f5;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.stats-header h2 {
+    margin: 0 0 8px;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.3px;
+
+    color: var(--text-color);
+}
+
+
+/* DARK HEADING */
+
+.dashboard-stats-section.dark .stats-header h2 {
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.stats-header p {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    color: var(--secondary-text);
+}
+
+
+/* DARK DESCRIPTION */
+
+.dashboard-stats-section.dark .stats-header p {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   STATS GRID
+   ========================================================= */
+
+.stats-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 22px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   STAT CARD
+   ========================================================= */
+
+.stat-card {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 175px;
+
+    padding: 24px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+
+    color: var(--text-color);
+
+    box-shadow: none;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+
+/* =========================================================
+   CARD TOP BLUE LINE
+   ========================================================= */
+
+.stat-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: #42a5f5;
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition: transform 0.3s ease;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.stat-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #1677ff;
+}
+
+
+/* TOP LINE */
+
+.stat-card:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   LIGHT CARD
+   ========================================================= */
+
+.dashboard-stats-section.light .stat-card {
+    background: #ffffff;
+
+    border-color: #e4eaf2;
+
+    box-shadow: none;
+}
+
+
+/* LIGHT CARD HOVER */
+
+.dashboard-stats-section.light .stat-card:hover {
+    background: #ffffff;
+
+    border-color: #1677ff;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   DARK CARD
+   ========================================================= */
+
+.dashboard-stats-section.dark .stat-card {
+    background: #111827;
+
+    border-color: #263244;
+
+    box-shadow: none;
+}
+
+
+/* DARK CARD HOVER */
+
+.dashboard-stats-section.dark .stat-card:hover {
+    background: #111827;
+
+    border-color: #1677ff;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   STAT ICON
+   ========================================================= */
+
+.stat-icon {
+    width: 52px;
+    height: 52px;
+
+    min-width: 52px;
+    min-height: 52px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 0 12px;
+
+    box-sizing: border-box;
+
+    border-radius: 14px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 25px;
+}
+
+
+/* DARK ICON */
+
+
+
+/* =========================================================
+   STAT CONTENT
+   ========================================================= */
+
+.stat-content {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   STAT NUMBER
+   ========================================================= */
+
+.stat-content h3 {
+    margin: 0 0 5px;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    text-align: center;
+
+    color: var(--text-color);
+}
+
+
+/* DARK NUMBER */
+
+.dashboard-stats-section.dark .stat-content h3 {
+    color: #f1f5f9;
+}
+
+
+/* =========================================================
+   STAT TITLE
+   ========================================================= */
+
+.stat-content p {
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.4;
+
+    text-align: center;
+
+    color: var(--secondary-text);
+}
+
+
+/* DARK TITLE */
+
+.dashboard-stats-section.dark .stat-content p {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+   ========================================================= */
+
+.stats-error {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 0 0 20px;
+    padding: 12px 16px;
+
+    box-sizing: border-box;
+
+    border-radius: 10px;
+
+    background: #fef2f2;
+
+    border: 1px solid #fee2e2;
+
+    color: #dc2626;
+
+    font-size: 14px;
+}
+
+
+/* ERROR ICON */
+
+.stats-error i {
+    flex-shrink: 0;
+
+    font-size: 18px;
+}
+
+
+/* DARK ERROR */
+
+.dashboard-stats-section.dark .stats-error {
+    background: #160d10;
+
+    border-color: #3a1c23;
+
+    color: #f87171;
+}
+
+
+/* =========================================================
+   RESPONSIVE - 1100px
+   SAME AS MY VEHICLES
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .dashboard-stats {
+        width: 100%;
+        max-width: 1550px;
+
+        margin: 0 auto;
+
+        padding: 40px 35px;
+    }
+
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 22px;
+    }
+
+
+    .stat-card {
+        min-height: 170px;
+
+        padding: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 768px
+   SAME AS MY VEHICLES
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .dashboard-stats {
+        width: 100%;
+
+        margin: 0 auto;
+
+        padding: 35px 25px;
+    }
+
+
+    .stats-header {
+        margin-bottom: 22px;
+    }
+
+
+    .stats-header h2 {
+        font-size: 28px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .stats-header p {
+        max-width: 100%;
+
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .stat-card {
+        min-height: 155px;
+
+        padding: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 600px
+   SAME AS MY VEHICLES
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .dashboard-stats {
+        width: calc(100% - 20px);
+
+        margin: 20px auto;
+
+        padding: 30px 18px !important;
+    }
+
+
+    .stats-header {
+        margin-bottom: 20px;
+    }
+
+
+    .stats-tag {
+        margin-bottom: 8px;
+
+        font-size: 11px;
+
+        letter-spacing: 1.4px;
+    }
+
+
+    .stats-header h2 {
+        font-size: 26px;
+
+        line-height: 1.2;
+    }
+
+
+    .stats-header p {
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+
+    .stats-grid {
+        gap: 14px;
+    }
+
+
+    .stat-card {
+        min-height: 145px;
+
+        padding: 20px;
+    }
+
+
+    .stat-icon {
+        width: 44px;
+        height: 44px;
+
+        min-width: 44px;
+        min-height: 44px;
+
+        margin-bottom: 10px;
+
+        font-size: 21px;
+    }
+
+
+    .stat-content h3 {
+        font-size: 27px;
+    }
+
+
+    .stat-content p {
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 400px
+   SAME AS MY VEHICLES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .dashboard-stats {
+        width: calc(100% - 20px);
+
+        margin: 20px auto;
+
+        padding: 25px 14px !important;
+    }
+
+
+    .stats-header h2 {
+        font-size: 23px;
+    }
+
+
+    .stats-header p {
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    .stat-card {
+        min-height: 140px;
+
+        padding: 18px;
+    }
+
+
+    .stat-icon {
+        width: 42px;
+        height: 42px;
+
+        min-width: 42px;
+        min-height: 42px;
+
+        font-size: 20px;
+    }
+
+
+    .stat-content h3 {
+        font-size: 25px;
+    }
+
+
+    .stat-content p {
+        font-size: 12px;
+    }
+
+}

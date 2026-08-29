@@ -1,0 +1,1628 @@
+/* =========================================================
+   FIX MY RIDE - ASSIGNED SERVICES
+   PREMIUM GLOBAL THEME
+========================================================= */
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.assigned-services {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 45px 60px;
+
+    box-sizing: border-box;
+
+    background: var(--bg-color) !important;
+
+    color: var(--text-color);
+
+    transition:
+        background-color var(--transition-normal),
+        color var(--transition-normal);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.assigned-services-container {
+
+    width: 100%;
+
+    max-width: 1600px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.assigned-services-heading {
+
+    margin-bottom: 30px;
+}
+
+
+.dashboard-tag {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 7px 13px;
+
+    border-radius: 8px;
+
+    background: var(--primary-light);
+
+    color: var(--primary-color);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.1px;
+
+    margin-bottom: 10px;
+}
+
+
+.assigned-services-heading h2 {
+
+    margin: 0;
+
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    color: var(--text-color);
+}
+
+
+.assigned-services-heading p {
+
+    margin: 9px 0 0;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   ALERT
+========================================================= */
+
+.assigned-services-alert {
+
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 12px 16px;
+
+    margin-bottom: 20px;
+
+    box-sizing: border-box;
+
+    border-radius: var(--radius-md);
+
+    background: rgba(239, 68, 68, 0.08);
+
+    border: 1px solid rgba(239, 68, 68, 0.20);
+
+    color: var(--danger-color);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.assigned-services-alert i {
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.assigned-services-message {
+
+    width: 100%;
+
+    min-height: 250px;
+
+    border-radius: var(--radius-lg);
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    color: var(--secondary-text);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+.assigned-services-message i {
+
+    font-size: 28px;
+
+    animation:
+        assignedServiceSpin 1s linear infinite;
+}
+
+
+@keyframes assignedServiceSpin {
+
+    from {
+
+        transform: rotate(0deg);
+
+    }
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+.assigned-services-message span {
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.assigned-services-empty {
+
+    width: 100%;
+
+    min-height: 300px;
+
+    padding: 40px;
+
+    box-sizing: border-box;
+
+    border-radius: var(--radius-lg);
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    box-shadow: var(--shadow-md);
+}
+
+
+.empty-service-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin-bottom: 17px;
+
+    border-radius: 16px;
+
+    background: var(--primary-light);
+
+    color: var(--primary-color);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.empty-service-icon i {
+
+    font-size: 31px;
+}
+
+
+.assigned-services-empty h3 {
+
+    margin: 0;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    color: var(--text-color);
+}
+
+
+.assigned-services-empty p {
+
+    margin: 8px 0 0;
+
+    font-size: 13px;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   SERVICES LIST
+========================================================= */
+
+.assigned-services-list {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
+.assigned-service-card {
+
+    position: relative;
+
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 22px;
+
+    box-sizing: border-box;
+
+    border-radius: var(--radius-lg);
+
+    background: var(--card-bg);
+
+    color: var(--text-color);
+
+    border: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow-md);
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast),
+        background-color var(--transition-fast);
+}
+
+
+/* =========================================================
+   TOP BLUE LINE
+========================================================= */
+
+.assigned-service-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -1px;
+
+    left: 50%;
+
+    width: 0;
+
+    height: 3px;
+
+    background: var(--primary-color);
+
+    border-radius: 0 0 4px 4px;
+
+    transform: translateX(-50%);
+
+    transition:
+        width 0.35s ease;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.assigned-service-card:hover {
+
+    transform: translateY(-4px);
+
+    border: 1px solid var(--primary-color);
+
+    box-shadow: var(--shadow-lg);
+}
+
+
+.assigned-service-card:hover::before {
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.service-card-header {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 18px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+
+.vehicle-title {
+
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.vehicle-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    flex: 0 0 45px;
+
+    border-radius: 12px;
+
+    background: var(--primary-light);
+
+    color: var(--primary-color);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        transform var(--transition-fast),
+        background-color var(--transition-fast);
+}
+
+
+.vehicle-icon i {
+
+    font-size: 22px;
+}
+
+
+.vehicle-title > div:last-child {
+
+    min-width: 0;
+}
+
+
+.service-card-header h3 {
+
+    margin: 0;
+
+    font-size: 17px;
+
+    line-height: 1.4;
+
+    font-weight: 800;
+
+    color: var(--text-color);
+
+    overflow-wrap: anywhere;
+}
+
+
+.service-card-header span:not(.service-status) {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 11px;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.service-status {
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    min-height: 32px;
+
+    padding: 7px 12px;
+
+    box-sizing: border-box;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    border-radius: var(--radius-sm);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.45px;
+
+    white-space: nowrap;
+
+    text-transform: uppercase;
+
+    border: 1px solid transparent;
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.06);
+
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+
+.service-status-dot {
+
+    width: 6px;
+
+    height: 6px;
+
+    top: -2.5px;
+
+    flex: 0 0 6px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+
+    position: relative;
+
+    display: block;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.45);
+
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+
+/* =========================================================
+   STATUS COLORS
+========================================================= */
+
+.service-status.pending .service-status-dot {
+
+    background: var(--warning-color);
+
+    box-shadow:
+        0 0 0 3px rgba(245, 158, 11, 0.12);
+}
+
+
+.service-status.confirmed .service-status-dot,
+.service-status.in-progress .service-status-dot {
+
+    background: var(--primary-color);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+.service-status.completed .service-status-dot {
+
+    background: var(--success-color);
+
+    box-shadow:
+        0 0 0 3px rgba(22, 163, 74, 0.12);
+}
+
+
+.service-status.cancelled .service-status-dot {
+
+    background: var(--danger-color);
+
+    box-shadow:
+        0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+
+/* =========================================================
+   DOT HOVER
+========================================================= */
+
+.service-status:hover .service-status-dot {
+
+    transform: scale(1.2);
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.service-card-details {
+
+    width: 100%;
+
+    padding: 17px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 0 22px;
+
+    box-sizing: border-box;
+}
+
+
+.service-detail {
+
+    min-width: 0;
+
+    padding: 10px 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.service-detail span {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+
+    color: var(--secondary-text);
+}
+
+
+.service-detail span i {
+
+    font-size: 14px;
+
+    color: var(--primary-color);
+}
+
+
+.service-detail strong {
+
+    min-width: 0;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    font-weight: 750;
+
+    color: var(--text-color);
+
+    overflow-wrap: anywhere;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   ACTION
+========================================================= */
+
+.service-card-action {
+
+    width: 100%;
+
+    margin-top: auto;
+
+    padding-top: 15px;
+
+    border-top: 1px solid var(--border-color);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   VIEW SERVICE BUTTON
+========================================================= */
+
+.view-service-btn {
+
+    min-height: 40px;
+
+    padding: 0 20px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    box-sizing: border-box;
+
+    border: 1.5px solid var(--primary-color) !important;
+
+    border-radius: var(--radius-md);
+
+    background: transparent !important;
+
+    color: var(--text-color);
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: none;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+
+.view-service-btn i {
+
+    position: relative;
+
+    z-index: 1;
+
+    font-size: 16px !important;
+
+    color: inherit !important;
+
+    transition:
+        transform var(--transition-fast) !important;
+}
+
+
+/* =========================================================
+   VIEW BUTTON HOVER
+========================================================= */
+
+.view-service-btn:hover {
+
+    background: var(--primary-color) !important;
+
+    color: var(--button-text) !important;
+
+    border-color: var(--primary-color) !important;
+
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.20) !important;
+}
+
+
+.view-service-btn:hover i {
+
+    transform: translateX(2px);
+}
+
+
+/* =========================================================
+   VIEW BUTTON ACTIVE
+========================================================= */
+
+.view-service-btn:active {
+
+    transform: translateY(0);
+
+    box-shadow:
+        0 5px 12px rgba(37, 99, 235, 0.18);
+}
+
+
+/* =========================================================
+   VIEW BUTTON FOCUS
+========================================================= */
+
+.view-service-btn:focus-visible {
+
+    outline: none;
+
+    box-shadow:
+        var(--focus-ring),
+        0 8px 20px rgba(37, 99, 235, 0.22);
+}
+
+
+/* =========================================================
+   STATUS SELECT
+========================================================= */
+
+.status-select {
+
+    min-height: 40px;
+
+    max-width: 150px;
+
+    padding: 0 10px;
+
+    border-radius: var(--radius-sm);
+
+    border: 1px solid var(--primary-color) !important;
+
+    outline: none;
+
+    background: var(--card-bg);
+
+    color: var(--text-color);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background-color var(--transition-fast);
+}
+
+
+.status-select:focus {
+
+    border-color: var(--primary-color) !important;
+
+    box-shadow: var(--focus-ring);
+}
+
+
+/* =========================================================
+   COMPLETED / CANCELLED LABEL
+========================================================= */
+
+.completed-status-label {
+
+    min-height: 40px;
+
+    padding: 0 14px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: var(--radius-sm);
+
+    background: rgba(22, 163, 74, 0.10);
+
+    color: var(--success-color);
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.completed-status-label i {
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   MODAL OVERLAY
+========================================================= */
+
+.service-details-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background: rgba(15, 23, 42, 0.58);
+
+    backdrop-filter: blur(5px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.service-details-modal {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    max-height: calc(100vh - 40px);
+
+    overflow-y: auto;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    border-radius: var(--radius-xl);
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+
+    color: var(--text-color);
+
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.service-details-modal-header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 18px;
+
+    margin-bottom: 18px;
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+
+.service-details-modal-header span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--primary-color);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.service-details-modal-header h3 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    color: var(--text-color);
+}
+
+
+.service-details-modal-header button {
+
+    width: 36px;
+
+    height: 36px;
+
+    flex-shrink: 0;
+
+    border-radius: var(--radius-sm);
+
+    border: 1px solid var(--border-color) !important;
+
+    background: transparent;
+
+    color: var(--secondary-text);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+
+.service-details-modal-header button:hover {
+
+    background: var(--primary-color);
+
+    color: var(--button-text);
+}
+
+
+.service-details-modal-header button i {
+
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   MODAL DETAILS
+========================================================= */
+
+.modal-service-details {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 17px;
+}
+
+
+.modal-detail {
+
+    min-width: 0;
+
+    padding: 13px;
+
+    border-radius: var(--radius-md);
+
+    background: var(--primary-light);
+
+    box-sizing: border-box;
+}
+
+
+.modal-detail.full-width {
+
+    grid-column: 1 / -1;
+}
+
+
+.modal-detail span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+
+    font-weight: 700;
+
+    color: var(--secondary-text);
+}
+
+
+.modal-detail strong {
+
+    display: block;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    color: var(--text-color);
+
+    overflow-wrap: anywhere;
+}
+
+
+.modal-detail p {
+
+    margin: 0;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    color: var(--secondary-text);
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   MODAL STATUS
+========================================================= */
+
+.modal-status {
+
+    width: fit-content;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+}
+
+
+.modal-status.pending {
+
+    background: rgba(245, 158, 11, 0.12);
+
+    color: var(--warning-color);
+}
+
+
+.modal-status.confirmed {
+
+    background: rgba(37, 99, 235, 0.10);
+
+    color: var(--primary-color);
+}
+
+
+.modal-status.in-progress {
+
+    background: rgba(37, 99, 235, 0.10);
+
+    color: var(--primary-color);
+}
+
+
+.modal-status.completed {
+
+    background: rgba(22, 163, 74, 0.10);
+
+    color: var(--success-color);
+}
+
+
+.modal-status.cancelled {
+
+    background: rgba(239, 68, 68, 0.10);
+
+    color: var(--danger-color);
+}
+
+
+/* =========================================================
+   MODAL STATUS ACTIONS
+========================================================= */
+
+.modal-status-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.modal-status-actions button {
+
+    min-height: 40px;
+
+    padding: 0 15px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    box-sizing: border-box;
+
+    border: 1.5px solid var(--primary-color) !important;
+
+    border-radius: var(--radius-md);
+
+    background: transparent;
+
+    color: var(--text-color);
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: none;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+
+.modal-status-actions button:hover {
+
+    background: var(--primary-color);
+
+    color: var(--button-text);
+
+    border-color: var(--primary-color) !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.20);
+}
+
+
+.modal-status-actions button:hover i {
+
+    transform: translateX(3px);
+}
+
+
+.modal-status-actions button i {
+
+    font-size: 14px;
+
+    color: inherit;
+
+    transition:
+        transform var(--transition-fast);
+}
+
+
+.modal-status-actions button:disabled {
+
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   MODAL COMPLETED MESSAGE
+========================================================= */
+
+.modal-completed-message {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 13px 15px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    border-radius: var(--radius-md);
+
+    background: rgba(22, 163, 74, 0.10);
+
+    color: var(--success-color);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.modal-completed-message i {
+
+    font-size: 18px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   DARK MODE
+   USE GLOBAL .dark VARIABLES
+========================================================= */
+
+.dark .assigned-services {
+
+    background: var(--bg-color) !important;
+
+    color: var(--text-color);
+}
+
+
+.dark .assigned-service-card {
+
+    background: var(--card-bg);
+
+    border-color: var(--border-color);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+.dark .assigned-service-card:hover {
+
+    border-color: var(--primary-color);
+
+    box-shadow: var(--shadow-lg);
+}
+
+
+.dark .assigned-services-message,
+.dark .assigned-services-empty {
+
+    background: var(--card-bg);
+
+    border-color: var(--border-color);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+.dark .vehicle-icon,
+.dark .empty-service-icon {
+
+    background: var(--primary-light);
+
+    color: var(--primary-color);
+}
+
+
+.dark .service-details-modal {
+
+    background: var(--card-bg);
+
+    border-color: var(--border-color);
+
+    box-shadow: var(--shadow-lg);
+}
+
+
+.dark .modal-detail {
+
+    background: rgba(56, 189, 248, 0.06);
+}
+
+
+.dark .service-status-dot {
+
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+
+
+.dark .status-select {
+
+    background: var(--card-bg);
+
+    color: var(--text-color);
+
+    border-color: var(--primary-color) !important;
+}
+
+
+.dark .service-details-modal-header button {
+
+    background: transparent;
+
+    color: var(--secondary-text);
+}
+
+
+.dark .service-details-modal-header button:hover {
+
+    background: var(--primary-color);
+
+    color: var(--button-text);
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .assigned-services {
+
+        padding: 40px;
+    }
+
+
+    .assigned-services-list {
+
+        grid-template-columns:
+            minmax(0, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .assigned-services {
+
+        padding: 32px 25px;
+    }
+
+
+    .assigned-services-heading h2 {
+
+        font-size: 27px;
+    }
+
+
+    .service-card-details {
+
+        grid-template-columns:
+            minmax(0, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .assigned-services {
+
+        padding: 25px 15px;
+    }
+
+
+    .assigned-services-heading h2 {
+
+        font-size: 25px;
+    }
+
+
+    .assigned-service-card {
+
+        padding: 18px;
+    }
+
+
+    .service-card-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .service-card-action {
+
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+
+    .view-service-btn,
+    .status-select,
+    .completed-status-label {
+
+        width: 100%;
+
+        max-width: none;
+    }
+
+
+    .service-details-overlay {
+
+        padding: 12px;
+    }
+
+
+    .service-details-modal {
+
+        max-height: calc(100vh - 24px);
+
+        padding: 20px;
+    }
+
+
+    .modal-service-details {
+
+        grid-template-columns:
+            minmax(0, 1fr);
+    }
+
+
+    .modal-detail.full-width {
+
+        grid-column: auto;
+    }
+
+
+    .modal-status-actions {
+
+        flex-direction: column;
+    }
+
+
+    .modal-status-actions button {
+
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .assigned-services {
+
+        padding: 20px 10px;
+    }
+
+
+    .assigned-service-card {
+
+        padding: 15px;
+    }
+
+
+    .vehicle-icon {
+
+        width: 42px;
+
+        height: 42px;
+
+        flex-basis: 42px;
+    }
+
+
+    .service-card-header h3 {
+
+        font-size: 15px;
+    }
+
+}

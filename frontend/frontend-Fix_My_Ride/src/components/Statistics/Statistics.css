@@ -1,0 +1,448 @@
+/* =========================================================
+   FIX MY RIDE - STATISTICS
+========================================================= */
+
+.statistics {
+    width: 100%;
+    padding: 80px 60px;
+    box-sizing: border-box;
+
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.statistics-header {
+    max-width: 800px;
+    margin: 0 auto 50px;
+
+    text-align: center;
+}
+
+
+.statistics-header h2 {
+    margin: 0 0 15px;
+
+    font-size: 38px;
+    font-weight: 700;
+
+    color: var(--text-color);
+}
+
+
+.statistics-header h2 span {
+    color: var(--primary-color);
+}
+
+
+.statistics-header p {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.8;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   STATISTICS CONTAINER
+========================================================= */
+
+.statistics-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   STAT CARD
+========================================================= */
+.stat-card {
+    position: relative;
+
+    padding: 35px 25px;
+    min-height: 160px;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+
+    gap: 10px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+
+.stat-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--primary-color);
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.stat-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+.stat-card:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   STAT NUMBER
+========================================================= */
+
+.stat-card h3 {
+    margin: 0 0 10px;
+
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1;
+
+    text-align: center;
+
+    color: var(--primary-color);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.stat-card:hover h3 {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   STAT TITLE
+========================================================= */
+
+.stat-card p {
+    margin: 0;
+
+    font-size: 16px;
+
+    text-align: center;
+
+    font-weight: 500;
+
+    line-height: 1.5;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.statistics-loading {
+    width: 100%;
+    max-width: 1200px;
+
+    min-height: 180px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: var(--secondary-text);
+
+    font-size: 16px;
+}
+
+
+.statistics-loading i {
+    font-size: 22px;
+
+    animation:
+        statistics-spin 1s linear infinite;
+
+    color: var(--primary-color);
+}
+
+
+@keyframes statistics-spin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.statistics-error {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    padding: 18px 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    box-sizing: border-box;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 12px;
+
+    background: var(--card-bg);
+
+    color: var(--secondary-text);
+
+    font-size: 15px;
+
+    text-align: center;
+}
+
+
+.statistics-error i {
+    font-size: 22px;
+
+    color: var(--primary-color);
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+.statistics.light {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+
+.statistics.light .stat-card {
+    background: var(--card-bg);
+
+    border-color: var(--border-color);
+}
+
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+.statistics.dark {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+
+.statistics.dark .stat-card {
+    background: var(--card-bg);
+
+    border-color: var(--border-color);
+}
+
+
+.statistics.dark .stat-card:hover {
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .statistics {
+        padding:
+            70px 40px;
+    }
+
+
+    .statistics-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        max-width: 850px;
+    }
+
+
+    .statistics-header h2 {
+        font-size: 34px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .statistics {
+        padding:
+            60px 25px;
+    }
+
+
+    .statistics-header {
+        margin-bottom: 35px;
+    }
+
+
+    .statistics-header h2 {
+        font-size: 30px;
+    }
+
+
+    .statistics-header p {
+        font-size: 15px;
+    }
+
+
+    .statistics-container {
+        grid-template-columns: 1fr;
+
+        max-width: 450px;
+
+        gap: 18px;
+    }
+
+
+    .stat-card {
+        min-height: 145px;
+
+        padding: 30px 20px;
+    }
+
+
+    .stat-card h3 {
+        font-size: 38px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .statistics {
+        padding:
+            50px 18px;
+    }
+
+
+    .statistics-header h2 {
+        font-size: 27px;
+    }
+
+
+    .statistics-header p {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+
+    .stat-card {
+        min-height: 135px;
+
+        border-radius: 15px;
+
+        padding: 25px 18px;
+    }
+
+
+    .stat-card h3 {
+        font-size: 34px;
+    }
+
+
+    .stat-card p {
+        font-size: 14px;
+    }
+
+
+    .statistics-error {
+        font-size: 14px;
+
+        padding: 15px;
+    }
+
+}

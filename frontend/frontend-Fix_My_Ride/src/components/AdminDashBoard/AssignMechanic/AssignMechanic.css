@@ -1,0 +1,2412 @@
+/* =========================================================
+   FIX MY RIDE - ASSIGNED MECHANICS
+   ADMIN DASHBOARD
+   COMPLETE RESPONSIVE + LIGHT/DARK THEME
+========================================================= */
+
+
+/* =========================================================
+   OUTER SECTION
+========================================================= */
+
+.assigned-mechanic {
+    width: 100%;
+    min-height: 100%;
+    padding: 55px 60px;
+    box-sizing: border-box;
+
+    background: var(--bg-color) !important;
+    color: var(--text-color);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   LIGHT / DARK THEME
+========================================================= */
+
+.assigned-mechanic.light {
+    background: var(--bg-color) !important;
+    color: var(--text-color);
+}
+
+.assigned-mechanic.dark {
+    background: var(--bg-color) !important;
+    color: #f1f5f9;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.assigned-mechanic-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1450px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.assigned-mechanic-header {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   TAG
+========================================================= */
+
+.assigned-mechanic-tag {
+    display: inline-flex;
+
+    align-items: center;
+
+    margin: 0 0 12px;
+
+    padding: 10px 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(37, 99, 235, 0.12);
+
+    border-radius: 8px;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    color: var(--primary-color);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+    line-height: 1;
+
+    text-transform: uppercase;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+.assigned-mechanic.dark .assigned-mechanic-tag {
+    background: rgba(56, 189, 248, 0.08);
+
+    border-color: rgba(56, 189, 248, 0.16);
+
+    color: var(--primary-color);
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.assigned-mechanic-header h2 {
+    margin: 0;
+
+    color: var(--text-color);
+
+    font-size: 28px;
+    line-height: 1.25;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   HEADER DESCRIPTION
+========================================================= */
+
+.assigned-mechanic-header p {
+    margin: 8px 0 0;
+
+    max-width: 650px;
+
+    color: var(--muted-text);
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+========================================================= */
+
+.assigned-refresh-btn {
+    flex-shrink: 0;
+
+    min-height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 17px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+.assigned-refresh-btn:hover {
+    background: var(--primary-color) !important;
+
+    color: var(--button-text) !important;
+
+    border-color: var(--primary-color) !important;
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-sm);
+}
+.assigned-refresh-btn i {
+    font-size: 17px;
+}
+
+.assigned-refresh-btn:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--primary-color);
+
+    background: var(--primary-light);
+    color: var(--primary-color);
+
+    box-shadow:
+        0 6px 18px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.assigned-stats {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   STAT CARD
+   PADDING + SPACE BETWEEN
+========================================================= */
+.assigned-stat-card {
+    position: relative;
+    overflow: hidden;
+
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 22px;
+
+    box-sizing: border-box;
+
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+
+    background: var(--card-bg);
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+.assigned-stat-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--primary-color);
+
+    opacity: 0;
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.assigned-stat-card:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 8px 22px rgba(37, 99, 235, 0.10);
+}
+
+.assigned-stat-card:hover::before {
+    opacity: 1;
+
+    transform: scaleX(1);
+}
+
+/* =========================================================
+   DARK MODE FILTER DROPDOWN
+========================================================= */
+
+.assigned-mechanic.dark .assigned-filter select {
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+.assigned-mechanic.dark .assigned-filter select option {
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+/* =========================================================
+   STAT ICON
+========================================================= */
+
+.assigned-stat-icon {
+    width: 48px;
+    min-width: 48px;
+
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    font-size: 22px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.assigned-stat-card:hover .assigned-stat-icon {
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   STAT ICON COLORS
+========================================================= */
+
+.assigned-stat-icon.blue {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.assigned-stat-icon.orange {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.assigned-stat-icon.purple {
+    background: #f5f3ff;
+    color: #7c3aed;
+}
+
+.assigned-stat-icon.green {
+    background: #ecfdf5;
+    color: #16a34a;
+}
+
+.assigned-stat-icon.red {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+
+/* =========================================================
+   DARK STAT ICONS
+========================================================= */
+
+.assigned-mechanic.dark .assigned-stat-icon.blue {
+    background: rgba(37, 99, 235, 0.15);
+    color: #60a5fa;
+}
+
+.assigned-mechanic.dark .assigned-stat-icon.orange {
+    background: rgba(249, 115, 22, 0.12);
+    color: #fb923c;
+}
+
+.assigned-mechanic.dark .assigned-stat-icon.purple {
+    background: rgba(139, 92, 246, 0.12);
+    color: #a78bfa;
+}
+
+.assigned-mechanic.dark .assigned-stat-icon.green {
+    background: rgba(34, 197, 94, 0.12);
+    color: #4ade80;
+}
+
+.assigned-mechanic.dark .assigned-stat-icon.red {
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+}
+
+
+/* =========================================================
+   STAT CONTENT
+========================================================= */
+
+.assigned-stat-card > div:last-child {
+    min-width: 0;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    gap: 4px;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   STAT TITLE
+========================================================= */
+
+.assigned-stat-card span {
+    display: block;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    color: var(--muted-text);
+
+    font-size: 12px;
+    line-height: 1.3;
+
+    font-weight: 500;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   STAT NUMBER
+========================================================= */
+
+.assigned-stat-card strong {
+    display: block;
+
+    margin: 0;
+
+    color: var(--text-color);
+
+    font-size: 24px;
+    line-height: 1.15;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SEARCH + FILTER
+========================================================= */
+
+.assigned-controls {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.assigned-search {
+    position: relative;
+
+    flex: 1;
+    min-width: 0;
+
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 4px;
+
+    box-sizing: border-box;
+
+    border: 1px solid var(--border-color);
+    border-radius: 11px;
+
+    background: var(--card-bg);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.assigned-search:focus-within {
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.assigned-search > i {
+    flex-shrink: 0;
+
+    margin-left: 15px;
+
+    color: var(--muted-text);
+
+    font-size: 18px;
+}
+
+.assigned-search input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 42px 0 10px;
+
+    box-sizing: border-box;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text-color);
+
+    font-size: 13px;
+}
+
+.assigned-search input::placeholder {
+    color: var(--muted-text);
+}
+
+
+/* =========================================================
+   SEARCH CLEAR
+========================================================= */
+
+.assigned-search-clear {
+    position: absolute;
+    right: 8px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 7px;
+
+    background: transparent;
+    color: var(--muted-text);
+
+    font-size: 17px;
+
+    cursor: pointer;
+}
+
+.assigned-search-clear:hover {
+    background: var(--primary-light);
+    color: var(--primary-color);
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+.assigned-filter {
+    position: relative;
+
+    width: 190px;
+    min-width: 190px;
+
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid var(--border-color);
+    border-radius: 11px;
+
+    background: var(--card-bg);
+}
+
+.assigned-filter > i {
+    position: absolute;
+    left: 14px;
+
+    color: var(--muted-text);
+
+    font-size: 17px;
+
+    pointer-events: none;
+}
+
+.assigned-filter select {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 12px 0 39px;
+
+    border: none;
+    outline: none;
+    border-radius: 11px;
+
+    background: transparent;
+    color: var(--text-color);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.assigned-mechanic-content {
+    width: 100%;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.assigned-mechanic-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   MECHANIC CARD
+========================================================= */
+
+.assigned-mechanic-card {
+    position: relative;
+    overflow: hidden;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+
+    background: var(--card-bg);
+    color: var(--text-color);
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.assigned-mechanic-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--primary-color);
+
+    opacity: 0;
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.assigned-mechanic-card:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 12px 28px rgba(15, 23, 42, 0.1);
+}
+.assigned-mechanic-card:hover::before {
+    opacity: 1;
+
+    transform: scaleX(1);
+}
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.mechanic-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 14px;
+
+    padding: 0 0 18px;
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+
+/* =========================================================
+   MECHANIC ICON
+========================================================= */
+
+.mechanic-icon {
+    width: 52px;
+    min-width: 52px;
+
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    border-radius: 13px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    font-size: 24px;
+}
+
+
+/* =========================================================
+   MAIN INFO
+========================================================= */
+
+.mechanic-main-info {
+    min-width: 0;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.mechanic-main-info h3 {
+    margin: 0;
+
+    overflow: hidden;
+
+    color: var(--text-color);
+
+    font-size: 17px;
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   EMAIL
+========================================================= */
+
+.mechanic-email {
+    display: block;
+
+    margin: 0 0 5px;
+
+    overflow: hidden;
+
+    color: var(--muted-text);
+
+    font-size: 12px;
+    line-height: 1.4;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   MECHANIC STATUS
+========================================================= */
+
+.mechanic-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    align-self: flex-start;
+
+    gap: 5px;
+
+    min-height: 24px;
+
+    padding: 5px 10px;
+
+    box-sizing: border-box;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    line-height: 1;
+
+    font-weight: 600;
+
+    text-transform: capitalize;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   STATUS COLORS
+========================================================= */
+
+.mechanic-status.available {
+    background: #ecfdf5;
+    color: #15803d;
+}
+
+.mechanic-status.busy {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.mechanic-status.inactive {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.mechanic-status.assigned {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.mechanic-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
+
+    padding: 5px 0 0;
+}
+
+
+/* =========================================================
+   DETAIL ROW
+========================================================= */
+
+.detail-row {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 18px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   DETAIL LABEL
+========================================================= */
+
+.detail-row > span {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--muted-text);
+
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.detail-row > span i {
+    width: 17px;
+
+    color: var(--muted-text);
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   DETAIL VALUE
+========================================================= */
+
+.detail-row > strong {
+    min-width: 0;
+
+    overflow: hidden;
+
+    color: var(--text-color);
+
+    font-size: 12px;
+    line-height: 1.4;
+
+    font-weight: 600;
+
+    text-align: right;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   BOOKING STATUS
+========================================================= */
+
+.booking-status {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    max-width: 130px;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 11px !important;
+
+    text-transform: capitalize;
+
+    white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   BOOKING STATUS - LIGHT
+========================================================= */
+
+.booking-status.pending {
+    background: #fff7ed;
+    color: #c2410c !important;
+}
+
+.booking-status.assigned,
+.booking-status.accepted {
+    background: #eff6ff;
+    color: #2563eb !important;
+}
+
+.booking-status.in-progress,
+.booking-status.in\.progress {
+    background: #f5f3ff;
+    color: #7c3aed !important;
+}
+
+.booking-status.completed {
+    background: #ecfdf5;
+    color: #15803d !important;
+}
+
+.booking-status.cancelled,
+.booking-status.canceled {
+    background: #fef2f2;
+    color: #dc2626 !important;
+}
+
+
+/* =========================================================
+   SERVICE DESCRIPTION
+========================================================= */
+
+.assigned-service-description {
+    width: 100%;
+
+    margin-top: 16px;
+    padding: 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+
+    background: var(--section-bg);
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.assigned-service-description:hover {
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 6px 18px rgba(15, 23, 42, 0.05);
+}
+
+
+/* =========================================================
+   DESCRIPTION HEADING
+========================================================= */
+
+.description-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 11px;
+}
+
+
+/* =========================================================
+   DESCRIPTION ICON
+========================================================= */
+
+.description-icon {
+    width: 32px;
+    min-width: 32px;
+
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px;
+
+    box-sizing: border-box;
+
+    border-radius: 9px;
+
+    background: var(--primary-light);
+    color: var(--primary-color);
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   DESCRIPTION TITLE
+========================================================= */
+
+.description-title {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.description-title span {
+    color: var(--text-color);
+
+    font-size: 12px;
+    line-height: 1.3;
+
+    font-weight: 700;
+}
+
+.description-title small {
+    color: var(--muted-text);
+
+    font-size: 10px;
+    line-height: 1.3;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   DESCRIPTION CONTENT
+========================================================= */
+
+.description-content {
+    position: relative;
+
+    padding-left: 42px;
+}
+
+.description-content p {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0;
+
+    box-sizing: border-box;
+
+    color: var(--muted-text);
+
+    font-size: 12px;
+    line-height: 1.65;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   DESCRIPTION ACCENT
+========================================================= */
+
+.description-content::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 3px;
+
+    width: 3px;
+    height: calc(100% - 6px);
+
+    border-radius: 10px;
+
+    background: var(--primary-color);
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   CARD FOOTER
+========================================================= */
+
+.assigned-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-top: 12px;
+    padding-top: 14px;
+
+    border-top: 1px solid var(--border-color);
+}
+
+.assigned-card-footer > span:first-child {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: #16a34a;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.assigned-card-footer > span:first-child i {
+    font-size: 14px;
+}
+
+.booking-id {
+    flex-shrink: 0;
+
+    color: var(--muted-text);
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.assigned-message {
+     position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    min-height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    box-sizing: border-box;
+
+    padding: 30px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+
+    background: var(--card-bg);
+    color: var(--muted-text);
+
+    text-align: center;
+
+    font-size: 14px;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.assigned-message::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--primary-color);
+
+    opacity: 0;
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.assigned-message:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 10px 24px rgba(37, 99, 235, 0.10);
+}
+
+
+.assigned-message:hover::before {
+    opacity: 1;
+
+    transform: scaleX(1);
+}
+.assigned-message > i {
+    font-size: 30px;
+    color: var(--muted-text);
+}
+
+.assigned-message > span {
+    max-width: 500px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.assigned-message .ri-loader-4-line {
+    color: var(--primary-color);
+
+    animation: assigned-spin 1s linear infinite;
+}
+
+@keyframes assigned-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.assigned-message.error-message {
+    color: #dc2626;
+}
+
+.assigned-message.error-message > i {
+    color: #ef4444;
+}
+
+
+/* =========================================================
+   MESSAGE BUTTON
+========================================================= */
+
+.assigned-message button {
+    margin-top: 4px;
+
+    padding: 9px 16px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    background: var(--primary-color);
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.assigned-message button:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   TABLET - 1200
+========================================================= */
+/* =========================================================
+   COMPLETE RESPONSIVE
+   ASSIGNED MECHANICS
+========================================================= */
+
+
+/* =========================================================
+   TABLET - 1200px
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .assigned-mechanic {
+        width: 100%;
+        min-width: 0;
+
+        padding: 45px 40px;
+
+        box-sizing: border-box;
+    }
+
+
+    .assigned-mechanic-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        margin: 0 auto;
+
+        box-sizing: border-box;
+    }
+
+
+    /* HEADER */
+
+    .assigned-mechanic-header {
+        width: 100%;
+        min-width: 0;
+
+        display: flex;
+
+        align-items: flex-end;
+        justify-content: space-between;
+
+        gap: 20px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .assigned-mechanic-header > div:first-child {
+        min-width: 0;
+        flex: 1;
+    }
+
+
+    .assigned-mechanic-header h2 {
+        font-size: 27px;
+    }
+
+
+    .assigned-mechanic-header p {
+        width: 100%;
+        max-width: 600px;
+    }
+
+
+    /* REFRESH */
+
+    .assigned-refresh-btn {
+        flex-shrink: 0;
+    }
+
+
+    /* STATS */
+
+    .assigned-stats {
+        width: 100%;
+        min-width: 0;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+
+        margin-bottom: 24px;
+    }
+
+
+    .assigned-stat-card {
+        width: 100%;
+        min-width: 0;
+
+        box-sizing: border-box;
+    }
+
+
+    /* CONTROLS */
+
+    .assigned-controls {
+        width: 100%;
+        min-width: 0;
+    }
+
+
+    .assigned-search {
+        min-width: 0;
+    }
+
+
+    .assigned-filter {
+        flex-shrink: 0;
+    }
+
+
+    /* GRID */
+
+    .assigned-mechanic-grid {
+        width: 100%;
+        min-width: 0;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+
+    .assigned-mechanic-card {
+        width: 100%;
+        min-width: 0;
+
+        box-sizing: border-box;
+    }
+
+
+    /* MESSAGE */
+
+    .assigned-message {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        box-sizing: border-box;
+    }
+}
+
+
+
+/* =========================================================
+   TABLET - 900px
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .assigned-mechanic {
+        width: 100%;
+        min-width: 0;
+
+        padding: 40px 30px;
+    }
+
+
+    .assigned-mechanic-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+
+    /* HEADER */
+
+    .assigned-mechanic-header {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        gap: 16px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .assigned-mechanic-header > div:first-child {
+        width: 100%;
+        min-width: 0;
+    }
+
+
+    .assigned-mechanic-header h2 {
+        font-size: 26px;
+    }
+
+
+    .assigned-mechanic-header p {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: 13px;
+    }
+
+
+    /* REFRESH */
+
+    .assigned-refresh-btn {
+        width: auto;
+        min-width: 130px;
+
+        box-sizing: border-box;
+    }
+
+
+    /* STATS */
+
+    .assigned-stats {
+        width: 100%;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 14px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .assigned-stat-card {
+        width: 100%;
+        min-width: 0;
+
+        padding: 18px 20px;
+
+        gap: 15px;
+    }
+
+
+    .assigned-stat-card > div:last-child {
+        min-width: 0;
+    }
+
+
+    /* CONTROLS */
+
+    .assigned-controls {
+        width: 100%;
+        min-width: 0;
+
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+
+        gap: 12px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .assigned-search {
+        width: 100%;
+        min-width: 0;
+        flex: 1;
+    }
+
+
+    .assigned-filter {
+        width: 180px;
+        min-width: 180px;
+
+        flex-shrink: 0;
+    }
+
+
+    /* GRID */
+
+    .assigned-mechanic-grid {
+        width: 100%;
+        min-width: 0;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+
+    .assigned-mechanic-card {
+        width: 100%;
+        min-width: 0;
+    }
+
+
+    /* MESSAGE */
+
+    .assigned-message {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+}
+
+
+
+/* =========================================================
+   MOBILE - 768px
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .assigned-mechanic {
+        width: 100%;
+        min-width: 0;
+
+        padding: 35px 20px;
+    }
+
+
+    .assigned-mechanic-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+
+    /* HEADER */
+
+    .assigned-mechanic-header {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 16px;
+
+        margin-bottom: 24px;
+    }
+
+
+    .assigned-mechanic-header > div:first-child {
+        width: 100%;
+        min-width: 0;
+    }
+
+
+    .assigned-mechanic-tag {
+        margin-bottom: 10px;
+    }
+
+
+    .assigned-mechanic-header h2 {
+        font-size: 24px;
+
+        word-break: break-word;
+    }
+
+
+    .assigned-mechanic-header p {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+
+    /* REFRESH */
+
+    .assigned-refresh-btn {
+        width: 100%;
+        min-width: 0;
+
+        box-sizing: border-box;
+    }
+
+
+    /* STATS */
+
+    .assigned-stats {
+        width: 100%;
+        min-width: 0;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .assigned-stat-card {
+        width: 100%;
+        min-width: 0;
+
+        padding: 15px;
+
+        gap: 11px;
+
+        border-radius: 13px;
+    }
+
+
+    .assigned-stat-icon {
+        width: 43px;
+        min-width: 43px;
+
+        height: 43px;
+
+        padding: 9px;
+
+        font-size: 20px;
+    }
+
+
+    .assigned-stat-card > div:last-child {
+        width: 100%;
+        min-width: 0;
+    }
+
+
+    .assigned-stat-card span {
+        max-width: 100%;
+
+        font-size: 11px;
+    }
+
+
+    .assigned-stat-card strong {
+        font-size: 20px;
+    }
+
+
+    /* CONTROLS */
+
+    .assigned-controls {
+        width: 100%;
+        min-width: 0;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 10px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .assigned-search {
+        width: 100%;
+        min-width: 0;
+
+        height: 44px;
+
+        box-sizing: border-box;
+    }
+
+
+    .assigned-filter {
+        width: 100%;
+        min-width: 0;
+
+        height: 44px;
+
+        box-sizing: border-box;
+    }
+
+
+    /* GRID */
+
+    .assigned-mechanic-grid {
+        width: 100%;
+        min-width: 0;
+
+        grid-template-columns:
+            minmax(0, 1fr);
+
+        gap: 15px;
+    }
+
+
+    .assigned-mechanic-card {
+        width: 100%;
+        min-width: 0;
+
+        padding: 18px;
+
+        box-sizing: border-box;
+    }
+
+
+    /* MESSAGE */
+
+    .assigned-message {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        min-height: 190px;
+
+        padding: 25px 16px;
+
+        box-sizing: border-box;
+
+        border-radius: 14px;
+    }
+
+
+    .assigned-message > span {
+        width: 100%;
+        max-width: 100%;
+
+        padding: 0 5px;
+
+        box-sizing: border-box;
+
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+
+    /* DESCRIPTION */
+
+    .assigned-service-description {
+        width: 100%;
+        min-width: 0;
+
+        margin-top: 14px;
+
+        padding: 13px;
+
+        box-sizing: border-box;
+    }
+
+
+    .description-heading {
+        gap: 9px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .description-icon {
+        width: 30px;
+        min-width: 30px;
+
+        height: 30px;
+
+        font-size: 15px;
+    }
+
+
+    .description-title {
+        min-width: 0;
+    }
+
+
+    .description-title span {
+        font-size: 11px;
+    }
+
+
+    .description-title small {
+        font-size: 9px;
+    }
+
+
+    .description-content {
+        padding-left: 39px;
+
+        min-width: 0;
+    }
+
+
+    .description-content p {
+        width: 100%;
+
+        font-size: 11px;
+        line-height: 1.6;
+    }
+}
+
+
+
+/* =========================================================
+   SMALL MOBILE - 480px
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .assigned-mechanic {
+        width: 100%;
+        min-width: 0;
+
+        padding: 30px 15px;
+    }
+
+
+    .assigned-mechanic-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+
+    /* HEADER */
+
+    .assigned-mechanic-tag {
+        font-size: 10px;
+        letter-spacing: 1.3px;
+
+        padding: 9px 12px;
+    }
+
+
+    .assigned-mechanic-header h2 {
+        font-size: 22px;
+    }
+
+
+    .assigned-mechanic-header p {
+        font-size: 12px;
+    }
+
+
+    /* REFRESH */
+
+    .assigned-refresh-btn {
+        width: 100%;
+        min-width: 0;
+
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+
+    /* STATS */
+
+    .assigned-stats {
+        width: 100%;
+
+        grid-template-columns:
+            minmax(0, 1fr);
+
+        gap: 10px;
+    }
+
+
+    .assigned-stat-card {
+        width: 100%;
+        min-width: 0;
+
+        min-height: 72px;
+
+        padding: 14px 16px;
+
+        gap: 11px;
+    }
+
+
+    .assigned-stat-icon {
+        width: 44px;
+        min-width: 44px;
+
+        height: 44px;
+
+        font-size: 20px;
+    }
+
+
+    .assigned-stat-card strong {
+        font-size: 20px;
+    }
+
+
+    /* CONTROLS */
+
+    .assigned-search {
+        width: 100%;
+        min-width: 0;
+
+        height: 44px;
+    }
+
+
+    .assigned-filter {
+        width: 100%;
+        min-width: 0;
+
+        height: 44px;
+    }
+
+
+    /* CARD */
+
+    .assigned-mechanic-card {
+        width: 100%;
+        min-width: 0;
+
+        padding: 16px;
+    }
+
+
+    .mechanic-card-top {
+        width: 100%;
+        min-width: 0;
+
+        gap: 12px;
+    }
+
+
+    .mechanic-icon {
+        width: 46px;
+        min-width: 46px;
+
+        height: 46px;
+
+        font-size: 21px;
+    }
+
+
+    .mechanic-main-info {
+        min-width: 0;
+    }
+
+
+    .mechanic-main-info h3 {
+        font-size: 15px;
+    }
+
+
+    .mechanic-email {
+        max-width: 100%;
+
+        font-size: 11px;
+    }
+
+
+    /* DETAILS */
+
+    .mechanic-details {
+        width: 100%;
+        min-width: 0;
+    }
+
+
+    .detail-row {
+        width: 100%;
+        min-width: 0;
+
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+
+    .detail-row > span {
+        min-width: 0;
+
+        font-size: 11px;
+    }
+
+
+    .detail-row > strong {
+        max-width: 55%;
+
+        font-size: 11px;
+    }
+
+
+    /* DESCRIPTION */
+
+    .assigned-service-description {
+        width: 100%;
+        min-width: 0;
+
+        margin-top: 12px;
+
+        padding: 12px;
+    }
+
+
+    .description-icon {
+        width: 28px;
+        min-width: 28px;
+
+        height: 28px;
+
+        border-radius: 8px;
+
+        font-size: 14px;
+    }
+
+
+    .description-title span {
+        font-size: 11px;
+    }
+
+
+    .description-title small {
+        font-size: 8.5px;
+    }
+
+
+    .description-content {
+        padding-left: 37px;
+    }
+
+
+    .description-content p {
+        width: 100%;
+
+        font-size: 10.5px;
+        line-height: 1.55;
+    }
+
+
+    /* FOOTER */
+
+    .assigned-card-footer {
+        width: 100%;
+        min-width: 0;
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 7px;
+    }
+}
+
+
+
+/* =========================================================
+   VERY SMALL DEVICES - 360px
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .assigned-mechanic {
+        width: 100%;
+        min-width: 0;
+
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+
+    .assigned-mechanic-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+
+    /* HEADER */
+
+    .assigned-mechanic-header h2 {
+        font-size: 21px;
+    }
+
+
+    .assigned-mechanic-header p {
+        font-size: 12px;
+    }
+
+
+    /* STATS */
+
+    .assigned-stat-card {
+        width: 100%;
+        min-width: 0;
+
+        padding: 13px 14px;
+
+        gap: 9px;
+    }
+
+
+    .assigned-stat-icon {
+        width: 42px;
+        min-width: 42px;
+
+        height: 42px;
+
+        font-size: 19px;
+    }
+
+
+    .assigned-stat-card strong {
+        font-size: 19px;
+    }
+
+
+    /* SEARCH */
+
+    .assigned-search {
+        width: 100%;
+        min-width: 0;
+
+        height: 44px;
+    }
+
+
+    .assigned-filter {
+        width: 100%;
+        min-width: 0;
+
+        height: 44px;
+    }
+
+
+    /* CARD */
+
+    .assigned-mechanic-card {
+        width: 100%;
+        min-width: 0;
+
+        padding: 14px;
+    }
+
+
+    .mechanic-card-top {
+        width: 100%;
+        min-width: 0;
+
+        gap: 10px;
+    }
+
+
+    .mechanic-icon {
+        width: 43px;
+        min-width: 43px;
+
+        height: 43px;
+
+        font-size: 19px;
+    }
+
+
+    .mechanic-main-info {
+        min-width: 0;
+    }
+
+
+    .mechanic-main-info h3 {
+        font-size: 14px;
+    }
+
+
+    .mechanic-email {
+        font-size: 10px;
+    }
+
+
+    /* DETAILS */
+
+    .detail-row {
+        width: 100%;
+        min-width: 0;
+
+        gap: 8px;
+    }
+
+
+    .detail-row > span {
+        min-width: 0;
+
+        font-size: 10px;
+    }
+
+
+    .detail-row > strong {
+        max-width: 50%;
+
+        font-size: 10px;
+    }
+
+
+    /* MESSAGE */
+
+    .assigned-message {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        min-height: 165px;
+
+        padding: 20px 12px;
+
+        box-sizing: border-box;
+    }
+
+
+    .assigned-message > i {
+        font-size: 25px;
+    }
+
+
+    .assigned-message > span {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+
+    /* DESCRIPTION */
+
+    .assigned-service-description {
+        width: 100%;
+        min-width: 0;
+
+        padding: 11px;
+    }
+
+
+    .description-content {
+        padding-left: 35px;
+    }
+
+
+    .description-content p {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+}

@@ -1,0 +1,890 @@
+/* =========================================================
+   FIX MY RIDE - QUICK ACTIONS
+   COMPLETE RESPONSIVE CSS
+========================================================= */
+
+
+/* =========================================================
+   SECTION RESET
+========================================================= */
+
+.quick-actions {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    background: var(--bg-color) !important;
+    color: var(--text-color);
+
+    overflow: hidden !important;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+.quick-actions.light {
+    background: var(--bg-color) !important;
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+.quick-actions.dark {
+    background: var(--bg-color) !important;
+    color: #f1f5f9;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.quick-actions .quick-actions-container {
+    width: 100% !important;
+    max-width: 1550px !important;
+
+    margin: 0 auto !important;
+
+    padding: 50px 60px !important;
+
+    box-sizing: border-box !important;
+
+    overflow: hidden !important;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.quick-actions .quick-actions-header {
+    width: 100% !important;
+
+    margin: 0 0 28px !important;
+
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.quick-actions .quick-label {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 0 10px !important;
+
+    padding: 7px 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(37, 99, 235, 0.12);
+
+    border-radius: 8px;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    color: var(--primary-color);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+    line-height: 1.2;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   DARK LABEL
+========================================================= */
+
+.quick-actions.dark .quick-label {
+    background: rgba(37, 99, 235, 0.12);
+
+    border-color: rgba(96, 165, 250, 0.15);
+
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.quick-actions h2 {
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    font-size: 28px;
+
+    line-height: 1.25;
+
+    font-weight: 700;
+
+    color: #172033;
+}
+
+
+.quick-actions.dark h2 {
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.quick-actions .quick-description {
+    margin: 8px 0 0 !important;
+
+    padding: 0 !important;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+.quick-actions.dark .quick-description {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.quick-actions .quick-actions-grid {
+    width: 100% !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr)) !important;
+
+    gap: 18px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.quick-actions .quick-action-card {
+    position: relative;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    min-height: 100px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 18px;
+
+    box-sizing: border-box !important;
+
+    border: 1px solid transparent !important;
+
+    border-radius: 16px;
+
+    background-color: #ffffff;
+
+    color: #172033;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   DARK CARD
+========================================================= */
+
+.quick-actions.dark .quick-action-card {
+    background-color: #111827 !important;
+
+    border-color: #263244 !important;
+
+    color: #f1f5f9;
+}
+
+
+/* =========================================================
+   TOP BORDER ANIMATION
+========================================================= */
+
+.quick-actions .quick-action-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--primary-color);
+
+    border-radius: 0 0 3px 3px;
+
+    transform:
+        translateX(-50%)
+        scaleX(0);
+
+    transform-origin: center;
+
+    transition: transform 0.35s ease;
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.quick-actions .quick-action-card:hover {
+    transform: translateY(-4px) !important;
+
+    border: 1px solid var(--primary-color) !important;
+
+    border-color: var(--primary-color) !important;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+
+.quick-actions .quick-action-card:hover::before {
+    transform:
+        translateX(-50%)
+        scaleX(1);
+}
+
+
+/* =========================================================
+   DARK CARD HOVER
+========================================================= */
+
+.quick-actions.dark .quick-action-card:hover {
+    border-color: var(--primary-color) !important;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.quick-actions .quick-action-icon {
+    width: 48px;
+    min-width: 48px;
+
+    height: 48px;
+    min-height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    font-size: 23px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   ICON - LIGHT
+========================================================= */
+
+.quick-actions .quick-action-card.blue
+.quick-action-icon {
+    background-color: #eff6ff;
+}
+
+.quick-actions .quick-action-card.green
+.quick-action-icon {
+    background-color: #ecfdf5;
+}
+
+.quick-actions .quick-action-card.purple
+.quick-action-icon {
+    background-color: #f5f3ff;
+}
+
+.quick-actions .quick-action-card.orange
+.quick-action-icon {
+    background-color: #fff7ed;
+}
+
+
+/* =========================================================
+   ICON COLORS
+========================================================= */
+
+.quick-actions .quick-action-card.blue
+.quick-action-icon i {
+    color: #2563eb;
+}
+
+.quick-actions .quick-action-card.green
+.quick-action-icon i {
+    color: #16a34a;
+}
+
+.quick-actions .quick-action-card.purple
+.quick-action-icon i {
+    color: #7c3aed;
+}
+
+.quick-actions .quick-action-card.orange
+.quick-action-icon i {
+    color: #ea580c;
+}
+
+
+/* =========================================================
+   ICON - DARK
+========================================================= */
+
+.quick-actions.dark
+.quick-action-card.blue
+.quick-action-icon {
+    background-color: rgba(37, 99, 235, 0.15);
+}
+
+.quick-actions.dark
+.quick-action-card.green
+.quick-action-icon {
+    background-color: rgba(34, 197, 94, 0.12);
+}
+
+.quick-actions.dark
+.quick-action-card.purple
+.quick-action-icon {
+    background-color: rgba(139, 92, 246, 0.12);
+}
+
+.quick-actions.dark
+.quick-action-card.orange
+.quick-action-icon {
+    background-color: rgba(249, 115, 22, 0.12);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.quick-actions .quick-action-content {
+    flex: 1;
+
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+
+.quick-actions .quick-action-content h3 {
+    margin: 0 0 5px !important;
+
+    padding: 0 !important;
+
+    font-size: 15px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    color: #172033;
+
+    white-space: normal;
+
+    overflow-wrap: break-word;
+}
+
+
+.quick-actions.dark
+.quick-action-content h3 {
+    color: #f1f5f9;
+}
+
+
+.quick-actions .quick-action-content p {
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+    color: #64748b;
+
+    white-space: normal;
+
+    overflow-wrap: break-word;
+}
+
+
+.quick-actions.dark
+.quick-action-content p {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.quick-actions .quick-action-arrow {
+    flex-shrink: 0;
+
+    font-size: 20px;
+
+    color: #94a3b8;
+
+    line-height: 1;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.quick-actions
+.quick-action-card:hover
+.quick-action-arrow {
+    transform: translateX(4px);
+
+    color: var(--primary-color);
+}
+
+
+/* =========================================================
+   TABLET - 1100px
+   4 CARDS -> 2 CARDS
+========================================================= */
+
+@media screen and (max-width: 1100px) {
+
+    .quick-actions .quick-actions-container {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        padding: 40px 35px !important;
+
+        margin: 0 auto !important;
+    }
+
+
+    .quick-actions .quick-actions-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 18px !important;
+    }
+}
+
+
+/* =========================================================
+   TABLET SMALL - 900px
+========================================================= */
+
+@media screen and (max-width: 900px) {
+
+    .quick-actions .quick-actions-container {
+        padding: 35px 30px !important;
+    }
+
+
+    .quick-actions .quick-action-card {
+        min-height: 96px;
+
+        padding: 16px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE - 768px
+   2 CARDS -> 1 CARD
+========================================================= */
+
+@media screen and (max-width: 768px) {
+
+    .quick-actions .quick-actions-container {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        padding: 35px 25px !important;
+
+        margin: 0 auto !important;
+    }
+
+
+    .quick-actions .quick-actions-header {
+        margin-bottom: 22px !important;
+    }
+
+
+    .quick-actions h2 {
+        font-size: 24px;
+    }
+
+
+    .quick-actions .quick-actions-grid {
+        width: 100% !important;
+
+        grid-template-columns:
+            minmax(0, 1fr) !important;
+
+        gap: 15px !important;
+    }
+
+
+    .quick-actions .quick-action-card {
+        width: 100% !important;
+
+        min-width: 0 !important;
+
+        min-height: 96px;
+
+        padding: 17px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE - 600px
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+    .quick-actions .quick-actions-container {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        padding: 30px 18px !important;
+    }
+
+
+    .quick-actions .quick-actions-header {
+        margin-bottom: 20px !important;
+    }
+
+
+    .quick-actions h2 {
+        font-size: 23px;
+    }
+
+
+    .quick-actions .quick-description {
+        font-size: 13px;
+
+        line-height: 1.5;
+    }
+
+
+    .quick-actions .quick-actions-grid {
+        gap: 14px !important;
+    }
+
+
+    .quick-actions .quick-action-card {
+        min-height: 92px;
+
+        padding: 16px !important;
+
+        gap: 12px;
+    }
+
+
+    .quick-actions .quick-action-icon {
+        width: 46px;
+
+        min-width: 46px;
+
+        height: 46px;
+
+        min-height: 46px;
+
+        font-size: 21px;
+    }
+
+
+    .quick-actions .quick-action-content h3 {
+        font-size: 14px;
+    }
+
+
+    .quick-actions .quick-action-content p {
+        font-size: 12px;
+    }
+
+
+    .quick-actions .quick-action-arrow {
+        font-size: 19px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE - 480px
+========================================================= */
+
+@media screen and (max-width: 480px) {
+
+    .quick-actions .quick-actions-container {
+        padding: 25px 14px !important;
+    }
+
+
+    .quick-actions .quick-actions-grid {
+        grid-template-columns:
+            minmax(0, 1fr) !important;
+
+        gap: 12px !important;
+    }
+
+
+    .quick-actions .quick-action-card {
+        width: 100% !important;
+
+        min-height: 88px;
+
+        padding: 14px !important;
+
+        gap: 10px;
+    }
+
+
+    .quick-actions .quick-action-icon {
+        width: 44px;
+
+        min-width: 44px;
+
+        height: 44px;
+
+        min-height: 44px;
+
+        border-radius: 11px;
+
+        font-size: 20px;
+    }
+
+
+    .quick-actions .quick-action-content h3 {
+        font-size: 14px;
+
+        margin-bottom: 4px !important;
+    }
+
+
+    .quick-actions .quick-action-content p {
+        font-size: 11.5px;
+
+        line-height: 1.35;
+    }
+
+
+    .quick-actions .quick-action-arrow {
+        font-size: 18px;
+    }
+
+
+    .quick-actions h2 {
+        font-size: 22px;
+    }
+
+
+    .quick-actions .quick-description {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE - 400px
+========================================================= */
+
+@media screen and (max-width: 400px) {
+
+    .quick-actions .quick-actions-container {
+        padding: 22px 12px !important;
+    }
+
+
+    .quick-actions .quick-action-card {
+        min-height: 86px;
+
+        padding: 13px !important;
+
+        gap: 9px;
+    }
+
+
+    .quick-actions .quick-action-icon {
+        width: 42px;
+
+        min-width: 42px;
+
+        height: 42px;
+
+        min-height: 42px;
+
+        font-size: 19px;
+    }
+
+
+    .quick-actions .quick-action-content h3 {
+        font-size: 13.5px;
+    }
+
+
+    .quick-actions .quick-action-content p {
+        font-size: 11px;
+    }
+
+
+    .quick-actions .quick-action-arrow {
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL - 360px
+========================================================= */
+
+@media screen and (max-width: 360px) {
+
+    .quick-actions .quick-actions-container {
+        padding: 20px 10px !important;
+    }
+
+
+    .quick-actions .quick-action-card {
+        min-height: 82px;
+
+        padding: 11px !important;
+
+        gap: 8px;
+    }
+
+
+    .quick-actions .quick-action-icon {
+        width: 40px;
+
+        min-width: 40px;
+
+        height: 40px;
+
+        min-height: 40px;
+
+        border-radius: 10px;
+
+        font-size: 18px;
+    }
+
+
+    .quick-actions .quick-action-content h3 {
+        font-size: 13px;
+    }
+
+
+    .quick-actions .quick-action-content p {
+        font-size: 10.5px;
+    }
+
+
+    .quick-actions .quick-action-arrow {
+        font-size: 16px;
+    }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+   REMOVE HOVER LIFT
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .quick-actions .quick-action-card:hover {
+        transform: none !important;
+
+        box-shadow: none;
+    }
+
+
+    .quick-actions .quick-action-card:hover::before {
+        transform:
+            translateX(-50%)
+            scaleX(0);
+    }
+
+
+    .quick-actions
+    .quick-action-card:hover
+    .quick-action-arrow {
+        transform: none;
+    }
+}

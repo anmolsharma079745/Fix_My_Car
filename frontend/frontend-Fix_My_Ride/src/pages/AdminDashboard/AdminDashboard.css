@@ -1,0 +1,72 @@
+/* =========================================
+   ADMIN DASHBOARD
+========================================= */
+
+.admin-dashboard {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   DASHBOARD CONTENT
+========================================= */
+
+.admin-dashboard-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px 40px;
+}
+
+/* =========================================
+   COMMON SECTION
+========================================= */
+
+.admin-dashboard-section {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+.admin-dashboard.light {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+.admin-dashboard.dark {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 992px) {
+  .admin-dashboard-content {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard-content {
+    padding: 20px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-dashboard-content {
+    padding: 15px 12px;
+  }
+}

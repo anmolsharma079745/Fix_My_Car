@@ -1,0 +1,1179 @@
+/* =========================================================
+   SERVICE HISTORY
+========================================================= */
+
+.service-history {
+    width: 100%;
+    min-height: 100%;
+    padding: 45px 60px;
+    box-sizing: border-box;
+
+    background: var(--bg-color, #f5f7fb);
+    color: var(--text-color, #172033);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.service-history-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.service-history-heading {
+    margin-bottom: 35px;
+}
+
+
+.service-history-heading .dashboard-tag {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 7px 14px;
+
+    margin-bottom: 12px;
+
+    border-radius: 20px;
+
+    background: rgba(37, 99, 235, 0.1);
+
+    color: #2563eb;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+
+.service-history-heading h2 {
+    margin: 0 0 8px;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    color: var(--heading-color, #172033);
+
+    letter-spacing: -0.5px;
+}
+
+
+.service-history-heading p {
+    margin: 0;
+
+    color: var(--muted-text-color, #6b7280);
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   ALERT
+========================================================= */
+
+.service-history-alert {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 17px;
+
+    margin-bottom: 25px;
+
+    box-sizing: border-box;
+
+    border-radius: 10px;
+
+    background: rgba(220, 38, 38, 0.08);
+
+    border: 1px solid rgba(220, 38, 38, 0.2);
+
+    color: #dc2626;
+
+    font-size: 14px;
+}
+
+
+.service-history-alert i {
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   LOADING MESSAGE
+========================================================= */
+
+.service-history-message {
+    width: 100%;
+
+    min-height: 250px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    color: var(--muted-text-color, #6b7280);
+
+    font-size: 15px;
+}
+
+
+.service-history-message i {
+    font-size: 30px;
+
+    animation:
+        serviceHistorySpin 1s linear infinite;
+}
+
+
+@keyframes serviceHistorySpin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.service-history-content {
+    width: 100%;
+}
+
+
+.service-history-empty {
+    width: 100%;
+
+    min-height: 300px;
+
+    padding: 45px 25px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border-radius: 16px;
+
+    background: var(--card-bg, #ffffff);
+
+    border: 1px solid var(--border-color, #e5e7eb);
+
+    box-shadow:
+        0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+
+.history-icon {
+    width: 68px;
+    height: 68px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.1);
+
+    color: #2563eb;
+
+    font-size: 30px;
+}
+
+
+.service-history-empty h3 {
+    margin: 0 0 8px;
+
+    color: var(--heading-color, #172033);
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.service-history-empty p {
+    margin: 0;
+
+    max-width: 420px;
+
+    color: var(--muted-text-color, #6b7280);
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   HISTORY LIST
+========================================================= */
+
+.service-history-list {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   HISTORY CARD
+========================================================= */
+
+.history-service-card {
+    width: 100%;
+
+    position: relative;
+
+    padding: 24px;
+
+    box-sizing: border-box;
+
+    border-radius: 16px;
+
+    background: var(--card-bg, #ffffff);
+
+    border: 1px solid var(--border-color, #e5e7eb);
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 30px rgba(15, 23, 42, 0.05);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.history-service-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 100%;
+    height: 3px;
+
+    background: #2563eb;
+
+    border-radius: 0 0 3px 3px;
+
+    transform:
+        translateX(-50%)
+        scaleX(0);
+
+    transform-origin: center;
+
+    transition:
+        transform 0.35s ease;
+
+    z-index: 5;
+}
+
+
+.history-service-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 14px 35px rgba(37, 99, 235, 0.10);
+}
+
+.history-service-card:hover::before {
+    transform:
+        translateX(-50%)
+        scaleX(1);
+}
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.history-card-header {
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 20px;
+
+    border-bottom:
+        1px solid var(--border-color, #e5e7eb);
+}
+
+
+/* =========================================================
+   VEHICLE
+========================================================= */
+
+.history-vehicle {
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.history-vehicle-icon {
+    flex-shrink: 0;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(37, 99, 235, 0.1);
+
+    color: #2563eb;
+
+    font-size: 23px;
+}
+
+
+.history-vehicle h3 {
+    margin: 0 0 5px;
+
+    max-width: 230px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    color: var(--heading-color, #172033);
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+.history-vehicle span {
+    color: var(--muted-text-color, #6b7280);
+
+    font-size: 12px;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   COMPLETED STATUS
+========================================================= */
+
+.history-completed-status {
+    flex-shrink: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+    background: rgba(22, 163, 74, 0.1);
+
+    color: #16a34a;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.history-completed-status i {
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   CARD DETAILS
+========================================================= */
+
+.history-card-details {
+    width: 100%;
+
+    padding: 22px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+
+.history-detail {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    padding: 13px 14px;
+
+    border: 1px solid transparent;
+
+    border-radius: 10px;
+
+    background:
+        var(--detail-bg, rgba(128, 128, 128, 0.06));
+
+    transition:
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.history-detail:hover {
+    border-color: var(--primary-color, #2563eb);
+     transform: translateY(-2px);
+}
+
+.history-detail span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--muted-text-color, #6b7280);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+.history-detail span i {
+    font-size: 15px;
+
+    color: #2563eb;
+}
+
+
+.history-detail strong {
+    min-width: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    color: var(--text-color, #172033);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   CARD ACTION
+========================================================= */
+
+.history-card-action {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    padding-top: 2px;
+}
+
+
+.history-view-btn {
+    height: 40px;
+
+    padding: 0 17px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border: 1px solid var(--primary-color);
+
+    border-radius: 9px;
+
+    background: var(--bg-color)!important;
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.history-view-btn:hover {
+    background: #2563eb!important;
+
+    color: black;
+
+    border-color: var(--primary-color);
+
+    transform: translateY(-2px);
+}
+
+
+.history-view-btn i {
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   MODAL OVERLAY
+========================================================= */
+
+.history-details-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(15, 23, 42, 0.65);
+
+    backdrop-filter:
+        blur(5px);
+
+    -webkit-backdrop-filter:
+        blur(5px);
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.history-details-modal {
+    width: 100%;
+
+    max-width: 620px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    border-radius: 18px;
+
+    background:
+        var(--card-bg, #ffffff);
+
+    color:
+        var(--text-color, #172033);
+
+    border:
+        1px solid var(--border-color, #e5e7eb);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.25);
+
+    animation:
+        historyModalIn 0.22s ease;
+}
+
+
+@keyframes historyModalIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(0.98);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.history-modal-header {
+    width: 100%;
+
+    padding: 23px 25px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom:
+        1px solid var(--border-color, #e5e7eb);
+}
+
+
+.history-modal-header span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #2563eb;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.1px;
+}
+
+
+.history-modal-header h3 {
+    margin: 0;
+
+    color: var(--heading-color, #172033);
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+.history-modal-header button {
+    flex-shrink: 0;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background-color: var(--bg-color);
+
+    color:
+        var(--text-color, #172033);
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.history-modal-header button:hover {
+    background: #2563eb;
+
+    color: black
+}
+
+
+/* =========================================================
+   MODAL DETAILS
+========================================================= */
+
+.history-modal-details {
+    padding: 24px 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+
+.history-modal-detail {
+    min-width: 0;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    background:
+        var(--detail-bg, rgba(128, 128, 128, 0.06));
+}
+
+
+.history-modal-detail.full-width {
+    grid-column: 1 / -1;
+}
+
+
+.history-modal-detail span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        var(--muted-text-color, #6b7280);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+.history-modal-detail strong {
+    color:
+        var(--text-color, #172033);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    word-break: break-word;
+}
+
+
+.history-modal-detail p {
+    margin: 0;
+
+    color:
+        var(--text-color, #172033);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   MODAL STATUS
+========================================================= */
+
+.history-modal-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #16a34a !important;
+}
+
+
+.history-modal-status i {
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   MODAL FOOTER
+========================================================= */
+
+.history-modal-footer {
+    padding: 18px 25px 23px;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    border-top:
+        1px solid var(--border-color, #e5e7eb);
+}
+
+
+.history-modal-footer button {
+    height: 40px;
+
+    padding: 0 20px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border: 1px solid var(--primary-color);
+
+    border-radius: 9px;
+
+    background: var(--bg-color);
+
+    color: var(--primary-color);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.history-modal-footer button:hover {
+    background: #2563eb;
+
+    color: black;
+
+    border-color: var(--primary-color);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+.service-history.dark {
+    --bg-color: #07111f;
+    --card-bg: #0d1a2b;
+    --detail-bg: rgba(255, 255, 255, 0.045);
+
+    --text-color: #e8eef7;
+    --heading-color: #f4f7fb;
+    --muted-text-color: #91a0b5;
+
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+
+.service-history.dark .service-history-heading .dashboard-tag {
+    background: rgba(59, 130, 246, 0.12);
+
+    color: #60a5fa;
+}
+
+
+.service-history.dark .history-vehicle-icon {
+    background: rgba(59, 130, 246, 0.12);
+
+    color: #60a5fa;
+}
+
+
+.service-history.dark .history-detail span i {
+    color: #60a5fa;
+}
+
+
+.service-history.dark .history-view-btn {
+    background: #2563eb;
+}
+
+
+.service-history.dark .history-view-btn:hover {
+    background: #3b82f6;
+}
+
+
+.service-history.dark .history-completed-status {
+    background: rgba(34, 197, 94, 0.1);
+
+    color: #4ade80;
+}
+
+
+.service-history.dark .history-modal-header span {
+    color: #60a5fa;
+}
+
+
+.service-history.dark .history-modal-status {
+    color: #4ade80 !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE - 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .service-history {
+        padding: 40px 35px;
+    }
+
+
+    .service-history-list {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 850px
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .service-history {
+        padding: 35px 25px;
+    }
+
+
+    .service-history-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    .history-service-card {
+        padding: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 650px
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .service-history {
+        padding: 30px 18px;
+    }
+
+
+    .service-history-heading {
+        margin-bottom: 25px;
+    }
+
+
+    .service-history-heading h2 {
+        font-size: 27px;
+    }
+
+
+    .history-card-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .history-completed-status {
+        align-self: flex-start;
+    }
+
+
+    .history-card-details {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+
+    .history-card-action {
+        justify-content: stretch;
+    }
+
+
+    .history-view-btn {
+        width: 100%;
+    }
+
+
+    .history-details-overlay {
+        padding: 15px;
+    }
+
+
+    .history-details-modal {
+        max-height: 94vh;
+
+        border-radius: 15px;
+    }
+
+
+    .history-modal-header {
+        padding: 20px;
+    }
+
+
+    .history-modal-details {
+        padding: 20px;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .history-modal-detail.full-width {
+        grid-column: auto;
+    }
+
+
+    .history-modal-footer {
+        padding:
+            16px 20px 20px;
+    }
+
+
+    .history-modal-footer button {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 450px
+========================================================= */
+
+@media (max-width: 450px) {
+
+    .service-history {
+        padding: 25px 14px;
+    }
+
+
+    .service-history-heading h2 {
+        font-size: 24px;
+    }
+
+
+    .service-history-heading p {
+        font-size: 13px;
+    }
+
+
+    .history-service-card {
+        padding: 18px;
+    }
+
+
+    .history-vehicle-icon {
+        width: 43px;
+        height: 43px;
+
+        font-size: 20px;
+    }
+
+
+    .history-vehicle h3 {
+        max-width: 180px;
+
+        font-size: 15px;
+    }
+
+
+    .history-modal-header h3 {
+        font-size: 19px;
+    }
+
+}
