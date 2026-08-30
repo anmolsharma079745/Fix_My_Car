@@ -10,9 +10,6 @@ function RegisterSection({ theme }) {
 
   const navigate = useNavigate();
 
-  // =====================================================
-  // FORM DATA
-  // =====================================================
 
   const [formData, setFormData] = useState({
     name: "",
@@ -27,9 +24,6 @@ function RegisterSection({ theme }) {
   const [showPassword, setShowPassword] = useState(false);
 
 
-  // =====================================================
-  // HANDLE INPUT CHANGE
-  // =====================================================
 
   const handleChange = (e) => {
 
@@ -43,9 +37,6 @@ function RegisterSection({ theme }) {
   };
 
 
-  // =====================================================
-  // HANDLE FORM SUBMIT
-  // =====================================================
 
   const handleSubmit = async (e) => {
 
@@ -55,9 +46,6 @@ function RegisterSection({ theme }) {
 
     let response;
 
-    // =================================================
-    // MECHANIC REGISTRATION
-    // =================================================
 
     if (formData.role === "mechanic") {
 
@@ -79,9 +67,6 @@ function RegisterSection({ theme }) {
 
     }
 
-    // =================================================
-    // CUSTOMER / ADMIN REGISTRATION
-    // =================================================
 
     else {
 
@@ -102,9 +87,6 @@ function RegisterSection({ theme }) {
 
     }
 
-    // =================================================
-    // REGISTRATION SUCCESS
-    // =================================================
 
     console.log(
       "Registration Response:",
@@ -112,9 +94,6 @@ function RegisterSection({ theme }) {
     );
 
 
-    // =================================================
-    // CLEAR OLD LOGIN DATA
-    // =================================================
 
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -123,9 +102,6 @@ function RegisterSection({ theme }) {
     localStorage.removeItem("userPhone");
 
 
-    // =================================================
-    // GO DIRECTLY TO LOGIN
-    // =================================================
 
     navigate("/login");
 
@@ -153,9 +129,6 @@ function RegisterSection({ theme }) {
 };
 
 
-  // =====================================================
-  // JSX
-  // =====================================================
 
   return (
 
@@ -166,9 +139,6 @@ function RegisterSection({ theme }) {
       <div className="registration-container">
 
 
-        {/* =================================================
-            LEFT SIDE
-        ================================================= */}
 
         <div className="registration-content">
 
@@ -189,12 +159,10 @@ function RegisterSection({ theme }) {
           </p>
 
 
-          {/* BENEFITS */}
 
           <div className="registration-benefits">
 
 
-            {/* BENEFIT 1 */}
 
             <div className="benefit">
 
@@ -217,7 +185,6 @@ function RegisterSection({ theme }) {
             </div>
 
 
-            {/* BENEFIT 2 */}
 
             <div className="benefit">
 
@@ -240,7 +207,6 @@ function RegisterSection({ theme }) {
             </div>
 
 
-            {/* BENEFIT 3 */}
 
             <div className="benefit">
 
@@ -267,14 +233,10 @@ function RegisterSection({ theme }) {
         </div>
 
 
-        {/* =================================================
-            REGISTRATION CARD
-        ================================================= */}
 
         <div className="registration-card">
 
 
-          {/* CARD HEADER */}
 
           <div className="registration-card-header">
 
@@ -289,14 +251,10 @@ function RegisterSection({ theme }) {
           </div>
 
 
-          {/* =================================================
-              FORM
-          ================================================= */}
 
           <form onSubmit={handleSubmit}>
 
 
-            {/* NAME */}
 
             <div className="form-group">
 
@@ -318,7 +276,6 @@ function RegisterSection({ theme }) {
             </div>
 
 
-            {/* EMAIL */}
 
             <div className="form-group">
 
@@ -340,7 +297,6 @@ function RegisterSection({ theme }) {
             </div>
 
 
-            {/* PHONE */}
 
             <div className="form-group">
 
@@ -362,7 +318,6 @@ function RegisterSection({ theme }) {
             </div>
 
 
-            {/* PASSWORD */}
 
             <div className="form-group">
 
@@ -409,7 +364,6 @@ function RegisterSection({ theme }) {
             </div>
 
 
-            {/* ROLE */}
 
             <div className="form-group">
 
@@ -441,16 +395,12 @@ function RegisterSection({ theme }) {
             </div>
 
 
-            {/* =================================================
-                MECHANIC FIELDS
-            ================================================= */}
 
             {formData.role === "mechanic" && (
 
               <>
 
 
-                {/* SPECIALIZATION */}
 
                 <div className="form-group">
 
@@ -487,7 +437,6 @@ function RegisterSection({ theme }) {
                 </div>
 
 
-                {/* EXPERIENCE */}
 
                 <div className="form-group">
 
@@ -512,7 +461,6 @@ function RegisterSection({ theme }) {
             )}
 
 
-            {/* TERMS */}
 
             <div className="terms-container">
 
@@ -529,7 +477,6 @@ function RegisterSection({ theme }) {
             </div>
 
 
-            {/* SUBMIT BUTTON */}
 
             <button
               type="submit"
@@ -541,9 +488,6 @@ function RegisterSection({ theme }) {
           </form>
 
 
-          {/* =================================================
-              LOGIN LINK
-          ================================================= */}
 
           <div className="login-redirect">
 

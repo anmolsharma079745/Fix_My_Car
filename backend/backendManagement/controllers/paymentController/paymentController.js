@@ -13,11 +13,6 @@ const vehicleModel = require("../../models/vehicleModel/vehicleModel");
 const userModel = require("../../models/userModel/userModel");
 
 
-// =====================================================
-// CREATE RAZORPAY ORDER
-// CUSTOMER
-// PAYMENT ALLOWED ONLY AFTER SERVICE COMPLETED
-// =====================================================
 
 const createPaymentOrder = async (req, res) => {
 
@@ -26,9 +21,6 @@ const createPaymentOrder = async (req, res) => {
         const { bookingId } = req.body;
 
 
-        // =================================================
-        // CHECK BOOKING ID
-        // =================================================
 
         if (!bookingId) {
 
@@ -42,9 +34,6 @@ const createPaymentOrder = async (req, res) => {
         }
 
 
-        // =================================================
-        // FIND CUSTOMER BOOKING
-        // =================================================
 
         const booking =
             await bookingModel.findOne({
@@ -68,9 +57,6 @@ const createPaymentOrder = async (req, res) => {
         }
 
 
-        // =================================================
-        // PAYMENT ONLY AFTER SERVICE IS COMPLETED
-        // =================================================
 
         if (booking.status !== "Completed") {
 
@@ -84,9 +70,6 @@ const createPaymentOrder = async (req, res) => {
         }
 
 
-        // =================================================
-        // CHECK PAYMENT STATUS
-        // =================================================
 
         if (booking.paymentStatus === "paid") {
 
@@ -100,9 +83,6 @@ const createPaymentOrder = async (req, res) => {
         }
 
 
-        // =================================================
-        // FIND SERVICE
-        // =================================================
 
         const service =
             await serviceModel.findById(
@@ -122,9 +102,6 @@ const createPaymentOrder = async (req, res) => {
         }
 
 
-        // =================================================
-        // FIND VEHICLE
-        // =================================================
 
         const vehicle =
             await vehicleModel.findOne({
@@ -148,9 +125,6 @@ const createPaymentOrder = async (req, res) => {
         }
 
 
-        // =================================================
-        // SERVICE PRICE
-        // =================================================
 
         const amount =
             Number(service.price);
@@ -168,9 +142,6 @@ const createPaymentOrder = async (req, res) => {
         }
 
 
-        // =================================================
-        // CHECK EXISTING PENDING PAYMENT
-        // =================================================
 
         const existingPayment =
             await paymentModel.findOne({
@@ -184,9 +155,6 @@ const createPaymentOrder = async (req, res) => {
             });
 
 
-        // =================================================
-        // RETURN EXISTING RAZORPAY ORDER
-        // =================================================
 
         if (existingPayment) {
 
@@ -215,9 +183,6 @@ const createPaymentOrder = async (req, res) => {
         }
 
 
-        // =================================================
-        // CREATE RAZORPAY ORDER
-        // =================================================
 
         const options = {
 
@@ -239,9 +204,6 @@ const createPaymentOrder = async (req, res) => {
             );
 
 
-        // =================================================
-        // SAVE PAYMENT RECORD
-        // =================================================
 
         const payment =
             await paymentModel.create({
@@ -270,9 +232,6 @@ const createPaymentOrder = async (req, res) => {
             });
 
 
-        // =================================================
-        // RESPONSE
-        // =================================================
 
         return res.status(201).json({
 
@@ -321,9 +280,6 @@ const createPaymentOrder = async (req, res) => {
 
 
 
-// =====================================================
-// GENERATE PDF RECEIPT
-// =====================================================
 
 const generateReceiptPDF = (data) => {
 
@@ -344,9 +300,6 @@ const generateReceiptPDF = (data) => {
             const chunks = [];
 
 
-            // =================================================
-            // PDF DATA
-            // =================================================
 
             doc.on("data", (chunk) => {
 
@@ -355,9 +308,6 @@ const generateReceiptPDF = (data) => {
             });
 
 
-            // =================================================
-            // PDF COMPLETE
-            // =================================================
 
             doc.on("end", () => {
 
@@ -369,9 +319,6 @@ const generateReceiptPDF = (data) => {
             });
 
 
-            // =================================================
-            // PDF ERROR
-            // =================================================
 
             doc.on("error", (error) => {
 
@@ -380,9 +327,6 @@ const generateReceiptPDF = (data) => {
             });
 
 
-            // =================================================
-            // HEADER
-            // =================================================
 
             doc
                 .fontSize(24)
@@ -410,9 +354,6 @@ const generateReceiptPDF = (data) => {
             doc.moveDown(1);
 
 
-            // =================================================
-            // HORIZONTAL LINE
-            // =================================================
 
             doc
                 .moveTo(50, doc.y)
@@ -423,9 +364,6 @@ const generateReceiptPDF = (data) => {
             doc.moveDown(1);
 
 
-            // =================================================
-            // CUSTOMER DETAILS
-            // =================================================
 
             doc
                 .fontSize(12)
@@ -454,9 +392,6 @@ const generateReceiptPDF = (data) => {
             doc.moveDown(1);
 
 
-            // =================================================
-            // VEHICLE DETAILS
-            // =================================================
 
             doc
                 .font("Helvetica-Bold")
@@ -487,9 +422,6 @@ const generateReceiptPDF = (data) => {
             doc.moveDown(1);
 
 
-            // =================================================
-            // SERVICE DETAILS
-            // =================================================
 
             doc
                 .font("Helvetica-Bold")
@@ -529,9 +461,6 @@ const generateReceiptPDF = (data) => {
             doc.moveDown(1);
 
 
-            // =================================================
-            // PAYMENT DETAILS
-            // =================================================
 
             doc
                 .font("Helvetica-Bold")
@@ -572,9 +501,6 @@ const generateReceiptPDF = (data) => {
             doc.moveDown(1);
 
 
-            // =================================================
-            // AMOUNT
-            // =================================================
 
             doc
                 .fontSize(16)
@@ -590,9 +516,6 @@ const generateReceiptPDF = (data) => {
             doc.moveDown(2);
 
 
-            // =================================================
-            // FOOTER
-            // =================================================
 
             doc
                 .fontSize(12)
@@ -626,9 +549,6 @@ const generateReceiptPDF = (data) => {
                 );
 
 
-            // =================================================
-            // END PDF
-            // =================================================
 
             doc.end();
 
@@ -645,13 +565,6 @@ const generateReceiptPDF = (data) => {
 
 
 
-// =====================================================
-// VERIFY RAZORPAY PAYMENT
-// + UPDATE PAYMENT
-// + UPDATE BOOKING
-// + GENERATE PDF
-// + SEND RECEIPT EMAIL USING RESEND
-// =====================================================
 
 const verifyPayment = async (req, res) => {
 
@@ -668,9 +581,6 @@ const verifyPayment = async (req, res) => {
         } = req.body;
 
 
-        // =================================================
-        // VALIDATION
-        // =================================================
 
         if (
             !razorpay_order_id ||
@@ -688,9 +598,6 @@ const verifyPayment = async (req, res) => {
         }
 
 
-        // =================================================
-        // FIND PAYMENT
-        // =================================================
 
         const payment =
             await paymentModel.findOne({
@@ -716,9 +623,6 @@ const verifyPayment = async (req, res) => {
         }
 
 
-        // =================================================
-        // PREVENT DUPLICATE VERIFICATION
-        // =================================================
 
         if (payment.status === "paid") {
 
@@ -732,9 +636,6 @@ const verifyPayment = async (req, res) => {
         }
 
 
-        // =================================================
-        // CREATE RAZORPAY SIGNATURE
-        // =================================================
 
         const generatedSignature =
             crypto
@@ -748,9 +649,6 @@ const verifyPayment = async (req, res) => {
                 .digest("hex");
 
 
-        // =================================================
-        // VERIFY SIGNATURE
-        // =================================================
 
         if (
             generatedSignature !==
@@ -774,9 +672,6 @@ const verifyPayment = async (req, res) => {
         }
 
 
-        // =================================================
-        // GET BOOKING
-        // =================================================
 
         const booking =
             await bookingModel.findOne({
@@ -802,9 +697,6 @@ const verifyPayment = async (req, res) => {
         }
 
 
-        // =================================================
-        // PAYMENT ONLY AFTER SERVICE COMPLETED
-        // =================================================
 
         if (booking.status !== "Completed") {
 
@@ -818,9 +710,6 @@ const verifyPayment = async (req, res) => {
         }
 
 
-        // =================================================
-        // UPDATE PAYMENT
-        // =================================================
 
         payment.razorpayPaymentId =
             razorpay_payment_id;
@@ -841,10 +730,6 @@ const verifyPayment = async (req, res) => {
         await payment.save();
 
 
-        // =================================================
-        // UPDATE BOOKING PAYMENT STATUS
-        // BOOKING STATUS REMAINS "Completed"
-        // =================================================
 
         booking.paymentStatus =
             "paid";
@@ -853,9 +738,6 @@ const verifyPayment = async (req, res) => {
         await booking.save();
 
 
-        // =================================================
-        // GET CUSTOMER
-        // =================================================
 
         const customer =
             await userModel.findById(
@@ -875,9 +757,6 @@ const verifyPayment = async (req, res) => {
         }
 
 
-        // =================================================
-        // GET VEHICLE
-        // =================================================
 
         const vehicle =
             await vehicleModel.findById(
@@ -897,9 +776,6 @@ const verifyPayment = async (req, res) => {
         }
 
 
-        // =================================================
-        // GET SERVICE
-        // =================================================
 
         const service =
             await serviceModel.findById(
@@ -919,9 +795,6 @@ const verifyPayment = async (req, res) => {
         }
 
 
-        // =================================================
-        // GENERATE PDF RECEIPT
-        // =================================================
 
         const pdfBuffer =
             await generateReceiptPDF({
@@ -939,9 +812,6 @@ const verifyPayment = async (req, res) => {
             });
 
 
-        // =================================================
-        // CHECK RESEND CONFIGURATION
-        // =================================================
 
         if (!process.env.RESEND_API_KEY) {
 
@@ -961,9 +831,6 @@ const verifyPayment = async (req, res) => {
         }
 
 
-        // =================================================
-        // SEND EMAIL USING RESEND
-        // =================================================
 
         console.log(
             "Customer Email:",
@@ -1012,9 +879,6 @@ const verifyPayment = async (req, res) => {
             });
 
 
-        // =================================================
-        // RESEND ERROR
-        // =================================================
 
         if (error) {
 
@@ -1032,9 +896,6 @@ const verifyPayment = async (req, res) => {
         }
 
 
-        // =================================================
-        // EMAIL SUCCESS
-        // =================================================
 
         console.log(
             "Receipt email sent successfully!"
@@ -1047,9 +908,6 @@ const verifyPayment = async (req, res) => {
         );
 
 
-        // =================================================
-        // FINAL RESPONSE
-        // =================================================
 
         return res.status(200).json({
 
@@ -1104,9 +962,6 @@ const verifyPayment = async (req, res) => {
 
 
 
-// =====================================================
-// EXPORTS
-// =====================================================
 
 module.exports = {
 

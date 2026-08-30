@@ -1,18 +1,8 @@
 const { Resend } = require("resend");
 
-
-// =====================================================
-// RESEND CONFIG
-// =====================================================
-
 const resend = new Resend(
     process.env.RESEND_API_KEY
 );
-
-
-// =====================================================
-// SEND OTP EMAIL
-// =====================================================
 
 const sendOTPEmail = async (email, otp) => {
 
@@ -20,7 +10,6 @@ const sendOTPEmail = async (email, otp) => {
 
         const { data, error } = await resend.emails.send({
 
-            // Resend testing sender
             from: "Fix My Ride <onboarding@resend.dev>",
 
             to: [email],
@@ -146,9 +135,6 @@ const sendOTPEmail = async (email, otp) => {
         });
 
 
-        // =================================================
-        // RESEND ERROR
-        // =================================================
 
         if (error) {
 
@@ -163,9 +149,6 @@ const sendOTPEmail = async (email, otp) => {
         }
 
 
-        // =================================================
-        // SUCCESS
-        // =================================================
 
         console.log(
             "OTP EMAIL SENT SUCCESSFULLY:",
@@ -176,19 +159,12 @@ const sendOTPEmail = async (email, otp) => {
 
 
     } catch (err) {
-
         console.error(
             "SEND OTP EMAIL ERROR:",
             err
         );
-
         throw err;
     }
 };
-
-
-// =====================================================
-// EXPORT
-// =====================================================
 
 module.exports = sendOTPEmail;

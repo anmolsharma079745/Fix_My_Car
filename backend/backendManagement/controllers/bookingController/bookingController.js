@@ -2,9 +2,6 @@ const bookingModel = require("../../models/bookingModel/bookingModel");
 const mechanicModel = require("../../models/mechanicModel/mechanicModel");
 
 
-// =====================================================
-// COMMON STATUS
-// =====================================================
 
 const allowedBookingStatuses = [
     "pending",
@@ -15,9 +12,6 @@ const allowedBookingStatuses = [
 ];
 
 
-// =====================================================
-// CREATE BOOKING - CUSTOMER
-// =====================================================
 
 const createBooking = async (req, res) => {
 
@@ -31,9 +25,6 @@ const createBooking = async (req, res) => {
         } = req.body;
 
 
-        // =================================================
-        // VALIDATION
-        // =================================================
 
         if (
             !vehicleId ||
@@ -50,13 +41,7 @@ const createBooking = async (req, res) => {
         }
 
 
-        // =================================================
-        // VALIDATE DATE
-        // =================================================
 
-        // =================================================
-// VALIDATE DATE + TIME
-// =================================================
 
 const newBookingDate = new Date(
     `${bookingDate}T${bookingTime}`
@@ -72,9 +57,6 @@ if (isNaN(newBookingDate.getTime())) {
 }
 
 
-// =================================================
-// BOOKING TIME MUST BE AT LEAST 1 MINUTE FUTURE
-// =================================================
 
 const minimumBookingTime = new Date();
 
@@ -93,9 +75,6 @@ if (newBookingDate < minimumBookingTime) {
 }
 
 
-        // =================================================
-        // CREATE BOOKING
-        // =================================================
 
         const booking = new bookingModel({
 
@@ -113,10 +92,6 @@ if (newBookingDate < minimumBookingTime) {
 
             status: "pending",
 
-            // =================================================
-            // PAYMENT STATUS
-            // Payment will happen AFTER service completion
-            // =================================================
 
             paymentStatus: "pending",
 
@@ -128,9 +103,6 @@ if (newBookingDate < minimumBookingTime) {
         await booking.save();
 
 
-        // =================================================
-        // RESPONSE
-        // =================================================
 
         res.status(201).json({
 
@@ -164,9 +136,6 @@ if (newBookingDate < minimumBookingTime) {
 
 
 
-// =====================================================
-// GET CUSTOMER BOOKINGS
-// =====================================================
 
 const getBookings = async (req, res) => {
 
@@ -222,10 +191,6 @@ const getBookings = async (req, res) => {
 
 
 
-// =====================================================
-// GET UPCOMING BOOKINGS
-// CUSTOMER DASHBOARD
-// =====================================================
 
 const getUpcomingBookings = async (req, res) => {
 
@@ -298,9 +263,6 @@ const getUpcomingBookings = async (req, res) => {
 
 
 
-// =====================================================
-// RESCHEDULE BOOKING - CUSTOMER
-// =====================================================
 
 const rescheduleBooking = async (req, res) => {
 
@@ -314,9 +276,6 @@ const rescheduleBooking = async (req, res) => {
         } = req.body;
 
 
-        // =================================================
-        // VALIDATION
-        // =================================================
 
         if (!bookingDate || !bookingTime) {
 
@@ -330,9 +289,6 @@ const rescheduleBooking = async (req, res) => {
         }
 
 
-        // =================================================
-        // VALIDATE DATE
-        // =================================================
 
         const newBookingDate = new Date(
             `${bookingDate}T${bookingTime}`
@@ -351,9 +307,6 @@ const rescheduleBooking = async (req, res) => {
         }
 
 
-        // =================================================
-        // DATE + TIME MUST BE FUTURE
-        // =================================================
 
         if (newBookingDate <= new Date()) {
 
@@ -367,9 +320,6 @@ const rescheduleBooking = async (req, res) => {
         }
 
 
-        // =================================================
-        // FIND CUSTOMER BOOKING
-        // =================================================
 
         const booking =
             await bookingModel.findOne({
@@ -393,9 +343,6 @@ const rescheduleBooking = async (req, res) => {
         }
 
 
-        // =================================================
-        // ONLY PENDING / CONFIRMED
-        // =================================================
 
         if (
             booking.status !== "pending" &&
@@ -412,32 +359,20 @@ const rescheduleBooking = async (req, res) => {
         }
 
 
-        // =================================================
-        // UPDATE DATE
-        // =================================================
 
         booking.bookingDate =
             newBookingDate;
 
 
-        // =================================================
-        // UPDATE TIME
-        // =================================================
 
         booking.bookingTime =
             bookingTime;
 
 
-        // =================================================
-        // SAVE
-        // =================================================
 
         await booking.save();
 
 
-        // =================================================
-        // RESPONSE
-        // =================================================
 
         res.status(200).json({
 
@@ -472,9 +407,6 @@ const rescheduleBooking = async (req, res) => {
 
 
 
-// =====================================================
-// CANCEL BOOKING - CUSTOMER
-// =====================================================
 
 const cancelBooking = async (req, res) => {
 
@@ -505,9 +437,6 @@ const cancelBooking = async (req, res) => {
         }
 
 
-        // =================================================
-        // CHECK STATUS
-        // =================================================
 
         if (
             booking.status === "Completed" ||
@@ -564,9 +493,6 @@ const cancelBooking = async (req, res) => {
 
 
 
-// =====================================================
-// GET ALL BOOKINGS - ADMIN
-// =====================================================
 
 const getAllBookings = async (req, res) => {
 
@@ -625,9 +551,6 @@ const getAllBookings = async (req, res) => {
 
 
 
-// =====================================================
-// ASSIGN MECHANIC - ADMIN
-// =====================================================
 
 const assignMechanic = async (req, res) => {
 
@@ -638,9 +561,6 @@ const assignMechanic = async (req, res) => {
         const { mechanicId } = req.body;
 
 
-        // =================================================
-        // VALIDATION
-        // =================================================
 
         if (!mechanicId) {
 
@@ -654,9 +574,6 @@ const assignMechanic = async (req, res) => {
         }
 
 
-        // =================================================
-        // CHECK MECHANIC
-        // =================================================
 
         const mechanic =
             await mechanicModel.findById(
@@ -676,9 +593,6 @@ const assignMechanic = async (req, res) => {
         }
 
 
-        // =================================================
-        // UPDATE BOOKING
-        // =================================================
 
         const booking =
             await bookingModel.findByIdAndUpdate(
@@ -716,9 +630,6 @@ const assignMechanic = async (req, res) => {
         }
 
 
-        // =================================================
-        // RESPONSE
-        // =================================================
 
         res.status(200).json({
 
@@ -753,9 +664,6 @@ const assignMechanic = async (req, res) => {
 
 
 
-// =====================================================
-// UPDATE BOOKING STATUS - ADMIN
-// =====================================================
 
 const updateAdminBookingStatus = async (req, res) => {
 
@@ -766,9 +674,6 @@ const updateAdminBookingStatus = async (req, res) => {
         const { status } = req.body;
 
 
-        // =================================================
-        // VALIDATION
-        // =================================================
 
         if (!status) {
 
@@ -782,9 +687,6 @@ const updateAdminBookingStatus = async (req, res) => {
         }
 
 
-        // =================================================
-        // CHECK STATUS
-        // =================================================
 
         if (
             !allowedBookingStatuses.includes(status)
@@ -803,9 +705,6 @@ const updateAdminBookingStatus = async (req, res) => {
         }
 
 
-        // =================================================
-        // FIND BOOKING
-        // =================================================
 
         const booking =
             await bookingModel.findById(id);
@@ -823,22 +722,11 @@ const updateAdminBookingStatus = async (req, res) => {
         }
 
 
-        // =================================================
-        // UPDATE STATUS
-        // =================================================
 
         booking.status =
             status;
 
 
-        // =================================================
-        // IMPORTANT
-        // =================================================
-        // Completing service DOES NOT mean payment is done.
-        //
-        // paymentStatus will remain "pending" until
-        // customer successfully pays.
-        // =================================================
 
         if (status === "Completed") {
 
@@ -855,9 +743,6 @@ const updateAdminBookingStatus = async (req, res) => {
         await booking.save();
 
 
-        // =================================================
-        // RESPONSE
-        // =================================================
 
         res.status(200).json({
 
@@ -892,17 +777,11 @@ const updateAdminBookingStatus = async (req, res) => {
 
 
 
-// =====================================================
-// GET MECHANIC ASSIGNED BOOKINGS
-// =====================================================
 
 const getMechanicBookings = async (req, res) => {
 
     try {
 
-        // =================================================
-        // FIND MECHANIC PROFILE
-        // =================================================
 
         const mechanic =
             await mechanicModel.findOne({
@@ -924,9 +803,6 @@ const getMechanicBookings = async (req, res) => {
         }
 
 
-        // =================================================
-        // GET ASSIGNED BOOKINGS
-        // =================================================
 
         const bookings =
             await bookingModel
@@ -995,10 +871,6 @@ const getMechanicBookings = async (req, res) => {
 
 
 
-// =====================================================
-// UPDATE BOOKING STATUS + NOTES
-// MECHANIC
-// =====================================================
 
 const updateMechanicBooking = async (req, res) => {
 
@@ -1012,9 +884,6 @@ const updateMechanicBooking = async (req, res) => {
         } = req.body;
 
 
-        // =================================================
-        // FIND MECHANIC PROFILE
-        // =================================================
 
         const mechanic =
             await mechanicModel.findOne({
@@ -1036,9 +905,6 @@ const updateMechanicBooking = async (req, res) => {
         }
 
 
-        // =================================================
-        // VALIDATE STATUS
-        // =================================================
 
         if (
             status &&
@@ -1058,9 +924,6 @@ const updateMechanicBooking = async (req, res) => {
         }
 
 
-        // =================================================
-        // FIND ONLY ASSIGNED BOOKING
-        // =================================================
 
         const booking =
             await bookingModel.findOne({
@@ -1085,9 +948,6 @@ const updateMechanicBooking = async (req, res) => {
         }
 
 
-        // =================================================
-        // UPDATE STATUS
-        // =================================================
 
         if (status) {
 
@@ -1095,14 +955,6 @@ const updateMechanicBooking = async (req, res) => {
                 status;
 
 
-            // =================================================
-            // IMPORTANT PAYMENT LOGIC
-            // =================================================
-            // When mechanic completes service,
-            // payment is NOT automatically completed.
-            //
-            // Customer must pay from Current Booking.
-            // =================================================
 
             if (status === "Completed") {
 
@@ -1118,9 +970,6 @@ const updateMechanicBooking = async (req, res) => {
         }
 
 
-        // =================================================
-        // UPDATE NOTES
-        // =================================================
 
         if (notes !== undefined) {
 
@@ -1133,9 +982,6 @@ const updateMechanicBooking = async (req, res) => {
         await booking.save();
 
 
-        // =================================================
-        // RESPONSE
-        // =================================================
 
         res.status(200).json({
 
@@ -1170,9 +1016,6 @@ const updateMechanicBooking = async (req, res) => {
 
 
 
-// =====================================================
-// DELETE BOOKING - ADMIN
-// =====================================================
 
 const deleteBooking = async (req, res) => {
 
@@ -1231,9 +1074,6 @@ const deleteBooking = async (req, res) => {
 
 
 
-// =====================================================
-// EXPORTS
-// =====================================================
 
 module.exports = {
 

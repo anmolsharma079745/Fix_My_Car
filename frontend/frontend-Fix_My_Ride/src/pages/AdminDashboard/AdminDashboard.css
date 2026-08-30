@@ -1,6 +1,3 @@
-/* =========================================
-   ADMIN DASHBOARD
-========================================= */
 
 .admin-dashboard {
   width: 100%;
@@ -11,9 +8,6 @@
   overflow-x: hidden;
 }
 
-/* =========================================
-   DASHBOARD CONTENT
-========================================= */
 
 .admin-dashboard-content {
   width: 100%;
@@ -22,36 +16,24 @@
   padding: 30px 40px;
 }
 
-/* =========================================
-   COMMON SECTION
-========================================= */
 
 .admin-dashboard-section {
   width: 100%;
   margin-bottom: 40px;
 }
 
-/* =========================================
-   LIGHT THEME
-========================================= */
 
 .admin-dashboard.light {
   background: var(--bg-color);
   color: var(--text-color);
 }
 
-/* =========================================
-   DARK THEME
-========================================= */
 
 .admin-dashboard.dark {
   background: var(--bg-color);
   color: var(--text-color);
 }
 
-/* =========================================
-   RESPONSIVE
-========================================= */
 
 @media (max-width: 992px) {
   .admin-dashboard-content {

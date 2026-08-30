@@ -22,7 +22,6 @@ const DashBoardHeader = ({ theme }) => {
 
     <div className="dashboard-header">
 
-      {/* Left Content */}
 
       <div className="dashboard-header-content">
 
@@ -42,7 +41,6 @@ const DashBoardHeader = ({ theme }) => {
       </div>
 
 
-      {/* Right Welcome Card */}
 
       <div className="dashboard-welcome">
 

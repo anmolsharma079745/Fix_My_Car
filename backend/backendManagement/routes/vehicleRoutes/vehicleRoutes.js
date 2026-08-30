@@ -16,9 +16,6 @@ const roleMiddleware = require("../../middleware/roleMiddleware/roleMiddleware")
 const upload = require("../../middleware/uploadMiddleware/uploadMiddleware");
 
 
-// =====================================================
-// ADD VEHICLE
-// =====================================================
 
 router.post(
     "/add",
@@ -29,9 +26,6 @@ router.post(
 );
 
 
-// =====================================================
-// GET VEHICLES
-// =====================================================
 
 router.get(
     "/all",
@@ -41,9 +35,6 @@ router.get(
 );
 
 
-// =====================================================
-// UPDATE VEHICLE
-// =====================================================
 
 router.put(
     "/update/:id",
@@ -54,9 +45,6 @@ router.put(
 );
 
 
-// =====================================================
-// DELETE VEHICLE
-// =====================================================
 
 router.delete(
     "/delete/:id",

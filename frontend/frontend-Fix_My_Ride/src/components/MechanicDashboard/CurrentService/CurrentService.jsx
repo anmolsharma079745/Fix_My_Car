@@ -7,9 +7,6 @@ const BOOKING_API = `${API_BASE_URL}/api/booking`;
 
 const CurrentService = ({ theme }) => {
 
-    // =====================================================
-    // STATES
-    // =====================================================
 
     const [currentService, setCurrentService] = useState(null);
 
@@ -18,9 +15,6 @@ const CurrentService = ({ theme }) => {
     const [error, setError] = useState("");
 
 
-    // =====================================================
-    // TOKEN
-    // =====================================================
 
     const getToken = () => {
 
@@ -29,9 +23,6 @@ const CurrentService = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // FETCH CURRENT SERVICE
-    // =====================================================
 
     useEffect(() => {
 
@@ -65,9 +56,6 @@ const CurrentService = ({ theme }) => {
             }
 
 
-            // =================================================
-            // GET MECHANIC ASSIGNED BOOKINGS
-            // =================================================
 
             const response = await axios.get(
 
@@ -96,9 +84,6 @@ const CurrentService = ({ theme }) => {
                 [];
 
 
-            // =================================================
-            // FIND IN PROGRESS SERVICE
-            // =================================================
 
             const activeService =
                 bookings.find((booking) => {
@@ -140,9 +125,6 @@ const CurrentService = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // FORMAT DATE
-    // =====================================================
 
     const formatDate = (date) => {
 
@@ -183,9 +165,6 @@ const CurrentService = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // CUSTOMER NAME
-    // =====================================================
 
     const getCustomerName = (service) => {
 
@@ -222,9 +201,6 @@ const CurrentService = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // CUSTOMER PHONE
-    // =====================================================
 
     const getCustomerPhone = (service) => {
 
@@ -261,9 +237,6 @@ const CurrentService = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // VEHICLE NAME
-    // =====================================================
 
     const getVehicleName = (service) => {
 
@@ -324,9 +297,6 @@ const CurrentService = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // SERVICE NAME
-    // =====================================================
 
     const getServiceName = (service) => {
 
@@ -367,9 +337,6 @@ const CurrentService = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // BOOKING ID
-    // =====================================================
 
     const getBookingId = (service) => {
 
@@ -387,9 +354,6 @@ const CurrentService = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // RENDER
-    // =====================================================
 
     return (
 
@@ -400,9 +364,6 @@ const CurrentService = ({ theme }) => {
             <div className="current-service-container">
 
 
-                {/* =================================================
-                    HEADING
-                ================================================= */}
 
                 <div className="current-service-heading">
 
@@ -423,9 +384,6 @@ const CurrentService = ({ theme }) => {
                 </div>
 
 
-                {/* =================================================
-                    ERROR
-                ================================================= */}
 
                 {error && (
 
@@ -442,9 +400,6 @@ const CurrentService = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    LOADING
-                ================================================= */}
 
                 {loading && (
 
@@ -461,9 +416,6 @@ const CurrentService = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    NO ACTIVE SERVICE
-                ================================================= */}
 
                 {!loading &&
                 !error &&
@@ -496,9 +448,6 @@ const CurrentService = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    ACTIVE SERVICE
-                ================================================= */}
 
                 {!loading &&
                 !error &&
@@ -509,9 +458,6 @@ const CurrentService = ({ theme }) => {
                         <div className="current-service-card">
 
 
-                            {/* =================================================
-                                CARD HEADER
-                            ================================================= */}
 
                             <div className="current-service-card-header">
 
@@ -559,7 +505,6 @@ const CurrentService = ({ theme }) => {
                                 </div>
 
 
-                                {/* STATUS */}
 
                                 <div className="current-service-status">
 
@@ -572,14 +517,10 @@ const CurrentService = ({ theme }) => {
                             </div>
 
 
-                            {/* =================================================
-                                SERVICE DETAILS
-                            ================================================= */}
 
                             <div className="current-service-details">
 
 
-                                {/* SERVICE */}
 
                                 <div className="current-service-detail">
 
@@ -612,7 +553,6 @@ const CurrentService = ({ theme }) => {
                                 </div>
 
 
-                                {/* CUSTOMER */}
 
                                 <div className="current-service-detail">
 
@@ -645,7 +585,6 @@ const CurrentService = ({ theme }) => {
                                 </div>
 
 
-                                {/* PHONE */}
 
                                 <div className="current-service-detail">
 
@@ -678,7 +617,6 @@ const CurrentService = ({ theme }) => {
                                 </div>
 
 
-                                {/* DATE */}
 
                                 <div className="current-service-detail">
 
@@ -711,7 +649,6 @@ const CurrentService = ({ theme }) => {
                                 </div>
 
 
-                                {/* TIME */}
 
                                 <div className="current-service-detail">
 
@@ -746,9 +683,6 @@ const CurrentService = ({ theme }) => {
                             </div>
 
 
-                            {/* =================================================
-                                NOTES
-                            ================================================= */}
 
                             {currentService.notes && (
 

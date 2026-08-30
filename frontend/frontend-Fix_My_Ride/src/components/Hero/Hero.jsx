@@ -8,15 +8,11 @@ const Hero = () => {
     const [showLoginPopup, setShowLoginPopup] = useState(false);
 
 
-    // =====================================================
-    // BOOK SERVICE
-    // =====================================================
 
     const handleBookService = () => {
 
         const storedUser = localStorage.getItem("user");
 
-        // User login nahi hai
         if (!storedUser) {
 
             setShowLoginPopup(true);
@@ -41,7 +37,6 @@ const Hero = () => {
         }
 
 
-        // Sirf customer ko booking access
         if (user?.role === "customer") {
 
             window.location.href = "/customer-dashboard";
@@ -55,9 +50,6 @@ const Hero = () => {
     };
 
 
-    // =====================================================
-    // EXPLORE SERVICES
-    // =====================================================
 
     const handleExploreServices = () => {
 
@@ -76,9 +68,6 @@ const Hero = () => {
     };
 
 
-    // =====================================================
-    // LOGIN POPUP
-    // =====================================================
 
     const handleLogin = () => {
 
@@ -94,9 +83,6 @@ const Hero = () => {
             <section className="hero" id="about">
 
 
-                {/* =====================================================
-                    LEFT CONTENT
-                ===================================================== */}
 
                 <div className="hero-content">
 
@@ -116,7 +102,6 @@ const Hero = () => {
                     <div className="hero-buttons">
 
 
-                        {/* BOOK SERVICE */}
 
                         <button
                             className="primary-btn"
@@ -126,7 +111,6 @@ const Hero = () => {
                         </button>
 
 
-                        {/* EXPLORE SERVICES */}
 
                         <button
                             className="primary-btn"
@@ -141,9 +125,6 @@ const Hero = () => {
                 </div>
 
 
-                {/* =====================================================
-                    RIGHT IMAGE
-                ===================================================== */}
 
                 <div className="hero-image">
 
@@ -161,9 +142,6 @@ const Hero = () => {
             </section>
 
 
-            {/* =====================================================
-                LOGIN POPUP
-            ===================================================== */}
 
             {showLoginPopup && (
 

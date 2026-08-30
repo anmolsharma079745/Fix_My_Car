@@ -2,9 +2,6 @@ const vehicleModel = require("../../models/vehicleModel/vehicleModel");
 const cloudinary = require("../../config/cloudinary");
 
 
-// =====================================================
-// ADD VEHICLE
-// =====================================================
 
 const addVehicle = async (req, res) => {
     try {
@@ -18,9 +15,6 @@ const addVehicle = async (req, res) => {
 
         let vehicleImage = "";
 
-        // =====================================================
-        // UPLOAD IMAGE TO CLOUDINARY
-        // =====================================================
 
         if (req.file) {
 
@@ -48,9 +42,6 @@ const addVehicle = async (req, res) => {
         }
 
 
-        // =====================================================
-        // CREATE VEHICLE
-        // =====================================================
 
         const vehicle = await vehicleModel.create({
             userId: req.user.id,
@@ -78,9 +69,6 @@ const addVehicle = async (req, res) => {
 };
 
 
-// =====================================================
-// GET CUSTOMER VEHICLES
-// =====================================================
 
 const getVehicles = async (req, res) => {
     try {
@@ -105,9 +93,6 @@ const getVehicles = async (req, res) => {
 };
 
 
-// =====================================================
-// UPDATE VEHICLE
-// =====================================================
 
 const updateVehicle = async (req, res) => {
     try {
@@ -119,9 +104,6 @@ const updateVehicle = async (req, res) => {
         };
 
 
-        // =====================================================
-        // UPLOAD NEW IMAGE
-        // =====================================================
 
         if (req.file) {
 
@@ -187,9 +169,6 @@ const updateVehicle = async (req, res) => {
 };
 
 
-// =====================================================
-// DELETE VEHICLE
-// =====================================================
 
 const deleteVehicle = async (req, res) => {
     try {

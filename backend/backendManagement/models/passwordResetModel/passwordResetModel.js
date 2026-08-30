@@ -24,7 +24,6 @@ const passwordResetSchema = new mongoose.Schema(
     }
 );
 
-// OTP automatically delete ho jayega expiry ke baad
 passwordResetSchema.index(
     { expiresAt: 1 },
     { expireAfterSeconds: 0 }

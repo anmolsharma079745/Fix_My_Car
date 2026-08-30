@@ -25,13 +25,9 @@ const AppRoutes = ({ theme, toggleTheme }) => {
 
         <Route path="/register" element={<Register theme={theme} toggleTheme={toggleTheme}/>}/>
 
-
         <Route 
           path="/customer-dashboard" 
-          element={<CustomerDashboard theme={theme} toggleTheme={toggleTheme}/>} />
-
-
-        
+          element={<CustomerDashboard theme={theme} toggleTheme={toggleTheme}/>} />        
 
         <Route
           path="/services"

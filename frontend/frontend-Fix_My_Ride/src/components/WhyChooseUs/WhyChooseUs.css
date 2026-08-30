@@ -1,8 +1,3 @@
-/* =====================
-      WHY CHOOSE SECTION
-===================== */
-
-
 .why-section {
 
     min-height: 90vh;
@@ -17,12 +12,6 @@
     transition: 0.3s ease;
 
 }
-
-
-
-/* =====================
-      HEADER
-===================== */
 
 
 .why-header {
@@ -49,15 +38,11 @@
 
 }
 
-
-
 .why-header h2 span {
 
     color: var(--primary-color);
 
 }
-
-
 
 .why-header p {
 
@@ -71,9 +56,6 @@
 
 
 
-/* =====================
-      CARDS CONTAINER
-===================== */
 
 
 .why-container {
@@ -90,9 +72,6 @@
 
 
 
-/* =====================
-      WHY CARD
-===================== */
 
 
 .why-card {
@@ -140,7 +119,6 @@
 .why-card:hover::before {
     transform: scaleX(1);
 }
-/* Hover Effect */
 
 
 .why-card:hover {
@@ -154,13 +132,6 @@
 
 
 }
-
-
-
-/* =====================
-      ICON
-===================== */
-
 
 .why-icon {
 
@@ -192,9 +163,6 @@
 
 
 
-/* =====================
-      CONTENT
-===================== */
 
 
 .why-card h3 {
@@ -225,9 +193,6 @@
 
 
 
-/* =====================
-      RESPONSIVE
-===================== */
 
 
 @media(max-width:1000px){

@@ -11,24 +11,15 @@ const UpcomingService = ({ theme }) => {
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
 
-    // =====================================================
-    // RESCHEDULE STATES
-    // =====================================================
 
     const [showReschedule, setShowReschedule] = useState(false);
     const [newBookingDate, setNewBookingDate] = useState("");
     const [rescheduleLoading, setRescheduleLoading] = useState(false);
 
-    // =====================================================
-    // VIEW DETAILS STATE
-    // =====================================================
 
     const [showDetails, setShowDetails] = useState(false);
 
 
-    // =====================================================
-    // FETCH UPCOMING SERVICE
-    // =====================================================
 
     const fetchUpcomingService = async (showLoader = false) => {
 
@@ -60,12 +51,6 @@ const UpcomingService = ({ theme }) => {
 
             if (bookings.length > 0) {
 
-                /*
-                 * IMPORTANT:
-                 * Backend se fresh booking aa rahi hai.
-                 * Isliye Admin/Mechanic status change karega
-                 * to yahan latest status update ho jayega.
-                 */
                 setUpcomingService(bookings[0]);
 
                 console.log(
@@ -96,10 +81,6 @@ const UpcomingService = ({ theme }) => {
                 error.response?.data || error.message
             );
 
-            /*
-             * Automatic refresh ke time existing booking ko
-             * error ki wajah se remove nahi karenge.
-             */
             if (!upcomingService) {
 
                 setError(
@@ -120,9 +101,6 @@ const UpcomingService = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // INITIAL FETCH
-    // =====================================================
 
     useEffect(() => {
 
@@ -131,16 +109,9 @@ const UpcomingService = ({ theme }) => {
     }, []);
 
 
-    // =====================================================
-    // AUTO REFRESH
-    // =====================================================
 
     useEffect(() => {
 
-        /*
-         * Har 5 seconds latest booking/status backend se
-         * automatically fetch hoga.
-         */
         const refreshInterval = setInterval(() => {
 
             fetchUpcomingService(false);
@@ -148,10 +119,6 @@ const UpcomingService = ({ theme }) => {
         }, 5000);
 
 
-        /*
-         * Jab user dusre tab se wapas customer dashboard par
-         * aayega to immediately latest status fetch hoga.
-         */
         const handleVisibilityChange = () => {
 
             if (!document.hidden) {
@@ -181,9 +148,6 @@ const UpcomingService = ({ theme }) => {
 
     }, []);
 
-    // =====================================================
-// MINIMUM RESCHEDULE DATE + TIME
-// =====================================================
 
 const getMinBookingDateTime = () => {
 
@@ -216,9 +180,6 @@ const minRescheduleDateTime =
     getMinBookingDateTime();
 
 
-    // =====================================================
-    // FORMAT DATE
-    // =====================================================
 
     const formatDate = (date) => {
 
@@ -238,9 +199,6 @@ const minRescheduleDateTime =
     };
 
 
-    // =====================================================
-    // FORMAT TIME
-    // =====================================================
 
     const formatTime = (time) => {
 
@@ -279,9 +237,6 @@ const minRescheduleDateTime =
 };
 
 
-    // =====================================================
-    // STATUS FORMAT
-    // =====================================================
 
     const formatStatus = (status) => {
 
@@ -289,15 +244,6 @@ const minRescheduleDateTime =
             return "Pending";
         }
 
-        /*
-         * Handles:
-         * pending
-         * Pending
-         * confirmed
-         * in-progress
-         * completed
-         * cancelled
-         */
 
         return status
             .toString()
@@ -307,18 +253,12 @@ const minRescheduleDateTime =
     };
 
 
-    // =====================================================
-    // OPEN VIEW DETAILS
-    // =====================================================
 
     const handleOpenDetails = () => {
 
         setError("");
         setSuccess("");
 
-        /*
-         * Modal open karte waqt bhi fresh status fetch.
-         */
         fetchUpcomingService(false);
 
         setShowDetails(true);
@@ -326,9 +266,6 @@ const minRescheduleDateTime =
     };
 
 
-    // =====================================================
-    // CLOSE VIEW DETAILS
-    // =====================================================
 
     const handleCloseDetails = () => {
 
@@ -337,9 +274,6 @@ const minRescheduleDateTime =
     };
 
 
-    // =====================================================
-    // OPEN RESCHEDULE MODAL
-    // =====================================================
 
     const handleOpenReschedule = () => {
 
@@ -375,9 +309,6 @@ const minRescheduleDateTime =
     setShowReschedule(true);
 };
 
-    // =====================================================
-    // CLOSE RESCHEDULE MODAL
-    // =====================================================
 
     const handleCloseReschedule = () => {
 
@@ -391,9 +322,6 @@ const minRescheduleDateTime =
     };
 
 
-    // =====================================================
-    // RESCHEDULE BOOKING
-    // =====================================================
 
     const handleReschedule = async (e) => {
 
@@ -452,9 +380,6 @@ const response = await axios.put(
             );
 
 
-            // =================================================
-            // UPDATE CURRENT BOOKING
-            // =================================================
 
             if (response.data.booking) {
 
@@ -474,9 +399,6 @@ const response = await axios.put(
             setNewBookingDate("");
 
 
-            // =================================================
-            // FRESH BACKEND DATA
-            // =================================================
 
             fetchUpcomingService(false);
 
@@ -502,9 +424,6 @@ const response = await axios.put(
     };
 
 
-    // =====================================================
-    // LOADING
-    // =====================================================
 
     if (loading) {
 
@@ -555,9 +474,6 @@ const response = await axios.put(
     }
 
 
-    // =====================================================
-    // ERROR
-    // =====================================================
 
     if (error && !upcomingService) {
 
@@ -608,9 +524,6 @@ const response = await axios.put(
     }
 
 
-    // =====================================================
-    // NO UPCOMING SERVICE
-    // =====================================================
 
     if (!upcomingService) {
 
@@ -661,9 +574,6 @@ const response = await axios.put(
     }
 
 
-    // =====================================================
-    // MAIN UI
-    // =====================================================
 
     return (
 
@@ -671,9 +581,6 @@ const response = await axios.put(
             className={`upcoming-service ${theme}`}
         >
 
-            {/* =================================================
-                HEADER
-            ================================================= */}
 
             <div className="upcoming-header">
 
@@ -712,9 +619,6 @@ const response = await axios.put(
             </div>
 
 
-            {/* =================================================
-                SUCCESS
-            ================================================= */}
 
             {success && (
 
@@ -731,9 +635,6 @@ const response = await axios.put(
             )}
 
 
-            {/* =================================================
-                ERROR
-            ================================================= */}
 
             {error && (
 
@@ -750,14 +651,10 @@ const response = await axios.put(
             )}
 
 
-            {/* =================================================
-                SERVICE CARD
-            ================================================= */}
 
             <div className="upcoming-card">
 
 
-                {/* VEHICLE */}
 
                 <div className="vehicle-section">
 
@@ -812,7 +709,6 @@ const response = await axios.put(
                 </div>
 
 
-                {/* DETAILS */}
 
                 <div className="service-details">
 
@@ -913,7 +809,6 @@ const response = await axios.put(
                 </div>
 
 
-                {/* STATUS */}
 
                 <div className="service-location">
 
@@ -941,7 +836,6 @@ const response = await axios.put(
                 </div>
 
 
-                {/* ACTIONS */}
 
                 <div className="service-actions">
 
@@ -968,9 +862,6 @@ const response = await axios.put(
             </div>
 
 
-            {/* =====================================================
-                VIEW DETAILS MODAL
-            ===================================================== */}
 
             {showDetails && (
 
@@ -984,7 +875,6 @@ const response = await axios.put(
                         onClick={(e) => e.stopPropagation()}
                     >
 
-                        {/* HEADER */}
 
                         <div className="details-modal-header">
 
@@ -1018,12 +908,10 @@ const response = await axios.put(
                         </div>
 
 
-                        {/* DETAILS BODY */}
 
                         <div className="details-modal-body">
 
 
-                            {/* VEHICLE */}
 
                             <div className="modal-detail-card">
 
@@ -1062,7 +950,6 @@ const response = await axios.put(
                             </div>
 
 
-                            {/* DETAILS GRID */}
 
                             <div className="details-grid">
 
@@ -1206,7 +1093,6 @@ const response = await axios.put(
                         </div>
 
 
-                        {/* ACTIONS */}
 
                         <div className="details-modal-actions">
 
@@ -1246,9 +1132,6 @@ const response = await axios.put(
             )}
 
 
-            {/* =====================================================
-                RESCHEDULE MODAL
-            ===================================================== */}
 
             {showReschedule && (
 
@@ -1262,7 +1145,6 @@ const response = await axios.put(
                         onClick={(e) => e.stopPropagation()}
                     >
 
-                        {/* HEADER */}
 
                         <div className="reschedule-modal-header">
 
@@ -1297,7 +1179,6 @@ const response = await axios.put(
                         </div>
 
 
-                        {/* FORM */}
 
                         <form
                             className="reschedule-form"

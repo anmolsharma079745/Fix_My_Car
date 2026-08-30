@@ -4,9 +4,6 @@ import "./ManageBookings.css";
 import API_BASE_URL from "../../../services/Api/api";
 const ManageBooking = ({ theme }) => {
 
-    // =====================================================
-    // STATES
-    // =====================================================
 
     const [bookings, setBookings] = useState([]);
     const [mechanics, setMechanics] = useState([]);
@@ -28,9 +25,6 @@ const ManageBooking = ({ theme }) => {
     const [statusLoading, setStatusLoading] = useState(false);
 
 
-    // =====================================================
-    // STATUS OPTIONS
-    // =====================================================
 
     const statusOptions = [
         "pending",
@@ -41,9 +35,6 @@ const ManageBooking = ({ theme }) => {
     ];
 
 
-    // =====================================================
-    // FETCH BOOKINGS + MECHANICS
-    // =====================================================
 
     useEffect(() => {
 
@@ -53,9 +44,6 @@ const ManageBooking = ({ theme }) => {
     }, []);
 
 
-    // =====================================================
-    // FETCH ALL BOOKINGS
-    // =====================================================
 
     const fetchBookings = async () => {
 
@@ -112,9 +100,6 @@ const ManageBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // FETCH ALL MECHANICS
-    // =====================================================
 
     const fetchMechanics = async () => {
 
@@ -174,15 +159,11 @@ const ManageBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // OPEN EDIT MODAL
-    // =====================================================
 
     const openEditModal = (booking) => {
 
         setSelectedBooking(booking);
 
-        // Existing mechanic
         if (booking.mechanicId?._id) {
 
             setSelectedMechanic(
@@ -195,7 +176,6 @@ const ManageBooking = ({ theme }) => {
 
         }
 
-        // Existing status
         setSelectedStatus(
             booking.status || "pending"
         );
@@ -205,9 +185,6 @@ const ManageBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // CLOSE EDIT MODAL
-    // =====================================================
 
     const closeEditModal = () => {
 
@@ -229,9 +206,6 @@ const ManageBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // ASSIGN / CHANGE MECHANIC
-    // =====================================================
 
     const assignMechanic = async () => {
 
@@ -287,7 +261,6 @@ const ManageBooking = ({ theme }) => {
                 response.data
             );
 
-            // Refresh bookings
             await fetchBookings();
 
             alert(
@@ -316,9 +289,6 @@ const ManageBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // UPDATE BOOKING STATUS - ADMIN
-    // =====================================================
 
     const updateBookingStatus = async (bookingId, newStatus) => {
 
@@ -375,9 +345,6 @@ const ManageBooking = ({ theme }) => {
             );
 
 
-            // =================================================
-            // UPDATE FRONTEND IMMEDIATELY
-            // =================================================
 
             setBookings((previousBookings) =>
 
@@ -399,7 +366,6 @@ const ManageBooking = ({ theme }) => {
             );
 
 
-            // Update selected booking also
             setSelectedBooking((previous) => {
 
                 if (
@@ -447,9 +413,6 @@ const ManageBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // DELETE BOOKING
-    // =====================================================
 
     const deleteBooking = async (bookingId) => {
 
@@ -532,9 +495,6 @@ const ManageBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // FORMAT DATE
-    // =====================================================
 
     const formatDate = (date) => {
 
@@ -560,9 +520,6 @@ const ManageBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // FORMAT TIME
-    // =====================================================
 
     const formatTime = (time) => {
 
@@ -575,9 +532,6 @@ const ManageBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // STATUS CLASS
-    // =====================================================
 
     const getStatusClass = (status) => {
 
@@ -593,9 +547,6 @@ const ManageBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET VEHICLE NAME
-    // =====================================================
 
     const getVehicleName = (vehicle) => {
 
@@ -620,9 +571,6 @@ const ManageBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET SERVICE NAME
-    // =====================================================
 
     const getServiceName = (service) => {
 
@@ -639,9 +587,6 @@ const ManageBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET MECHANIC NAME
-    // =====================================================
 
     const getMechanicName = (mechanic) => {
 
@@ -658,9 +603,6 @@ const ManageBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // RENDER
-    // =====================================================
 
     return (
 
@@ -671,9 +613,6 @@ const ManageBooking = ({ theme }) => {
             <div className="manage-booking-container">
 
 
-                {/* =================================================
-                    HEADER
-                ================================================= */}
 
                 <div className="manage-booking-header">
 
@@ -715,16 +654,10 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                {/* =================================================
-                    CONTENT
-                ================================================= */}
 
                 <div className="manage-booking-content">
 
 
-                    {/* =================================================
-                        LOADING
-                    ================================================= */}
 
                     {loading && (
 
@@ -742,9 +675,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                    {/* =================================================
-                        ERROR
-                    ================================================= */}
 
                     {!loading && error && (
 
@@ -762,9 +692,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                    {/* =================================================
-                        NO BOOKINGS
-                    ================================================= */}
 
                     {!loading &&
                     !error &&
@@ -784,9 +711,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                    {/* =================================================
-                        BOOKING GRID
-                    ================================================= */}
 
                     {!loading &&
                     !error &&
@@ -802,9 +726,6 @@ const ManageBooking = ({ theme }) => {
                                 >
 
 
-                                    {/* =================================
-                                        CARD HEADER
-                                    ================================= */}
 
                                     <div className="booking-card-header">
 
@@ -845,14 +766,10 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                                    {/* =================================
-                                        BOOKING DETAILS
-                                    ================================= */}
 
                                     <div className="booking-details">
 
 
-                                        {/* CUSTOMER */}
 
                                         <div className="booking-detail-row">
 
@@ -877,7 +794,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                                        {/* EMAIL */}
 
                                         <div className="booking-detail-row">
 
@@ -902,7 +818,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                                        {/* PHONE */}
 
                                         <div className="booking-detail-row">
 
@@ -927,7 +842,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                                        {/* VEHICLE */}
 
                                         <div className="booking-detail-row">
 
@@ -953,7 +867,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                                        {/* SERVICE */}
 
                                         <div className="booking-detail-row">
 
@@ -979,7 +892,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                                        {/* MECHANIC */}
 
                                         <div className="booking-detail-row">
 
@@ -1005,7 +917,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                                        {/* DATE */}
 
                                         <div className="booking-detail-row">
 
@@ -1031,7 +942,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                                        {/* TIME */}
 
                                         <div className="booking-detail-row">
 
@@ -1060,14 +970,10 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                                    {/* =================================
-                                        ADMIN ACTIONS
-                                    ================================= */}
 
                                     <div className="booking-admin-actions">
 
 
-                                        {/* STATUS SELECT */}
 
                                         <select
                                             className="booking-status-select"
@@ -1105,7 +1011,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                                        {/* ASSIGN MECHANIC */}
 
                                         <button
                                             type="button"
@@ -1125,7 +1030,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                                        {/* DELETE */}
 
                                         <button
                                             type="button"
@@ -1167,9 +1071,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-            {/* =====================================================
-                ASSIGN MECHANIC MODAL
-            ===================================================== */}
 
             {editModal && selectedBooking && (
 
@@ -1186,9 +1087,6 @@ const ManageBooking = ({ theme }) => {
                     >
 
 
-                        {/* =========================================
-                            MODAL HEADER
-                        ========================================= */}
 
                         <div className="booking-modal-header">
 
@@ -1223,9 +1121,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                        {/* =========================================
-                            BOOKING INFO
-                        ========================================= */}
 
                         <div className="booking-modal-info">
 
@@ -1282,9 +1177,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                        {/* =========================================
-                            BOOKING STATUS
-                        ========================================= */}
 
                         <div className="booking-form-group">
 
@@ -1335,9 +1227,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                        {/* =========================================
-                            SELECT MECHANIC
-                        ========================================= */}
 
                         <div className="booking-form-group">
 
@@ -1430,9 +1319,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                        {/* =========================================
-                            CURRENT MECHANIC
-                        ========================================= */}
 
                         {selectedBooking.mechanicId && (
 
@@ -1462,9 +1348,6 @@ const ManageBooking = ({ theme }) => {
 
 
 
-                        {/* =========================================
-                            MODAL ACTIONS
-                        ========================================= */}
 
                         <div className="booking-modal-actions">
 

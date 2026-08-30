@@ -10,9 +10,6 @@ const ServiceHistory = ({ theme }) => {
   const [error, setError] = useState("");
 
 
-  // =====================================================
-  // FETCH SERVICE HISTORY
-  // =====================================================
 
   useEffect(() => {
     fetchServiceHistory();
@@ -53,9 +50,6 @@ const ServiceHistory = ({ theme }) => {
       const bookings = response.data.bookings || [];
 
 
-      // =====================================================
-      // ONLY COMPLETED BOOKINGS
-      // =====================================================
 
       const completedBookings = bookings.filter(
   (booking) =>
@@ -89,9 +83,6 @@ const ServiceHistory = ({ theme }) => {
   };
 
 
-  // =====================================================
-  // FORMAT DATE
-  // =====================================================
 
   const formatDate = (date) => {
 
@@ -111,9 +102,6 @@ const ServiceHistory = ({ theme }) => {
   };
 
 
-  // =====================================================
-  // FORMAT AMOUNT
-  // =====================================================
 
   const formatAmount = (booking) => {
 
@@ -128,9 +116,6 @@ const ServiceHistory = ({ theme }) => {
   };
 
 
-  // =====================================================
-  // GET VEHICLE IMAGE
-  // =====================================================
 
   const getVehicleImage = (booking) => {
 
@@ -145,9 +130,6 @@ const ServiceHistory = ({ theme }) => {
   };
 
 
-  // =====================================================
-  // GET VEHICLE TYPE ICON
-  // =====================================================
 
   const getVehicleIcon = (booking) => {
 
@@ -158,9 +140,6 @@ const ServiceHistory = ({ theme }) => {
   };
 
 
-  // =====================================================
-  // LOADING
-  // =====================================================
 
   if (loading) {
 
@@ -210,9 +189,6 @@ const ServiceHistory = ({ theme }) => {
   }
 
 
-  // =====================================================
-  // ERROR
-  // =====================================================
 
   if (error) {
 
@@ -262,9 +238,6 @@ const ServiceHistory = ({ theme }) => {
   }
 
 
-  // =====================================================
-  // NO SERVICE HISTORY
-  // =====================================================
 
   if (serviceHistory.length === 0) {
 
@@ -317,9 +290,6 @@ const ServiceHistory = ({ theme }) => {
   }
 
 
-  // =====================================================
-  // MAIN UI
-  // =====================================================
 
   return (
 
@@ -329,9 +299,6 @@ const ServiceHistory = ({ theme }) => {
     >
 
 
-      {/* =================================================
-          HEADER
-      ================================================= */}
 
       <div className="history-header">
 
@@ -366,16 +333,10 @@ const ServiceHistory = ({ theme }) => {
       </div>
 
 
-      {/* =================================================
-          HISTORY CARD
-      ================================================= */}
 
       <div className="history-card">
 
 
-        {/* =================================================
-            TABLE HEADER
-        ================================================= */}
 
         <div className="history-table-header">
 
@@ -406,9 +367,6 @@ const ServiceHistory = ({ theme }) => {
         </div>
 
 
-        {/* =================================================
-            HISTORY LIST
-        ================================================= */}
 
         <div className="history-list">
 
@@ -426,18 +384,12 @@ const ServiceHistory = ({ theme }) => {
               >
 
 
-                {/* =================================================
-                    VEHICLE
-                ================================================= */}
 
                 <div className="history-vehicle">
 
                   <div className="history-vehicle-icon">
 
 
-                    {/* =================================================
-                        VEHICLE IMAGE
-                    ================================================= */}
 
                     {vehicleImage && (
 
@@ -470,9 +422,6 @@ const ServiceHistory = ({ theme }) => {
                     )}
 
 
-                    {/* =================================================
-                        VEHICLE FALLBACK ICON
-                    ================================================= */}
 
                     <i
                       className={`${vehicleIcon} vehicle-fallback-icon`}
@@ -510,9 +459,6 @@ const ServiceHistory = ({ theme }) => {
                 </div>
 
 
-                {/* =================================================
-                    SERVICE
-                ================================================= */}
 
                 <div className="history-service">
 
@@ -546,9 +492,6 @@ const ServiceHistory = ({ theme }) => {
                 </div>
 
 
-                {/* =================================================
-                    DATE
-                ================================================= */}
 
                 <div className="history-date">
 
@@ -567,9 +510,6 @@ const ServiceHistory = ({ theme }) => {
                 </div>
 
 
-                {/* =================================================
-                    MECHANIC
-                ================================================= */}
 
                 <div className="history-mechanic">
 
@@ -591,9 +531,6 @@ const ServiceHistory = ({ theme }) => {
                 </div>
 
 
-                {/* =================================================
-                    AMOUNT
-                ================================================= */}
 
                 <div className="history-amount">
 
@@ -612,9 +549,6 @@ const ServiceHistory = ({ theme }) => {
                 </div>
 
 
-                {/* =================================================
-                    STATUS
-                ================================================= */}
 
                 <div className="history-status">
 

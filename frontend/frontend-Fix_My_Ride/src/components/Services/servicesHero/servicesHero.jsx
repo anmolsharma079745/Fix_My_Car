@@ -11,18 +11,12 @@ const ServicesHero = ({ theme }) => {
     const [showLoginPopup, setShowLoginPopup] = useState(false);
 
 
-    // =====================================================
-    // BOOK SERVICE
-    // =====================================================
 
     const handleBookService = () => {
 
         const storedUser = localStorage.getItem("user");
 
 
-        // =================================================
-        // NOT LOGGED IN
-        // =================================================
 
         if (!storedUser) {
 
@@ -38,9 +32,6 @@ const ServicesHero = ({ theme }) => {
             const user = JSON.parse(storedUser);
 
 
-            // =================================================
-            // CUSTOMER
-            // =================================================
 
             if (user?.role === "customer") {
 
@@ -56,9 +47,6 @@ const ServicesHero = ({ theme }) => {
             }
 
 
-            // =================================================
-            // OTHER ROLE
-            // =================================================
 
             setShowLoginPopup(true);
 
@@ -78,9 +66,6 @@ const ServicesHero = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // LOGIN
-    // =====================================================
 
     const handleLogin = () => {
 
@@ -91,9 +76,6 @@ const ServicesHero = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // CLOSE POPUP
-    // =====================================================
 
     const closePopup = () => {
 
@@ -102,9 +84,6 @@ const ServicesHero = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // JSX
-    // =====================================================
 
     return (
 
@@ -115,9 +94,6 @@ const ServicesHero = ({ theme }) => {
             <div className="services-hero-content">
 
 
-                {/* =================================================
-                    BADGE
-                ================================================= */}
 
                 <span className="services-hero-badge">
 
@@ -126,9 +102,6 @@ const ServicesHero = ({ theme }) => {
                 </span>
 
 
-                {/* =================================================
-                    HEADING
-                ================================================= */}
 
                 <h1>
 
@@ -139,9 +112,6 @@ const ServicesHero = ({ theme }) => {
                 </h1>
 
 
-                {/* =================================================
-                    DESCRIPTION
-                ================================================= */}
 
                 <p>
 
@@ -153,9 +123,6 @@ const ServicesHero = ({ theme }) => {
                 </p>
 
 
-                {/* =================================================
-                    BOOK BUTTON
-                ================================================= */}
 
                 <button
                     type="button"
@@ -175,9 +142,6 @@ const ServicesHero = ({ theme }) => {
             </div>
 
 
-            {/* =====================================================
-                LOGIN REQUIRED POPUP
-            ===================================================== */}
 
             {showLoginPopup && (
 
@@ -194,7 +158,6 @@ const ServicesHero = ({ theme }) => {
                     >
 
 
-                        {/* POPUP ICON */}
 
                         <div className="services-login-icon">
 
@@ -203,7 +166,6 @@ const ServicesHero = ({ theme }) => {
                         </div>
 
 
-                        {/* HEADING */}
 
                         <h2>
 
@@ -212,7 +174,6 @@ const ServicesHero = ({ theme }) => {
                         </h2>
 
 
-                        {/* MESSAGE */}
 
                         <p>
 
@@ -222,12 +183,10 @@ const ServicesHero = ({ theme }) => {
                         </p>
 
 
-                        {/* BUTTONS */}
 
                         <div className="services-login-buttons">
 
 
-                            {/* LOGIN */}
 
                             <button
                                 type="button"
@@ -242,7 +201,6 @@ const ServicesHero = ({ theme }) => {
                             </button>
 
 
-                            {/* CANCEL */}
 
                             <button
                                 type="button"

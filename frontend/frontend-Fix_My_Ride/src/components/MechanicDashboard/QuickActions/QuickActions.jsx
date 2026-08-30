@@ -26,7 +26,6 @@ const quickActions=({theme})=>{
 
         <div className="quick-actions-grid">
 
-          {/* Update Status */}
 
           <button className="quick-action-card">
 
@@ -49,7 +48,6 @@ const quickActions=({theme})=>{
           </button>
 
 
-          {/* Service Notes */}
 
           <button className="quick-action-card">
 
@@ -72,7 +70,6 @@ const quickActions=({theme})=>{
           </button>
 
 
-          {/* Assigned Services */}
 
           <button className="quick-action-card">
 

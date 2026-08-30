@@ -448,7 +448,6 @@ const ManageServices = ({ theme }) => {
                                     key={service._id}
                                 >
 
-                                    {/* CARD CONTENT */}
 
                                     <div className="service-card-top">
 

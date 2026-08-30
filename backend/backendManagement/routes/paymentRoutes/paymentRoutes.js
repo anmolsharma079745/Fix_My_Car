@@ -12,9 +12,6 @@ const authMiddleware = require("../../middleware/authMiddleware/authMiddleware")
 const roleMiddleware = require("../../middleware/roleMiddleware/roleMiddleware");
 
 
-// =====================================================
-// CREATE PAYMENT ORDER
-// =====================================================
 
 router.post(
     "/create-order",
@@ -24,9 +21,6 @@ router.post(
 );
 
 
-// =====================================================
-// VERIFY PAYMENT
-// =====================================================
 
 router.post(
     "/verify",

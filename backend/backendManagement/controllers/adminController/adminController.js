@@ -314,9 +314,6 @@ const revenueAnalytics = async (req, res) => {
 
     try {
 
-        // =====================================================
-        // ONLY PAID + COMPLETED BOOKINGS COUNT AS REVENUE
-        // =====================================================
 
         const paidBookings = await bookingModel
 
@@ -328,9 +325,6 @@ const revenueAnalytics = async (req, res) => {
             .populate("serviceId");
 
 
-        // =====================================================
-        // CALCULATE TOTAL REVENUE
-        // =====================================================
 
         let totalRevenue = 0;
 
@@ -348,17 +342,11 @@ const revenueAnalytics = async (req, res) => {
         });
 
 
-        // =====================================================
-        // COMPLETED + PAID BOOKINGS
-        // =====================================================
 
         const totalCompletedBookings =
             paidBookings.length;
 
 
-        // =====================================================
-        // AVERAGE REVENUE
-        // =====================================================
 
         const averageRevenue =
             totalCompletedBookings > 0
@@ -366,9 +354,6 @@ const revenueAnalytics = async (req, res) => {
                 : 0;
 
 
-        // =====================================================
-        // RESPONSE
-        // =====================================================
 
         res.status(200).json({
 

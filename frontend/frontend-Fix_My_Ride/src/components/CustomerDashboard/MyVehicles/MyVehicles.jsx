@@ -5,9 +5,6 @@ import API_BASE_URL from "../../../services/Api/api";
 
 const MyVehicles = ({ theme }) => {
 
-    // =====================================================
-    // STATES
-    // =====================================================
 
     const [vehicles, setVehicles] = useState([]);
 
@@ -30,9 +27,6 @@ const MyVehicles = ({ theme }) => {
     const [saving, setSaving] = useState(false);
 
 
-    // =====================================================
-    // FETCH VEHICLES
-    // =====================================================
 
     useEffect(() => {
         fetchVehicles();
@@ -94,9 +88,6 @@ const MyVehicles = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // HANDLE INPUT CHANGE
-    // =====================================================
 
     const handleChange = (e) => {
 
@@ -116,7 +107,6 @@ const MyVehicles = ({ theme }) => {
             return;
         }
 
-        // Image validation
         if (!file.type.startsWith("image/")) {
 
             alert("Please select a valid image.");
@@ -124,7 +114,6 @@ const MyVehicles = ({ theme }) => {
             return;
         }
 
-        // 5 MB limit
         if (file.size > 5 * 1024 * 1024) {
 
             alert("Image size must be less than 5 MB.");
@@ -143,9 +132,6 @@ const MyVehicles = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // OPEN ADD MODAL
-    // =====================================================
 
     const openAddModal = () => {
 
@@ -166,9 +152,6 @@ const MyVehicles = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // OPEN EDIT MODAL
-    // =====================================================
 
     const openEditModal = (vehicle) => {
 
@@ -189,9 +172,6 @@ const MyVehicles = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // CLOSE MODAL
-    // =====================================================
 
     const closeModal = () => {
 
@@ -215,9 +195,6 @@ const MyVehicles = ({ theme }) => {
 
 
 
-    // =====================================================
-    // ADD VEHICLE
-    // =====================================================
 
     const addVehicle = async () => {
 
@@ -324,9 +301,6 @@ const MyVehicles = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // UPDATE VEHICLE
-    // =====================================================
 
     const updateVehicle = async () => {
 
@@ -439,17 +413,11 @@ const MyVehicles = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // FORM SUBMIT
-    // =====================================================
 
     const handleSubmit = async (e) => {
 
         e.preventDefault();
 
-        // ---------------------------------------------
-        // Basic validation
-        // ---------------------------------------------
 
         if (
             !formData.vehicleName.trim() ||
@@ -477,9 +445,6 @@ const MyVehicles = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // DELETE VEHICLE
-    // =====================================================
 
     const deleteVehicle = async (vehicleId) => {
 
@@ -517,7 +482,6 @@ const MyVehicles = ({ theme }) => {
             );
 
 
-            // Remove vehicle from frontend
             setVehicles((previousVehicles) =>
                 previousVehicles.filter(
                     (vehicle) =>
@@ -545,9 +509,6 @@ const MyVehicles = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // VEHICLE ICON
-    // =====================================================
 
     const getVehicleIcon = (vehicleType) => {
 
@@ -560,9 +521,6 @@ const MyVehicles = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // RENDER
-    // =====================================================
 
     return (
 
@@ -571,9 +529,6 @@ const MyVehicles = ({ theme }) => {
             <div className="my-vehicles-container">
 
 
-                {/* =================================================
-                    HEADER
-                ================================================= */}
 
                 <div className="my-vehicles-header">
 
@@ -594,7 +549,6 @@ const MyVehicles = ({ theme }) => {
                     </div>
 
 
-                    {/* ADD VEHICLE BUTTON */}
 
                     <button
                         className="add-vehicle-btn"
@@ -610,9 +564,6 @@ const MyVehicles = ({ theme }) => {
                 </div>
 
 
-                {/* =================================================
-                    LOADING
-                ================================================= */}
 
                 {loading && (
 
@@ -629,9 +580,6 @@ const MyVehicles = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    ERROR
-                ================================================= */}
 
                 {!loading && error && (
 
@@ -648,9 +596,6 @@ const MyVehicles = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    NO VEHICLES
-                ================================================= */}
 
                 {!loading &&
                     !error &&
@@ -677,9 +622,6 @@ const MyVehicles = ({ theme }) => {
                     )}
 
 
-                {/* =================================================
-                    VEHICLES
-                ================================================= */}
 
                 {!loading &&
                     !error &&
@@ -695,7 +637,6 @@ const MyVehicles = ({ theme }) => {
                                 >
 
 
-                                    {/* CARD HEADER */}
 
                                     <div className="vehicle-card-header">
 
@@ -736,7 +677,6 @@ const MyVehicles = ({ theme }) => {
                                     </div>
 
 
-                                    {/* VEHICLE DETAILS */}
 
                                     <div className="vehicle-details">
 
@@ -799,7 +739,6 @@ const MyVehicles = ({ theme }) => {
                                     </div>
 
 
-                                    {/* CARD ACTIONS */}
 
                                     <div className="vehicle-actions">
 
@@ -845,9 +784,6 @@ const MyVehicles = ({ theme }) => {
             </div>
 
 
-            {/* =====================================================
-                ADD / EDIT MODAL
-            ===================================================== */}
 
             {showModal && (
 
@@ -864,7 +800,6 @@ const MyVehicles = ({ theme }) => {
                     >
 
 
-                        {/* MODAL HEADER */}
 
                         <div className="vehicle-modal-header">
 
@@ -898,13 +833,9 @@ const MyVehicles = ({ theme }) => {
                         </div>
 
 
-                        {/* FORM */}
 
                         <form onSubmit={handleSubmit}>
 
-                            {/* =====================================================
-        VEHICLE IMAGE
-    ===================================================== */}
                         <div className="vehicle-form-group">
 
     <label>
@@ -913,7 +844,6 @@ const MyVehicles = ({ theme }) => {
 
     <div className="vehicle-image-upload">
 
-        {/* LEFT SIDE - ICON + BUTTON */}
 
         <div className="vehicle-image-left">
 
@@ -938,7 +868,6 @@ const MyVehicles = ({ theme }) => {
         </div>
 
 
-        {/* RIGHT SIDE - IMAGE PREVIEW */}
 
         <div className="vehicle-image-right">
 
@@ -975,9 +904,6 @@ const MyVehicles = ({ theme }) => {
                             
 
 
-                            {/* =====================================================
-        VEHICLE NAME
-    ===================================================== */}
 
                             <div className="vehicle-form-group">
 
@@ -1003,9 +929,6 @@ const MyVehicles = ({ theme }) => {
                             </div>
 
 
-                            {/* =====================================================
-        MODEL
-    ===================================================== */}
 
                             <div className="vehicle-form-group">
 
@@ -1031,9 +954,6 @@ const MyVehicles = ({ theme }) => {
                             </div>
 
 
-                            {/* =====================================================
-        NUMBER PLATE
-    ===================================================== */}
 
                             <div className="vehicle-form-group">
 
@@ -1059,9 +979,6 @@ const MyVehicles = ({ theme }) => {
                             </div>
 
 
-                            {/* =====================================================
-        VEHICLE TYPE
-    ===================================================== */}
 
                             <div className="vehicle-form-group">
 
@@ -1095,13 +1012,9 @@ const MyVehicles = ({ theme }) => {
                             </div>
 
 
-                            {/* =====================================================
-        FORM ACTIONS
-    ===================================================== */}
 
                             <div className="vehicle-modal-actions">
 
-                                {/* CANCEL */}
 
                                 <button
                                     type="button"
@@ -1117,7 +1030,6 @@ const MyVehicles = ({ theme }) => {
                                 </button>
 
 
-                                {/* SAVE */}
 
                                 <button
                                     type="submit"

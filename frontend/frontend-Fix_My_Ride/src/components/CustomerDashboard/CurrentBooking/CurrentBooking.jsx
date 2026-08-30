@@ -13,9 +13,6 @@ const CurrentBooking = ({ theme }) => {
     const [paymentBookingId, setPaymentBookingId] = useState(null);
 
 
-    // =====================================================
-    // FETCH CURRENT BOOKINGS
-    // =====================================================
 
     const fetchCurrentBooking = useCallback(async (showLoading = false) => {
 
@@ -59,18 +56,6 @@ const CurrentBooking = ({ theme }) => {
                 response.data?.bookings || [];
 
 
-            // =================================================
-            // FILTER CURRENT BOOKINGS
-            //
-            // MAXIMUM 3 BOOKINGS
-            //
-            // pending
-            // confirmed
-            // In Progress
-            // Completed + payment pending
-            //
-            // Completed + paid will not appear.
-            // =================================================
 
             const activeBookings = allBookings
                 .filter((item) => {
@@ -108,9 +93,6 @@ const CurrentBooking = ({ theme }) => {
                 })
 
 
-                // =================================================
-                // SORT LATEST BOOKINGS FIRST
-                // =================================================
 
                 .sort((a, b) => {
 
@@ -138,9 +120,6 @@ const CurrentBooking = ({ theme }) => {
                 })
 
 
-                // =================================================
-                // ONLY 3 BOOKINGS
-                // =================================================
 
                 .slice(0, 3);
 
@@ -192,9 +171,6 @@ const CurrentBooking = ({ theme }) => {
     }, []);
 
 
-    // =====================================================
-    // INITIAL FETCH + AUTO REFRESH
-    // =====================================================
 
     useEffect(() => {
 
@@ -217,9 +193,6 @@ const CurrentBooking = ({ theme }) => {
     }, [fetchCurrentBooking]);
 
 
-    // =====================================================
-    // PAY NOW
-    // =====================================================
 
     const handlePayment = async (booking) => {
 
@@ -247,9 +220,6 @@ const CurrentBooking = ({ theme }) => {
             }
 
 
-            // =================================================
-            // CHECK RAZORPAY
-            // =================================================
 
             if (
                 typeof window.Razorpay ===
@@ -265,9 +235,6 @@ const CurrentBooking = ({ theme }) => {
             }
 
 
-            // =================================================
-            // CREATE PAYMENT ORDER
-            // =================================================
 
             const response =
                 await axios.post(
@@ -318,9 +285,6 @@ const CurrentBooking = ({ theme }) => {
             }
 
 
-            // =================================================
-            // RAZORPAY OPTIONS
-            // =================================================
 
             const options = {
 
@@ -345,9 +309,6 @@ const CurrentBooking = ({ theme }) => {
                     razorpayOrderId,
 
 
-                // =================================================
-                // PREFILL CUSTOMER
-                // =================================================
 
                 prefill: {
 
@@ -369,9 +330,6 @@ const CurrentBooking = ({ theme }) => {
                 },
 
 
-                // =================================================
-                // PAYMENT SUCCESS
-                // =================================================
 
                 handler: async function (
                     paymentResponse
@@ -453,9 +411,6 @@ const CurrentBooking = ({ theme }) => {
                 },
 
 
-                // =================================================
-                // PAYMENT MODAL CLOSED
-                // =================================================
 
                 modal: {
 
@@ -470,9 +425,6 @@ const CurrentBooking = ({ theme }) => {
                 },
 
 
-                // =================================================
-                // RAZORPAY THEME
-                // =================================================
 
                 theme: {
 
@@ -491,17 +443,11 @@ const CurrentBooking = ({ theme }) => {
             };
 
 
-            // =================================================
-            // CREATE RAZORPAY INSTANCE
-            // =================================================
 
             const razorpayInstance =
                 new window.Razorpay(options);
 
 
-            // =================================================
-            // PAYMENT FAILED
-            // =================================================
 
             razorpayInstance.on(
                 "payment.failed",
@@ -556,9 +502,6 @@ const CurrentBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // FORMAT DATE
-    // =====================================================
 
     const formatDate = (date) => {
 
@@ -579,9 +522,6 @@ const CurrentBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // FORMAT TIME
-    // =====================================================
 
     const formatTime = (time) => {
 
@@ -618,9 +558,6 @@ const CurrentBooking = ({ theme }) => {
     }
 };
 
-    // =====================================================
-    // FORMAT STATUS
-    // =====================================================
 
     const formatStatus = (status) => {
 
@@ -662,9 +599,6 @@ const CurrentBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // STATUS CLASS
-    // =====================================================
 
     const getStatusClass = (status) => {
 
@@ -681,9 +615,6 @@ const CurrentBooking = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // LOADING
-    // =====================================================
 
     if (loading) {
 
@@ -735,9 +666,6 @@ const CurrentBooking = ({ theme }) => {
     }
 
 
-    // =====================================================
-    // ERROR
-    // =====================================================
 
     if (error && bookings.length === 0) {
 
@@ -789,9 +717,6 @@ const CurrentBooking = ({ theme }) => {
     }
 
 
-    // =====================================================
-    // NO CURRENT BOOKINGS
-    // =====================================================
 
     if (bookings.length === 0) {
 
@@ -844,9 +769,6 @@ const CurrentBooking = ({ theme }) => {
     }
 
 
-    // =====================================================
-    // MAIN UI
-    // =====================================================
 
     return (
 
@@ -856,9 +778,6 @@ const CurrentBooking = ({ theme }) => {
         >
 
 
-            {/* =================================================
-                HEADER
-            ================================================= */}
 
             <div className="current-booking-header">
 
@@ -879,9 +798,6 @@ const CurrentBooking = ({ theme }) => {
                 </div>
 
 
-                {/* =================================================
-                    BOOKING COUNT
-                ================================================= */}
 
                 <span className="current-booking-status pending">
 
@@ -898,9 +814,6 @@ const CurrentBooking = ({ theme }) => {
             </div>
 
 
-            {/* =================================================
-                ERROR
-            ================================================= */}
 
             {error && (
 
@@ -917,9 +830,6 @@ const CurrentBooking = ({ theme }) => {
             )}
 
 
-            {/* =================================================
-                CURRENT BOOKINGS
-            ================================================= */}
 
             <div className="current-bookings-list">
 
@@ -937,9 +847,6 @@ const CurrentBooking = ({ theme }) => {
                         );
 
 
-                    // =================================================
-                    // PAYMENT
-                    // =================================================
 
                     const isCompleted =
                         booking.status
@@ -963,19 +870,10 @@ const CurrentBooking = ({ theme }) => {
                         >
 
 
-                            {/* =================================================
-                                MAIN TOP STRUCTURE
-                                
-                                LEFT  = VEHICLE
-                                RIGHT = BOOKING DETAILS
-                            ================================================= */}
 
                             <div className="current-booking-main">
 
 
-                                {/* =================================================
-                                    LEFT - VEHICLE DETAILS
-                                ================================================= */}
 
                                 <div className="current-booking-vehicle-section">
 
@@ -1046,23 +944,14 @@ const CurrentBooking = ({ theme }) => {
                                 </div>
 
 
-                                {/* =================================================
-                                    VERTICAL DIVIDER
-                                ================================================= */}
 
                                 <div className="current-booking-vertical-divider"></div>
 
 
-                                {/* =================================================
-                                    RIGHT - BOOKING DETAILS
-                                ================================================= */}
 
                                 <div className="current-booking-right-section">
 
 
-                                    {/* =================================================
-                                        BOOKING ID + STATUS
-                                    ================================================= */}
 
                                     <div className="current-booking-card-header">
 
@@ -1095,14 +984,10 @@ const CurrentBooking = ({ theme }) => {
                                     </div>
 
 
-                                    {/* =================================================
-                                        DETAILS GRID
-                                    ================================================= */}
 
                                     <div className="current-booking-details">
 
 
-                                        {/* SERVICE */}
 
                                         <div className="current-detail">
 
@@ -1131,7 +1016,6 @@ const CurrentBooking = ({ theme }) => {
                                         </div>
 
 
-                                        {/* DATE */}
 
                                         <div className="current-detail">
 
@@ -1158,7 +1042,6 @@ const CurrentBooking = ({ theme }) => {
                                         </div>
 
 
-                                        {/* TIME */}
 
                                         <div className="current-detail">
 
@@ -1185,7 +1068,6 @@ const CurrentBooking = ({ theme }) => {
                                         </div>
 
 
-                                        {/* MECHANIC */}
 
                                         <div className="current-detail">
 
@@ -1215,7 +1097,6 @@ const CurrentBooking = ({ theme }) => {
                                         </div>
 
 
-                                        {/* STATUS */}
 
                                         <div className="current-detail">
 
@@ -1248,9 +1129,6 @@ const CurrentBooking = ({ theme }) => {
                             </div>
 
 
-                            {/* =================================================
-                                SERVICE DESCRIPTION
-                            ================================================= */}
 
                             {booking.serviceId?.description && (
 
@@ -1277,9 +1155,6 @@ const CurrentBooking = ({ theme }) => {
                             )}
 
 
-                            {/* =================================================
-                                PAYMENT SECTION
-                            ================================================= */}
 
                             {isCompleted &&
                                 isPaymentPending && (
@@ -1357,9 +1232,6 @@ const CurrentBooking = ({ theme }) => {
                                 )}
 
 
-                            {/* =================================================
-                                PAYMENT COMPLETED
-                            ================================================= */}
 
                             {isCompleted &&
                                 !isPaymentPending && (

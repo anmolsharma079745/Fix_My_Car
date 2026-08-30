@@ -9,12 +9,10 @@ const ManageCustomer = ({ theme }) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
-    // ================= EDIT STATES =================
 
     const [editModal, setEditModal] = useState(false);
     const [editedData, setEditedData] = useState({});
 
-    // ================= FETCH CUSTOMERS =================
 
     useEffect(() => {
         fetchCustomers();
@@ -68,7 +66,6 @@ const ManageCustomer = ({ theme }) => {
     };
 
 
-    // ================= DELETE CUSTOMER =================
 
     const handleDelete = async (specificCustomer) => {
 
@@ -102,7 +99,6 @@ const ManageCustomer = ({ theme }) => {
 
             console.log("Customer deleted successfully");
 
-            // Delete hone ke baad customers dobara fetch
             fetchCustomers();
 
         } catch (error) {
@@ -122,13 +118,11 @@ const ManageCustomer = ({ theme }) => {
     };
 
 
-    // ================= OPEN EDIT MODAL =================
 
     const handleEdit = (specificCustomer) => {
 
         console.log("Edit Customer:", specificCustomer);
 
-        // Selected customer ka data form me daal do
         setEditedData({
             _id: specificCustomer._id,
             name: specificCustomer.name || "",
@@ -137,13 +131,11 @@ const ManageCustomer = ({ theme }) => {
             role: specificCustomer.role || "customer"
         });
 
-        // Modal open
         setEditModal(true);
 
     };
 
 
-    // ================= HANDLE INPUT CHANGE =================
 
     const handleChange = (e) => {
 
@@ -155,7 +147,6 @@ const ManageCustomer = ({ theme }) => {
     };
 
 
-    // ================= UPDATE CUSTOMER =================
 
     const handleUpdate = async (e) => {
 
@@ -189,13 +180,10 @@ const ManageCustomer = ({ theme }) => {
 
             console.log("Customer updated successfully");
 
-            // Modal close
             setEditModal(false);
 
-            // Form clear
             setEditedData({});
 
-            // Updated data dobara fetch
             fetchCustomers();
 
         } catch (error) {
@@ -215,7 +203,6 @@ const ManageCustomer = ({ theme }) => {
     };
 
 
-    // ================= CLOSE MODAL =================
 
     const handleClose = () => {
 
@@ -231,7 +218,6 @@ const ManageCustomer = ({ theme }) => {
 
             <div className="manage-customer-container">
 
-                {/* ================= HEADER ================= */}
 
                 <div className="manage-customer-header">
 
@@ -271,11 +257,9 @@ const ManageCustomer = ({ theme }) => {
                 </div>
 
 
-                {/* ================= CONTENT ================= */}
 
                 <div className="manage-customer-content">
 
-                    {/* ================= LOADING ================= */}
 
                     {loading && (
 
@@ -292,7 +276,6 @@ const ManageCustomer = ({ theme }) => {
                     )}
 
 
-                    {/* ================= ERROR ================= */}
 
                     {!loading && error && (
 
@@ -309,7 +292,6 @@ const ManageCustomer = ({ theme }) => {
                     )}
 
 
-                    {/* ================= NO DATA ================= */}
 
                     {!loading &&
                     !error &&
@@ -328,7 +310,6 @@ const ManageCustomer = ({ theme }) => {
                     )}
 
 
-                    {/* ================= CUSTOMER CARDS ================= */}
 
                     {!loading &&
                     !error &&
@@ -343,7 +324,6 @@ const ManageCustomer = ({ theme }) => {
                                     className="customer-card"
                                 >
 
-                                    {/* CUSTOMER DETAILS */}
 
                                     <div className="customer-card-top">
 
@@ -432,7 +412,6 @@ const ManageCustomer = ({ theme }) => {
                                     </div>
 
 
-                                    {/* ================= BUTTONS ================= */}
 
                                     <div className="card-buttons">
 
@@ -478,9 +457,6 @@ const ManageCustomer = ({ theme }) => {
             </div>
 
 
-            {/* =====================================================
-                EDIT CUSTOMER MODAL
-            ===================================================== */}
 
             {editModal && (
 
@@ -488,7 +464,6 @@ const ManageCustomer = ({ theme }) => {
 
                     <div className="customer-edit-modal">
 
-                        {/* MODAL HEADER */}
 
                         <div className="edit-modal-header">
 
@@ -517,11 +492,9 @@ const ManageCustomer = ({ theme }) => {
                         </div>
 
 
-                        {/* EDIT FORM */}
 
                         <form onSubmit={handleUpdate}>
 
-                            {/* NAME */}
 
                             <div className="edit-form-group">
 
@@ -547,7 +520,6 @@ const ManageCustomer = ({ theme }) => {
                             </div>
 
 
-                            {/* EMAIL */}
 
                             <div className="edit-form-group">
 
@@ -573,7 +545,6 @@ const ManageCustomer = ({ theme }) => {
                             </div>
 
 
-                            {/* PHONE */}
 
                             <div className="edit-form-group">
 
@@ -598,7 +569,6 @@ const ManageCustomer = ({ theme }) => {
                             </div>
 
 
-                            {/* ROLE */}
 
                             <div className="edit-form-group">
 
@@ -635,7 +605,6 @@ const ManageCustomer = ({ theme }) => {
                             </div>
 
 
-                            {/* MODAL BUTTONS */}
 
                             <div className="edit-modal-buttons">
 

@@ -1,4 +1,3 @@
-//allowed role jo hum route mai role pass karenge vo aur req.user.role jo authenticate hone ke baad authmiddleware se aiyega vo
 const roleMiddleware=(...allowedRoles)=>{
     return (req,res,next)=>{
         try{

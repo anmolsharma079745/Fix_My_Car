@@ -6,9 +6,6 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import API_BASE_URL from "../../services/Api/api";
 function LoginSection() {
 
-  // ================================
-  // LOGIN FORM DATA
-  // ================================
 
   const [formData, setFormData] = useState({
     email: "",
@@ -16,9 +13,6 @@ function LoginSection() {
   });
 
 
-  // ================================
-  // FORGOT PASSWORD DATA
-  // ================================
 
   const [forgotData, setForgotData] = useState({
     email: "",
@@ -31,9 +25,6 @@ function LoginSection() {
   const navigate = useNavigate();
 
 
-  // ================================
-  // STATES
-  // ================================
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -41,10 +32,8 @@ function LoginSection() {
 
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // Login / Forgot Password
   const [forgotPassword, setForgotPassword] = useState(false);
 
-  // OTP send hone ke baad true hoga
   const [otpSent, setOtpSent] = useState(false);
 
   const [loading, setLoading] = useState(false);
@@ -54,9 +43,6 @@ function LoginSection() {
   const [success, setSuccess] = useState("");
 
 
-  // ================================
-  // LOGIN INPUT CHANGE
-  // ================================
 
   const handleChange = (e) => {
 
@@ -68,9 +54,6 @@ function LoginSection() {
   };
 
 
-  // ================================
-  // FORGOT PASSWORD INPUT CHANGE
-  // ================================
 
   const handleForgotChange = (e) => {
 
@@ -82,9 +65,6 @@ function LoginSection() {
   };
 
 
-  // ================================
-  // LOGIN
-  // ================================
 
   const handleSubmit = async (e) => {
 
@@ -109,16 +89,10 @@ function LoginSection() {
       console.log("Role:", user.role);
 
 
-      // ================================
-      // SAVE TOKEN
-      // ================================
 
       localStorage.setItem("token", token);
 
 
-      // ================================
-      // SAVE USER
-      // ================================
 
       localStorage.setItem(
         "user",
@@ -126,9 +100,6 @@ function LoginSection() {
       );
 
 
-      // ================================
-      // ROLE BASED DASHBOARD
-      // ================================
 
       if (user.role === "admin") {
 
@@ -173,9 +144,6 @@ function LoginSection() {
   };
 
 
-  // ================================
-  // SEND OTP
-  // ================================
 
   const handleSendOTP = async (e) => {
 
@@ -210,7 +178,6 @@ function LoginSection() {
       );
 
 
-      // OTP successfully sent
       setOtpSent(true);
 
       setSuccess(
@@ -238,9 +205,6 @@ function LoginSection() {
   };
 
 
-  // ================================
-  // CHANGE PASSWORD
-  // ================================
 
   const handleForgotPassword = async (e) => {
 
@@ -250,9 +214,6 @@ function LoginSection() {
     setSuccess("");
 
 
-    // ================================
-    // PASSWORD MATCH
-    // ================================
 
     if (
       forgotData.newPassword !==
@@ -268,9 +229,6 @@ function LoginSection() {
     }
 
 
-    // ================================
-    // PASSWORD LENGTH
-    // ================================
 
     if (forgotData.newPassword.length < 6) {
 
@@ -283,9 +241,6 @@ function LoginSection() {
     }
 
 
-    // ================================
-    // OTP VALIDATION
-    // ================================
 
     if (
       forgotData.otp.length !== 6 ||
@@ -323,9 +278,6 @@ function LoginSection() {
       );
 
 
-      // ================================
-      // CLEAR FORGOT PASSWORD DATA
-      // ================================
 
       setForgotData({
         email: "",
@@ -338,10 +290,6 @@ function LoginSection() {
       setOtpSent(false);
 
 
-      // ================================
-      // AFTER 2 SECONDS
-      // GO BACK TO LOGIN
-      // ================================
 
       setTimeout(() => {
 
@@ -374,9 +322,6 @@ function LoginSection() {
   };
 
 
-  // ================================
-  // OPEN FORGOT PASSWORD
-  // ================================
 
   const openForgotPassword = () => {
 
@@ -396,9 +341,6 @@ function LoginSection() {
   };
 
 
-  // ================================
-  // BACK TO LOGIN
-  // ================================
 
   const backToLogin = () => {
 
@@ -427,9 +369,6 @@ function LoginSection() {
       <div className="login-box">
 
 
-        {/* =================================================
-            FORGOT PASSWORD
-        ================================================= */}
 
         {forgotPassword ? (
 
@@ -438,9 +377,6 @@ function LoginSection() {
             <h1>Reset Password</h1>
 
 
-            {/* ============================================
-                STEP 1 - SEND OTP
-            ============================================ */}
 
             {!otpSent ? (
 
@@ -461,7 +397,6 @@ function LoginSection() {
                 />
 
 
-                {/* ERROR */}
 
                 {error && (
 
@@ -472,7 +407,6 @@ function LoginSection() {
                 )}
 
 
-                {/* SUCCESS */}
 
                 {success && (
 
@@ -483,7 +417,6 @@ function LoginSection() {
                 )}
 
 
-                {/* SEND OTP */}
 
                 <button
                   type="submit"
@@ -499,7 +432,6 @@ function LoginSection() {
                 </button>
 
 
-                {/* BACK TO LOGIN */}
 
                 <p className="register-text">
 
@@ -518,14 +450,10 @@ function LoginSection() {
 
             ) : (
 
-              /* ==========================================
-                 STEP 2 - RESET PASSWORD
-              ========================================== */
 
               <form onSubmit={handleForgotPassword}>
 
 
-                {/* EMAIL */}
 
                 <label>
                   Enter your email
@@ -542,7 +470,6 @@ function LoginSection() {
                 />
 
 
-                {/* NEW PASSWORD */}
 
                 <label>
                   New Password
@@ -583,7 +510,6 @@ function LoginSection() {
                 </div>
 
 
-                {/* CONFIRM PASSWORD */}
 
                 <label>
                   Confirm Password
@@ -624,7 +550,6 @@ function LoginSection() {
                 </div>
 
 
-                {/* OTP */}
 
                 <label>
                   Enter OTP
@@ -642,7 +567,6 @@ function LoginSection() {
                 />
 
 
-                {/* ERROR */}
 
                 {error && (
 
@@ -653,7 +577,6 @@ function LoginSection() {
                 )}
 
 
-                {/* SUCCESS */}
 
                 {success && (
 
@@ -664,7 +587,6 @@ function LoginSection() {
                 )}
 
 
-                {/* CHANGE PASSWORD */}
 
                 <button
                   type="submit"
@@ -680,7 +602,6 @@ function LoginSection() {
                 </button>
 
 
-                {/* BACK TO LOGIN */}
 
                 <p className="register-text">
 
@@ -704,9 +625,6 @@ function LoginSection() {
 
         ) : (
 
-          /* =================================================
-             NORMAL LOGIN
-          ================================================= */
 
           <>
 
@@ -716,7 +634,6 @@ function LoginSection() {
             <form onSubmit={handleSubmit}>
 
 
-              {/* EMAIL */}
 
               <label>
                 Email
@@ -734,7 +651,6 @@ function LoginSection() {
               />
 
 
-              {/* PASSWORD */}
 
               <label>
                 Password
@@ -776,7 +692,6 @@ function LoginSection() {
               </div>
 
 
-              {/* ERROR */}
 
               {error && (
 
@@ -787,7 +702,6 @@ function LoginSection() {
               )}
 
 
-              {/* LOGIN BUTTON */}
 
               <button
                 type="submit"
@@ -797,7 +711,6 @@ function LoginSection() {
               </button>
 
 
-              {/* FORGOT PASSWORD */}
 
               <div className="forgot-password">
 
@@ -810,7 +723,6 @@ function LoginSection() {
               </div>
 
 
-              {/* REGISTER */}
 
               <p className="register-text">
 

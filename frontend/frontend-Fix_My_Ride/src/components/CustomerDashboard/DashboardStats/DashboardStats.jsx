@@ -16,9 +16,6 @@ const DashboardStats = ({ theme }) => {
     const [error, setError] = useState("");
 
 
-    // =====================================================
-    // FETCH DASHBOARD STATS
-    // =====================================================
 
     useEffect(() => {
         fetchDashboardStats();
@@ -42,9 +39,6 @@ const DashboardStats = ({ theme }) => {
             }
 
 
-            // =================================================
-            // FETCH VEHICLES
-            // =================================================
 
             const vehicleResponse = await axios.get(
                 `${API_BASE_URL}/api/vehicle/all`,
@@ -56,9 +50,6 @@ const DashboardStats = ({ theme }) => {
             );
 
 
-            // =================================================
-            // FETCH BOOKINGS
-            // =================================================
 
             const bookingResponse = await axios.get(
                `${API_BASE_URL}/api/booking/all`,
@@ -78,9 +69,6 @@ const DashboardStats = ({ theme }) => {
                 bookingResponse.data.bookings || [];
 
 
-            // =================================================
-            // CALCULATE STATS
-            // =================================================
 
             const activeBookings = bookings.filter(
                 (booking) =>
@@ -101,9 +89,6 @@ const DashboardStats = ({ theme }) => {
             ).length;
 
 
-            // =================================================
-            // SET STATS
-            // =================================================
 
             setStats({
                 vehicles: vehicles.length,
@@ -142,9 +127,6 @@ const DashboardStats = ({ theme }) => {
 
         <div className="dashboard-stats">
 
-            {/* =================================================
-                SECTION HEADER
-            ================================================= */}
 
             <div className="stats-header">
 
@@ -167,9 +149,6 @@ const DashboardStats = ({ theme }) => {
             </div>
 
 
-            {/* =================================================
-                ERROR
-            ================================================= */}
 
             {error && (
 
@@ -186,14 +165,10 @@ const DashboardStats = ({ theme }) => {
             )}
 
 
-            {/* =================================================
-                STAT CARDS
-            ================================================= */}
 
             <div className="stats-grid">
 
 
-                {/* MY VEHICLES */}
 
                 <div className="stat-card">
 
@@ -216,7 +191,6 @@ const DashboardStats = ({ theme }) => {
                 </div>
 
 
-                {/* ACTIVE BOOKINGS */}
 
                 <div className="stat-card">
 
@@ -239,7 +213,6 @@ const DashboardStats = ({ theme }) => {
                 </div>
 
 
-                {/* COMPLETED SERVICES */}
 
                 <div className="stat-card">
 
@@ -262,7 +235,6 @@ const DashboardStats = ({ theme }) => {
                 </div>
 
 
-                {/* PENDING SERVICES */}
 
                 <div className="stat-card">
 

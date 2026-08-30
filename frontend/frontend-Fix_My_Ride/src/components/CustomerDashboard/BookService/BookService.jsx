@@ -4,9 +4,6 @@ import "./BookService.css";
 import API_BASE_URL from "../../../services/Api/api";
 const BookService = ({ theme, selectedServiceId }) => {
 
-    // =====================================================
-    // STATES
-    // =====================================================
 
     const [vehicles, setVehicles] = useState([]);
     const [services, setServices] = useState([]);
@@ -24,18 +21,12 @@ const BookService = ({ theme, selectedServiceId }) => {
     const [success, setSuccess] = useState("");
 
 
-    // =====================================================
-    // GET TOKEN
-    // =====================================================
 
     const getToken = () => {
         return localStorage.getItem("token");
     };
 
 
-    // =====================================================
-    // FETCH VEHICLES + SERVICES
-    // =====================================================
 
     useEffect(() => {
         fetchBookingData();
@@ -57,9 +48,6 @@ const BookService = ({ theme, selectedServiceId }) => {
             }
 
 
-            // =================================================
-            // FETCH VEHICLES
-            // =================================================
 
             const vehicleResponse = await axios.get(
                 `${API_BASE_URL}/api/vehicle/all`,
@@ -71,9 +59,6 @@ const BookService = ({ theme, selectedServiceId }) => {
             );
 
 
-            // =================================================
-            // FETCH SERVICES
-            // =================================================
 
             const serviceResponse = await axios.get(
                 `${API_BASE_URL}/api/service/all`,
@@ -93,17 +78,11 @@ const BookService = ({ theme, selectedServiceId }) => {
                 serviceResponse.data?.services || [];
 
 
-            // =================================================
-            // SET DATA
-            // =================================================
 
             setVehicles(fetchedVehicles);
             setServices(fetchedServices);
 
 
-            // =================================================
-            // SELECT SERVICE AUTOMATICALLY
-            // =================================================
 
             if (selectedServiceId) {
 
@@ -146,9 +125,6 @@ const BookService = ({ theme, selectedServiceId }) => {
     };
 
 
-    // =====================================================
-    // HANDLE INPUT
-    // =====================================================
 
     const handleChange = (e) => {
 
@@ -170,10 +146,6 @@ const BookService = ({ theme, selectedServiceId }) => {
     };
 
 
-    // =====================================================
-    // CREATE BOOKING
-    // PAYMENT REMOVED
-    // =====================================================
 
     const handleSubmit = async (e) => {
 
@@ -183,9 +155,6 @@ const BookService = ({ theme, selectedServiceId }) => {
         setSuccess("");
 
 
-        // =================================================
-        // VALIDATION
-        // =================================================
 
         if (!formData.vehicleId) {
 
@@ -220,9 +189,6 @@ const BookService = ({ theme, selectedServiceId }) => {
         }
 
 
-        // =================================================
-        // SPLIT DATE + TIME
-        // =================================================
 
         const dateTimeParts =
             formData.bookingDate.split("T");
@@ -266,9 +232,6 @@ const BookService = ({ theme, selectedServiceId }) => {
             }
 
 
-            // =================================================
-            // BOOKING DATA
-            // =================================================
 
             const bookingData = {
 
@@ -293,9 +256,6 @@ const BookService = ({ theme, selectedServiceId }) => {
             );
 
 
-            // =================================================
-            // CREATE BOOKING
-            // =================================================
 
             const response = await axios.post(
             `${API_BASE_URL}/api/booking/add`,
@@ -318,18 +278,12 @@ const BookService = ({ theme, selectedServiceId }) => {
             );
 
 
-            // =================================================
-            // SUCCESS MESSAGE
-            // =================================================
 
             setSuccess(
                 "Booking created successfully! Your booking is pending confirmation."
             );
 
 
-            // =================================================
-            // RESET FORM
-            // =================================================
 
             setFormData({
 
@@ -372,9 +326,6 @@ const BookService = ({ theme, selectedServiceId }) => {
     };
 
 
-    // =====================================================
-    // TODAY DATE
-    // =====================================================
 
     const getMinBookingDateTime = () => {
 
@@ -404,9 +355,6 @@ const BookService = ({ theme, selectedServiceId }) => {
 };
 
 const minBookingDateTime = getMinBookingDateTime();
-    // =====================================================
-    // RENDER
-    // =====================================================
 
     return (
 
@@ -418,9 +366,6 @@ const minBookingDateTime = getMinBookingDateTime();
             <div className="book-service-container">
 
 
-                {/* =================================================
-                    HEADER
-                ================================================= */}
 
                 <div className="book-service-header">
 
@@ -440,9 +385,6 @@ const minBookingDateTime = getMinBookingDateTime();
                 </div>
 
 
-                {/* =================================================
-                    LOADING
-                ================================================= */}
 
                 {loading && (
 
@@ -459,9 +401,6 @@ const minBookingDateTime = getMinBookingDateTime();
                 )}
 
 
-                {/* =================================================
-                    ERROR
-                ================================================= */}
 
                 {!loading && error && (
 
@@ -478,9 +417,6 @@ const minBookingDateTime = getMinBookingDateTime();
                 )}
 
 
-                {/* =================================================
-                    SUCCESS
-                ================================================= */}
 
                 {success && (
 
@@ -497,9 +433,6 @@ const minBookingDateTime = getMinBookingDateTime();
                 )}
 
 
-                {/* =================================================
-                    NO VEHICLES
-                ================================================= */}
 
                 {!loading &&
                 vehicles.length === 0 && (
@@ -518,9 +451,6 @@ const minBookingDateTime = getMinBookingDateTime();
                 )}
 
 
-                {/* =================================================
-                    BOOKING FORM
-                ================================================= */}
 
                 {!loading &&
                 vehicles.length > 0 && (
@@ -531,9 +461,6 @@ const minBookingDateTime = getMinBookingDateTime();
                     >
 
 
-                        {/* =================================================
-                            VEHICLE
-                        ================================================= */}
 
                         <div className="form-group">
 
@@ -587,9 +514,6 @@ const minBookingDateTime = getMinBookingDateTime();
                         </div>
 
 
-                        {/* =================================================
-                            SERVICE
-                        ================================================= */}
 
                         <div className="form-group">
 
@@ -635,9 +559,6 @@ const minBookingDateTime = getMinBookingDateTime();
                         </div>
 
 
-                        {/* =================================================
-                            DATE + TIME
-                        ================================================= */}
 
                         <div className="form-group">
 
@@ -663,9 +584,6 @@ const minBookingDateTime = getMinBookingDateTime();
                         </div>
 
 
-                        {/* =================================================
-                            SELECTED VEHICLE PREVIEW
-                        ================================================= */}
 
                         {formData.vehicleId && (
 
@@ -714,9 +632,6 @@ const minBookingDateTime = getMinBookingDateTime();
                         )}
 
 
-                        {/* =================================================
-                            SELECTED SERVICE PREVIEW
-                        ================================================= */}
 
                         {formData.serviceId && (
 
@@ -755,9 +670,6 @@ const minBookingDateTime = getMinBookingDateTime();
                         )}
 
 
-                        {/* =================================================
-                            SELECTED DATE/TIME PREVIEW
-                        ================================================= */}
 
                         {formData.bookingDate && (
 
@@ -793,9 +705,6 @@ const minBookingDateTime = getMinBookingDateTime();
                         )}
 
 
-                        {/* =================================================
-                            BOOK SERVICE BUTTON
-                        ================================================= */}
 
                         <button
                             type="submit"

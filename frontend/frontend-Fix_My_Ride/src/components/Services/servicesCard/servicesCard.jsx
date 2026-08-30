@@ -38,9 +38,6 @@ const ServiceCard = ({
     });
 
 
-    // =====================================================
-    // GET LOGGED IN USER
-    // =====================================================
 
     const getUser = () => {
 
@@ -71,9 +68,6 @@ const ServiceCard = ({
     };
 
 
-    // =====================================================
-    // CHECK ADMIN
-    // =====================================================
 
     const user = getUser();
 
@@ -81,9 +75,6 @@ const ServiceCard = ({
         user?.role === "admin";
 
 
-    // =====================================================
-    // BOOK SERVICE
-    // =====================================================
 
     const handleBookService = () => {
 
@@ -91,7 +82,6 @@ const ServiceCard = ({
             localStorage.getItem("user");
 
 
-        // USER NOT LOGGED IN
 
         if (!storedUser) {
 
@@ -108,7 +98,6 @@ const ServiceCard = ({
                 JSON.parse(storedUser);
 
 
-            // CUSTOMER
 
             if (user?.role === "customer") {
 
@@ -121,7 +110,6 @@ const ServiceCard = ({
             }
 
 
-            // OTHER ROLE
 
             setShowLoginPopup(true);
 
@@ -141,9 +129,6 @@ const ServiceCard = ({
     };
 
 
-    // =====================================================
-    // LOGIN
-    // =====================================================
 
     const handleLogin = () => {
 
@@ -154,9 +139,6 @@ const ServiceCard = ({
     };
 
 
-    // =====================================================
-    // CLOSE LOGIN POPUP
-    // =====================================================
 
     const closePopup = () => {
 
@@ -165,9 +147,6 @@ const ServiceCard = ({
     };
 
 
-    // =====================================================
-    // EDIT INPUT CHANGE
-    // =====================================================
 
     const handleEditChange = (e) => {
 
@@ -188,9 +167,6 @@ const ServiceCard = ({
     };
 
 
-    // =====================================================
-    // OPEN EDIT MODAL
-    // =====================================================
 
     const openEditModal = () => {
 
@@ -222,9 +198,6 @@ const ServiceCard = ({
     };
 
 
-    // =====================================================
-    // CLOSE EDIT MODAL
-    // =====================================================
 
     const closeEditModal = () => {
 
@@ -241,9 +214,6 @@ const ServiceCard = ({
     };
 
 
-    // =====================================================
-    // UPDATE SERVICE
-    // =====================================================
 
     const handleUpdateService = async (e) => {
 
@@ -336,7 +306,6 @@ const ServiceCard = ({
             setShowEditModal(false);
 
 
-            // Refresh services in AllServices
 
             if (onServiceUpdated) {
 
@@ -370,9 +339,6 @@ const ServiceCard = ({
     };
 
 
-    // =====================================================
-    // DELETE SERVICE
-    // =====================================================
 
     const handleDeleteService = async () => {
 
@@ -438,7 +404,6 @@ const ServiceCard = ({
             );
 
 
-            // Refresh service list
 
             if (onServiceUpdated) {
 
@@ -476,16 +441,12 @@ const ServiceCard = ({
 
         <>
 
-            {/* =================================================
-                SERVICE CARD
-            ================================================= */}
 
             <div
                 className={`service-card ${theme}`}
             >
 
 
-                {/* SERVICE ICON */}
 
                 <div className="service-card-icon">
 
@@ -494,7 +455,6 @@ const ServiceCard = ({
                 </div>
 
 
-                {/* SERVICE NAME */}
 
                 <h3>
 
@@ -503,7 +463,6 @@ const ServiceCard = ({
                 </h3>
 
 
-                {/* DESCRIPTION */}
 
                 <p className="service-card-description">
 
@@ -512,7 +471,6 @@ const ServiceCard = ({
                 </p>
 
 
-                {/* VEHICLE TYPE */}
 
                 <div className="service-vehicle-type">
 
@@ -532,12 +490,10 @@ const ServiceCard = ({
             </div>
 
 
-                {/* SERVICE DETAILS */}
 
                 <div className="service-details">
 
 
-                    {/* PRICE */}
 
                     <div className="service-detail-item">
 
@@ -558,7 +514,6 @@ const ServiceCard = ({
                     </div>
 
 
-                    {/* DURATION */}
 
                     <div className="service-detail-item">
 
@@ -581,9 +536,6 @@ const ServiceCard = ({
                 </div>
 
 
-                {/* =================================================
-                    BOOK BUTTON
-                ================================================= */}
 
                 <button
                     type="button"
@@ -600,16 +552,12 @@ const ServiceCard = ({
                 </button>
 
 
-                {/* =================================================
-                    ADMIN ACTIONS
-                ================================================= */}
 
                 {isAdmin && (
 
                     <div className="service-admin-actions">
 
 
-                        {/* EDIT */}
 
                         <button
                             type="button"
@@ -624,7 +572,6 @@ const ServiceCard = ({
                         </button>
 
 
-                        {/* DELETE */}
 
                         <button
                             type="button"
@@ -646,7 +593,6 @@ const ServiceCard = ({
                 )}
 
 
-                {/* ERROR */}
 
                 {error && !showEditModal && (
 
@@ -665,9 +611,6 @@ const ServiceCard = ({
             </div>
 
 
-            {/* =====================================================
-                LOGIN REQUIRED POPUP
-            ===================================================== */}
 
             {showLoginPopup && (
 
@@ -743,9 +686,6 @@ const ServiceCard = ({
             )}
 
 
-            {/* =====================================================
-                EDIT SERVICE MODAL
-            ===================================================== */}
 
             {showEditModal && (
 
@@ -768,7 +708,6 @@ const ServiceCard = ({
                     <div className="service-edit-modal">
 
 
-                        {/* HEADER */}
 
                         <div className="service-edit-modal-header">
 
@@ -798,7 +737,6 @@ const ServiceCard = ({
                         </div>
 
 
-                        {/* FORM */}
 
                         <form
                             onSubmit={
@@ -807,7 +745,6 @@ const ServiceCard = ({
                         >
 
 
-                            {/* SERVICE NAME */}
 
                             <div className="service-form-group">
 
@@ -830,7 +767,6 @@ const ServiceCard = ({
                             </div>
 
 
-                            {/* DESCRIPTION */}
 
                             <div className="service-form-group">
 
@@ -853,7 +789,6 @@ const ServiceCard = ({
                             </div>
 
 
-                            {/* PRICE + DURATION */}
 
                             <div className="service-form-row">
 
@@ -903,7 +838,6 @@ const ServiceCard = ({
                             </div>
 
 
-                            {/* VEHICLE TYPE */}
 
                             <div className="service-form-group">
 
@@ -938,7 +872,6 @@ const ServiceCard = ({
                             </div>
 
 
-                            {/* FORM ERROR */}
 
                             {error && (
 
@@ -955,7 +888,6 @@ const ServiceCard = ({
                             )}
 
 
-                            {/* BUTTONS */}
 
                             <div className="service-edit-actions">
 

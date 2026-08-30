@@ -13,14 +13,12 @@ const DashBoardHeader = ({ theme }) => {
 
                 <div className="mechanic-dashboard-welcome">
 
-                    {/* DASHBOARD TAG */}
 
                     <span className="dashboard-tag">
                         Mechanic Dashboard
                     </span>
 
 
-                    {/* MAIN HEADING */}
 
                     <h1>
                         Keep Every Ride{" "}
@@ -30,7 +28,6 @@ const DashBoardHeader = ({ theme }) => {
                     </h1>
 
 
-                    {/* DESCRIPTION */}
 
                     <p>
                         Manage your assigned services, track ongoing

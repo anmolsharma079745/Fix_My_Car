@@ -39,9 +39,6 @@ const QuickActions = ({ theme }) => {
   ];
 
 
-  // =====================================================
-  // SCROLL TO DASHBOARD SECTION
-  // =====================================================
 
   const handleAction = (target) => {
 
@@ -63,9 +60,6 @@ const QuickActions = ({ theme }) => {
 
     <section className={`quick-actions ${theme}`}>
 
-      {/* =================================================
-          HEADER
-      ================================================= */}
       <div className="quick-actions-container">
       <div className="quick-actions-header">
 
@@ -88,9 +82,6 @@ const QuickActions = ({ theme }) => {
       </div>
 
 
-      {/* =================================================
-          ACTION CARDS
-      ================================================= */}
 
       <div className="quick-actions-grid">
 
@@ -103,7 +94,6 @@ const QuickActions = ({ theme }) => {
             onClick={() => handleAction(action.target)}
           >
 
-            {/* Icon */}
 
             <div className="quick-action-icon">
 
@@ -112,7 +102,6 @@ const QuickActions = ({ theme }) => {
             </div>
 
 
-            {/* Content */}
 
             <div className="quick-action-content">
 
@@ -127,7 +116,6 @@ const QuickActions = ({ theme }) => {
             </div>
 
 
-            {/* Arrow */}
 
             <span className="quick-action-arrow">
 

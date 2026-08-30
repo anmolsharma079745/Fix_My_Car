@@ -18,9 +18,6 @@ const DashBoardStats = ({ theme }) => {
     const [loading, setLoading] = useState(true);
 
 
-    // =========================================
-    // FETCH DASHBOARD DATA
-    // =========================================
 
     useEffect(() => {
 
@@ -51,7 +48,6 @@ const DashBoardStats = ({ theme }) => {
             );
 
 
-            // Backend response ke andar data object
             const dashboardData = response.data.data;
 
 
@@ -100,9 +96,6 @@ const DashBoardStats = ({ theme }) => {
     };
 
 
-    // =========================================
-    // STAT CARDS DATA
-    // =========================================
 
     const statCards = [
 

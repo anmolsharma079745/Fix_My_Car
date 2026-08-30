@@ -7,9 +7,6 @@ const BOOKING_API = `${API_BASE_URL}/api/booking`;
 
 const AssignedServices = ({ theme }) => {
 
-    // =====================================================
-    // STATES
-    // =====================================================
 
     const [services, setServices] = useState([]);
 
@@ -22,18 +19,12 @@ const AssignedServices = ({ theme }) => {
     const [updatingId, setUpdatingId] = useState(null);
 
 
-    // =====================================================
-    // TOKEN
-    // =====================================================
 
     const getToken = () => {
         return localStorage.getItem("token");
     };
 
 
-    // =====================================================
-    // FETCH ASSIGNED SERVICES
-    // =====================================================
 
     useEffect(() => {
 
@@ -111,9 +102,6 @@ const AssignedServices = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // UPDATE SERVICE STATUS
-    // =====================================================
 
     const updateStatus = async (id, status) => {
 
@@ -145,11 +133,6 @@ const AssignedServices = ({ theme }) => {
             );
 
 
-            // =================================================
-            // IMPORTANT:
-            // Backend route is /mechanic/update/:id
-            // NOT /mechanic/status/:id
-            // =================================================
 
             const response = await axios.put(
 
@@ -186,9 +169,6 @@ const AssignedServices = ({ theme }) => {
                 status;
 
 
-            // =================================================
-            // UPDATE SERVICES LIST IMMEDIATELY
-            // =================================================
 
             setServices((prevServices) => {
 
@@ -216,9 +196,6 @@ const AssignedServices = ({ theme }) => {
             });
 
 
-            // =================================================
-            // UPDATE MODAL
-            // =================================================
 
             setSelectedService((prevService) => {
 
@@ -245,9 +222,6 @@ const AssignedServices = ({ theme }) => {
             });
 
 
-            // =================================================
-            // FETCH FRESH DATA
-            // =================================================
 
             await fetchAssignedServices();
 
@@ -274,9 +248,6 @@ const AssignedServices = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // FORMAT DATE
-    // =====================================================
 
     const formatDate = (date) => {
 
@@ -312,9 +283,6 @@ const AssignedServices = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET CUSTOMER NAME
-    // =====================================================
 
     const getCustomerName = (service) => {
 
@@ -351,9 +319,6 @@ const AssignedServices = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET VEHICLE NAME
-    // =====================================================
 
     const getVehicleName = (service) => {
 
@@ -417,9 +382,6 @@ const AssignedServices = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET SERVICE NAME
-    // =====================================================
 
     const getServiceName = (service) => {
 
@@ -461,9 +423,6 @@ const AssignedServices = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET STATUS
-    // =====================================================
 
     const getStatus = (service) => {
 
@@ -475,9 +434,6 @@ const AssignedServices = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // STATUS CLASS
-    // =====================================================
 
     const getStatusClass = (status) => {
 
@@ -493,9 +449,6 @@ const AssignedServices = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // STATUS DISPLAY
-    // =====================================================
 
     const getStatusLabel = (status) => {
 
@@ -531,9 +484,6 @@ const AssignedServices = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // RENDER
-    // =====================================================
 
     return (
 
@@ -544,9 +494,6 @@ const AssignedServices = ({ theme }) => {
             <div className="assigned-services-container">
 
 
-                {/* =================================================
-                    HEADING
-                ================================================= */}
 
                 <div className="assigned-services-heading">
 
@@ -565,9 +512,6 @@ const AssignedServices = ({ theme }) => {
                 </div>
 
 
-                {/* =================================================
-                    ERROR
-                ================================================= */}
 
                 {error && (
 
@@ -584,9 +528,6 @@ const AssignedServices = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    LOADING
-                ================================================= */}
 
                 {loading && (
 
@@ -603,9 +544,6 @@ const AssignedServices = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    EMPTY
-                ================================================= */}
 
                 {!loading &&
                 !error &&
@@ -632,9 +570,6 @@ const AssignedServices = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    SERVICES
-                ================================================= */}
 
                 {!loading &&
                 services.length > 0 && (
@@ -655,9 +590,6 @@ const AssignedServices = ({ theme }) => {
                                 >
 
 
-                                    {/* =================================================
-                                        CARD HEADER
-                                    ================================================= */}
 
                                     <div className="service-card-header">
 
@@ -700,9 +632,6 @@ const AssignedServices = ({ theme }) => {
                                         </div>
 
 
-                                        {/* =================================================
-                                            CURRENT STATUS
-                                        ================================================= */}
 
                                         <span
                                             className={`service-status ${getStatusClass(
@@ -722,14 +651,10 @@ const AssignedServices = ({ theme }) => {
                                     </div>
 
 
-                                    {/* =================================================
-                                        DETAILS
-                                    ================================================= */}
 
                                     <div className="service-card-details">
 
 
-                                        {/* CUSTOMER */}
 
                                         <div className="service-detail">
 
@@ -755,7 +680,6 @@ const AssignedServices = ({ theme }) => {
                                         </div>
 
 
-                                        {/* SERVICE */}
 
                                         <div className="service-detail">
 
@@ -781,7 +705,6 @@ const AssignedServices = ({ theme }) => {
                                         </div>
 
 
-                                        {/* DATE */}
 
                                         <div className="service-detail">
 
@@ -809,7 +732,6 @@ const AssignedServices = ({ theme }) => {
                                         </div>
 
 
-                                        {/* TIME */}
 
                                         <div className="service-detail">
 
@@ -838,14 +760,10 @@ const AssignedServices = ({ theme }) => {
                                     </div>
 
 
-                                    {/* =================================================
-                                        ACTION
-                                    ================================================= */}
 
                                     <div className="service-card-action">
 
 
-                                        {/* VIEW BUTTON */}
 
                                         <button
                                             type="button"
@@ -864,9 +782,6 @@ const AssignedServices = ({ theme }) => {
                                         </button>
 
 
-                                        {/* =================================================
-                                            STATUS SELECT
-                                        ================================================= */}
 
                                         {status !== "Completed" &&
                                         status !== "cancelled" && (
@@ -909,9 +824,6 @@ const AssignedServices = ({ theme }) => {
                                         )}
 
 
-                                        {/* =================================================
-                                            COMPLETED LABEL
-                                        ================================================= */}
 
                                         {status === "Completed" && (
 
@@ -926,9 +838,6 @@ const AssignedServices = ({ theme }) => {
                                         )}
 
 
-                                        {/* =================================================
-                                            CANCELLED LABEL
-                                        ================================================= */}
 
                                         {status === "cancelled" && (
 
@@ -957,9 +866,6 @@ const AssignedServices = ({ theme }) => {
             </div>
 
 
-            {/* =====================================================
-                SERVICE DETAILS MODAL
-            ===================================================== */}
 
             {selectedService && (
 
@@ -981,9 +887,6 @@ const AssignedServices = ({ theme }) => {
                     <div className="service-details-modal">
 
 
-                        {/* =================================================
-                            MODAL HEADER
-                        ================================================= */}
 
                         <div className="service-details-modal-header">
 
@@ -1020,14 +923,10 @@ const AssignedServices = ({ theme }) => {
                         </div>
 
 
-                        {/* =================================================
-                            MODAL DETAILS
-                        ================================================= */}
 
                         <div className="modal-service-details">
 
 
-                            {/* CUSTOMER */}
 
                             <div className="modal-detail">
 
@@ -1048,7 +947,6 @@ const AssignedServices = ({ theme }) => {
                             </div>
 
 
-                            {/* SERVICE */}
 
                             <div className="modal-detail">
 
@@ -1069,7 +967,6 @@ const AssignedServices = ({ theme }) => {
                             </div>
 
 
-                            {/* DATE */}
 
                             <div className="modal-detail">
 
@@ -1092,7 +989,6 @@ const AssignedServices = ({ theme }) => {
                             </div>
 
 
-                            {/* TIME */}
 
                             <div className="modal-detail">
 
@@ -1114,7 +1010,6 @@ const AssignedServices = ({ theme }) => {
                             </div>
 
 
-                            {/* STATUS */}
 
                             <div className="modal-detail full-width">
 
@@ -1143,7 +1038,6 @@ const AssignedServices = ({ theme }) => {
                             </div>
 
 
-                            {/* NOTES */}
 
                             {selectedService.notes && (
 
@@ -1164,7 +1058,6 @@ const AssignedServices = ({ theme }) => {
                             )}
 
 
-                            {/* MECHANIC NOTES */}
 
                             {selectedService.mechanicNotes && (
 
@@ -1187,9 +1080,6 @@ const AssignedServices = ({ theme }) => {
                         </div>
 
 
-                        {/* =================================================
-                            MODAL STATUS ACTIONS
-                        ================================================= */}
 
                         {getStatus(selectedService) !== "Completed" &&
                         getStatus(selectedService) !== "cancelled" && (
@@ -1197,7 +1087,6 @@ const AssignedServices = ({ theme }) => {
                             <div className="modal-status-actions">
 
 
-                                {/* START SERVICE */}
 
                                 {getStatus(selectedService) !== "In Progress" && (
 
@@ -1226,7 +1115,6 @@ const AssignedServices = ({ theme }) => {
                                 )}
 
 
-                                {/* COMPLETE SERVICE */}
 
                                 <button
                                     type="button"
@@ -1255,9 +1143,6 @@ const AssignedServices = ({ theme }) => {
                         )}
 
 
-                        {/* =================================================
-                            COMPLETED MESSAGE
-                        ================================================= */}
 
                         {getStatus(selectedService) === "Completed" && (
 
@@ -1274,9 +1159,6 @@ const AssignedServices = ({ theme }) => {
                         )}
 
 
-                        {/* =================================================
-                            CANCELLED MESSAGE
-                        ================================================= */}
 
                         {getStatus(selectedService) === "cancelled" && (
 

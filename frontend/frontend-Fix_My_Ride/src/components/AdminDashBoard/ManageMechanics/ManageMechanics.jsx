@@ -6,9 +6,6 @@ import API_BASE_URL from "../../../services/Api/api";
 
 const ManageMechanics = ({ theme }) => {
 
-    // =====================================================
-    // STATES
-    // =====================================================
 
     const [mechanics, setMechanics] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -18,9 +15,6 @@ const ManageMechanics = ({ theme }) => {
     const [editedData, setEditedData] = useState({});
 
 
-    // =====================================================
-    // FETCH MECHANICS
-    // =====================================================
 
     useEffect(() => {
         fetchMechanics();
@@ -89,9 +83,6 @@ const ManageMechanics = ({ theme }) => {
 };
 
 
-    // =====================================================
-    // EDIT MECHANIC
-    // =====================================================
 
     const handleEdit = (specificMechanic) => {
 
@@ -109,9 +100,6 @@ const ManageMechanics = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // HANDLE INPUT CHANGE
-    // =====================================================
 
     const handleChange = (e) => {
 
@@ -125,9 +113,6 @@ const ManageMechanics = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // UPDATE MECHANIC
-    // =====================================================
 
     const handleUpdate = async (e) => {
 
@@ -207,12 +192,10 @@ const ManageMechanics = ({ theme }) => {
             );
 
 
-            // Refresh mechanic list
 
             await fetchMechanics();
 
 
-            // Close modal
 
             setEditModal(false);
 
@@ -237,9 +220,6 @@ const ManageMechanics = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // DELETE MECHANIC
-    // =====================================================
 
     const handleDelete = async (specificMechanic) => {
 
@@ -307,7 +287,6 @@ const ManageMechanics = ({ theme }) => {
             );
 
 
-            // Refresh mechanic list
 
             await fetchMechanics();
 
@@ -330,9 +309,6 @@ const ManageMechanics = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // CLOSE MODAL
-    // =====================================================
 
     const handleClose = () => {
 
@@ -343,9 +319,6 @@ const ManageMechanics = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // JSX
-    // =====================================================
 
     return (
 
@@ -356,9 +329,6 @@ const ManageMechanics = ({ theme }) => {
             <div className="manage-mechanics-container">
 
 
-                {/* =================================================
-                    HEADER
-                ================================================= */}
 
                 <div className="manage-mechanics-header">
 
@@ -398,14 +368,10 @@ const ManageMechanics = ({ theme }) => {
                 </div>
 
 
-                {/* =================================================
-                    CONTENT
-                ================================================= */}
 
                 <div className="manage-mechanics-content">
 
 
-                    {/* LOADING */}
 
                     {loading && (
 
@@ -422,7 +388,6 @@ const ManageMechanics = ({ theme }) => {
                     )}
 
 
-                    {/* ERROR */}
 
                     {!loading && error && (
 
@@ -439,7 +404,6 @@ const ManageMechanics = ({ theme }) => {
                     )}
 
 
-                    {/* NO DATA */}
 
                     {!loading &&
                     !error &&
@@ -458,9 +422,6 @@ const ManageMechanics = ({ theme }) => {
                     )}
 
 
-                    {/* =================================================
-                        MECHANIC CARDS
-                    ================================================= */}
 
                     {!loading &&
                     !error &&
@@ -479,7 +440,6 @@ const ManageMechanics = ({ theme }) => {
                                 >
 
 
-                                    {/* CARD TOP */}
 
                                     <div className="mechanic-card-top">
 
@@ -509,7 +469,6 @@ const ManageMechanics = ({ theme }) => {
                                     </div>
 
 
-                                    {/* DETAILS */}
 
                                     <div className="mechanic-details">
 
@@ -582,7 +541,6 @@ const ManageMechanics = ({ theme }) => {
 </div>
 
 
-                                    {/* BUTTONS */}
 
                                     <div className="card-buttons">
 
@@ -634,9 +592,6 @@ const ManageMechanics = ({ theme }) => {
             </div>
 
 
-            {/* =====================================================
-                EDIT MODAL
-            ===================================================== */}
 
             {editModal && (
 
@@ -653,7 +608,6 @@ const ManageMechanics = ({ theme }) => {
                     >
 
 
-                        {/* MODAL HEADER */}
 
                         <div className="edit-modal-header">
 
@@ -683,14 +637,12 @@ const ManageMechanics = ({ theme }) => {
                         </div>
 
 
-                        {/* FORM */}
 
                         <form
                             onSubmit={handleUpdate}
                         >
 
 
-                            {/* NAME */}
 
                             <div className="edit-form-group">
 
@@ -721,7 +673,6 @@ const ManageMechanics = ({ theme }) => {
                             </div>
 
 
-                            {/* EMAIL */}
 
                             <div className="edit-form-group">
 
@@ -752,7 +703,6 @@ const ManageMechanics = ({ theme }) => {
                             </div>
 
 
-                            {/* PHONE */}
 
                             <div className="edit-form-group">
 
@@ -783,7 +733,6 @@ const ManageMechanics = ({ theme }) => {
                             </div>
 
 
-                            {/* SPECIALIZATION */}
 
                             <div className="edit-form-group">
 
@@ -830,7 +779,6 @@ const ManageMechanics = ({ theme }) => {
                             </div>
 
 
-                            {/* EXPERIENCE */}
 
                             <div className="edit-form-group">
 
@@ -861,7 +809,6 @@ const ManageMechanics = ({ theme }) => {
                             </div>
 
 
-                            {/* STATUS */}
 
                             <div className="edit-form-group">
 
@@ -904,7 +851,6 @@ const ManageMechanics = ({ theme }) => {
                             </div>
 
 
-                            {/* MODAL BUTTONS */}
 
                             <div className="edit-modal-buttons">
 

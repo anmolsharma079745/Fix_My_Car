@@ -8,9 +8,6 @@ const BOOKING_API = `${API_BASE_URL}/api/booking`;
 
 const ServiceHistory = ({ theme }) => {
 
-    // =====================================================
-    // STATES
-    // =====================================================
 
     const [history, setHistory] = useState([]);
 
@@ -21,18 +18,12 @@ const ServiceHistory = ({ theme }) => {
     const [selectedService, setSelectedService] = useState(null);
 
 
-    // =====================================================
-    // TOKEN
-    // =====================================================
 
     const getToken = () => {
         return localStorage.getItem("token");
     };
 
 
-    // =====================================================
-    // FETCH MECHANIC SERVICES
-    // =====================================================
 
     useEffect(() => {
 
@@ -64,9 +55,6 @@ const ServiceHistory = ({ theme }) => {
             }
 
 
-            // =================================================
-            // GET MECHANIC ASSIGNED BOOKINGS
-            // =================================================
 
             const response = await axios.get(
 
@@ -94,9 +82,6 @@ const ServiceHistory = ({ theme }) => {
                 [];
 
 
-            // =================================================
-            // ONLY COMPLETED SERVICES
-            // =================================================
 
             const completedServices =
                 bookings.filter((booking) => {
@@ -134,9 +119,6 @@ const ServiceHistory = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // FORMAT DATE
-    // =====================================================
 
     const formatDate = (date) => {
 
@@ -177,9 +159,6 @@ const ServiceHistory = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET CUSTOMER NAME
-    // =====================================================
 
     const getCustomerName = (service) => {
 
@@ -216,9 +195,6 @@ const ServiceHistory = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET VEHICLE NAME
-    // =====================================================
 
     const getVehicleName = (service) => {
 
@@ -279,9 +255,6 @@ const ServiceHistory = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET SERVICE NAME
-    // =====================================================
 
     const getServiceName = (service) => {
 
@@ -322,9 +295,6 @@ const ServiceHistory = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET BOOKING ID
-    // =====================================================
 
     const getBookingId = (service) => {
 
@@ -342,9 +312,6 @@ const ServiceHistory = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // RENDER
-    // =====================================================
 
     return (
 
@@ -355,9 +322,6 @@ const ServiceHistory = ({ theme }) => {
             <div className="service-history-container">
 
 
-                {/* =================================================
-                    HEADING
-                ================================================= */}
 
                 <div className="service-history-heading">
 
@@ -378,9 +342,6 @@ const ServiceHistory = ({ theme }) => {
                 </div>
 
 
-                {/* =================================================
-                    ERROR
-                ================================================= */}
 
                 {error && (
 
@@ -397,9 +358,6 @@ const ServiceHistory = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    LOADING
-                ================================================= */}
 
                 {loading && (
 
@@ -416,9 +374,6 @@ const ServiceHistory = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    EMPTY
-                ================================================= */}
 
                 {!loading &&
                 !error &&
@@ -451,9 +406,6 @@ const ServiceHistory = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    HISTORY LIST
-                ================================================= */}
 
                 {!loading &&
                 history.length > 0 && (
@@ -468,9 +420,6 @@ const ServiceHistory = ({ theme }) => {
                             >
 
 
-                                {/* =================================================
-                                    CARD HEADER
-                                ================================================= */}
 
                                 <div className="history-card-header">
 
@@ -524,14 +473,10 @@ const ServiceHistory = ({ theme }) => {
                                 </div>
 
 
-                                {/* =================================================
-                                    DETAILS
-                                ================================================= */}
 
                                 <div className="history-card-details">
 
 
-                                    {/* CUSTOMER */}
 
                                     <div className="history-detail">
 
@@ -557,7 +502,6 @@ const ServiceHistory = ({ theme }) => {
                                     </div>
 
 
-                                    {/* SERVICE */}
 
                                     <div className="history-detail">
 
@@ -583,7 +527,6 @@ const ServiceHistory = ({ theme }) => {
                                     </div>
 
 
-                                    {/* DATE */}
 
                                     <div className="history-detail">
 
@@ -609,7 +552,6 @@ const ServiceHistory = ({ theme }) => {
                                     </div>
 
 
-                                    {/* TIME */}
 
                                     <div className="history-detail">
 
@@ -636,9 +578,6 @@ const ServiceHistory = ({ theme }) => {
                                 </div>
 
 
-                                {/* =================================================
-                                    ACTION
-                                ================================================= */}
 
                                 <div className="history-card-action">
 
@@ -671,9 +610,6 @@ const ServiceHistory = ({ theme }) => {
             </div>
 
 
-            {/* =====================================================
-                DETAILS MODAL
-            ===================================================== */}
 
             {selectedService && (
 
@@ -695,9 +631,6 @@ const ServiceHistory = ({ theme }) => {
                     <div className="history-details-modal">
 
 
-                        {/* =================================================
-                            MODAL HEADER
-                        ================================================= */}
 
                         <div className="history-modal-header">
 
@@ -735,14 +668,10 @@ const ServiceHistory = ({ theme }) => {
                         </div>
 
 
-                        {/* =================================================
-                            MODAL DETAILS
-                        ================================================= */}
 
                         <div className="history-modal-details">
 
 
-                            {/* CUSTOMER */}
 
                             <div className="history-modal-detail">
 
@@ -764,7 +693,6 @@ const ServiceHistory = ({ theme }) => {
                             </div>
 
 
-                            {/* SERVICE */}
 
                             <div className="history-modal-detail">
 
@@ -786,7 +714,6 @@ const ServiceHistory = ({ theme }) => {
                             </div>
 
 
-                            {/* BOOKING ID */}
 
                             <div className="history-modal-detail">
 
@@ -809,7 +736,6 @@ const ServiceHistory = ({ theme }) => {
                             </div>
 
 
-                            {/* DATE */}
 
                             <div className="history-modal-detail">
 
@@ -831,7 +757,6 @@ const ServiceHistory = ({ theme }) => {
                             </div>
 
 
-                            {/* TIME */}
 
                             <div className="history-modal-detail">
 
@@ -852,7 +777,6 @@ const ServiceHistory = ({ theme }) => {
                             </div>
 
 
-                            {/* STATUS */}
 
                             <div className="history-modal-detail full-width">
 
@@ -872,7 +796,6 @@ const ServiceHistory = ({ theme }) => {
                             </div>
 
 
-                            {/* NOTES */}
 
                             {selectedService.notes && (
 
@@ -898,9 +821,6 @@ const ServiceHistory = ({ theme }) => {
                         </div>
 
 
-                        {/* =================================================
-                            CLOSE
-                        ================================================= */}
 
                         <div className="history-modal-footer">
 

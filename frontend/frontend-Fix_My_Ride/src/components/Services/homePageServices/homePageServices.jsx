@@ -10,9 +10,6 @@ const Service = ({ theme }) => {
     const navigate = useNavigate();
 
 
-    // =====================================================
-    // STATES
-    // =====================================================
 
     const [services, setServices] = useState([]);
 
@@ -23,9 +20,6 @@ const Service = ({ theme }) => {
     const [showLoginPopup, setShowLoginPopup] = useState(false);
 
 
-    // =====================================================
-    // FETCH SERVICES
-    // =====================================================
 
     useEffect(() => {
 
@@ -47,10 +41,6 @@ const Service = ({ theme }) => {
                     response.data?.services || [];
 
 
-                // =================================================
-                // LATEST 6 SERVICES
-                // Backend already sorts by createdAt -1
-                // =================================================
 
                 const latestServices =
                     allServices.slice(0, 6);
@@ -88,9 +78,6 @@ const Service = ({ theme }) => {
     }, []);
 
 
-    // =====================================================
-    // SERVICE ICON
-    // =====================================================
 
     const getServiceIcon = (serviceName) => {
 
@@ -154,9 +141,6 @@ const Service = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // VEHICLE ICON
-    // =====================================================
 
     const getVehicleIcon = (vehicleType) => {
 
@@ -179,9 +163,6 @@ const Service = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // CHECK CUSTOMER LOGIN
-    // =====================================================
 
     const getLoggedInCustomer = () => {
 
@@ -189,9 +170,6 @@ const Service = ({ theme }) => {
             localStorage.getItem("user");
 
 
-        // =================================================
-        // NOT LOGGED IN
-        // =================================================
 
         if (!storedUser) {
 
@@ -208,9 +186,6 @@ const Service = ({ theme }) => {
                 JSON.parse(storedUser);
 
 
-            // =================================================
-            // ONLY CUSTOMER CAN BOOK / VIEW ALL SERVICES
-            // =================================================
 
             if (
                 !user ||
@@ -247,9 +222,6 @@ const Service = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // BOOK SERVICE
-    // =====================================================
 
     const handleBookService = (serviceId) => {
 
@@ -271,9 +243,6 @@ const Service = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // SHOW ALL SERVICES
-    // =====================================================
 
     const handleShowAllServices = () => {
 
@@ -293,9 +262,6 @@ const Service = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // LOGIN
-    // =====================================================
 
     const handleLogin = () => {
 
@@ -306,9 +272,6 @@ const Service = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // CLOSE POPUP
-    // =====================================================
 
     const closePopup = () => {
 
@@ -317,9 +280,6 @@ const Service = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // LOADING
-    // =====================================================
 
     if (loading) {
 
@@ -360,9 +320,6 @@ const Service = ({ theme }) => {
     }
 
 
-    // =====================================================
-    // MAIN JSX
-    // =====================================================
 
     return (
 
@@ -372,9 +329,6 @@ const Service = ({ theme }) => {
         >
 
 
-            {/* =================================================
-                HEADER
-            ================================================= */}
 
             <div className="services-header">
 
@@ -391,9 +345,6 @@ const Service = ({ theme }) => {
             </div>
 
 
-            {/* =================================================
-                ERROR
-            ================================================= */}
 
             {error && (
 
@@ -410,9 +361,6 @@ const Service = ({ theme }) => {
             )}
 
 
-            {/* =================================================
-                EMPTY
-            ================================================= */}
 
             {!error &&
                 services.length === 0 && (
@@ -431,9 +379,6 @@ const Service = ({ theme }) => {
             }
 
 
-            {/* =================================================
-                SERVICES
-            ================================================= */}
 
             {!error &&
                 services.length > 0 && (
@@ -450,9 +395,6 @@ const Service = ({ theme }) => {
                                 >
 
 
-                                    {/* =================================
-                                        SERVICE ICON
-                                    ================================= */}
 
                                     <div className="service-card-icon">
 
@@ -467,18 +409,12 @@ const Service = ({ theme }) => {
                                     </div>
 
 
-                                    {/* =================================
-                                        SERVICE NAME
-                                    ================================= */}
 
                                     <h3>
                                         {service.serviceName}
                                     </h3>
 
 
-                                    {/* =================================
-                                        DESCRIPTION
-                                    ================================= */}
 
                                     <p className="service-card-description">
 
@@ -487,9 +423,6 @@ const Service = ({ theme }) => {
                                     </p>
 
 
-                                    {/* =================================
-                                        VEHICLE TYPE
-                                    ================================= */}
 
                                     <div className="service-vehicle-type">
 
@@ -508,14 +441,10 @@ const Service = ({ theme }) => {
                                     </div>
 
 
-                                    {/* =================================
-                                        SERVICE DETAILS
-                                    ================================= */}
 
                                     <div className="service-details">
 
 
-                                        {/* PRICE */}
 
                                         <div className="service-detail-item">
 
@@ -537,7 +466,6 @@ const Service = ({ theme }) => {
                                         </div>
 
 
-                                        {/* DURATION */}
 
                                         <div className="service-detail-item">
 
@@ -561,9 +489,6 @@ const Service = ({ theme }) => {
                                     </div>
 
 
-                                    {/* =================================
-                                        BOOK BUTTON
-                                    ================================= */}
 
                                     <button
                                         type="button"
@@ -590,9 +515,6 @@ const Service = ({ theme }) => {
                         </div>
 
 
-                        {/* =================================================
-                            SHOW ALL SERVICES
-                        ================================================= */}
 
                         <div className="show-all-services">
 
@@ -621,9 +543,6 @@ const Service = ({ theme }) => {
             }
 
 
-            {/* =================================================
-                LOGIN REQUIRED POPUP
-            ================================================= */}
 
             {showLoginPopup && (
 
@@ -640,7 +559,6 @@ const Service = ({ theme }) => {
                     >
 
 
-                        {/* ICON */}
 
                         <div className="service-popup-icon">
 
@@ -649,14 +567,12 @@ const Service = ({ theme }) => {
                         </div>
 
 
-                        {/* TITLE */}
 
                         <h2>
                             Login Required
                         </h2>
 
 
-                        {/* MESSAGE */}
 
                         <p>
                             Please login as a customer
@@ -664,7 +580,6 @@ const Service = ({ theme }) => {
                         </p>
 
 
-                        {/* BUTTONS */}
 
                         <div className="service-popup-buttons">
 

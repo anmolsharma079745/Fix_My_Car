@@ -7,7 +7,7 @@ const App = () => {
         localStorage.getItem("theme") || "light"
     );
 
-
+    
     const toggleTheme = () => {
 
         const newTheme =

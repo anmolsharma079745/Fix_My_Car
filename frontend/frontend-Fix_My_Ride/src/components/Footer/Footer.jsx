@@ -10,9 +10,6 @@ const Footer = () => {
     const navigate = useNavigate();
 
 
-    // =====================================================
-    // STATES
-    // =====================================================
 
     const [services, setServices] = useState([]);
 
@@ -20,9 +17,6 @@ const Footer = () => {
         useState(true);
 
 
-    // =====================================================
-    // FETCH SERVICES
-    // =====================================================
 
     useEffect(() => {
 
@@ -67,9 +61,6 @@ const Footer = () => {
     }, []);
 
 
-    // =====================================================
-    // SERVICE CLICK
-    // =====================================================
 
     const handleServiceClick = (serviceId) => {
 
@@ -83,7 +74,6 @@ const Footer = () => {
         );
 
 
-        // Page ke top par le jaane ke liye
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -92,9 +82,6 @@ const Footer = () => {
     };
 
 
-    // =====================================================
-    // QUICK LINK NAVIGATION
-    // =====================================================
 
     const handleServicesClick = (event) => {
 
@@ -120,9 +107,6 @@ const Footer = () => {
             <div className="footer-container">
 
 
-                {/* =================================================
-                    BRAND
-                ================================================= */}
 
                 <div className="footer-section">
 
@@ -145,9 +129,6 @@ const Footer = () => {
 
 
 
-                {/* =================================================
-                    QUICK LINKS
-                ================================================= */}
 
                 <div className="footer-section">
 
@@ -206,9 +187,6 @@ const Footer = () => {
 
 
 
-                {/* =================================================
-                    OUR SERVICES
-                ================================================= */}
 
                 <div className="footer-section">
 
@@ -220,7 +198,6 @@ const Footer = () => {
                     <ul className="footer-services-list">
 
 
-                        {/* LOADING */}
 
                         {loadingServices && (
 
@@ -236,7 +213,6 @@ const Footer = () => {
 
 
 
-                        {/* SERVICES */}
 
                         {!loadingServices &&
                             services.length > 0 &&
@@ -273,7 +249,6 @@ const Footer = () => {
 
 
 
-                        {/* EMPTY */}
 
                         {!loadingServices &&
                             services.length === 0 && (
@@ -293,9 +268,6 @@ const Footer = () => {
 
 
 
-                {/* =================================================
-                    CONTACT
-                ================================================= */}
 
                 <div className="footer-section">
 
@@ -337,9 +309,6 @@ const Footer = () => {
 
 
 
-            {/* =================================================
-                BOTTOM
-            ================================================= */}
 
             <div className="footer-bottom">
 

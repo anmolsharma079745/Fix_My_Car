@@ -8,9 +8,6 @@ const {
 const router = express.Router();
 
 
-// =====================================================
-// PUBLIC HOME PAGE STATISTICS
-// =====================================================
 
 router.get(
     "/public-stats",

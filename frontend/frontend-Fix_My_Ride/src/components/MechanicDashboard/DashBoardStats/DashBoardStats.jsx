@@ -8,9 +8,6 @@ const BOOKING_API = `${API_BASE_URL}/api/booking`;
 
 const DashBoardStats = ({ theme }) => {
 
-    // =====================================================
-    // STATES
-    // =====================================================
 
     const [stats, setStats] = useState({
         assigned: 0,
@@ -23,18 +20,12 @@ const DashBoardStats = ({ theme }) => {
     const [error, setError] = useState("");
 
 
-    // =====================================================
-    // GET TOKEN
-    // =====================================================
 
     const getToken = () => {
         return localStorage.getItem("token");
     };
 
 
-    // =====================================================
-    // FETCH MECHANIC BOOKINGS
-    // =====================================================
 
     const fetchMechanicStats = useCallback(async () => {
 
@@ -46,9 +37,6 @@ const DashBoardStats = ({ theme }) => {
             const token = getToken();
 
 
-            // =================================================
-            // TOKEN CHECK
-            // =================================================
 
             if (!token) {
 
@@ -65,9 +53,6 @@ const DashBoardStats = ({ theme }) => {
             }
 
 
-            // =================================================
-            // API REQUEST
-            // =================================================
 
             const response = await axios.get(
                 `${BOOKING_API}/mechanic/assigned`,
@@ -79,9 +64,6 @@ const DashBoardStats = ({ theme }) => {
             );
 
 
-            // =================================================
-            // GET BOOKINGS
-            // =================================================
 
             const bookings = Array.isArray(response.data?.bookings)
                 ? response.data.bookings
@@ -94,9 +76,6 @@ const DashBoardStats = ({ theme }) => {
             );
 
 
-            // =================================================
-            // CALCULATE STATS
-            // =================================================
 
             let pending = 0;
             let inProgress = 0;
@@ -113,9 +92,6 @@ const DashBoardStats = ({ theme }) => {
                     .replace(/-/g, " ");
 
 
-                // ---------------------------------------------
-                // PENDING
-                // ---------------------------------------------
 
                 if (status === "pending") {
 
@@ -124,9 +100,6 @@ const DashBoardStats = ({ theme }) => {
                 }
 
 
-                // ---------------------------------------------
-                // IN PROGRESS
-                // ---------------------------------------------
 
                 else if (status === "in progress") {
 
@@ -135,9 +108,6 @@ const DashBoardStats = ({ theme }) => {
                 }
 
 
-                // ---------------------------------------------
-                // COMPLETED
-                // ---------------------------------------------
 
                 else if (status === "completed") {
 
@@ -148,9 +118,6 @@ const DashBoardStats = ({ theme }) => {
             });
 
 
-            // =================================================
-            // UPDATE STATS
-            // =================================================
 
             setStats({
 
@@ -218,9 +185,6 @@ const DashBoardStats = ({ theme }) => {
     }, []);
 
 
-    // =====================================================
-    // LOAD DATA
-    // =====================================================
 
     useEffect(() => {
 
@@ -229,9 +193,6 @@ const DashBoardStats = ({ theme }) => {
     }, [fetchMechanicStats]);
 
 
-    // =====================================================
-    // RENDER
-    // =====================================================
 
     return (
 
@@ -242,9 +203,6 @@ const DashBoardStats = ({ theme }) => {
             <div className="mechanicStatsWrapper">
 
 
-                {/* =================================================
-                    HEADER
-                ================================================= */}
 
                 <div className="mechanicStatsHeader">
 
@@ -266,9 +224,6 @@ const DashBoardStats = ({ theme }) => {
                 </div>
 
 
-                {/* =================================================
-                    ERROR
-                ================================================= */}
 
                 {error && (
 
@@ -293,16 +248,10 @@ const DashBoardStats = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    STATS CARDS
-                ================================================= */}
 
                 <div className="mechanicStatsCards">
 
 
-                    {/* =================================================
-                        ASSIGNED
-                    ================================================= */}
 
                     <div className="mechanicStatsCard">
 
@@ -334,9 +283,6 @@ const DashBoardStats = ({ theme }) => {
                     </div>
 
 
-                    {/* =================================================
-                        PENDING
-                    ================================================= */}
 
                     <div className="mechanicStatsCard">
 
@@ -368,9 +314,6 @@ const DashBoardStats = ({ theme }) => {
                     </div>
 
 
-                    {/* =================================================
-                        IN PROGRESS
-                    ================================================= */}
 
                     <div className="mechanicStatsCard">
 
@@ -402,9 +345,6 @@ const DashBoardStats = ({ theme }) => {
                     </div>
 
 
-                    {/* =================================================
-                        COMPLETED
-                    ================================================= */}
 
                     <div className="mechanicStatsCard">
 

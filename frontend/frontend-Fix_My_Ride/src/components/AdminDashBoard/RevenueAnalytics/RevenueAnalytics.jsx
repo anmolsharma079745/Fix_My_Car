@@ -14,9 +14,6 @@ const RevenueAnalytics = ({ theme }) => {
     const [error, setError] = useState("");
 
 
-    // =====================================================
-    // FETCH REVENUE DATA
-    // =====================================================
 
     useEffect(() => {
 
@@ -96,9 +93,6 @@ const RevenueAnalytics = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // FORMAT CURRENCY
-    // =====================================================
 
     const formatCurrency = (amount) => {
 
@@ -114,9 +108,6 @@ const RevenueAnalytics = ({ theme }) => {
             <div className="revenue-analytics-container">
 
 
-                {/* =================================================
-                    HEADER
-                ================================================= */}
 
                 <div className="revenue-analytics-header">
 
@@ -143,16 +134,10 @@ const RevenueAnalytics = ({ theme }) => {
 
 
 
-                {/* =================================================
-                    CONTENT
-                ================================================= */}
 
                 <div className="revenue-analytics-content">
 
 
-                    {/* =================================================
-                        LOADING
-                    ================================================= */}
 
                     {loading && (
 
@@ -170,9 +155,6 @@ const RevenueAnalytics = ({ theme }) => {
 
 
 
-                    {/* =================================================
-                        ERROR
-                    ================================================= */}
 
                     {!loading && error && (
 
@@ -190,16 +172,12 @@ const RevenueAnalytics = ({ theme }) => {
 
 
 
-                    {/* =================================================
-                        REVENUE CARDS
-                    ================================================= */}
 
                     {!loading && !error && (
 
                         <div className="revenue-grid">
 
 
-                            {/* TOTAL REVENUE */}
 
                             <div className="revenue-card">
 
@@ -236,7 +214,6 @@ const RevenueAnalytics = ({ theme }) => {
 
 
 
-                            {/* COMPLETED BOOKINGS */}
 
                             <div className="revenue-card">
 
@@ -271,7 +248,6 @@ const RevenueAnalytics = ({ theme }) => {
 
 
 
-                            {/* AVERAGE REVENUE */}
 
                             <div className="revenue-card">
 

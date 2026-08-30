@@ -11,18 +11,12 @@ const ServiceCTA = ({ theme }) => {
     const [showLoginPopup, setShowLoginPopup] = useState(false);
 
 
-    // =====================================================
-    // BOOK SERVICE
-    // =====================================================
 
     const handleBookService = () => {
 
         const storedUser = localStorage.getItem("user");
 
 
-        // =================================================
-        // USER NOT LOGGED IN
-        // =================================================
 
         if (!storedUser) {
 
@@ -38,9 +32,6 @@ const ServiceCTA = ({ theme }) => {
             const user = JSON.parse(storedUser);
 
 
-            // =================================================
-            // ONLY CUSTOMER CAN BOOK
-            // =================================================
 
             if (user?.role === "customer") {
 
@@ -70,9 +61,6 @@ const ServiceCTA = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // LOGIN
-    // =====================================================
 
     const handleLogin = () => {
 
@@ -83,9 +71,6 @@ const ServiceCTA = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // CLOSE POPUP
-    // =====================================================
 
     const closePopup = () => {
 
@@ -98,9 +83,6 @@ const ServiceCTA = ({ theme }) => {
 
         <>
 
-            {/* =================================================
-                CTA SECTION
-            ================================================= */}
 
             <section
                 className={`services-cta ${theme || ""}`}
@@ -109,7 +91,6 @@ const ServiceCTA = ({ theme }) => {
                 <div className="services-cta-content">
 
 
-                    {/* ICON */}
 
                     <div className="services-cta-icon">
 
@@ -118,7 +99,6 @@ const ServiceCTA = ({ theme }) => {
                     </div>
 
 
-                    {/* HEADING */}
 
                     <h2>
 
@@ -129,7 +109,6 @@ const ServiceCTA = ({ theme }) => {
                     </h2>
 
 
-                    {/* DESCRIPTION */}
 
                     <p>
 

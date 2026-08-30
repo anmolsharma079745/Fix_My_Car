@@ -39,7 +39,6 @@ const Header = ({ theme, toggleTheme }) => {
   return (
     <header className="header">
 
-      {/* Logo Section */}
 
       <div className="logo">
 
@@ -55,7 +54,6 @@ const Header = ({ theme, toggleTheme }) => {
       </div>
 
 
-      {/* Navigation Section */}
 
       <nav className="nav">
 
@@ -78,21 +76,18 @@ const Header = ({ theme, toggleTheme }) => {
       </nav>
 
 
-      {/* Authentication Buttons */}
 
       <div className="header-buttons">
 
         {!user ? (
 
           <>
-            {/* Login */}
 
             <Link to="/login" className="btn">
               Login
             </Link>
 
 
-            {/* Register */}
 
             <Link to="/register" className="btn">
               Register
@@ -128,7 +123,6 @@ const Header = ({ theme, toggleTheme }) => {
         )}
 
 
-        {/* Theme Toggle */}
 
         <button
           className="theme-toggle"

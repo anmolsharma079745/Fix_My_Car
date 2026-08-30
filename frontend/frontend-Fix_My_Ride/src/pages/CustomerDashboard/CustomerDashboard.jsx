@@ -21,8 +21,6 @@ const CustomerDashboard = ({ theme, toggleTheme }) => {
         const section = searchParams.get("section");
         const serviceId = searchParams.get("serviceId");
         if (section === "book-service") {
-            // Small delay so that BookService component
-            // is completely rendered before scrolling
             setTimeout(() => {
                 const bookServiceSection =
                     document.getElementById(

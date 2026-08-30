@@ -9,9 +9,6 @@ const BOOKING_API = `${API_BASE_URL}/api/booking`;
 
 const AssignedMechanic = ({ theme }) => {
 
-    // =====================================================
-    // STATES
-    // =====================================================
 
     const [assignedServices, setAssignedServices] = useState([]);
 
@@ -22,18 +19,12 @@ const AssignedMechanic = ({ theme }) => {
     const [statusFilter, setStatusFilter] = useState("all");
 
 
-    // =====================================================
-    // GET TOKEN
-    // =====================================================
 
     const getToken = () => {
         return localStorage.getItem("token");
     };
 
 
-    // =====================================================
-    // FETCH ASSIGNED MECHANICS + FRESH BOOKINGS
-    // =====================================================
 
     useEffect(() => {
 
@@ -61,9 +52,6 @@ const AssignedMechanic = ({ theme }) => {
             }
 
 
-            // =================================================
-            // FETCH BOTH APIs
-            // =================================================
 
             const [
                 assignedResponse,
@@ -102,17 +90,11 @@ const AssignedMechanic = ({ theme }) => {
             );
 
 
-            // =================================================
-            // ASSIGNED SERVICES
-            // =================================================
 
             const services =
                 assignedResponse.data?.services || [];
 
 
-            // =================================================
-            // FRESH BOOKINGS
-            // =================================================
 
             const bookings =
                 bookingsResponse.data?.bookings || [];
@@ -124,11 +106,6 @@ const AssignedMechanic = ({ theme }) => {
             );
 
 
-            // =================================================
-            // CREATE BOOKING MAP
-            //
-            // booking._id => booking
-            // =================================================
 
             const bookingMap = new Map();
 
@@ -147,9 +124,6 @@ const AssignedMechanic = ({ theme }) => {
             });
 
 
-            // =================================================
-            // MERGE FRESH BOOKING DATA
-            // =================================================
 
             const assignedOnly = services.map((service) => {
 
@@ -178,10 +152,6 @@ const AssignedMechanic = ({ theme }) => {
             freshBooking.bookingTime ||
             service.bookingTime,
 
-        // IMPORTANT:
-        // Agar fresh booking me mechanic object hai
-        // tabhi use karo.
-        // Warna original populated mechanic rakho.
         mechanicId:
             (
                 freshBooking.mechanicId &&
@@ -242,9 +212,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // FORMAT DATE
-    // =====================================================
 
     const formatDate = (date) => {
 
@@ -279,9 +246,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // NORMALIZE STATUS
-    // =====================================================
 
     const normalizeStatus = (status) => {
 
@@ -296,9 +260,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // STATUS CLASS
-    // =====================================================
 
     const getStatusClass = (status) => {
 
@@ -308,9 +269,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET MECHANIC
-    // =====================================================
 
     const getMechanic = (service) => {
 
@@ -339,9 +297,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET MECHANIC NAME
-    // =====================================================
 
     const getMechanicName = (service) => {
 
@@ -363,9 +318,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET MECHANIC EMAIL
-    // =====================================================
 
     const getMechanicEmail = (service) => {
 
@@ -381,9 +333,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET MECHANIC PHONE
-    // =====================================================
 
     const getMechanicPhone = (service) => {
 
@@ -400,9 +349,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET SPECIALIZATION
-    // =====================================================
 
     const getSpecialization = (service) => {
 
@@ -419,9 +365,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET EXPERIENCE
-    // =====================================================
 
     const getExperience = (service) => {
 
@@ -445,16 +388,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET MECHANIC STATUS
-    //
-    // IMPORTANT:
-    // This is ManageMechanics status.
-    //
-    // Available
-    // Busy
-    // Inactive
-    // =====================================================
 
     const getMechanicStatus = (service) => {
 
@@ -475,9 +408,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET SERVICE NAME
-    // =====================================================
 
     const getServiceName = (service) => {
 
@@ -491,9 +421,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET CUSTOMER NAME
-    // =====================================================
 
     const getCustomerName = (service) => {
 
@@ -508,9 +435,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET VEHICLE NAME
-    // =====================================================
 
     const getVehicleName = (service) => {
 
@@ -536,9 +460,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET BOOKING DATE
-    // =====================================================
 
     const getBookingDate = (service) => {
 
@@ -553,18 +474,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // GET BOOKING STATUS
-    //
-    // IMPORTANT:
-    // This is booking status.
-    //
-    // pending
-    // confirmed
-    // In Progress
-    // Completed
-    // cancelled
-    // =====================================================
 
     const getBookingStatus = (service) => {
 
@@ -576,9 +485,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // SEARCH + MECHANIC STATUS FILTER
-    // =====================================================
 
     const filteredServices = useMemo(() => {
 
@@ -625,9 +531,6 @@ const AssignedMechanic = ({ theme }) => {
                     serviceName.includes(searchValue);
 
 
-                // =============================================
-                // FILTER BY MECHANIC STATUS
-                // =============================================
 
                 const mechanicStatus =
                     normalizeStatus(
@@ -655,9 +558,6 @@ const AssignedMechanic = ({ theme }) => {
     ]);
 
 
-    // =====================================================
-    // STATISTICS
-    // =====================================================
 
     const totalAssigned =
         assignedServices.length;
@@ -690,9 +590,6 @@ const AssignedMechanic = ({ theme }) => {
         ).length;
 
 
-    // =====================================================
-    // GET MECHANIC STATUS ICON
-    // =====================================================
 
     const getMechanicStatusIcon = (status) => {
 
@@ -715,9 +612,6 @@ const AssignedMechanic = ({ theme }) => {
     };
 
 
-    // =====================================================
-    // RENDER
-    // =====================================================
 
     return (
 
@@ -728,9 +622,6 @@ const AssignedMechanic = ({ theme }) => {
             <div className="assigned-mechanic-container">
 
 
-                {/* =================================================
-                    HEADER
-                ================================================= */}
 
                 <div className="assigned-mechanic-header">
 
@@ -771,16 +662,12 @@ const AssignedMechanic = ({ theme }) => {
                 </div>
 
 
-                {/* =================================================
-                    STATISTICS
-                ================================================= */}
 
                 {!loading && !error && (
 
                     <div className="assigned-stats">
 
 
-                        {/* TOTAL */}
 
                         <div className="assigned-stat-card">
 
@@ -805,7 +692,6 @@ const AssignedMechanic = ({ theme }) => {
                         </div>
 
 
-                        {/* AVAILABLE */}
 
                         <div className="assigned-stat-card">
 
@@ -830,7 +716,6 @@ const AssignedMechanic = ({ theme }) => {
                         </div>
 
 
-                        {/* BUSY */}
 
                         <div className="assigned-stat-card">
 
@@ -855,7 +740,6 @@ const AssignedMechanic = ({ theme }) => {
                         </div>
 
 
-                        {/* INACTIVE */}
 
                         <div className="assigned-stat-card">
 
@@ -884,9 +768,6 @@ const AssignedMechanic = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    SEARCH + FILTER
-                ================================================= */}
 
                 {!loading &&
                 !error &&
@@ -895,7 +776,6 @@ const AssignedMechanic = ({ theme }) => {
                     <div className="assigned-controls">
 
 
-                        {/* SEARCH */}
 
                         <div className="assigned-search">
 
@@ -930,7 +810,6 @@ const AssignedMechanic = ({ theme }) => {
                         </div>
 
 
-                        {/* MECHANIC STATUS FILTER */}
 
                         <div className="assigned-filter">
 
@@ -970,14 +849,10 @@ const AssignedMechanic = ({ theme }) => {
                 )}
 
 
-                {/* =================================================
-                    CONTENT
-                ================================================= */}
 
                 <div className="assigned-mechanic-content">
 
 
-                    {/* LOADING */}
 
                     {loading && (
 
@@ -994,7 +869,6 @@ const AssignedMechanic = ({ theme }) => {
                     )}
 
 
-                    {/* ERROR */}
 
                     {!loading && error && (
 
@@ -1018,7 +892,6 @@ const AssignedMechanic = ({ theme }) => {
                     )}
 
 
-                    {/* NO ASSIGNMENT */}
 
                     {!loading &&
                     !error &&
@@ -1037,7 +910,6 @@ const AssignedMechanic = ({ theme }) => {
                     )}
 
 
-                    {/* NO FILTER RESULT */}
 
                     {!loading &&
                     !error &&
@@ -1070,9 +942,6 @@ const AssignedMechanic = ({ theme }) => {
                     )}
 
 
-                    {/* =================================================
-                        CARDS
-                    ================================================= */}
 
                     {!loading &&
                     !error &&
@@ -1099,9 +968,6 @@ const AssignedMechanic = ({ theme }) => {
                                         >
 
 
-                                            {/* =================================
-                                                CARD HEADER
-                                            ================================= */}
 
                                             <div className="mechanic-card-top">
 
@@ -1134,7 +1000,6 @@ const AssignedMechanic = ({ theme }) => {
                                                     </span>
 
 
-                                                    {/* MECHANIC STATUS */}
 
                                                     <span
                                                         className={`mechanic-status ${getStatusClass(
@@ -1159,9 +1024,6 @@ const AssignedMechanic = ({ theme }) => {
                                             </div>
 
 
-                                            {/* =================================
-                                                MECHANIC DETAILS
-                                            ================================= */}
 
                                             <div className="mechanic-details">
 
@@ -1319,11 +1181,6 @@ const AssignedMechanic = ({ theme }) => {
                                                 </div>
 
 
-                                                {/* =================================
-                                                    BOOKING STATUS
-                                                    THIS NOW COMES FROM
-                                                    /api/booking/admin/all
-                                                ================================= */}
 
                                                 <div className="detail-row">
 
@@ -1350,9 +1207,6 @@ const AssignedMechanic = ({ theme }) => {
                                             </div>
 
 
-                                            {/* =================================
-                                                DESCRIPTION
-                                            ================================= */}
 
                                             <div className="assigned-service-description">
 
@@ -1396,9 +1250,6 @@ const AssignedMechanic = ({ theme }) => {
                                             </div>
 
 
-                                            {/* =================================
-                                                FOOTER
-                                            ================================= */}
 
                                             <div className="assigned-card-footer">
 
