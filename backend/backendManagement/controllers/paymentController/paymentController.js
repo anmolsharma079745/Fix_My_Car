@@ -1,6 +1,8 @@
 const crypto = require("crypto");
 const PDFDocument = require("pdfkit");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const razorpay = require("../../config/razorpay");
 
@@ -9,24 +11,6 @@ const bookingModel = require("../../models/bookingModel/bookingModel");
 const serviceModel = require("../../models/serviceModel/serviceModel");
 const vehicleModel = require("../../models/vehicleModel/vehicleModel");
 const userModel = require("../../models/userModel/userModel");
-
-
-// =====================================================
-// NODEMAILER CONFIG
-// =====================================================
-
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    },
-    logger: true,
-    debug: true
-});
 
 
 // =====================================================
@@ -201,8 +185,7 @@ const createPaymentOrder = async (req, res) => {
 
 
         // =================================================
-        // IF PENDING PAYMENT ALREADY EXISTS
-        // RETURN SAME ORDER
+        // RETURN EXISTING RAZORPAY ORDER
         // =================================================
 
         if (existingPayment) {
@@ -233,7 +216,7 @@ const createPaymentOrder = async (req, res) => {
 
 
         // =================================================
-        // RAZORPAY ORDER
+        // CREATE RAZORPAY ORDER
         // =================================================
 
         const options = {
@@ -257,7 +240,7 @@ const createPaymentOrder = async (req, res) => {
 
 
         // =================================================
-        // SAVE PAYMENT
+        // SAVE PAYMENT RECORD
         // =================================================
 
         const payment =
@@ -291,7 +274,7 @@ const createPaymentOrder = async (req, res) => {
         // RESPONSE
         // =================================================
 
-        res.status(201).json({
+        return res.status(201).json({
 
             message:
                 "Payment Order Created Successfully",
@@ -322,7 +305,7 @@ const createPaymentOrder = async (req, res) => {
         );
 
 
-        res.status(500).json({
+        return res.status(500).json({
 
             message:
                 "Internal Server Error",
@@ -361,12 +344,20 @@ const generateReceiptPDF = (data) => {
             const chunks = [];
 
 
+            // =================================================
+            // PDF DATA
+            // =================================================
+
             doc.on("data", (chunk) => {
 
                 chunks.push(chunk);
 
             });
 
+
+            // =================================================
+            // PDF COMPLETE
+            // =================================================
 
             doc.on("end", () => {
 
@@ -377,6 +368,10 @@ const generateReceiptPDF = (data) => {
 
             });
 
+
+            // =================================================
+            // PDF ERROR
+            // =================================================
 
             doc.on("error", (error) => {
 
@@ -416,7 +411,7 @@ const generateReceiptPDF = (data) => {
 
 
             // =================================================
-            // LINE
+            // HORIZONTAL LINE
             // =================================================
 
             doc
@@ -517,14 +512,16 @@ const generateReceiptPDF = (data) => {
                 )
                 .text(
                     `Booking Date: ${
-                        new Date(
-                            data.booking.bookingDate
-                        ).toLocaleDateString("en-IN")
+                        data.booking.bookingDate
+                            ? new Date(
+                                data.booking.bookingDate
+                            ).toLocaleDateString("en-IN")
+                            : "N/A"
                     }`
                 )
                 .text(
                     `Booking Time: ${
-                        data.booking.bookingTime
+                        data.booking.bookingTime || "N/A"
                     }`
                 );
 
@@ -550,19 +547,21 @@ const generateReceiptPDF = (data) => {
                 .font("Helvetica")
                 .text(
                     `Payment ID: ${
-                        data.payment.razorpayPaymentId
+                        data.payment.razorpayPaymentId || "N/A"
                     }`
                 )
                 .text(
                     `Order ID: ${
-                        data.payment.razorpayOrderId
+                        data.payment.razorpayOrderId || "N/A"
                     }`
                 )
                 .text(
                     `Payment Date: ${
-                        new Date(
-                            data.payment.paidAt
-                        ).toLocaleString("en-IN")
+                        data.payment.paidAt
+                            ? new Date(
+                                data.payment.paidAt
+                            ).toLocaleString("en-IN")
+                            : "N/A"
                     }`
                 )
                 .text(
@@ -627,6 +626,10 @@ const generateReceiptPDF = (data) => {
                 );
 
 
+            // =================================================
+            // END PDF
+            // =================================================
+
             doc.end();
 
 
@@ -644,9 +647,10 @@ const generateReceiptPDF = (data) => {
 
 // =====================================================
 // VERIFY RAZORPAY PAYMENT
-// + UPDATE BOOKING PAYMENT STATUS
-// + PDF RECEIPT
-// + EMAIL RECEIPT
+// + UPDATE PAYMENT
+// + UPDATE BOOKING
+// + GENERATE PDF
+// + SEND RECEIPT EMAIL USING RESEND
 // =====================================================
 
 const verifyPayment = async (req, res) => {
@@ -729,7 +733,7 @@ const verifyPayment = async (req, res) => {
 
 
         // =================================================
-        // CREATE SIGNATURE
+        // CREATE RAZORPAY SIGNATURE
         // =================================================
 
         const generatedSignature =
@@ -799,8 +803,7 @@ const verifyPayment = async (req, res) => {
 
 
         // =================================================
-        // PAYMENT CAN ONLY BE COMPLETED
-        // AFTER SERVICE IS COMPLETED
+        // PAYMENT ONLY AFTER SERVICE COMPLETED
         // =================================================
 
         if (booking.status !== "Completed") {
@@ -840,7 +843,6 @@ const verifyPayment = async (req, res) => {
 
         // =================================================
         // UPDATE BOOKING PAYMENT STATUS
-        // IMPORTANT:
         // BOOKING STATUS REMAINS "Completed"
         // =================================================
 
@@ -918,7 +920,7 @@ const verifyPayment = async (req, res) => {
 
 
         // =================================================
-        // GENERATE PDF
+        // GENERATE PDF RECEIPT
         // =================================================
 
         const pdfBuffer =
@@ -936,56 +938,120 @@ const verifyPayment = async (req, res) => {
 
             });
 
-        console.log("EMAIL_USER:", process.env.EMAIL_USER);
-console.log("Customer Email:", customer.email);
-console.log("Starting receipt email...");
+
         // =================================================
-        // SEND EMAIL
+        // CHECK RESEND CONFIGURATION
         // =================================================
 
-        await transporter.sendMail({
+        if (!process.env.RESEND_API_KEY) {
 
-            from:
-                process.env.EMAIL_USER,
+            throw new Error(
+                "RESEND_API_KEY is not configured"
+            );
 
-            to:
-                customer.email,
+        }
 
-            subject:
-                "Fix My Ride - Payment Receipt",
 
-            text:
-                `Hello ${customer.name || "Customer"},\n\n` +
-                `Your payment of ₹${payment.amount} has been successfully completed.\n\n` +
-                `Please find your payment receipt attached.\n\n` +
-                `Thank you for choosing Fix My Ride.`,
+        if (!customer.email) {
 
-            attachments: [
+            throw new Error(
+                "Customer email is not available"
+            );
 
-                {
+        }
 
-                    filename:
-                        `Fix-My-Ride-Receipt-${payment.razorpayPaymentId}.pdf`,
 
-                    content:
-                        pdfBuffer,
+        // =================================================
+        // SEND EMAIL USING RESEND
+        // =================================================
 
-                    contentType:
-                        "application/pdf"
+        console.log(
+            "Customer Email:",
+            customer.email
+        );
 
-                }
+        console.log(
+            "Starting receipt email..."
+        );
 
-            ]
 
-        });
-        console.log("Receipt email sent successfully!");
+        const { data, error } =
+            await resend.emails.send({
+
+                from:
+                    "Fix My Ride <onboarding@resend.dev>",
+
+                to:
+                    customer.email,
+
+                subject:
+                    "Fix My Ride - Payment Receipt",
+
+                text:
+                    `Hello ${customer.name || "Customer"},\n\n` +
+                    `Your payment of ₹${payment.amount} has been successfully completed.\n\n` +
+                    `Please find your payment receipt attached.\n\n` +
+                    `Payment ID: ${payment.razorpayPaymentId}\n` +
+                    `Order ID: ${payment.razorpayOrderId}\n\n` +
+                    `Thank you for choosing Fix My Ride.`,
+
+                attachments: [
+
+                    {
+
+                        filename:
+                            `Fix-My-Ride-Receipt-${payment.razorpayPaymentId}.pdf`,
+
+                        content:
+                            pdfBuffer
+
+                    }
+
+                ]
+
+            });
+
+
+        // =================================================
+        // RESEND ERROR
+        // =================================================
+
+        if (error) {
+
+            console.error(
+                "Resend Email Error:",
+                error
+            );
+
+
+            throw new Error(
+                error.message ||
+                "Failed to send receipt email"
+            );
+
+        }
+
+
+        // =================================================
+        // EMAIL SUCCESS
+        // =================================================
+
+        console.log(
+            "Receipt email sent successfully!"
+        );
+
+
+        console.log(
+            "Resend Email ID:",
+            data?.id
+        );
 
 
         // =================================================
         // FINAL RESPONSE
         // =================================================
 
-        res.status(200).json({
+        return res.status(200).json({
 
             message:
                 "Payment Verified Successfully. Receipt Generated and Email Sent.",
@@ -1022,7 +1088,7 @@ console.log("Starting receipt email...");
         );
 
 
-        res.status(500).json({
+        return res.status(500).json({
 
             message:
                 "Payment Verified But Receipt/Email Process Failed",
