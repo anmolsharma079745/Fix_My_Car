@@ -23,7 +23,9 @@ const transporter = nodemailer.createTransport({
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
-    }
+    },
+    logger: true,
+    debug: true
 });
 
 
@@ -934,7 +936,9 @@ const verifyPayment = async (req, res) => {
 
             });
 
-
+        console.log("EMAIL_USER:", process.env.EMAIL_USER);
+console.log("Customer Email:", customer.email);
+console.log("Starting receipt email...");
         // =================================================
         // SEND EMAIL
         // =================================================
@@ -974,6 +978,7 @@ const verifyPayment = async (req, res) => {
             ]
 
         });
+        console.log("Receipt email sent successfully!");
 
 
         // =================================================

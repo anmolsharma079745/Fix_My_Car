@@ -181,6 +181,40 @@ const UpcomingService = ({ theme }) => {
 
     }, []);
 
+    // =====================================================
+// MINIMUM RESCHEDULE DATE + TIME
+// =====================================================
+
+const getMinBookingDateTime = () => {
+
+    const now = new Date();
+
+    now.setMinutes(now.getMinutes() + 1);
+
+    const year = now.getFullYear();
+
+    const month = String(
+        now.getMonth() + 1
+    ).padStart(2, "0");
+
+    const day = String(
+        now.getDate()
+    ).padStart(2, "0");
+
+    const hours = String(
+        now.getHours()
+    ).padStart(2, "0");
+
+    const minutes = String(
+        now.getMinutes()
+    ).padStart(2, "0");
+
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+};
+
+const minRescheduleDateTime =
+    getMinBookingDateTime();
+
 
     // =====================================================
     // FORMAT DATE
@@ -208,21 +242,41 @@ const UpcomingService = ({ theme }) => {
     // FORMAT TIME
     // =====================================================
 
-    const formatTime = (date) => {
+    const formatTime = (time) => {
 
-        if (!date) {
-            return "N/A";
-        }
+    if (!time) {
+        return "N/A";
+    }
 
-        return new Date(date).toLocaleTimeString(
+    try {
+
+        const [hours, minutes] = time.split(":");
+
+        const date = new Date();
+
+        date.setHours(
+            Number(hours),
+            Number(minutes),
+            0,
+            0
+        );
+
+        return date.toLocaleTimeString(
             "en-IN",
             {
                 hour: "2-digit",
-                minute: "2-digit"
+                minute: "2-digit",
+                hour12: true
             }
         );
 
-    };
+    } catch {
+
+        return time;
+
+    }
+
+};
 
 
     // =====================================================
@@ -289,43 +343,37 @@ const UpcomingService = ({ theme }) => {
 
     const handleOpenReschedule = () => {
 
-        setError("");
-        setSuccess("");
+    setError("");
+    setSuccess("");
 
-        if (upcomingService?.bookingDate) {
+    if (
+        upcomingService?.bookingDate &&
+        upcomingService?.bookingTime
+    ) {
 
-            const date = new Date(
-                upcomingService.bookingDate
-            );
+        const date = new Date(upcomingService.bookingDate);
 
-            const year = date.getFullYear();
+        const year = date.getFullYear();
 
-            const month = String(
-                date.getMonth() + 1
-            ).padStart(2, "0");
+        const month = String(
+            date.getMonth() + 1
+        ).padStart(2, "0");
 
-            const day = String(
-                date.getDate()
-            ).padStart(2, "0");
+        const day = String(
+            date.getDate()
+        ).padStart(2, "0");
 
-            const hours = String(
-                date.getHours()
-            ).padStart(2, "0");
+        const [hours, minutes] =
+            upcomingService.bookingTime.split(":");
 
-            const minutes = String(
-                date.getMinutes()
-            ).padStart(2, "0");
+        setNewBookingDate(
+            `${year}-${month}-${day}T${hours}:${minutes}`
+        );
 
-            setNewBookingDate(
-                `${year}-${month}-${day}T${hours}:${minutes}`
-            );
+    }
 
-        }
-
-        setShowReschedule(true);
-
-    };
-
+    setShowReschedule(true);
+};
 
     // =====================================================
     // CLOSE RESCHEDULE MODAL
@@ -378,21 +426,24 @@ const UpcomingService = ({ theme }) => {
                 return;
             }
 
-            const response = await axios.put(
+            const [date, time] = newBookingDate.split("T");
 
-                `${API_BASE_URL}/api/booking/reschedule/${upcomingService._id}`,
+const response = await axios.put(
 
-                {
-                    bookingDate: newBookingDate
-                },
+    `${API_BASE_URL}/api/booking/reschedule/${upcomingService._id}`,
 
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                }
+    {
+        bookingDate: date,
+        bookingTime: time
+    },
 
-            );
+    {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+);
 
 
             console.log(
@@ -826,10 +877,10 @@ const UpcomingService = ({ theme }) => {
                             </span>
 
                             <strong>
-                                {formatTime(
-                                    upcomingService.bookingDate
-                                )}
-                            </strong>
+    {formatTime(
+        upcomingService.bookingTime
+    )}
+</strong>
 
                         </div>
 
@@ -1072,12 +1123,12 @@ const UpcomingService = ({ theme }) => {
                                         </span>
 
                                         <strong>
-                                            {
-                                                formatTime(
-                                                    upcomingService.bookingDate
-                                                )
-                                            }
-                                        </strong>
+    {
+        formatTime(
+            upcomingService.bookingTime
+        )
+    }
+</strong>
 
                                     </div>
 
@@ -1264,18 +1315,20 @@ const UpcomingService = ({ theme }) => {
 
                             <input
                                 type="datetime-local"
-                                id="newBookingDate"
-                                value={newBookingDate}
-                                onChange={(e) => {
+    
+    id="newBookingDate"
+    value={newBookingDate}
+    onChange={(e) => {
 
-                                    setNewBookingDate(
-                                        e.target.value
-                                    );
+        setNewBookingDate(
+            e.target.value
+        );
 
-                                    setError("");
+        setError("");
 
-                                }}
-                                required
+    }}
+    min={minRescheduleDateTime}
+    required
                             />
 
 

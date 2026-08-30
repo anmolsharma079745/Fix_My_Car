@@ -308,14 +308,17 @@ const rescheduleBooking = async (req, res) => {
 
         const { id } = req.params;
 
-        const { bookingDate } = req.body;
+        const {
+            bookingDate,
+            bookingTime
+        } = req.body;
 
 
         // =================================================
         // VALIDATION
         // =================================================
 
-        if (!bookingDate) {
+        if (!bookingDate || !bookingTime) {
 
             return res.status(400).json({
 
@@ -331,20 +334,17 @@ const rescheduleBooking = async (req, res) => {
         // VALIDATE DATE
         // =================================================
 
-        const newBookingDate =
-            new Date(bookingDate);
+        const newBookingDate = new Date(
+            `${bookingDate}T${bookingTime}`
+        );
 
 
-        if (
-            isNaN(
-                newBookingDate.getTime()
-            )
-        ) {
+        if (isNaN(newBookingDate.getTime())) {
 
             return res.status(400).json({
 
                 message:
-                    "Invalid booking date"
+                    "Invalid booking date or time"
 
             });
 
@@ -352,17 +352,15 @@ const rescheduleBooking = async (req, res) => {
 
 
         // =================================================
-        // DATE MUST BE FUTURE
+        // DATE + TIME MUST BE FUTURE
         // =================================================
 
-        if (
-            newBookingDate <= new Date()
-        ) {
+        if (newBookingDate <= new Date()) {
 
             return res.status(400).json({
 
                 message:
-                    "New booking date must be in the future"
+                    "New booking date and time must be in the future"
 
             });
 
@@ -400,11 +398,8 @@ const rescheduleBooking = async (req, res) => {
         // =================================================
 
         if (
-
             booking.status !== "pending" &&
-
             booking.status !== "confirmed"
-
         ) {
 
             return res.status(400).json({
@@ -430,15 +425,12 @@ const rescheduleBooking = async (req, res) => {
         // =================================================
 
         booking.bookingTime =
-            newBookingDate.toLocaleTimeString(
-                "en-IN",
-                {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    hour12: false
-                }
-            );
+            bookingTime;
 
+
+        // =================================================
+        // SAVE
+        // =================================================
 
         await booking.save();
 
