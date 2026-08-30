@@ -1,56 +1,194 @@
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
 
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    }
-});
+// =====================================================
+// RESEND CONFIG
+// =====================================================
 
+const resend = new Resend(
+    process.env.RESEND_API_KEY
+);
+
+
+// =====================================================
+// SEND OTP EMAIL
+// =====================================================
 
 const sendOTPEmail = async (email, otp) => {
 
-    const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: email,
+    try {
 
-        subject: "Fix My Ride - Password Reset OTP",
+        const { data, error } = await resend.emails.send({
 
-        html: `
-            <div style="font-family: Arial, sans-serif; padding: 20px;">
+            // Resend testing sender
+            from: "Fix My Ride <onboarding@resend.dev>",
 
-                <h2>Fix My Ride</h2>
+            to: [email],
 
-                <p>
-                    You requested to reset your password.
-                </p>
+            subject:
+                "Fix My Ride - Password Reset OTP",
 
-                <p>
-                    Your OTP is:
-                </p>
+            html: `
+                <div
+                    style="
+                        font-family: Arial, sans-serif;
+                        max-width: 600px;
+                        margin: 0 auto;
+                        padding: 30px;
+                        background-color: #f5f7fb;
+                    "
+                >
 
-                <h1 style="letter-spacing: 5px;">
-                    ${otp}
-                </h1>
+                    <div
+                        style="
+                            background-color: #ffffff;
+                            padding: 30px;
+                            border-radius: 12px;
+                            text-align: center;
+                        "
+                    >
 
-                <p>
-                    This OTP is valid for 10 minutes.
-                </p>
+                        <h2
+                            style="
+                                color: #2563eb;
+                                margin-bottom: 20px;
+                            "
+                        >
+                            FIX MY RIDE
+                        </h2>
 
-                <p>
-                    If you did not request a password reset,
-                    please ignore this email.
-                </p>
+                        <h3>
+                            Password Reset
+                        </h3>
 
-            </div>
-        `
-    };
+                        <p
+                            style="
+                                color: #555;
+                                font-size: 15px;
+                            "
+                        >
+                            You requested to reset your password.
+                        </p>
 
-    await transporter.sendMail(mailOptions);
+                        <p
+                            style="
+                                color: #555;
+                                font-size: 15px;
+                            "
+                        >
+                            Your One-Time Password (OTP) is:
+                        </p>
+
+                        <div
+                            style="
+                                margin: 25px 0;
+                                padding: 15px;
+                                background-color: #f1f5ff;
+                                border-radius: 8px;
+                            "
+                        >
+
+                            <h1
+                                style="
+                                    letter-spacing: 8px;
+                                    color: #2563eb;
+                                    margin: 0;
+                                "
+                            >
+                                ${otp}
+                            </h1>
+
+                        </div>
+
+                        <p
+                            style="
+                                color: #555;
+                                font-size: 14px;
+                            "
+                        >
+                            This OTP is valid for
+                            <strong>10 minutes</strong>.
+                        </p>
+
+                        <p
+                            style="
+                                color: #777;
+                                font-size: 13px;
+                                margin-top: 25px;
+                            "
+                        >
+                            If you did not request a password reset,
+                            please ignore this email.
+                        </p>
+
+                        <hr
+                            style="
+                                border: none;
+                                border-top: 1px solid #eee;
+                                margin: 25px 0;
+                            "
+                        >
+
+                        <p
+                            style="
+                                color: #999;
+                                font-size: 12px;
+                            "
+                        >
+                            This is an automated email from Fix My Ride.
+                            Please do not reply to this email.
+                        </p>
+
+                    </div>
+
+                </div>
+            `
+        });
+
+
+        // =================================================
+        // RESEND ERROR
+        // =================================================
+
+        if (error) {
+
+            console.error(
+                "RESEND EMAIL ERROR:",
+                error
+            );
+
+            throw new Error(
+                error.message || "Failed to send OTP email"
+            );
+        }
+
+
+        // =================================================
+        // SUCCESS
+        // =================================================
+
+        console.log(
+            "OTP EMAIL SENT SUCCESSFULLY:",
+            data?.id
+        );
+
+        return data;
+
+
+    } catch (err) {
+
+        console.error(
+            "SEND OTP EMAIL ERROR:",
+            err
+        );
+
+        throw err;
+    }
 };
+
+
+// =====================================================
+// EXPORT
+// =====================================================
 
 module.exports = sendOTPEmail;
