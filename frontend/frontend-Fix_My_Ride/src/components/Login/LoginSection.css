@@ -254,7 +254,7 @@
 
   background: var(--bg-color)!important;
 
-  color: black;
+  color: var(--text-color);
 
   font-size: 16px;
 

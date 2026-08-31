@@ -471,7 +471,7 @@
 
   background: var(--bg-color);
 
-  color:white;
+  color:var(--text-color);
 
   font-family: inherit;
 

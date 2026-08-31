@@ -1435,7 +1435,6 @@
 
 
     .view-service-btn,
-    .status-select,
     .completed-status-label {
 
         width: 100%;
@@ -1481,6 +1480,23 @@
 
         width: 100%;
     }
+    .status-select {
+
+    width: 100%;
+
+    max-width: none;
+
+    min-height: 40px;
+
+    height: 40px;
+
+    padding: 0 12px;
+
+    box-sizing: border-box;
+
+    font-size: 13px;
+
+}
 
 }
 
@@ -1513,6 +1529,22 @@
     .service-card-header h3 {
 
         font-size: 15px;
+    }
+
+    .view-service-btn,
+    .status-select,
+    .completed-status-label {
+
+        width: 100%;
+
+        max-width: none;
+
+        height: 44px;
+
+        min-height: 44px;
+
+        box-sizing: border-box;
+
     }
 
 }

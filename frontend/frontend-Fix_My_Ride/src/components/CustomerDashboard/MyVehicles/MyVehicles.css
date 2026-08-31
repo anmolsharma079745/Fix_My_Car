@@ -150,7 +150,7 @@
 
     background: var(--bg-color);
 
-    color: black;
+    color: var(--text-color);
 
     font-family: inherit;
     font-size: 13px;

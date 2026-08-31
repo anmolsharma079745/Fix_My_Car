@@ -708,7 +708,7 @@
 
     background: var(--bg-color);
 
-    color: white;
+    color: var(--text-color);
 
     font-family: inherit;
 
@@ -1934,7 +1934,10 @@
 
 
     .service-details {
+        width: 100%;
+        display: grid;
         grid-template-columns: 1fr;
+        gap: 18px;
     }
 
 
@@ -1942,14 +1945,216 @@
         grid-template-columns: 1fr;
     }
 
+    .detail-item {
+        width: 100%;
+        min-width: 0;
+
+        display: flex;
+        align-items: center;
+
+        gap: 12px;
+    }
+
+    .detail-item > div {
+        min-width: 0;
+        flex: 1;
+        width: 0;
+    }
+
+     .detail-label {
+        white-space: normal;
+    }
 
     .detail-item strong {
+        display: block;
+
+        width: 100%;
         max-width: none;
+
+        overflow: visible;
+        text-overflow: unset;
+
+        white-space: normal;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+
+        line-height: 1.4;
     }
 
 }
 
 
+.reschedule-modal,
+.reschedule-form,
+.reschedule-form > div {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.reschedule-form input {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+
+
+@media (max-width: 480px) {
+
+    .reschedule-overlay {
+        padding: 12px;
+    }
+
+    .reschedule-modal {
+        width: 100%;
+        max-width: 100%;
+        padding: 18px;
+        box-sizing: border-box;
+    }
+
+    .reschedule-form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .reschedule-form input {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        height: 44px;
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+
+    .reschedule-modal-actions {
+        width: 100%;
+        max-width: 100%;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+    }
+
+}
+
+
+
+@media (max-width: 360px) {
+
+    .reschedule-overlay {
+        padding: 10px;
+    }
+
+    .reschedule-modal {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .reschedule-form input {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 0 10px;
+        font-size: 12px;
+    }
+
+    .reschedule-modal-actions {
+        gap: 7px;
+    }
+
+    .cancel-reschedule-btn,
+    .confirm-reschedule-btn {
+        flex: 1;
+        min-width: 0;
+        padding: 0 10px;
+    }
+
+}
+
+.reschedule-form {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.reschedule-form input[type="datetime-local"] {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+
+
+@media (max-width: 480px) {
+
+    .reschedule-overlay {
+        padding: 12px;
+    }
+
+    .reschedule-modal {
+        width: 100%;
+        max-width: 100%;
+        padding: 18px;
+        box-sizing: border-box;
+    }
+
+    .reschedule-modal-header {
+        min-width: 0;
+    }
+
+    .reschedule-modal-header > div {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .reschedule-form {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .reschedule-form input[type="datetime-local"] {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        height: 44px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        font-size: 12px;
+    }
+
+    .reschedule-modal-actions {
+        width: 100%;
+        max-width: 100%;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+    }
+
+}
+
+
+
+@media (max-width: 360px) {
+
+    .reschedule-overlay {
+        padding: 10px;
+    }
+
+    .reschedule-modal {
+        padding: 15px;
+    }
+
+    .reschedule-form input[type="datetime-local"] {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 0 8px;
+        font-size: 11px;
+    }
+
+}
 
 @media (max-width: 480px) {
 
@@ -2041,17 +2246,25 @@
         margin: 22px 0;
     }
 
+    .detail-item {
+        width: 100%;
+        gap: 10px;
+    }
+
 
     .detail-icon {
         width: 40px;
         height: 40px;
-
+        flex-shrink: 0;
         font-size: 18px;
     }
 
 
     .detail-item strong {
         font-size: 13px;
+        max-width: 100%;
+        white-space: normal;
+        word-break: break-word;
     }
 
 
