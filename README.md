@@ -12,7 +12,7 @@ Fix My Ride is a full-stack vehicle service management platform designed to make
 
 ### ⚙️ Backend API
 
-👉 **https://fix-my-ride-api.onrender.com**
+👉 **https://fix-my-car-9imz.onrender.com**
 
 ---
 
