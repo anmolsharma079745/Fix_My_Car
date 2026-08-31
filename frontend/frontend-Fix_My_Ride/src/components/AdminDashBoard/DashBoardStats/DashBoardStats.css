@@ -574,3 +574,16 @@
     }
 
 }
+
+@media (max-width: 600px) {
+
+    .dashboard-stats,
+    .dashboard-stats.dark {
+        background: var(--bg-color) !important;
+    }
+
+    .dashboard-stats-container {
+        background: transparent !important;
+    }
+
+}
