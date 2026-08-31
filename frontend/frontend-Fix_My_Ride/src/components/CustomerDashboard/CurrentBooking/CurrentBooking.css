@@ -678,7 +678,7 @@
 
     border-radius: 10px;
 
-    background: #0b1220 !important;
+    background: var(--bg-color);
 
     border: 1px solid var(--border-color);
 

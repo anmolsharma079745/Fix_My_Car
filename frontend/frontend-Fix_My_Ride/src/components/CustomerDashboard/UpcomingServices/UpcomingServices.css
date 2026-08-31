@@ -573,8 +573,7 @@
 
 
 .upcoming-service.light .service-location {
-    background: #f8fafc;
-
+    background: var(--bg-color);
     border: 1px solid #e2e8f0;
 }
 
