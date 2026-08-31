@@ -11,6 +11,9 @@ const paymentRoutes = require("./routes/paymentRoutes/paymentRoutes");
 const cors=require("cors")
 const app = express();
 app.use(cors())
+app.get("/", (req, res) => {
+    res.send("Fix My Ride Backend is running");
+});
 app.use(express.json());
 app.use("/api/auth",authRoutes)
 app.use("/api/test",testRoutes)
