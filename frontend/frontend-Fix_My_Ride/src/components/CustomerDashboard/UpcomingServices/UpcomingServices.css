@@ -738,7 +738,7 @@
 .upcoming-service .service-actions .reschedule-btn i {
     font-size: 16px;
 
-    color: white;
+    color: var(--text-color);
 
     line-height: 1;
 
@@ -1919,6 +1919,56 @@
 
         padding: 35px 20px;
     }
+    .upcoming-service .service-details {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .upcoming-service .detail-item {
+        width: 100%;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        min-width: 0;
+    }
+
+
+    .upcoming-service .detail-item > div {
+        min-width: 0;
+
+        flex: 1;
+
+        width: 0;
+    }
+
+
+    .upcoming-service .detail-item strong {
+        width: 100%;
+
+        max-width: none;
+
+        white-space: normal;
+
+        overflow: visible;
+
+        text-overflow: unset;
+
+        word-break: break-word;
+
+        overflow-wrap: anywhere;
+
+        line-height: 1.4;
+    }
 
 
     .upcoming-header {
@@ -1933,27 +1983,14 @@
     }
 
 
-    .service-details {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
+    
 
 
     .details-grid {
         grid-template-columns: 1fr;
     }
 
-    .detail-item {
-        width: 100%;
-        min-width: 0;
-
-        display: flex;
-        align-items: center;
-
-        gap: 12px;
-    }
+   
 
     .detail-item > div {
         min-width: 0;
@@ -1965,39 +2002,12 @@
         white-space: normal;
     }
 
-    .detail-item strong {
-        display: block;
-
-        width: 100%;
-        max-width: none;
-
-        overflow: visible;
-        text-overflow: unset;
-
-        white-space: normal;
-        word-break: break-word;
-        overflow-wrap: anywhere;
-
-        line-height: 1.4;
-    }
+   
 
 }
 
 
-.reschedule-modal,
-.reschedule-form,
-.reschedule-form > div {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
 
-.reschedule-form input {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-}
 
 
 
@@ -2034,6 +2044,43 @@
         flex-wrap: wrap;
         box-sizing: border-box;
     }
+    .upcoming-service .service-details {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .upcoming-service .detail-item {
+        width: 100%;
+
+        gap: 10px;
+    }
+
+
+    .upcoming-service .detail-icon {
+        width: 40px;
+        height: 40px;
+
+        flex-shrink: 0;
+
+        font-size: 18px;
+    }
+
+
+    .upcoming-service .detail-item strong {
+        width: 100%;
+
+        max-width: none;
+
+        white-space: normal;
+
+        word-break: break-word;
+
+        overflow-wrap: anywhere;
+
+        font-size: 13px;
+    }
 
 }
 
@@ -2041,13 +2088,10 @@
 
 @media (max-width: 360px) {
 
-    .reschedule-overlay {
-        padding: 10px;
-    }
+    
 
     .reschedule-modal {
         width: 100%;
-        padding: 15px;
     }
 
     .reschedule-form input {
@@ -2069,36 +2113,36 @@
         padding: 0 10px;
     }
 
+    .upcoming-service .service-details {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+
+    .upcoming-service .detail-item {
+        gap: 10px;
+    }
+
+
+    .upcoming-service .detail-icon {
+        width: 38px;
+        height: 38px;
+
+        font-size: 17px;
+    }
 }
 
-.reschedule-form {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-}
 
-.reschedule-form input[type="datetime-local"] {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-}
+
 
 
 
 @media (max-width: 480px) {
 
-    .reschedule-overlay {
-        padding: 12px;
-    }
+    
 
-    .reschedule-modal {
-        width: 100%;
-        max-width: 100%;
-        padding: 18px;
-        box-sizing: border-box;
-    }
+    
 
     .reschedule-modal-header {
         min-width: 0;
@@ -2125,12 +2169,7 @@
         font-size: 12px;
     }
 
-    .reschedule-modal-actions {
-        width: 100%;
-        max-width: 100%;
-        flex-wrap: wrap;
-        box-sizing: border-box;
-    }
+    
 
 }
 
@@ -2146,13 +2185,7 @@
         padding: 15px;
     }
 
-    .reschedule-form input[type="datetime-local"] {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        padding: 0 8px;
-        font-size: 11px;
-    }
+    
 
 }
 
